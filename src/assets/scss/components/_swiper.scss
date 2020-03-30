@@ -1,0 +1,22 @@
+.swiper {
+  position: relative;
+
+  &-pagination {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &-pagination-bullet {
+    margin: 15px 5px 10px 5px;
+    width: 12px;
+    height: 12px;
+
+    &-active {
+      background-color: $yellow;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

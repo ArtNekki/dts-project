@@ -11,15 +11,15 @@ import {HammerConfig} from './hammer.config';
 import { PageHeaderComponent } from './view/page-header/page-header.component';
 import { TransportComponent } from './view/transport/transport.component';
 
-// import { SwiperModule } from 'ngx-swiper-wrapper';
-// import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
-// import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { SwiperModule } from 'ngx-swiper-wrapper';
+import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { ServicesComponent } from './view/services/services.component';
 
-// const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
-//   direction: 'horizontal',
-//   slidesPerView: 'auto'
-// };
+const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+  direction: 'horizontal',
+  slidesPerView: 'auto'
+};
 
 registerLocaleData(ruLocale, 'ru');
 
@@ -34,13 +34,13 @@ registerLocaleData(ruLocale, 'ru');
     BrowserModule,
     AngularSvgIconModule,
     HttpClientModule,
-    // SwiperModule
+    SwiperModule
   ],
   providers: [
     {
-      provide: [HAMMER_GESTURE_CONFIG],
+      provide: [HAMMER_GESTURE_CONFIG, SWIPER_CONFIG],
       useClass: HammerConfig,
-      // useValue: DEFAULT_SWIPER_CONFIG
+      useValue: DEFAULT_SWIPER_CONFIG
     }
   ],
   bootstrap: [AppComponent]

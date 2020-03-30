@@ -2,6 +2,7 @@
 /* You can add utils styles to this file, and also import other style files */
 
 @charset 'utf-8';
+@import '~swiper/css/swiper.min.css';
 
 //utils
 @import 'assets/scss/utils/functions';
@@ -44,3 +45,4 @@ body {
 //components
 @import "assets/scss/components/link";
 @import "assets/scss/components/dot";
+@import "assets/scss/components/swiper";
