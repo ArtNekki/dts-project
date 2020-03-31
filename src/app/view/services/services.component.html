@@ -2,10 +2,10 @@
   <div  class="swiper-container" [swiper]="config">
     <div class="swiper-wrapper">
       <div class="swiper-slide" *ngFor="let slide of sliders">
-        <article class="services-item" [ngStyle]="{'background-image': setImage(slide.name)}">
-          <div class="services-overlay">
-            <h1 class="services-title">{{ slide.title }}</h1>
-            <button type="button" class="btn" (click)="openModal(slide.id)">Заказать</button>
+        <article class="service-card" [ngStyle]="{'background-image': setImage(slide.name)}">
+          <div class="service-card-overlay">
+            <h1 class="service-card-title">{{ slide.title }}</h1>
+            <button type="button" class="btn services-btn" (click)="openModal(slide.id)">Заказать</button>
           </div>
         </article>
       </div>

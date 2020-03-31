@@ -22,7 +22,7 @@ export class ServicesComponent implements OnInit {
     },
     {
       id: 'service-2',
-      title: 'Рытье траншей и котлованов',
+      title: 'Рытье траншей\n' + 'и котлованов',
       name: 'land-work'
     },
     {
@@ -52,7 +52,7 @@ export class ServicesComponent implements OnInit {
     },
     {
       id: 'service-8',
-      title: 'Перевозка емкостей, металлоконструкций',
+      title: 'Перевозка емкостей',
       name: 'land-work'
     },
     {

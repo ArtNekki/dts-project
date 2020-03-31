@@ -1,38 +1,32 @@
 @import "src/variables";
 
-.services {
-
-  &-item {
-    position: relative;
-    min-height: 320px;
-    background-size: cover;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    box-shadow: 0 0 10px 0 rgba($black, 0.2);
-    border-radius: $border-radius;
-    overflow: hidden;
-  }
+.service-card {
+  position: relative;
+  //margin: 7px;
+  min-height: 320px;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  //box-shadow: 0 0 7px 0 rgba($black, 0.2);
+  overflow: hidden;
 
   &-overlay {
     position: absolute;
-    top: 0;
     bottom: 0;
     left: 0;
-    padding: 15px 35px;
+    padding: 10px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: rgba($gray-dark, 0.6);
-    border-radius: $border-radius;
+    height: 70px;
+    background-color: rgba($gray-dark, 0.9);
+    transition: all 0.3s ease-in;
   }
 
   &-title {
-    font-size: 24px;
-    line-height: 26px;
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 14px;
     color: $white;
+    text-transform: uppercase;
   }
-
 }

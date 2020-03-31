@@ -1,0 +1,18 @@
+.btn {
+  padding: 5px 10px;
+  font-size: 13px;
+  color: $gray-dark;
+  border: none;
+  background-color: $yellow;
+  border-radius: $border-radius;
+  box-shadow: 0 0 5px 0 rgba($black, 0.2);
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    background-color: rgba($yellow, 0.9);
+  }
+}
