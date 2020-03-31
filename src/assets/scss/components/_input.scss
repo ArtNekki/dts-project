@@ -1,0 +1,31 @@
+.input {
+  padding-right: 8px;
+  padding-left: 8px;
+  height: 34px;
+  width: 100%;
+  //font-family: $base-font-family;
+  font-size: 14px;
+  line-height: 22px;
+  color: $gray;
+  background-color: $white;
+  border-radius: 5px;
+  border: 1px solid $gray;
+  appearance: none;
+  outline: none;
+
+  @include media-breakpoint-up(lg) {
+    border-radius: 5px;
+  }
+
+  @include hover {
+    border-color: darken($gray, 10%);
+  }
+
+  @include focus {
+    border-color: darken($gray, 10%);
+  }
+}
+
+textarea.input {
+  height: auto;
+}

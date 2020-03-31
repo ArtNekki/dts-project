@@ -16,6 +16,8 @@ import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { ServicesComponent } from './view/services/services.component';
 import { ModalComponent } from './view/modal/modal.component';
+import { ServiceOrderFormComponent } from './view/service-order-form/service-order-form.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -30,13 +32,16 @@ registerLocaleData(ruLocale, 'ru');
     PageHeaderComponent,
     TransportComponent,
     ServicesComponent,
-    ModalComponent
+    ModalComponent,
+    ServiceOrderFormComponent
   ],
   imports: [
     BrowserModule,
     AngularSvgIconModule,
     HttpClientModule,
-    SwiperModule
+    SwiperModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

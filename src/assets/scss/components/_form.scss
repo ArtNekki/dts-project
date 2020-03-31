@@ -1,0 +1,87 @@
+.form {
+  //width: 280px;
+
+  //@include media-breakpoint-up(md) {
+  //  width: 320px;
+  //}
+
+  &-main {
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $gray;
+  }
+
+  &-title {
+    margin-top: 10px;
+    margin-bottom: 18px;
+    font-size: 14px;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+
+  &-btn {
+    margin-top: 10px;
+    width: 100%;
+    padding: 15px 8px;
+    font-size: 17px;
+    text-align: center;
+    color: $black;
+    background-color: $yellow;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+
+    @include hover {
+      background-color: lighten($yellow, 10%);
+    }
+
+    @include active {
+      background-color: lighten($yellow, 10%);
+      box-shadow: 0 0 10px rgba($yellow, 0.6);
+    }
+
+    &:disabled {
+      color: rgba($black, 0.2);
+      background-color: $gray !important;
+      cursor: not-allowed;
+    }
+  }
+
+  &-group {
+    display: flex;
+
+    .form-field:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+
+  &-field {
+    margin-bottom: 6px;
+  }
+
+  &-footer {
+    padding-top: 17px;
+    text-align: center;
+  }
+
+  &-label {
+    display: block;
+    //font-family: $secondary-font-family;
+    font-size: 12px;
+    line-height: 22px;
+    color: $gray-dark;
+
+    .form-field--inline & {
+      margin-left: 10px;
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+
+  &-validation {
+    font-size: 12px;
+    color: red;
+  }
+}
