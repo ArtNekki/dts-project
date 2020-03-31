@@ -1,0 +1,54 @@
+@import "src/variables";
+
+.modal {
+  position: relative;
+  padding: 15px;
+  min-width: 300px;
+  height: 400px;
+  background-color: $white;
+  box-shadow: 0 0 15px 0 rgba($gray-dark, 0.6);
+
+  &-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba($gray-dark, 0.9);
+  }
+
+  &-title {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: $gray-dark
+  }
+
+  &-close {
+    position: absolute;
+    top: -65px;
+    right: -7px;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    font-size: 65px;
+    color: $yellow;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+      color: rgba($yellow, 0.7);
+    }
+
+   &:active {
+     color: rgba($yellow, 0.7);
+   }
+
+  }
+
+}

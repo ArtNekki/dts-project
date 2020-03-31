@@ -13,3 +13,4 @@
   </div>
   <div class="swiper-pagination"></div>
 </div>
+<app-modal *ngIf="modal" [title]="modalTitle" (close)="modal = false"></app-modal>

@@ -14,6 +14,8 @@ import { Component, OnInit } from '@angular/core';
 
 export class ServicesComponent implements OnInit {
   config;
+  modalTitle;
+  modal = false;
   sliders = [
     {
       id: 'service-1',
@@ -88,7 +90,8 @@ export class ServicesComponent implements OnInit {
   }
 
   openModal(id: string) {
-    console.log(id);
+    this.modal = true;
+    this.modalTitle = this.sliders.filter((item) => item.id === id)[0].title;
   }
 
   setImage(name: string) {
