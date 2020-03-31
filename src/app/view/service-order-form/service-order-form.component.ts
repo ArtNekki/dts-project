@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -7,6 +7,8 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./service-order-form.component.scss']
 })
 export class ServiceOrderFormComponent implements OnInit {
+  @Input() serviceTitle;
+
   entity: boolean;
   form: FormGroup;
 
@@ -39,7 +41,7 @@ export class ServiceOrderFormComponent implements OnInit {
   onSubmit() {
     if (!this.form.valid) { return; }
 
-    const formData = {...this.form.value};
+    const formData = {serviceTitle: this.serviceTitle, ...this.form.value};
     this.form.reset();
 
     console.log(formData);

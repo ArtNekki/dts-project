@@ -1,0 +1,23 @@
+@import "src/variables";
+
+.page-header-inner {
+  width: 100%;
+  background-color: $gray-dark;
+  background-image: url("img/page-inner-bg.svg");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  //background-size: 2200px auto, cover;
+
+  &-container {
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-title {
+    font-size: 50px;
+    color: $white;
+    text-transform: uppercase;
+  }
+}

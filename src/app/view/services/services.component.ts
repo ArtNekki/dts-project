@@ -89,9 +89,9 @@ export class ServicesComponent implements OnInit {
     };
   }
 
-  openModal(id: string) {
+  openModal(name: string) {
     this.modal = true;
-    this.modalTitle = this.sliders.filter((item) => item.id === id)[0].title;
+    this.modalTitle = name;
   }
 
   setImage(name: string) {

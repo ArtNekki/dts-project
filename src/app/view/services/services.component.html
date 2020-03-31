@@ -5,7 +5,7 @@
         <article class="service-card" [ngStyle]="{'background-image': setImage(slide.name)}">
           <div class="service-card-overlay">
             <h1 class="service-card-title">{{ slide.title }}</h1>
-            <button type="button" class="btn services-btn" (click)="openModal(slide.id)">Заказать</button>
+            <button type="button" class="btn services-btn" (click)="openModal(slide.title)">Заказать</button>
           </div>
         </article>
       </div>
@@ -14,5 +14,5 @@
   <div class="swiper-pagination"></div>
 </div>
 <app-modal *ngIf="modal" [title]="modalTitle" (close)="modal = false">
-  <app-service-order-form></app-service-order-form>
+  <app-service-order-form [serviceTitle]="modalTitle"></app-service-order-form>
 </app-modal>

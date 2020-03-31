@@ -18,6 +18,10 @@ import { ServicesComponent } from './view/services/services.component';
 import { ModalComponent } from './view/modal/modal.component';
 import { ServiceOrderFormComponent } from './view/service-order-form/service-order-form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MainPageComponent } from './view/main-page/main-page.component';
+import { TransportPageComponent } from './view/transport-page/transport-page.component';
+import {AppRoutingModule} from './app-routing.module';
+import { PageHeaderInnerComponent } from './view/page-header-inner/page-header-inner.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -33,7 +37,10 @@ registerLocaleData(ruLocale, 'ru');
     TransportComponent,
     ServicesComponent,
     ModalComponent,
-    ServiceOrderFormComponent
+    ServiceOrderFormComponent,
+    MainPageComponent,
+    TransportPageComponent,
+    PageHeaderInnerComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +48,8 @@ registerLocaleData(ruLocale, 'ru');
     HttpClientModule,
     SwiperModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [
     {
