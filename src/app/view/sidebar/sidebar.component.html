@@ -1,0 +1,7 @@
+<aside class="sidebar">
+  <ul class="sidebar-list">
+    <li class="sidebar-item" *ngFor="let item of list$ | async as list">
+      <a [routerLink]="['/transport', item.id]">{{ item.name }}</a>
+    </li>
+  </ul>
+</aside>

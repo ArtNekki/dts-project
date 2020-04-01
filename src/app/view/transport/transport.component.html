@@ -2,8 +2,14 @@
   <div class="container">
     <h2 class="page-section-title">Аренда спецтехники</h2>
     <div class="row">
-      <div class="col-3">
-        <svg-icon  src="/assets/img/svg/tipper.svg"></svg-icon>
+      <li class="sidebar-item" >
+
+      </li>
+      <div class="col-3" *ngFor="let item of list$ | async as list">
+        <a [routerLink]="['/transport', item.id]">
+          <svg-icon  [src]="'/assets/img/svg/' + item.id + '.svg'"></svg-icon>
+          <b>{{ item.name }}</b>
+        </a>
       </div>
       <div class="col-3">
         <svg-icon  src="/assets/img/svg/buld.svg"></svg-icon>

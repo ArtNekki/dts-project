@@ -1,0 +1,9 @@
+<div *ngIf="list$ | async as list;">
+  <div *ngFor="let item of list">
+    {{item.name}}
+  </div>
+</div>
+
+<ng-template #empty>
+  <p>Данных нет...</p>
+</ng-template>

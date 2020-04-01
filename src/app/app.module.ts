@@ -1,6 +1,9 @@
 import {BrowserModule, HAMMER_GESTURE_CONFIG} from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
 import {registerLocaleData} from '@angular/common';
 import ruLocale from '@angular/common/locales/ru';
 
@@ -22,6 +25,10 @@ import { MainPageComponent } from './view/main-page/main-page.component';
 import { TransportPageComponent } from './view/transport-page/transport-page.component';
 import {AppRoutingModule} from './app-routing.module';
 import { PageHeaderInnerComponent } from './view/page-header-inner/page-header-inner.component';
+import { SidebarComponent } from './view/sidebar/sidebar.component';
+import { TransportListComponent } from './view/transport-list/transport-list.component';
+import {environment} from '../environments/environment';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -40,7 +47,9 @@ registerLocaleData(ruLocale, 'ru');
     ServiceOrderFormComponent,
     MainPageComponent,
     TransportPageComponent,
-    PageHeaderInnerComponent
+    PageHeaderInnerComponent,
+    SidebarComponent,
+    TransportListComponent
   ],
   imports: [
     BrowserModule,
@@ -49,14 +58,17 @@ registerLocaleData(ruLocale, 'ru');
     SwiperModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [
     {
       provide: [HAMMER_GESTURE_CONFIG, SWIPER_CONFIG],
       useClass: HammerConfig,
       useValue: DEFAULT_SWIPER_CONFIG
-    }
+    },
+    AngularFirestore
   ],
   bootstrap: [AppComponent]
 })
