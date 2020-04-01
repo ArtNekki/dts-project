@@ -29,6 +29,7 @@ import { SidebarComponent } from './view/sidebar/sidebar.component';
 import { TransportListComponent } from './view/transport-list/transport-list.component';
 import {environment} from '../environments/environment';
 import {AngularFirestore} from '@angular/fire/firestore';
+import { TransportPromoComponent } from './view/transport-promo/transport-promo.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -49,7 +50,8 @@ registerLocaleData(ruLocale, 'ru');
     TransportPageComponent,
     PageHeaderInnerComponent,
     SidebarComponent,
-    TransportListComponent
+    TransportListComponent,
+    TransportPromoComponent
   ],
   imports: [
     BrowserModule,
