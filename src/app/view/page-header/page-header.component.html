@@ -19,17 +19,17 @@
     </div>
     <nav class="page-header-nav">
       <ul class="page-header-list">
-        <li>
-          <a href="#">Аренда техники</a>
+        <li routerLinkActive="active">
+          <a [routerLink]="['/transport', 'tippers']">Аренда техники</a>
         </li>
         <li>
-          <a href="#">Услуги</a>
+          <a routerLink='/' fragment='services'>Услуги</a>
         </li>
         <li>
-          <a href="#">О нас</a>
+          <a routerLink='/' fragment='about'>О нас</a>
         </li>
         <li>
-          <a href="#">Контакты</a>
+          <a routerLink='/' fragment='contacts'>Контакты</a>
         </li>
         <li>
           <a href="#">Информация по ценам</a>

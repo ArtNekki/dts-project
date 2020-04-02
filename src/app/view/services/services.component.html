@@ -1,23 +1,18 @@
-<div class="page-section">
-  <div class="container">
-    <h2 class="page-section-title">Наши услуги</h2>
-  </div>
-  <div class="swiper">
-    <div  class="swiper-container" [swiper]="config">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide" *ngFor="let slide of sliders">
-          <article class="service-card" [ngStyle]="{'background-image': setImage(slide.name)}">
-            <div class="service-card-overlay">
-              <h1 class="service-card-title">{{ slide.title }}</h1>
-              <button type="button" class="btn services-btn" (click)="openModal(slide.title)">Заказать</button>
-            </div>
-          </article>
-        </div>
+<div class="swiper">
+  <div  class="swiper-container" [swiper]="config">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let slide of sliders">
+        <article class="service-card" [ngStyle]="{'background-image': setImage(slide.name)}">
+          <div class="service-card-overlay">
+            <h1 class="service-card-title">{{ slide.title }}</h1>
+            <button type="button" class="btn services-btn" (click)="openModal(slide.title)">Заказать</button>
+          </div>
+        </article>
       </div>
     </div>
-    <div class="swiper-pagination"></div>
   </div>
-  <app-modal *ngIf="modal" [title]="modalTitle" (close)="modal = false">
-    <app-service-order-form [serviceTitle]="modalTitle"></app-service-order-form>
-  </app-modal>
+  <div class="swiper-pagination"></div>
 </div>
+<app-modal *ngIf="modal" [title]="modalTitle" (close)="modal = false">
+  <app-service-order-form [serviceTitle]="modalTitle"></app-service-order-form>
+</app-modal>

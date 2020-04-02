@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-page-header',
@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page-header.component.scss']
 })
 export class PageHeaderComponent implements OnInit {
+  @Input() transport: HTMLElement
+  @Input() about: HTMLElement
+  @Input() features: HTMLElement
+  @Input() services: HTMLElement
+  @Input() contacts: HTMLElement
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  scroll(el: HTMLElement) {
+    el.scrollIntoView({behavior: 'smooth'});
+  }
 }
