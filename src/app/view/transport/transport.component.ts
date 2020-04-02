@@ -9,6 +9,7 @@ import {TransportService} from '../../core/services/transport.service';
 })
 export class TransportComponent implements OnInit {
   list$: Observable<any>;
+  transportActive = false;
 
   constructor(private transportService: TransportService) { }
 

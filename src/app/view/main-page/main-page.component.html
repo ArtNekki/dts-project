@@ -1,20 +1,17 @@
-<app-page-header ></app-page-header>
-<section id="transport" class="page-section">
+<app-page-header [transport]="transport" [about]="about" [features]="features" [services]="services" [contacts]="contacts"></app-page-header>
+<section #transport id="transport" class="page-section">
   <div class="container">
     <h2 class="page-section-title">Аренда спецтехники</h2>
-      <app-transport></app-transport>
-    <div class="page-section-footer">
-      <a href="" class="btn btn--lg">Перейти ко всем вариантам</a>
-    </div>
+    <router-outlet></router-outlet>
   </div>
 </section>
-<div id="services" class="page-section">
+<div #services id="services" class="page-section">
   <div class="container">
     <h2 class="page-section-title">Наши услуги</h2>
   </div>
   <app-services></app-services>
 </div>
-<div id="about" class="page-section page-section--about">
+<div #about id="about" class="page-section page-section--about">
   <div class="container">
     <h2 class="page-section-title">О нас</h2>
     <div class="row">
@@ -30,13 +27,13 @@
     </div>
   </div>
 </div>
-<div id="features" class="page-section page-section--features">
+<div #features id="features" class="page-section page-section--features">
   <div class="container">
     <h2 class="page-section-title">Наши преимущества</h2>
     <app-features></app-features>
   </div>
 </div>
-<div id="contacts" class="page-section page-section--contacts">
+<div #contacts id="contacts" class="page-section page-section--contacts">
   <div class="container">
     <div class="row">
       <div class="col-8">

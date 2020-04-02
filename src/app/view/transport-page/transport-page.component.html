@@ -1,11 +1,29 @@
-<app-page-header></app-page-header>
-<main class="container">
-  <div class="row">
-    <div class="col-3">
-      <app-sidebar></app-sidebar>
-    </div>
-    <div class="col-9">
-      <router-outlet></router-outlet>
-    </div>
+<div class="row">
+  <div class="col-4">
+    <a [routerLink]="['/', 'tippers']">
+      <app-transport-promo img="tippers" title="Cамосвалы"></app-transport-promo>
+    </a>
   </div>
-</main>
+  <div class="col-4">
+    <app-transport-promo img="excovators" title="Эксковаторы"></app-transport-promo>
+  </div>
+  <div class="col-4">
+    <app-transport-promo img="buldozers" title="Бульдозеры"></app-transport-promo>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-4">
+    <app-transport-promo img="tractors" title="Тракторы"></app-transport-promo>
+  </div>
+  <div class="col-4">
+    <app-transport-promo img="front-loaders" title="Погрузчики"></app-transport-promo>
+  </div>
+  <div class="col-4">
+    <app-transport-promo img="timber-tracks" title="Автовышки"></app-transport-promo>
+  </div>
+</div>
+
+<div class="page-section-footer">
+  <a href="" class="btn btn--lg">Перейти ко всем вариантам</a>
+</div>
