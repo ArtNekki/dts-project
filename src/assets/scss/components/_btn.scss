@@ -2,11 +2,17 @@
   padding: 5px 10px;
   font-size: 13px;
   color: $gray-dark;
+  text-decoration: none;
   border: none;
   background-color: $yellow;
   border-radius: $border-radius;
   box-shadow: 0 0 5px 0 rgba($black, 0.2);
   cursor: pointer;
+
+  &--lg {
+    padding: 15px 20px;
+    font-size: 16px;
+  }
 
   &:focus {
     outline: none;
