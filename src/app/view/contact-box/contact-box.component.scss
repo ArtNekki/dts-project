@@ -1,0 +1,27 @@
+@import "src/variables";
+
+.contact-box {
+  margin: 0 40px 35px 40px;
+  display: flex;
+  align-items: center;
+
+  &-icon {
+    margin-right: 25px;
+  }
+
+  &-title {
+    margin: 0 0 10px 0;
+    font-family: $font-family;
+    font-size: 16px;
+    line-height: 16px;
+    color: $gray-dark;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 16px;
+    color: $gray-dark;
+  }
+}

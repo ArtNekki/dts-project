@@ -1,27 +1,15 @@
 .link {
   font-size: 14px;
   line-height: 16px;
-  color: $white;
+  color: $gray-dark;
   text-decoration: none;
-  border-bottom: 1px solid $white;
 
   &:hover {
     border-color: transparent;
   }
 
   &:active {
-    color: rgba($white, 0.7);
-  }
-
-  &--clear {
-    border-color: transparent;
-  }
-
-  &--dashed {
-    border-bottom-style: dashed;
+    color: rgba($gray, 0.7);
   }
 }
 
-.alert {
-  background-color: red;
-}
