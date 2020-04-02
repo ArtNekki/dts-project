@@ -19,6 +19,18 @@
     background-color: $gray-dark;
   }
 
+  &--contacts {
+    margin-top: 70px;
+  }
+
+  &--contacts .container {
+    box-shadow: 0 0 15px 0 rgba($gray-dark, 0.1);
+  }
+
+  &--contacts .col-8 {
+    border-right: 1px solid rgba($gray, 0.5);
+  }
+
   &-title {
     padding-top: 60px;
     padding-bottom: 25px;
@@ -29,6 +41,10 @@
 
     .page-section--features & {
       color: $white;
+    }
+
+    .page-section--contacts & {
+      margin-left: 40px;
     }
   }
 

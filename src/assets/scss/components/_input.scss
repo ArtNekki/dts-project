@@ -13,6 +13,10 @@
   appearance: none;
   outline: none;
 
+  &--lg {
+    height: 50px;
+  }
+
   @include media-breakpoint-up(lg) {
     border-radius: 5px;
   }

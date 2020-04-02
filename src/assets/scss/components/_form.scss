@@ -5,6 +5,12 @@
   //  width: 320px;
   //}
 
+  &--contact {
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 50px;
+  }
+
   &-main {
     padding-right: 10px;
     padding-left: 10px;
@@ -59,6 +65,10 @@
 
   &-field {
     margin-bottom: 6px;
+
+    &--lg {
+      margin-bottom: 20px;
+    }
   }
 
   &-footer {
@@ -77,6 +87,14 @@
       margin-left: 10px;
       display: inline-block;
       vertical-align: top;
+    }
+
+    .form-field--lg & {
+      margin-bottom: 10px;
+      font-size: 15px;
+      color: rgba($gray-dark, 0.7);
+      line-height: 15px;
+      font-weight: 700;
     }
   }
 
