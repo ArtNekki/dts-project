@@ -33,6 +33,7 @@ import { TransportPromoComponent } from './view/transport-promo/transport-promo.
 import { FeaturesComponent } from './view/features/features.component';
 import { ContactFormComponent } from './view/contact-form/contact-form.component';
 import { ContactBoxComponent } from './view/contact-box/contact-box.component';
+import { PageFooterComponent } from './view/page-footer/page-footer.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -57,7 +58,8 @@ registerLocaleData(ruLocale, 'ru');
     TransportPromoComponent,
     FeaturesComponent,
     ContactFormComponent,
-    ContactBoxComponent
+    ContactBoxComponent,
+    PageFooterComponent
   ],
   imports: [
     BrowserModule,
