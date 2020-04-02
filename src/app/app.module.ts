@@ -6,6 +6,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import {registerLocaleData} from '@angular/common';
 import ruLocale from '@angular/common/locales/ru';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import {AngularSvgIconModule} from 'angular-svg-icon';
@@ -72,7 +73,11 @@ registerLocaleData(ruLocale, 'ru');
     ReactiveFormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDXu6wNP79AG7OHTlyBMRufLdjdvSmwo0A',
+      libraries: ['places']
+    })
   ],
   providers: [
     {
