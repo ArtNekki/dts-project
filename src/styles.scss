@@ -42,6 +42,12 @@ body {
   //background-color: $gray;
 }
 
+.features svg {
+  display: inline-block;
+  fill: $yellow;
+  //display: none;
+}
+
 //components
 @import "assets/scss/components/link";
 @import "assets/scss/components/input";

@@ -1,0 +1,30 @@
+@import "src/variables";
+
+.features {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 30px;
+  display: flex;
+  list-style: none;
+
+  &-item {
+    margin: 0 10px;
+    text-align: center;
+  }
+
+  &-img {
+    height: 87px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  b {
+    display: block;
+    font-size: 13px;
+    line-height: 15px;
+    color: $white;
+  }
+}
+
+
