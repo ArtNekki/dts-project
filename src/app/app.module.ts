@@ -37,6 +37,7 @@ import { PageFooterComponent } from './view/page-footer/page-footer.component';
 import { MapComponent } from './view/map/map.component';
 import { TransportPageDetailsComponent } from './view/transport-page-details/transport-page-details.component';
 import { TransportCardComponent } from './view/transport-card/transport-card.component';
+import {NgSelectModule} from '@ng-select/ng-select';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -72,6 +73,7 @@ registerLocaleData(ruLocale, 'ru');
     HttpClientModule,
     SwiperModule,
     FormsModule,
+    NgSelectModule,
     ReactiveFormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),

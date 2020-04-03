@@ -1,14 +1,20 @@
 <form class="form" autocomplete="off" [formGroup]="form" (ngSubmit)="onSubmit()">
- <div class="form-group">
-   <div class="form-field form-field--inline">
-     <input type="radio" name="userType" id="individual" (change)="selectUserType('individual')" checked>
-     <label class="form-label" for="individual">Физ. лицо</label>
-   </div>
-   <div class="form-field form-field--inline">
-     <input type="radio" name="userType" id="entity" (change)="selectUserType('entity')">
-     <label class="form-label" for="entity">Юр. лицо</label>
-   </div>
- </div>
+  <div class="form-field form-field--separator">
+    <label class="form-label" for="serviceType">Вариант</label>
+    <ng-select name="serviceType" id="serviceType" [items]="[{name: 'Рытье траншей и котлованов', value: 'котлован'}]"  bindLabel="name" bindValue="id">
+    </ng-select>
+<!--    <p class="form-text">Стоимость работы от <b>6000 р</b></p>-->
+  </div>
+  <div class="form-group form-group--right">
+    <div class="form-field form-field--inline">
+      <input type="radio" name="userType" id="individual" (change)="selectUserType('individual')" checked>
+      <label class="form-label" for="individual">Физ. лицо</label>
+    </div>
+    <div class="form-field form-field--inline">
+      <input type="radio" name="userType" id="entity" (change)="selectUserType('entity')">
+      <label class="form-label" for="entity">Юр. лицо</label>
+    </div>
+  </div>
   <div class="form-field" *ngIf="!entity">
     <label class="form-label" for="name">ФИО</label>
     <input type="text" id="name" class="input" formControlName="username">

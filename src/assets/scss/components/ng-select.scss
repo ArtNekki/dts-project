@@ -1,0 +1,42 @@
+.ng-select {
+
+}
+
+.ng-input input {
+  font-family: $font-family;
+  font-size: 14px !important;
+  line-height: 22px !important;
+  color: rgba($gray-dark, 0.7);
+}
+
+.ng-option.ng-option-marked,
+.ng-value {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.ng-option-label {
+  font-weight: 400;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked,
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked {
+  background-color: rgba($gray, 0.2);
+}
+
+.ng-clear-wrapper {
+  display: none;
+}
+
+.ng-select.ng-select-focused:not(.ng-select-opened)>.ng-select-container {
+  border-color: $gray;
+  box-shadow: none;
+}
+
+.ng-select.ng-select-opened>.ng-select-container {
+  border-color: $gray;
+
+  &:hover {
+    box-shadow: none;
+  }
+}

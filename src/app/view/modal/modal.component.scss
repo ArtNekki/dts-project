@@ -2,7 +2,7 @@
 
 .modal {
   position: relative;
-  padding: 15px;
+  padding: 25px;
   min-width: 300px;
   //height: 400px;
   background-color: $white;
@@ -25,7 +25,8 @@
     margin: 0;
     margin-bottom: 20px;
     font-size: 20px;
-    color: $gray-dark
+    text-transform: uppercase;
+    color: $gray-dark;
   }
 
   &-close {

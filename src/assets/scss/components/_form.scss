@@ -58,6 +58,10 @@
   &-group {
     display: flex;
 
+    &--right {
+      justify-content: flex-end;
+    }
+
     .form-field:not(:last-child) {
       margin-right: 15px;
     }
@@ -69,6 +73,10 @@
     &--lg {
       margin-bottom: 20px;
     }
+
+    &--separator {
+      margin-bottom: 20px;
+    }
   }
 
   &-footer {
@@ -77,9 +85,10 @@
   }
 
   &-label {
+    margin-bottom: 5px;
     display: block;
     //font-family: $secondary-font-family;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 22px;
     color: $gray-dark;
 
@@ -96,6 +105,11 @@
       line-height: 15px;
       font-weight: 700;
     }
+  }
+
+  &-text {
+    margin: 10px 0;
+    font-size: 14px;
   }
 
   &-validation {
