@@ -1,19 +1,28 @@
 <app-page-header [transport]="transport" [about]="about" [features]="features" [services]="services" [contacts]="contacts"></app-page-header>
 <section #transport id="transport" class="page-section">
   <div class="container">
-    <h2 class="page-section-title">Аренда спецтехники</h2>
+    <div class="page-section-heading">
+      <small>Большой выбор</small>
+      <h2>Спецтехники</h2>
+    </div>
     <router-outlet></router-outlet>
   </div>
 </section>
 <div #services id="services" class="page-section">
   <div class="container">
-    <h2 class="page-section-title">Наши услуги</h2>
+    <div class="page-section-heading">
+      <small>Качественное</small>
+      <h2>Выполнение услуг</h2>
+    </div>
     <app-services></app-services>
   </div>
 </div>
 <div #about id="about" class="page-section page-section--about">
   <div class="container">
-    <h2 class="page-section-title">О нас</h2>
+    <div class="page-section-heading">
+      <small>Почему нужно</small>
+      <h2>Выбрать нас</h2>
+    </div>
     <div class="row">
       <div class="col-6">
         <p class="u-text-lg u-no-mg" style="margin-right: 50px">Опыт работы более 10 лет в Хабаровске и Хабаровском крае Качественное
