@@ -13,7 +13,6 @@ import {AngularSvgIconModule} from 'angular-svg-icon';
 import {HttpClientModule} from '@angular/common/http';
 import {HammerConfig} from './hammer.config';
 import { PageHeaderComponent } from './view/page-header/page-header.component';
-import { TransportComponent } from './view/transport/transport.component';
 
 import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
@@ -30,7 +29,7 @@ import { SidebarComponent } from './view/sidebar/sidebar.component';
 import { TransportListComponent } from './view/transport-list/transport-list.component';
 import {environment} from '../environments/environment';
 import {AngularFirestore} from '@angular/fire/firestore';
-import { TransportPromoComponent } from './view/transport-promo/transport-promo.component';
+import { TransportBoxComponent } from './view/transport-box/transport-box.component';
 import { FeaturesComponent } from './view/features/features.component';
 import { ContactFormComponent } from './view/contact-form/contact-form.component';
 import { ContactBoxComponent } from './view/contact-box/contact-box.component';
@@ -49,7 +48,6 @@ registerLocaleData(ruLocale, 'ru');
   declarations: [
     AppComponent,
     PageHeaderComponent,
-    TransportComponent,
     ServicesComponent,
     ModalComponent,
     ServiceOrderFormComponent,
@@ -58,7 +56,7 @@ registerLocaleData(ruLocale, 'ru');
     PageHeaderInnerComponent,
     SidebarComponent,
     TransportListComponent,
-    TransportPromoComponent,
+    TransportBoxComponent,
     FeaturesComponent,
     ContactFormComponent,
     ContactBoxComponent,
