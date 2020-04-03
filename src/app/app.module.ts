@@ -36,6 +36,7 @@ import { ContactBoxComponent } from './view/contact-box/contact-box.component';
 import { PageFooterComponent } from './view/page-footer/page-footer.component';
 import { MapComponent } from './view/map/map.component';
 import { TransportPageDetailsComponent } from './view/transport-page-details/transport-page-details.component';
+import { TransportCardComponent } from './view/transport-card/transport-card.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -62,7 +63,8 @@ registerLocaleData(ruLocale, 'ru');
     ContactBoxComponent,
     PageFooterComponent,
     MapComponent,
-    TransportPageDetailsComponent
+    TransportPageDetailsComponent,
+    TransportCardComponent
   ],
   imports: [
     BrowserModule,

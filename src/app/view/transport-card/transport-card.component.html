@@ -1,0 +1,40 @@
+<article class="transport-card" [class.transport-card--open]="isOpen">
+  <div class="transport-card-img">
+    <img src="" alt="">
+  </div>
+  <div class="transport-card-aside">
+    <h1 class="transport-card-title">Гусеничный экскаватор JCB JS 190 NC</h1>
+    <ul class="transport-card-list">
+      <li>
+        <span>Цена за смену</span>
+        <span>от <b>13 800</b></span>
+      </li>
+      <li>
+        <span>Цена за доставку</span>
+        <span>от <b>12 000</b></span>
+      </li>
+    </ul>
+    <button class="transport-card-toggle" (click)="toggle()">Тех. характеристики</button>
+    <ul *ngIf="isOpen" class="transport-card-list transport-card-list--bg">
+      <li>
+        <span>Эксплуатационная масса, кг</span>
+        <span>20000</span>
+      </li>
+      <li>
+        <span>Объем ковша, м</span>
+        <span>0.9</span>
+      </li>
+      <li>
+        <span>Максимальная глубина копания, м</span>
+        <span>6.2</span>
+      </li>
+      <li>
+        <span>Мощность двигателя, л.с.</span>
+        <span>172</span>
+      </li>
+    </ul>
+    <div class="transport-card-footer">
+      <button class="btn">Заказать</button>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,85 @@
+@import "src/variables";
+
+.transport-card {
+  margin-bottom: 40px;
+  display: flex;
+
+  &-img {
+    margin-right: 20px;
+    width: 300px;
+    height: 180px;
+    background-color: $gray;
+  }
+
+  &-title {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: $gray-dark;
+  }
+
+  &-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &--bg {
+      padding: 10px 15px;
+      padding-bottom: 5px;
+      background-color: rgba($gray, 0.2);
+    }
+  }
+
+  &-list li {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dotted $gray;
+
+    .transport-card-list--bg & {
+      border-bottom: 1px dotted $black;
+    }
+  }
+
+  &-list span {
+    font-size: 15px;
+    font-weight: 100;
+    color: $gray-dark;
+  }
+
+  &-list b {
+    font-weight: 700;
+  }
+
+  &-toggle {
+    position: relative;
+    margin-bottom: 10px;
+    padding: 0;
+    font-size: 13px;
+    color: $gray-dark;
+    border: none;
+    background: none;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: -15px;
+      width: 6px;
+      height: 6px;
+      border: 2px solid $yellow;
+      border-left-color: transparent;
+      border-top-color: transparent;
+      transform: rotate3d(0, 0, 1, 45deg);
+    }
+  }
+
+  &-footer {
+    margin-top: 10px;
+    text-align: right;
+  }
+}
