@@ -10,17 +10,19 @@ export class ServiceOrderFormComponent implements OnInit {
   @Input() serviceTitle;
 
   entity: boolean;
+  addInfo: false;
   form: FormGroup;
 
   constructor() { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
+      // variant: new FormControl('', [Validators.required]),
       username: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
       tel: new FormControl('', [Validators.required]),
-      worktime: new FormControl('', [Validators.required]),
-      workplace: new FormControl('', [Validators.required]),
+      worktime: new FormControl('', []),
+      workplace: new FormControl('', []),
       message: new FormControl('', [Validators.required])
     });
   }

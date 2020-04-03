@@ -3,6 +3,9 @@
     <label class="form-label" for="serviceType">Вариант</label>
     <ng-select name="serviceType" id="serviceType" [items]="[{name: 'Рытье траншей и котлованов', value: 'котлован'}]"  bindLabel="name" bindValue="id">
     </ng-select>
+<!--    <div class="form-validation" *ngIf="form.get('variant').invalid && form.get('variant').touched">-->
+<!--      <small *ngIf="form.get('variant').errors.required">Выберите вариант работы</small>-->
+<!--    </div>-->
 <!--    <p class="form-text">Стоимость работы от <b>6000 р</b></p>-->
   </div>
   <div class="form-group form-group--right">
@@ -43,22 +46,24 @@
       <small *ngIf="form.get('tel').errors.required">Название компании не может быть пустым</small>
     </div>
   </div>
-  <div class="form-field form-field--inline">
-    <input type="checkbox" id="dop-info">
+  <div class="form-field form-field--inline form-field--right u-mgt-md u-mgb-md">
+    <input type="checkbox" id="dop-info" (change)="addInfo = !addInfo">
     <label for="dop-info" class="form-label">Дополнительная информация</label>
   </div>
-  <div class="form-field">
-    <label class="form-label" for="work-time">Время работы</label>
-    <input type="tel" id="work-time" class="input" formControlName="worktime">
-    <div class="form-validation" *ngIf="form.get('worktime').invalid && form.get('worktime').touched">
-      <small *ngIf="form.get('worktime').errors.required">Название компании не может быть пустым</small>
+  <div *ngIf="addInfo">
+    <div class="form-field">
+      <label class="form-label" for="work-time">Время работы</label>
+      <input type="tel" id="work-time" class="input" formControlName="worktime">
+      <div class="form-validation" *ngIf="form.get('worktime').invalid && form.get('worktime').touched">
+        <small *ngIf="form.get('worktime').errors.required">Название компании не может быть пустым</small>
+      </div>
     </div>
-  </div>
-  <div class="form-field">
-    <label class="form-label" for="work-place">Место проведения работы</label>
-    <input type="tel" id="work-place" class="input" formControlName="workplace">
-    <div class="form-validation" *ngIf="form.get('workplace').invalid && form.get('workplace').touched">
-      <small *ngIf="form.get('workplace').errors.required">Название компании не может быть пустым</small>
+    <div class="form-field">
+      <label class="form-label" for="work-place">Место проведения работы</label>
+      <input type="tel" id="work-place" class="input" formControlName="workplace">
+      <div class="form-validation" *ngIf="form.get('workplace').invalid && form.get('workplace').touched">
+        <small *ngIf="form.get('workplace').errors.required">Название компании не может быть пустым</small>
+      </div>
     </div>
   </div>
   <div class="form-field">
