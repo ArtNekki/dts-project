@@ -1,5 +1,5 @@
 <div class="swiper">
-  <div  class="swiper-container" [swiper]="config">
+  <div #slider class="swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide" *ngFor="let slide of sliders">
         <article class="service-card" [ngStyle]="{'background-image': setImage(slide.name)}">

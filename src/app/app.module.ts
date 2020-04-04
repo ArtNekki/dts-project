@@ -14,9 +14,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {HammerConfig} from './hammer.config';
 import { PageHeaderComponent } from './view/page-header/page-header.component';
 
-import { SwiperModule } from 'ngx-swiper-wrapper';
-import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
-import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+// import { SwiperModule } from 'ngx-swiper-wrapper';
+// import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
+// import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { ServicesComponent } from './view/services/services.component';
 import { ModalComponent } from './view/modal/modal.component';
 import { ServiceOrderFormComponent } from './view/service-order-form/service-order-form.component';
@@ -39,10 +39,10 @@ import { TransportPageDetailsComponent } from './view/transport-page-details/tra
 import { TransportCardComponent } from './view/transport-card/transport-card.component';
 import {NgSelectModule} from '@ng-select/ng-select';
 
-const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
-  direction: 'horizontal',
-  slidesPerView: 'auto'
-};
+// const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+//   direction: 'horizontal',
+//   slidesPerView: 'auto'
+// };
 
 registerLocaleData(ruLocale, 'ru');
 
@@ -71,7 +71,7 @@ registerLocaleData(ruLocale, 'ru');
     BrowserModule,
     AngularSvgIconModule,
     HttpClientModule,
-    SwiperModule,
+    // SwiperModule,
     FormsModule,
     NgSelectModule,
     ReactiveFormsModule,
@@ -85,9 +85,9 @@ registerLocaleData(ruLocale, 'ru');
   ],
   providers: [
     {
-      provide: [HAMMER_GESTURE_CONFIG, SWIPER_CONFIG],
+      provide: [HAMMER_GESTURE_CONFIG],
       useClass: HammerConfig,
-      useValue: DEFAULT_SWIPER_CONFIG
+      // useValue: DEFAULT_SWIPER_CONFIG
     },
     AngularFirestore
   ],

@@ -1,6 +1,16 @@
 .swiper {
   position: relative;
 
+  &-wrapper {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &-slide {
+    width: 320px;
+    margin-bottom: 20px;
+  }
+
   &-pagination {
     left: 50%;
     transform: translateX(-50%);

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import Swiper from 'swiper';
 
 @Component({
   selector: 'app-services',
@@ -12,7 +13,12 @@ import { Component, OnInit } from '@angular/core';
 //   name?: string;
 // }
 
-export class ServicesComponent implements OnInit {
+export class ServicesComponent implements OnInit, AfterViewInit {
+  @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
+
+  swiper: Swiper;
+  breakpoint;
+
   config;
   modalTitle;
   modal = false;
@@ -42,16 +48,32 @@ export class ServicesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
     this.config = {
       slidesPerView: 3,
       spaceBetween: 20,
       breakpointsInverse: true,
+      breakpoints: [],
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
         // dynamicBullets: true
       }
     };
+  }
+
+
+  ngAfterViewInit(): void {
+    this.breakpoint = window.matchMedia(`(min-width: 600px)`);
+
+    this.initSwiper();
+    this.checkBreakpoint();
+  }
+
+  @HostListener('window:resize', ['$event'])
+
+  resize() {
+    this.checkBreakpoint();
   }
 
   openModal(name: string) {
@@ -61,5 +83,19 @@ export class ServicesComponent implements OnInit {
 
   setImage(name: string) {
     return `url(assets/img/services/${name}.jpg)`;
+  }
+
+  initSwiper() {
+    if (!this.swiper || !this.swiper.initialized) {
+      this.swiper = new Swiper(this.slider.nativeElement, this.config);
+    }
+  }
+
+  checkBreakpoint() {
+    if (this.breakpoint && this.breakpoint.matches) {
+      this.swiper.destroy(true, true);
+    } else {
+      this.initSwiper();
+    }
   }
 }
