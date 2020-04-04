@@ -50,21 +50,25 @@ export class ServicesComponent implements OnInit, AfterViewInit {
   ngOnInit() {
 
     this.config = {
-      slidesPerView: 3,
+      slidesPerView: 1,
       spaceBetween: 20,
       breakpointsInverse: true,
-      breakpoints: [],
+      breakpoints: {
+        ['576']: {
+          slidesPerView: 2,
+          spaceBetween: 14
+        }
+      },
       pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-        // dynamicBullets: true
+        el: '#services-pagination',
+        clickable: true
       }
     };
   }
 
 
   ngAfterViewInit(): void {
-    this.breakpoint = window.matchMedia(`(min-width: 600px)`);
+    this.breakpoint = window.matchMedia(`(min-width: 992px)`);
 
     this.initSwiper();
     this.checkBreakpoint();
