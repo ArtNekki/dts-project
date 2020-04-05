@@ -33,19 +33,29 @@
         </a>
       </div>
       <div class="swiper-slide">
-        <app-transport-box img="excovators" title="Эксковаторы"></app-transport-box>
+        <a [routerLink]="['transport', 'excovators']" fragment="transport">
+          <app-transport-box img="excovators" title="Эксковаторы"></app-transport-box>
+        </a>
       </div>
       <div class="swiper-slide">
-        <app-transport-box img="buldozers" title="Бульдозеры"></app-transport-box>
+        <a [routerLink]="['transport', 'buldozers']" fragment="transport">
+          <app-transport-box img="buldozers" title="Бульдозеры"></app-transport-box>
+        </a>
       </div>
       <div class="swiper-slide">
-        <app-transport-box img="tractors" title="Тракторы"></app-transport-box>
+        <a [routerLink]="['transport', 'tractors']" fragment="transport">
+          <app-transport-box img="tractors" title="Тракторы"></app-transport-box>
+        </a>
       </div>
       <div class="swiper-slide">
-        <app-transport-box img="front-loaders" title="Погрузчики"></app-transport-box>
+        <a [routerLink]="['transport', 'front-loaders']" fragment="transport">
+          <app-transport-box img="front-loaders" title="Погрузчики"></app-transport-box>
+        </a>
       </div>
       <div class="swiper-slide">
-        <app-transport-box img="timber-tracks" title="Автовышки"></app-transport-box>
+        <a [routerLink]="['transport', 'timber-tracks']" fragment="transport">
+          <app-transport-box img="timber-tracks" title="Сортиментовозы"></app-transport-box>
+        </a>
       </div>
     </div>
   </div>
@@ -53,5 +63,5 @@
 </div>
 
 <div class="page-section-footer">
-  <a href="" class="btn btn--lg">Все варианты</a>
+  <a [routerLink]="['transport', 'tippers']" fragment="transport" class="btn btn--lg">Все варианты</a>
 </div>
