@@ -1,7 +1,8 @@
 @import "src/variables";
 
 .page-footer {
+  position: relative;
   padding-top: 120px;
   padding-bottom: 30px;
-  background-color: $gray-dark;
+  background-color: $yellow;
 }
