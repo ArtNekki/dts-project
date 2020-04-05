@@ -6,14 +6,15 @@
   font-weight: 700;
   text-decoration: none;
   text-transform: uppercase;
+  border: none;
   border-radius: 30px;
   background-color: $yellow;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 
   &:hover {
-    color: $gray-dark;
-    background-color: rgba($white, 0.9);
+    //color: $gray-dark;
+    background-color: rgba($yellow, 0.5);
     transform: translateY(-3px);
   }
 
