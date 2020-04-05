@@ -28,7 +28,7 @@
   &-img {
     position: absolute;
     z-index: -1;
-    bottom: -65px;
+    bottom: -45px; //-65
     right: -60px; //80
     width: 680px; //730
     height: auto;
@@ -160,7 +160,8 @@
       margin-left: 15px;
       display: inline-block;
       vertical-align: middle;
-      font-size: 18px;
+      font-size: 19px;
+      line-height: 23px;
       margin-left: 20px;
     }
 
