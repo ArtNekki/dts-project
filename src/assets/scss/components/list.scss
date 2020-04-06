@@ -1,0 +1,28 @@
+.list {
+  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  padding: 0;
+  list-style: none;
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  &-icon {
+    vertical-align: middle;
+    fill: $yellow;
+  }
+
+  &-text {
+    margin-left: 10px;
+    font-size: 19px;
+    line-height: 22px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  small {
+    color: rgba($gray-dark, 0.6);
+  }
+}
