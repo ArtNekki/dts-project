@@ -1,10 +1,39 @@
 @import "src/variables";
 
 .page-footer {
-  position: relative;
-  margin-top: -60px;
-  padding-top: 120px;
-  padding-bottom: 30px;
-  min-height: 400px;
+  margin-top: -65px;
+  padding-top: 40px;
+  //padding-bottom: 30px;
+  //min-height: 400px;
   background-color: $yellow;
+  background-image: url("src/assets/img/bg/footer-bg.png");
+  background-size: 1020px auto;
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+
+  &-container {
+    position: relative;
+    min-height: 300px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -10000px;
+      bottom: 0;
+      height: 83px;
+      width: 10000px;
+      background: $black;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: -10000px;
+      bottom: 0;
+      height: 84px;
+      width: 10000px;
+      background: $black;
+    }
+  }
 }
