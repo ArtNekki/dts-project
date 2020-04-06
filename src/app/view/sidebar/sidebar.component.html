@@ -1,6 +1,6 @@
 <aside class="sidebar">
   <ul class="sidebar-list">
-    <li class="sidebar-item" routerLinkActive="sidebar-item--active" *ngFor="let item of list$ | async as list">
+    <li class="sidebar-item" routerLinkActive="sidebar-item--active" *ngFor="let item of list">
       <a [routerLink]="['.', item.id]" fragment="transport">{{ item.name }}</a>
     </li>
   </ul>
