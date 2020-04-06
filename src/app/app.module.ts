@@ -38,6 +38,7 @@ import { MapComponent } from './view/map/map.component';
 import { TransportPageDetailsComponent } from './view/transport-page-details/transport-page-details.component';
 import { TransportCardComponent } from './view/transport-card/transport-card.component';
 import {NgSelectModule} from '@ng-select/ng-select';
+import { ContactsComponent } from './view/contacts/contacts.component';
 
 // const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 //   direction: 'horizontal',
@@ -65,7 +66,8 @@ registerLocaleData(ruLocale, 'ru');
     PageFooterComponent,
     MapComponent,
     TransportPageDetailsComponent,
-    TransportCardComponent
+    TransportCardComponent,
+    ContactsComponent
   ],
   imports: [
     BrowserModule,

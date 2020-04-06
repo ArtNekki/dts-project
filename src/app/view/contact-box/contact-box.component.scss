@@ -1,12 +1,25 @@
 @import "src/variables";
 
 .contact-box {
-  margin: 0 40px 35px 40px;
+  margin-top: 40px;
   display: flex;
   align-items: center;
 
   &-icon {
-    margin-right: 25px;
+    position: relative;
+    transform: translateY(-3px);
+    margin-right: 20px;
+    transition: all 0.3s ease-in;
+
+    &:hover {
+      transform: translateY(0);
+    }
+  }
+
+  &-svg {
+    width: 40px;
+    height: 40px;
+    fill: $yellow;
   }
 
   &-title {

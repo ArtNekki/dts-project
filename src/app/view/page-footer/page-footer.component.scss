@@ -2,7 +2,9 @@
 
 .page-footer {
   position: relative;
+  margin-top: -60px;
   padding-top: 120px;
   padding-bottom: 30px;
+  min-height: 400px;
   background-color: $yellow;
 }

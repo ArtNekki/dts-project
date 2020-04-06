@@ -1,0 +1,24 @@
+@import "src/variables";
+
+.contacts {
+  position: relative;
+  z-index: 10;
+  background-color: $white;
+  box-shadow: 0 0 10px 0 rgba($gray-dark, 0.1);
+
+  &-content {
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    &:first-child {
+      padding-left: 40px;
+      padding-right: 30px;
+      border-right: 1px solid rgba($gray, 0.4);
+    }
+
+    &:last-child {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}

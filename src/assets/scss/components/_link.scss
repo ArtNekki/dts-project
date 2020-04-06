@@ -1,11 +1,16 @@
 .link {
   font-size: 14px;
-  line-height: 16px;
+  line-height: 14px;
   color: $gray-dark;
   text-decoration: none;
 
+  &--block {
+    display: block;
+  }
+
   &:hover {
     border-color: transparent;
+    color: $yellow;
   }
 
   &:active {
