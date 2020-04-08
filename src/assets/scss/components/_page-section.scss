@@ -2,6 +2,10 @@
 
 .page-section {
 
+  &--transport {
+    margin-top: 120px;
+  }
+
   &--about {
     margin-top: 80px;
   }
@@ -48,6 +52,10 @@
     padding-top: 120px;
     padding-bottom: 35px;
     font-family: $font-family;
+
+    .page-section--transport & {
+      padding-top: 0;
+    }
   }
 
   &-heading h2 {
