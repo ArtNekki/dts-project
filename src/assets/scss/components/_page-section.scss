@@ -43,10 +43,10 @@
     }
   }
 
-  &--features {
-    margin-top: 60px;
-    background-color: $gray-dark;
-  }
+  //&--features {
+  //  margin-top: 60px;
+  //  background-color: $gray-dark;
+  //}
 
   &-heading {
     padding-top: 120px;
@@ -64,10 +64,6 @@
     line-height: 40px;
     color: $gray-dark;
     text-transform: uppercase;
-
-    .page-section--features & {
-      color: $white;
-    }
   }
 
   &-heading small {
