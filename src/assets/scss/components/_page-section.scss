@@ -19,13 +19,11 @@
   }
 
   &--buy {
-    height: 780px;
+    height: 650px;
     background-image: url("src/assets/img/bg/sand-width-barrel.jpg");
-    background-image: url("src/assets/img/bg/sand-width-barrel@2x.jpg");
     background-repeat: no-repeat;
-    background-position: 80% 100%;
-    background-size: 1380px auto;
-    //background-size: 1180px auto;
+    background-position: 60% 100%;
+    background-size: 980px auto;
 
     & .container {
       //background-image: url("src/assets/img/bg/bucket.png");
