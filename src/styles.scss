@@ -48,6 +48,11 @@ body {
   //display: none;
 }
 
+svg {
+  width: inherit;
+  height: inherit;
+}
+
 //components
 @import "assets/scss/components/link";
 @import "assets/scss/components/input";

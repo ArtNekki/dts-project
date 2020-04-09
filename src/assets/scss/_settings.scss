@@ -22,8 +22,8 @@ $grid-breakpoints: (
 // Define the maximum width of `.container` for different screen sizes.
 
 $container-max-widths: (
-  md: 720px,
-  lg: 960px,
+  //md: 720px,
+  //lg: 960px,
   xl: 1020px
 ) !default;
 
@@ -34,7 +34,7 @@ $container-max-widths: (
 // Set the number of columns and specify the width of the gutters.
 
 $grid-columns:                12 !default;
-$grid-gutter-width:           20px !default;
+$grid-gutter-width:           40px !default;
 $grid-row-columns:            6 !default;
 
 

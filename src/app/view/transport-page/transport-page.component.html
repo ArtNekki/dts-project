@@ -25,7 +25,7 @@
 <!--</div>-->
 
 <div class="row">
-  <div class="col-5">
+  <div class="col-4">
     <div class="page-section-heading">
       <small>Большой выбор</small>
       <h2>Спецтехники</h2>
@@ -57,13 +57,18 @@
       </li>
     </ul>
   </div>
-  <div class="col-7">
+  <div class="col-8">
     <div class="swiper swiper--transport">
       <div #slider class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <a [routerLink]="['transport', 'tippers']" fragment="transport">
-              <app-transport-box img="tippers" title="Cамосвалы"></app-transport-box>
+              <app-transport-box img="front-loaders" title="Cамосвалы"></app-transport-box>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a [routerLink]="['transport', 'buldozers']" fragment="transport">
+              <app-transport-box img="auto-crans" title="Бульдозеры"></app-transport-box>
             </a>
           </div>
           <div class="swiper-slide">
@@ -71,12 +76,7 @@
               <app-transport-box img="excovators" title="Эксковаторы"></app-transport-box>
             </a>
           </div>
-          <div class="swiper-slide">
-            <a [routerLink]="['transport', 'buldozers']" fragment="transport">
-              <app-transport-box img="buldozers" title="Бульдозеры"></app-transport-box>
-            </a>
-          </div>
-          <div class="swiper-slide">
+          <div class="swiper-slide swiper-slide--centered">
             <a [routerLink]="['transport', 'tippers']" fragment="transport" class="btn btn--lg">Все варианты</a>
           </div>
 <!--          <div class="swiper-slide">-->
