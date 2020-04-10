@@ -1,10 +1,20 @@
 <app-page-header [transport]="transport"  [services]="services" [contacts]="contacts"></app-page-header>
+<div class="page-section">
+  <div class="container">
+    <p class="u-text-lg u-no-mg">Компания "ДальТрансСнаб" - компания, которая специализируется на аренде стройтехники в
+    Хабаровске и Хабаровском крае и предоставлении услуг по выполнению работ с ее использованием</p>
+    <p>В нашем автопарке имеется большой выбор техники, которая позволяет быстро и эффективно выполнять любые поставленные
+    задачи</p>
+    <p>Сотрудничая с нами, Вы сможете реализовать проект любой сложности с минимальными затратами. При этом Вам не потребуется:</p>
+    <div class="row">
+      <div class="col-4">Вкладывать средства в покупку стройтехники</div>
+      <div class="col-4">Нести расходы на покупку запасных частей, ГСМ, расходных материалов</div>
+      <div class="col-4">Содержание штата водителей, механников</div>
+    </div>
+  </div>
+</div>
 <section #transport id="transport" class="page-section page-section--transport">
   <div class="container">
-<!--    <div class="page-section-heading">-->
-<!--      <small>Большой выбор</small>-->
-<!--      <h2>Спецтехники</h2>-->
-<!--    </div>-->
     <router-outlet></router-outlet>
   </div>
 </section>
@@ -17,26 +27,6 @@
     <app-services></app-services>
   </div>
 </div>
-<!--<div #about id="about" class="page-section page-section&#45;&#45;about">-->
-<!--  <div class="container">-->
-<!--    <div class="page-section-heading">-->
-<!--      <small>Почему нужно</small>-->
-<!--      <h2>Выбрать нас</h2>-->
-<!--    </div>-->
-<!--    <div class="row">-->
-<!--      <div class="col-6">-->
-<!--        <p class="u-text-lg u-no-mg" style="margin-right: 50px">Опыт работы более 10 лет в Хабаровске и Хабаровском крае Качественное-->
-<!--          выполнение работ с минимальными издержками по времени на мобилизацию-->
-<!--          техники к месту проведения работ. Все техника проходит пред рейсовый контроль ,-->
-<!--          с целью ликвидации простоев при выполнении работ.</p>-->
-<!--      </div>-->
-<!--      <div class="col-6">-->
-<!--&lt;!&ndash;        <svg-icon  src="/assets/img/svg/about.svg"></svg-icon>&ndash;&gt;-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
 <div class="page-section page-section--buy">
   <div class="container">
     <div class="row">
