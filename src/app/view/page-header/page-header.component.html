@@ -1,25 +1,7 @@
 <header class="page-header">
   <div class="page-header-container container">
-    <div class="page-header-toolbar">
-      <a routerLink="/">
-        <svg-icon  class="page-header-logo" [src]="'/assets/img/svg/logo.svg'"></svg-icon>
-      </a>
-      <ul class="page-header-contacts">
-        <li>
-          <b>What's app</b>
-          <a href="#">+79510277322</a>
-        </li>
-        <li>
-          <b>E-Mail</b>
-          <a href="#">worknekki@gmail.com</a>
-        </li>
-        <li>
-          <b>Рабочие часы</b>
-          <small>Пн-пт 09:00 - 20:00</small>
-        </li>
-      </ul>
-    </div>
     <nav class="page-header-nav">
+      <a href="#" class="page-header-logo">Logo</a>
       <ul class="page-header-list">
         <li routerLinkActive="active">
           <a routerLink='.' fragment='transport'>Аренда техники</a>
@@ -28,90 +10,65 @@
           <a routerLink='.' fragment='services'>Услуги</a>
         </li>
         <li>
+          <a routerLink='.' fragment='services'>Материалы</a>
+        </li>
+        <li>
           <a routerLink='.' fragment='about'>О нас</a>
+        </li>
+        <li>
+          <a href="#">Цены</a>
         </li>
         <li>
           <a routerLink='.' fragment='contacts'>Контакты</a>
         </li>
-        <li>
-          <a href="#">Информация по ценам</a>
-        </li>
       </ul>
     </nav>
-<!--    <svg-icon class="transport-box-img"  [src]="'/assets/img/svg/auto-crans.svg'"></svg-icon>-->
-        <img src="../../../assets/img/content/rock.png" alt="" class="page-header-img">
+    <svg-icon class="page-header-img"  [src]="'/assets/img/svg/excovators.svg'"></svg-icon>
     <div class="row">
       <div class="col-8">
         <div class="page-header-heading">
-          <h1 class="page-header-title">Аренда спецтехники<br> и услуги</h1>
-  <!--        <small>в Хабаровске</small>-->
+          <h1 class="page-header-title">Нужна <br />спецтехника?</h1>
+          <small>в Хабаровске или крае</small>
         </div>
-        <ul class="page-header-features">
-<!--          <li>-->
-<!--            <svg-icon class="page-header-features-icon" [src]="'/assets/img/svg/ok.svg'"></svg-icon>-->
-<!--            <small class="page-header-text">-->
-<!--              <b>10 лет</b>-->
-<!--              <br />-->
-<!--              на рынке-->
-<!--            </small>-->
-<!--          </li>-->
-<!--          <li>-->
-<!--            <svg-icon class="page-header-features-icon" [src]="'/assets/img/svg/ok.svg'"></svg-icon>-->
-<!--            <small class="page-header-text">-->
-<!--              <b>150+</b>-->
-<!--              <br />-->
-<!--              Единиц техники в парке-->
-<!--            </small>-->
-<!--          </li>-->
-<!--          <li>-->
-<!--            <svg-icon class="page-header-features-icon" [src]="'/assets/img/svg/ok.svg'"></svg-icon>-->
-<!--            <small class="page-header-text">-->
-<!--              <b>100%</b>-->
-<!--              <br />-->
-<!--              Подача техники в день обращения-->
-<!--            </small>-->
-<!--          </li>-->
-<!--          <li>-->
-<!--            <svg-icon class="page-header-features-icon" [src]="'/assets/img/svg/ok.svg'"></svg-icon>-->
-<!--            <small class="page-header-text">-->
-<!--              <b>24/7</b>-->
-<!--              <br />-->
-<!--              Работаем круглосуточно без выходных-->
-<!--            </small>-->
-<!--          </li>-->
-          <li>
-            <svg-icon class="page-header-features-icon" [src]="'/assets/img/svg/ok.svg'"></svg-icon>
-            <small class="page-header-text">
-              <b>Cкидка 20%</b>
-              <br />
-              при первой аренде от 2х недель
-            </small>
-          </li>
-          <li>
-            <svg-icon class="page-header-features-icon" [src]="'/assets/img/svg/ok.svg'"></svg-icon>
-            <small class="page-header-text">
-              При первой аренде
-              <br>
-              <b>доставим технику бесплатно</b>
-            </small>
-          </li>
-          <li>
-            <svg-icon class="page-header-features-icon" [src]="'/assets/img/svg/ok.svg'"></svg-icon>
-            <small class="page-header-text">
-              Аренда, почасовая
-              <br />
-              <b>долгосрочная</b>
-            </small>
-          </li>
-          <li>
-            <svg-icon class="page-header-features-icon" [src]="'/assets/img/svg/ok.svg'"></svg-icon>
-            <small class="page-header-text">
-              Доставка в течении <br /><b>нескольких часов</b>
-            </small>
-          </li>
-        </ul>
-        <a href="#" class="btn btn--lg" style="margin-left: 40px;">Позвонить нам</a>
+        <p class="page-header-promo">У нас большой автопарк.<br />Мы поможем реализовать <br />проект любой сложности<br />с минимальными затратами.</p>
+        <div class="page-header-btn">
+          <a href="#" class="btn btn--lg">Позвоните нам</a>
+        </div>
       </div>
+    </div>
+    <ul class="page-header-features">
+      <li>
+        <small class="page-header-text">
+          <b>10 лет</b>
+          <br />
+          опыта работы <br />на рынке спецтехники
+        </small>
+      </li>
+      <li>
+        <small class="page-header-text">
+          <b>150+</b>
+          <br />
+          единиц техники <br />в автопарке
+        </small>
+      </li>
+      <li>
+        <small class="page-header-text">
+          <b>100%</b>
+          <br />
+          подача техники <br />в день обращения
+        </small>
+      </li>
+      <li>
+        <small class="page-header-text">
+          <b>24/7</b>
+          <br />
+          Работаем круглосуточно <br />без выходных
+        </small>
+      </li>
+    </ul>
+    <div class="page-header-sale">
+      <b>20%</b>
+      скидка при аренде от 2х недель
     </div>
   </div>
 </header>

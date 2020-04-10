@@ -3,11 +3,7 @@
 .page-header {
   position: relative;
   width: 100%;
-  min-height: 780px;
-  //background-image: url("img/rock.png");
-  //background-size: 1800px, auto;
-  //background-repeat: no-repeat;
-  //background-position: 75px 60px;
+  //border: 1px solid green;
 
   &::before {
     content: "";
@@ -16,29 +12,23 @@
     top: 0;
     left: 0;
     right: 0;
-    //bottom: 0;
     height: 900px;
     background-image: linear-gradient(180deg, #efcd4f 15%, $white);
   }
 
   &-container {
     position: relative;
+    min-height: 760px;
   }
 
   &-img {
     position: absolute;
     z-index: -1;
-    bottom: -10px;
+    bottom: 101px;
     right: 35px;
-    width: 570px;
+    width: 530px;
     height: auto;
     display: block;
-  }
-
-  &-toolbar {
-    padding-top: 50px;
-    display: flex;
-    justify-content: space-between;
   }
 
   &-logo {
@@ -52,47 +42,12 @@
     display: flex;
   }
 
-  &-contacts li {
-    position: relative;
-
-    &:not(:last-child) {
-      margin-right: 20px;
-      padding-right: 20px;
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 36px;
-        width: 1px;
-        background-color: rgba($white, 0.3);
-      }
-    }
-  }
-
-  &-contacts b {
-    display: block;
-    font-size: 14px;
-    line-height: 20px;
-    text-transform: uppercase;
-    color: white;
-  }
-
-  &-contacts a,
-  &-contacts small {
-    display: block;
-    color: white;
-    font-size: 12px;
-    text-decoration: none;
-  }
-
   &-nav {
     margin-top: 25px;
     margin-bottom: 20px;
-    background-color: $white;
-    border-radius: $border-radius;
-    box-shadow: 0 0 25px 0 rgba($black, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &-list {
@@ -104,20 +59,18 @@
   }
 
   &-list li {
-    padding: 25px 20px;
+    padding: 25px 10px;
   }
 
   &-list a {
     font-size: 14px;
-    color: $black;
+    color: $gray-dark;
     text-decoration: none;
-    text-transform: uppercase;
-  }
 
-  //&-content {
-  //  margin-top: 50px;
-  //  text-align: center;
-  //}
+    &:hover {
+      color: $white;
+    }
+  }
 
   &-content small {
     display: block;
@@ -129,7 +82,7 @@
   }
 
   &-heading h1 {
-    font-size: 50px;
+    font-size: 52px;
     line-height: 60px;
     color: $white;
     text-transform: uppercase;
@@ -139,30 +92,68 @@
     position: relative;
     margin-top: -35px;
     display: block;
-    //font-size: 40px;
+    font-size: 16px;
     //color: $white;
     //text-align: center;
   }
 
+  &-promo {
+    margin-top: 35px;
+    margin-bottom: 65px;
+    font-size: 21px;
+    font-style: italic;
+    line-height: 26px;
+  }
+
+  &-sale {
+    position: absolute;
+    top: 160px;
+    right: 80px;
+    width: 160px;
+    text-align: center;
+    line-height: 20px;
+    color: $white;
+
+    b {
+      display: block;
+      font-size: 70px;
+      line-height: 75px;
+    }
+
+  }
+
   &-features {
+    //border: 1px solid red;
+    position: absolute;
+    bottom: 0;
+    left: 0;
     margin: 0;
-    margin-top: 30px;
-    margin-bottom: 60px;
-    padding: 0;
+    padding: 45px 30px;
+    width: 100%;
+    display: flex;
+    background-color: $white;
+    border-radius: 20px;
     list-style: none;
     color: $gray-dark;
+    box-shadow: 0 0 20px 0 rgba($black, 0.1);
 
     li {
-      margin-bottom: 20px;
+      flex-basis: 25%;
+      text-align: center;
+    }
+
+    b {
+      margin-bottom: 5px;
+      display: block;
+      font-size: 45px;
+      color: $yellow;
     }
 
     small {
-      margin-left: 15px;
       display: inline-block;
       vertical-align: middle;
-      font-size: 18px;
-      line-height: 21px;
-      margin-left: 20px;
+      font-size: 16px;
+      line-height: 19px;
     }
 
     &-icon {
