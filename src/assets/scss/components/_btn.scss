@@ -1,15 +1,16 @@
 .btn {
   position: relative;
-  padding: 5px 10px;
+  padding: 10px 20px;
+  display: inline-block;
   color: $white;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   text-decoration: none;
   text-transform: uppercase;
   border: none;
-  border-radius: 30px;
+  border-radius: 20px;
   background-color: $yellow;
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   cursor: pointer;
 
   &:hover {
@@ -18,15 +19,18 @@
     transform: translateY(-3px);
   }
 
-  &--lg {
-    padding: 20px 40px;
-  }
-
   &:focus {
     outline: none;
   }
 
-  &:hover {
-
+  &--lg {
+    padding: 20px 40px;
+    border-radius: 30px;
   }
+
+  &--transport {
+    margin-top: 20px;
+    margin-left: 35px;
+  }
+
 }

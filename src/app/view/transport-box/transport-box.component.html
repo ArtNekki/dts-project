@@ -1,6 +1,8 @@
-<article class="transport-box">
+<article class="transport-box" [class.transport-box--price-right]="labelPosition=='right'">
   <svg-icon class="transport-box-img"  [src]="'/assets/img/svg/' + img + '.svg'"></svg-icon>
-  <div class="transport-box-overlay">
+  <div class="transport-box-overlay"
+       [attr.data-price]="'от ' + (price | currency: 'RUB':'symbol-narrow':'4.0':'ru')">
     <h1 class="transport-box-title">{{title}}</h1>
+    <a href="#" class="transport-box-btn btn">Подробнее</a>
   </div>
 </article>

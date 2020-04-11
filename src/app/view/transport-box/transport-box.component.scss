@@ -28,29 +28,63 @@
     left: 0;
     bottom: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     color: $white;
     text-transform: uppercase;
-    background-color: rgba($gray-dark, 0.9);
-    opacity: 0;
-    transition: opacity 0.25s ease-in;
+    background-color: transparent;
+    transition: background-color 0.25s ease-in;
 
     .transport-box:hover & {
-      opacity: 1;
+      background-color: rgba($gray-dark, 0.9);
+    }
+
+    &::before {
+      content: attr(data-price);
+      position: absolute;
+      top: 15px;
+      left: 27px;
+      width: 100px;
+      color: $gray-dark;
+      text-transform: lowercase;
+
+      .transport-box--price-right & {
+        left: unset;
+        right: 45px;
+      }
+    }
+
+    .transport-box:hover &::before {
+      position: static;
+      display: block;
+      order: 2;
+      color: $white;
     }
   }
 
   &-title {
+    margin: 0;
+    margin-bottom: 10px;
     font-family: $font-family;
     font-size: 0;
     font-weight: 400;
     text-align: center;
     opacity: 0;
-    transition: all 0.4s ease-in;
 
     .transport-box:hover & {
+      margin-top: auto;
       font-size: 26px;
+      opacity: 1;
+    }
+  }
+
+  &-btn {
+    margin-top: 25px;
+    margin-bottom: auto;
+    opacity: 0;
+    order: 3;
+
+    .transport-box:hover & {
       opacity: 1;
     }
   }

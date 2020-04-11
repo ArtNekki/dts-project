@@ -25,23 +25,27 @@
 <!--</div>-->
 
 <div class="row">
-  <div class="col-4">
-    <div class="page-section-heading">
-      <small>Большой выбор</small>
-      <h2>Спецтехники</h2>
-    </div>
+  <div class="col-5">
+<!--    <div class="page-section-heading">-->
+<!--      <small>Большой выбор</small>-->
+<!--      <h2>Спецтехники</h2>-->
+<!--    </div>-->
     <ul class="list">
-      <li>
-        <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
-        <div class="list-text">150 ед. техники в наличии</div>
-      </li>
       <li>
         <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
         <div class="list-text">Техника ведущих марок</div>
       </li>
       <li>
         <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
-        <div class="list-text">Подача техники в день обращения</div>
+        <div class="list-text">При первой аренде доставим бесплатно</div>
+      </li>
+      <li>
+        <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
+        <div class="list-text">Доставка в течении нескольких часов</div>
+      </li>
+      <li>
+        <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
+        <div class="list-text">Аренда почасовая долгосрочная</div>
       </li>
       <li>
         <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
@@ -56,39 +60,40 @@
         <div class="list-text">Вся техника заправлена</div>
       </li>
     </ul>
+    <a [routerLink]="['transport', 'tippers']" fragment="transport" class="btn btn--transport btn--lg">Все варианты</a>
   </div>
-  <div class="col-8">
+  <div class="col-7">
     <div class="swiper swiper--transport">
       <div #slider class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <a [routerLink]="['transport', 'tippers']" fragment="transport">
-              <app-transport-box img="front-loaders" title="Cамосвалы"></app-transport-box>
+              <app-transport-box img="front-loaders" price="10000" title="Cамосвалы"></app-transport-box>
             </a>
           </div>
           <div class="swiper-slide">
             <a [routerLink]="['transport', 'buldozers']" fragment="transport">
-              <app-transport-box img="auto-crans" title="Бульдозеры"></app-transport-box>
+              <app-transport-box img="auto-crans" price="25000" title="Бульдозеры"></app-transport-box>
             </a>
           </div>
           <div class="swiper-slide">
             <a [routerLink]="['transport', 'excovators']" fragment="transport">
-              <app-transport-box img="excovators" title="Эксковаторы"></app-transport-box>
+              <app-transport-box img="excovators" price="40000" labelPosition="right" title="Эксковаторы"></app-transport-box>
             </a>
           </div>
+<!--          <div class="swiper-slide">-->
+<!--            <a [routerLink]="['transport', 'excovators']" fragment="transport">-->
+<!--              <app-transport-box img="tractors" title="Эксковаторы"></app-transport-box>-->
+<!--            </a>-->
+<!--          </div>-->
           <div class="swiper-slide">
             <a [routerLink]="['transport', 'excovators']" fragment="transport">
-              <app-transport-box img="tractors" title="Эксковаторы"></app-transport-box>
+              <app-transport-box img="bulldozers" price="70000" title="Эксковаторы"></app-transport-box>
             </a>
           </div>
-          <div class="swiper-slide">
-            <a [routerLink]="['transport', 'excovators']" fragment="transport">
-              <app-transport-box img="bulldozers" title="Эксковаторы"></app-transport-box>
-            </a>
-          </div>
-          <div class="swiper-slide swiper-slide--centered">
-            <a [routerLink]="['transport', 'tippers']" fragment="transport" class="btn btn--lg">Все варианты</a>
-          </div>
+<!--          <div class="swiper-slide swiper-slide&#45;&#45;centered">-->
+<!--            <a [routerLink]="['transport', 'tippers']" fragment="transport" class="btn btn&#45;&#45;lg">Все варианты</a>-->
+<!--          </div>-->
 <!--          <div class="swiper-slide">-->
 <!--            <a [routerLink]="['transport', 'tractors']" fragment="transport">-->
 <!--              <app-transport-box img="tractors" title="Тракторы"></app-transport-box>-->

@@ -14,6 +14,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {HammerConfig} from './hammer.config';
 import { PageHeaderComponent } from './view/page-header/page-header.component';
 
+
 // import { SwiperModule } from 'ngx-swiper-wrapper';
 // import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 // import { SwiperConfigInterface } from 'ngx-swiper-wrapper';

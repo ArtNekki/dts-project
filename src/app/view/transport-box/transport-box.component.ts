@@ -8,6 +8,8 @@ import {Component, Input, OnInit} from '@angular/core';
 export class TransportBoxComponent implements OnInit {
   @Input() title;
   @Input() img;
+  @Input() price;
+  @Input() labelPosition;
 
   constructor() { }
 
