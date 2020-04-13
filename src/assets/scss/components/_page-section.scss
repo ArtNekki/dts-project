@@ -6,9 +6,9 @@
     margin-top: 120px;
   }
 
-  &--about {
-    margin-top: 80px;
-  }
+  //&--about {
+  //  margin-top: 80px;
+  //}
 
   &--about .container {
     height: 335px;
@@ -18,27 +18,12 @@
     background-size: 600px;
   }
 
-  &--buy {
+  &--buy .container {
     height: 650px;
     background-image: url("src/assets/img/bg/sand-width-barrel.jpg");
     background-repeat: no-repeat;
-    background-position: 60% 100%;
-    background-size: 980px auto;
-
-    & .container {
-      //background-image: url("src/assets/img/bg/bucket.png");
-      background-repeat: no-repeat;
-      background-position: 82% 195px;
-      padding-bottom: 220px;
-      background-size: 360px auto;
-    }
-
-    .gr {
-      //background-image: url("src/assets/img/bg/bucket.png");
-      //background-repeat: no-repeat;
-      //background-position: 0 0;
-      //background-size: 200px 200px;
-    }
+    background-position: 76% 100%;
+    background-size: 78% auto;
   }
 
   //&--features {
