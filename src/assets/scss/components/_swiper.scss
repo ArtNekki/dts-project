@@ -2,14 +2,36 @@
   position: relative;
   //box-shadow: 0 0 15px rgba($black, 0.1);
 
+  &-container {
+
+    .swiper--features & {
+
+      @include media-breakpoint-up(lg) {
+       overflow: visible;
+      }
+    }
+  }
+
   &-wrapper {
-    @include media-breakpoint-up(lg) {
-      //flex-wrap: wrap;
-      //justify-content: space-between;
+
+    .swiper--features & {
+
+      @include media-breakpoint-up(lg) {
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
     }
   }
 
   &-slide {
+
+    .swiper--features & {
+      @include media-breakpoint-up(lg) {
+        //flex-grow: 1;
+        flex-basis: 23%;
+        //margin: 0 5px;
+      }
+    }
     //@include media-breakpoint-up(lg) {
     //  flex-grow: 1;
     //  flex-basis: 30%;

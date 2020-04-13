@@ -2,14 +2,15 @@
 
 .page-header {
   position: relative;
+  padding-bottom: 25px;
   width: 100%;
-  //border: 1px solid green;
+  overflow: hidden;
 
   &::before {
     content: "";
     position: absolute;
     z-index: -1;
-    top: -206px;
+    top: -207px;
     left: -50px;
     right: -113px;
     height: 884px;
@@ -44,7 +45,7 @@
   }
 
   &-nav {
-    margin-top: 25px;
+    //margin-top: 25px;
     margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
@@ -100,9 +101,9 @@
   }
 
   &-promo {
-    margin-top: 60px;
-    margin-bottom: 65px;
-    font-size: 21px;
+    margin-top: 55px;
+    margin-bottom: 50px;
+    font-size: 20px;
     font-style: italic;
     line-height: 26px;
   }

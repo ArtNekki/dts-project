@@ -41,6 +41,7 @@ import { TransportCardComponent } from './view/transport-card/transport-card.com
 import {NgSelectModule} from '@ng-select/ng-select';
 import { ContactsComponent } from './view/contacts/contacts.component';
 import { ServiceCardComponent } from './view/service-card/service-card.component';
+import { FeatureCardComponent } from './view/feature-card/feature-card.component';
 
 // const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 //   direction: 'horizontal',
@@ -70,7 +71,8 @@ registerLocaleData(ruLocale, 'ru');
     TransportPageDetailsComponent,
     TransportCardComponent,
     ContactsComponent,
-    ServiceCardComponent
+    ServiceCardComponent,
+    FeatureCardComponent
   ],
   imports: [
     BrowserModule,

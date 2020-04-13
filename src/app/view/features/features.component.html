@@ -1,51 +1,31 @@
-<ul class="features">
-  <li class="features-item features-item--marked">
-    <div class="features-img">
-      <svg-icon  src="/assets/img/svg/truck-clock.svg"></svg-icon>
+<div class="swiper swiper--features">
+  <div #slider class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <app-feature-card text="Большой парк собственной техники" marked="true"></app-feature-card>
+      </div>
+      <div class="swiper-slide">
+        <app-feature-card text="Квалифицированный персонал"></app-feature-card>
+      </div>
+      <div class="swiper-slide">
+        <app-feature-card text="Наличие разрешений и допусков на перевозку опасных и негабаритных грузов"></app-feature-card>
+      </div>
+      <div class="swiper-slide">
+        <app-feature-card text="Собственная производственная база и ремонтные боксы"></app-feature-card>
+      </div>
+      <div class="swiper-slide">
+        <app-feature-card text="Отлаженная система мобилизации техники"></app-feature-card>
+      </div>
+      <div class="swiper-slide">
+        <app-feature-card text="Всегда на связи"></app-feature-card>
+      </div>
+      <div class="swiper-slide">
+        <app-feature-card text="Общая система налогооблажения"></app-feature-card>
+      </div>
+      <div class="swiper-slide">
+        <app-feature-card text="Предусмотрены различные скидки и поощрения"></app-feature-card>
+      </div>
     </div>
-    <b>Большой парк собственной техники</b>
-  </li>
-  <li class="features-item">
-    <div class="features-img">
-      <svg-icon  src="/assets/img/svg/support.svg"></svg-icon>
-    </div>
-    <b>Квалифицированный персонал</b>
-  </li>
-  <li class="features-item features-item--marked">
-    <div class="features-img">
-      <svg-icon  src="/assets/img/svg/workflow.svg"></svg-icon>
-    </div>
-    <b>Наличие разрешений и допусков на перевозку опасных и негабаритных грузов</b>
-  </li>
-  <li class="features-item">
-    <div class="features-img">
-      <svg-icon  src="/assets/img/svg/calendar.svg"></svg-icon>
-    </div>
-    <b>Собственная производственная база и ремонтные боксы</b>
-  </li>
-  <li class="features-item">
-    <div class="features-img">
-      <svg-icon  src="/assets/img/svg/excovator.svg"></svg-icon>
-    </div>
-    <b>Отлаженная система мобилизации техники</b>
-  </li>
-  <li class="features-item features-item--marked">
-   <div class="features-img">
-     <svg-icon  src="/assets/img/svg/done.svg"></svg-icon>
-   </div>
-    <b>Общая система налогооблажения</b>
-  </li>
-  <li class="features-item">
-    <div class="features-img">
-      <svg-icon  src="/assets/img/svg/gasoline.svg"></svg-icon>
-    </div>
-    <b></b>
-  </li>
-  <li class="features-item features-item--marked">
-    <div class="features-img">
-      <svg-icon  src="/assets/img/svg/sale.svg"></svg-icon>
-    </div>
-    <b>Скидка
-      на второй заказ</b>
-  </li>
-</ul>
+  </div>
+  <div id="features-pagination" class="swiper-pagination"></div>
+</div>
