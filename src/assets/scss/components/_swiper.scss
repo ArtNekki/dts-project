@@ -1,33 +1,37 @@
 .swiper {
   position: relative;
+  //box-shadow: 0 0 15px rgba($black, 0.1);
 
   &-wrapper {
     @include media-breakpoint-up(lg) {
-      flex-wrap: wrap;
-      justify-content: space-between;
+      //flex-wrap: wrap;
+      //justify-content: space-between;
     }
   }
 
   &-slide {
-    @include media-breakpoint-up(lg) {
-      flex-grow: 1;
-      flex-basis: 30%;
-      margin: 10px;
-      //margin-bottom: 20px;
-    }
-
-    .swiper--transport & {
-      margin: 0;
-      flex-basis: 50%;
-      //box-shadow: 0 0 10px 0 rgba($black, 0.03);
-    }
-
-    .swiper--transport &--centered {
-      min-height: 230px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    //@include media-breakpoint-up(lg) {
+    //  flex-grow: 1;
+    //  flex-basis: 30%;
+    //  margin: 10px;
+    //
+    //  &--double {
+    //    flex-basis: 60%;
+    //  }
+    //}
+    //
+    //.swiper--transport & {
+    //  margin: 0;
+    //  flex-basis: 50%;
+    //  //box-shadow: 0 0 10px 0 rgba($black, 0.03);
+    //}
+    //
+    //.swiper--transport &--centered {
+    //  min-height: 230px;
+    //  display: flex;
+    //  align-items: center;
+    //  justify-content: center;
+    //}
   }
 
   &-pagination {
@@ -51,6 +55,46 @@
 
     &:focus {
       outline: none;
+    }
+  }
+
+  &-btn {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    font-size: 0;
+    background: none;
+    border: 3px solid $gray-dark;
+    border-bottom-color: transparent;
+    opacity: 0.1;
+    transition: all 0.1s ease-in;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.3;
+    }
+
+    &:active {
+      top: calc(50% + 2px);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &--left {
+      left: -50px;
+      border-right-color: transparent;
+      transform: rotate3d(0, 0, 1, -45deg);
+    }
+
+    &--right {
+      right: -50px;
+      border-left-color: transparent;
+      transform: rotate3d(0, 0, 1, 45deg);
     }
   }
 }

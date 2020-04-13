@@ -23,17 +23,21 @@ export class TransportPageComponent implements OnInit, AfterViewInit {
       slidesPerView: 1,
       spaceBetween: 20,
       breakpointsInverse: true,
-      breakpoints: {
-        ['576']: {
-          slidesPerView: 2,
-          spaceBetween: 14
-        }
-      },
+      // breakpoints: {
+      //   ['576']: {
+      //     slidesPerView: 2,
+      //     spaceBetween: 14
+      //   }
+      // },
       pagination: {
         el: '#transport-pagination',
         clickable: true,
         // dynamicBullets: true
-      }
+      },
+      navigation: {
+        nextEl: '#transport-btn-right',
+        prevEl: '#transport-btn-left',
+      },
     };
   }
 
@@ -59,9 +63,9 @@ export class TransportPageComponent implements OnInit, AfterViewInit {
 
   checkBreakpoint() {
     if (this.breakpoint && this.breakpoint.matches) {
-      this.swiper.destroy(true, true);
+      // this.swiper.destroy(true, true);
     } else {
-      this.initSwiper();
+      // this.initSwiper();
     }
   }
 

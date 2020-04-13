@@ -2,17 +2,16 @@
 
 .transport-box {
   position: relative;
-  text-align: center;
   background-color: rgba($gray, 0.15);
 
   &-img {
-    width: 90%;
-    height: 230px;
+    width: 100%;
+    height: auto;
     display: inline-block;
     transition: all 0.2s ease-in;
 
     .transport-box:hover & {
-      filter: blur(5px);
+      //filter: blur(5px);
     }
   }
 
@@ -27,38 +26,19 @@
     right: 0;
     left: 0;
     bottom: 0;
+    padding: 40px;
     display: flex;
+    align-items: flex-start;
     flex-direction: column;
-    align-items: center;
-    color: $white;
-    text-transform: uppercase;
     background-color: transparent;
     transition: background-color 0.25s ease-in;
 
+    .transport-box--right & {
+      align-items: flex-end;
+    }
+
     .transport-box:hover & {
-      background-color: rgba($gray-dark, 0.9);
-    }
-
-    &::before {
-      content: attr(data-price);
-      position: absolute;
-      top: 15px;
-      left: 27px;
-      width: 100px;
-      color: $gray-dark;
-      text-transform: lowercase;
-
-      .transport-box--price-right & {
-        left: unset;
-        right: 45px;
-      }
-    }
-
-    .transport-box:hover &::before {
-      position: static;
-      display: block;
-      order: 2;
-      color: $white;
+      //background-color: rgba($gray-dark, 0.9);
     }
   }
 
@@ -66,16 +46,14 @@
     margin: 0;
     margin-bottom: 10px;
     font-family: $font-family;
-    font-size: 0;
+    font-size: 21px;
     font-weight: 400;
-    text-align: center;
-    opacity: 0;
+    text-transform: uppercase;
+    color: $gray-dark;
+  }
 
-    .transport-box:hover & {
-      margin-top: auto;
-      font-size: 26px;
-      opacity: 1;
-    }
+  &-label {
+    color: $gray-dark;
   }
 
   &-btn {
@@ -83,6 +61,7 @@
     margin-bottom: auto;
     opacity: 0;
     order: 3;
+    transition: all 0.3s ease-in;
 
     .transport-box:hover & {
       opacity: 1;

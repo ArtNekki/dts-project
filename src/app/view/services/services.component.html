@@ -10,20 +10,20 @@
           </div>
         </article>
       </div>
-      <div class="swiper-slide">
-        <article class="service-card" [ngStyle]="{'background-image': setImage('land-work')}">
+      <div class="swiper-slide swiper-slide--double">
+        <article class="service-card" [ngStyle]="{'background-image': setImage('delivery')}">
           <div class="service-card-overlay">
-            <h1 class="service-card-title">Благоустройство территории</h1>
-            <p class="service-card-text">Очистка от грязи,мусора, снега, луж</p>
+            <h1 class="service-card-title">Перевозка <br />грузов</h1>
+            <p class="service-card-text">Спецтехники, контейнеров, пиломатериалов, леса, емкостей, металлоконструкций</p>
             <button type="button" class="btn service-card-btn" (click)="openModal('Строительно земельные работы')">Заказать</button>
           </div>
         </article>
       </div>
       <div class="swiper-slide">
-        <article class="service-card" [ngStyle]="{'background-image': setImage('land-work')}">
+        <article class="service-card" [ngStyle]="{'background-image': setImage('clear-work')}">
           <div class="service-card-overlay">
-            <h1 class="service-card-title">Перевозка <br />грузов</h1>
-            <p class="service-card-text">Спецтехники, контейнеров, пиломатериалов, леса, емкостей, металлоконструкций</p>
+            <h1 class="service-card-title">Благоустройство территории</h1>
+            <p class="service-card-text">Очистка от грязи,мусора, снега, луж</p>
             <button type="button" class="btn service-card-btn" (click)="openModal('Строительно земельные работы')">Заказать</button>
           </div>
         </article>
@@ -46,6 +46,15 @@
           </div>
         </article>
       </div>
+      <div class="swiper-slide swiper-slide--double">
+        <article class="service-card" [ngStyle]="{'background-image': setImage('land-work')}">
+          <div class="service-card-overlay">
+            <h1 class="service-card-title">Откачка</h1>
+            <p class="service-card-text">Колодцев, выгребных ям, гаражей, туалетов, различных засоров</p>
+            <button type="button" class="btn service-card-btn" (click)="openModal('Строительно земельные работы')">Заказать</button>
+          </div>
+        </article>
+      </div>
       <div class="swiper-slide">
         <article class="service-card" [ngStyle]="{'background-image': setImage('land-work')}">
           <div class="service-card-overlay">
@@ -55,15 +64,6 @@
           </div>
         </article>
       </div>
-<!--      <div class="swiper-slide">-->
-<!--        <article class="service-card" [ngStyle]="{'background-image': setImage('land-work')}">-->
-<!--          <div class="service-card-overlay">-->
-<!--            <h1 class="service-card-title">Откачка</h1>-->
-<!--            <p class="service-card-text">Колодцев, выгребных ям, гаражей, туалетов, различных засоров</p>-->
-<!--            <button type="button" class="btn service-card-btn" (click)="openModal('Строительно земельные работы')">Заказать</button>-->
-<!--          </div>-->
-<!--        </article>-->
-<!--      </div>-->
     </div>
   </div>
   <div id="services-pagination" class="swiper-pagination"></div>
