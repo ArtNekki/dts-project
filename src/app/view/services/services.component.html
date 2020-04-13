@@ -2,70 +2,39 @@
   <div #slider class="swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
-        <article class="service-card" [ngStyle]="{'background-image': setImage('land-work')}">
-          <div class="service-card-overlay">
-            <h1 class="service-card-title">Строительно-земельные<br />работы</h1>
-            <b class="service-card-cost">от 15 000р</b>
-            <p class="service-card-text">Рытье траншей и котлованов</p>
-            <button type="button" class="btn service-card-btn" (click)="openModal('Строительно земельные работы')">Заказать</button>
-          </div>
-        </article>
-      </div>
-      <div class="swiper-slide swiper-slide--double">
-        <article class="service-card" [ngStyle]="{'background-image': setImage('delivery')}">
-          <div class="service-card-overlay">
-            <h1 class="service-card-title">Перевозка <br />грузов</h1>
-            <b class="service-card-cost">от 15 000р</b>
-            <p class="service-card-text">Спецтехники, контейнеров, пиломатериалов, леса, емкостей, металлоконструкций</p>
-            <button type="button" class="btn service-card-btn" (click)="openModal('Строительно земельные работы')">Заказать</button>
-          </div>
-        </article>
+        <app-service-card title="Строительно-земельные<br />работы" price="15000" name="land-work">
+          Рытье траншей и котлованов
+        </app-service-card>
       </div>
       <div class="swiper-slide">
-        <article class="service-card" [ngStyle]="{'background-image': setImage('clear-work')}">
-          <div class="service-card-overlay">
-            <h1 class="service-card-title">Благоустройство территории</h1>
-            <b class="service-card-cost">от 15 000р</b>
-            <p class="service-card-text">Очистка от грязи,мусора, снега, луж</p>
-            <button type="button" class="btn service-card-btn" (click)="openModal('Строительно земельные работы')">Заказать</button>
-          </div>
-        </article>
+        <app-service-card title="Благоустройство территории" price="15000" name="clear-work">
+          Очистка от грязи,мусора, снега, луж
+        </app-service-card>
       </div>
       <div class="swiper-slide">
-        <article class="service-card" [ngStyle]="{'background-image': setImage('land-work')}">
-          <div class="service-card-overlay">
-            <h1 class="service-card-title">Доставка<br />инертных грузов</h1>
-            <p class="service-card-text">Песок, сланец, ПГС, щебень, отсев, грунт</p>
-            <button type="button" class="btn service-card-btn" (click)="openModal('Строительно земельные работы')">Заказать</button>
-          </div>
-        </article>
+        <app-service-card title="Перевозка грузов" price="15000" name="delivery">
+          Спецтехники, контейнеров, пиломатериалов, леса, емкостей, металлоконструкций
+        </app-service-card>
       </div>
       <div class="swiper-slide">
-        <article class="service-card" [ngStyle]="{'background-image': setImage('land-work')}">
-          <div class="service-card-overlay">
-            <h1 class="service-card-title">Доставка<br />опасных грузов</h1>
-            <p class="service-card-text">Надо будет добавить текст</p>
-            <button type="button" class="btn service-card-btn" (click)="openModal('Строительно земельные работы')">Заказать</button>
-          </div>
-        </article>
-      </div>
-      <div class="swiper-slide swiper-slide--double">
-        <article class="service-card" [ngStyle]="{'background-image': setImage('land-work')}">
-          <div class="service-card-overlay">
-            <h1 class="service-card-title">Откачка</h1>
-            <p class="service-card-text">Колодцев, выгребных ям, гаражей, туалетов, различных засоров</p>
-            <button type="button" class="btn service-card-btn" (click)="openModal('Строительно земельные работы')">Заказать</button>
-          </div>
-        </article>
+        <app-service-card title="Доставка<br />инертных грузов" price="15000" name="land-work">
+          Песок, сланец, ПГС, щебень, отсев, грунт
+        </app-service-card>
       </div>
       <div class="swiper-slide">
-        <article class="service-card" [ngStyle]="{'background-image': setImage('land-work')}">
-          <div class="service-card-overlay">
-            <h1 class="service-card-title">Аренда складов, открытых площадок</h1>
-<!--            <p>Колодцев, выгребных ям, гаражей, туалетов, различных засоров</p>-->
-            <button type="button" class="btn service-card-btn" (click)="openModal('Строительно земельные работы')">Заказать</button>
-          </div>
-        </article>
+        <app-service-card title="Доставка<br />опасных грузов" price="15000" name="land-work">
+          Надо будет добавить текст
+        </app-service-card>
+      </div>
+      <div class="swiper-slide">
+        <app-service-card title="Аренда складов, открытых площадок" price="15000" name="land-work">
+          Надо будет добавить текст
+        </app-service-card>
+      </div>
+      <div class="swiper-slide">
+        <app-service-card title="Откачка" price="15000" name="land-work">
+          Колодцев, выгребных ям, гаражей, туалетов, различных засоров
+        </app-service-card>
       </div>
     </div>
   </div>

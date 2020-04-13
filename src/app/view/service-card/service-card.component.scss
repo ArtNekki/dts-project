@@ -1,0 +1,110 @@
+@import "src/variables";
+
+.service-card {
+  position: relative;
+  height: 360px;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+
+  &-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 15px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba($gray-dark, 0.4);
+    transition: all 0.3s ease-in;
+  }
+
+  &-img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &-title {
+    position: relative;
+    margin-top: 40px;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    min-height: 60px;
+    font-size: 20px;
+    line-height: 30px;
+    color: $white;
+    text-transform: uppercase;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 1px;
+      background-color: $white;
+    }
+  }
+
+  &-price {
+    position: absolute;
+    top: 170px;
+    font-size: 22px;
+    color: $white;
+    transition: all 0.4s ease-in;
+
+    .service-card:hover & {
+      margin-top: 50px;
+      order: 1;
+      font-size: 19px;
+    }
+  }
+
+  &-text {
+    position: relative;
+    margin-top: 0;
+    margin-right: 30px;
+    margin-left: 30px;
+    font-size: 14px;
+    line-height: 16px;
+    color: $white;
+
+    transform: translateX(300px);
+    transition: all 0.3s ease-out;
+
+    .service-card:hover & {
+      transform: translateX(0);
+    }
+  }
+
+  &-btn {
+    position: relative;
+    margin-top: auto;
+    margin-bottom: 10px;
+    padding: 20px 40px;
+    color: $gray-dark;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    box-shadow: none;
+    background-color: $white;
+    opacity: 0;
+    order: 2;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: translateY(3px);
+    }
+
+    .service-card:hover & {
+      opacity: 1;
+    }
+  }
+}

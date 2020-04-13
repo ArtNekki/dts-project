@@ -1,0 +1,14 @@
+<article class="service-card">
+  <img class="service-card-img"
+       [src]="'/assets/img/content/services/' + name + '.jpg'"
+       [srcset]="'/assets/img/content/services/' + name + '@2x.jpg 2x, /assets/img/content/services/' + name + '@3x.jpg 3x'"
+  >
+  <div class="service-card-overlay">
+    <h1 class="service-card-title">{{title}}</h1>
+    <b class="service-card-price">от {{price | currency: 'RUB':'symbol-narrow':'4.0':'ru'}}</b>
+    <p class="service-card-text">
+      <ng-content></ng-content>
+    </p>
+    <button type="button" class="btn service-card-btn" (click)="openModal('Строительно земельные работы')">Заказать</button>
+  </div>
+</article>
