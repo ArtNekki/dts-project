@@ -50,19 +50,23 @@ export class ServicesComponent implements OnInit, AfterViewInit {
   ngOnInit() {
 
     this.config = {
-      slidesPerView: 1,
+      slidesPerView: 3,
       spaceBetween: 20,
       breakpointsInverse: true,
-      breakpoints: {
-        ['576']: {
-          slidesPerView: 2,
-          spaceBetween: 14
-        }
-      },
+      // breakpoints: {
+      //   ['576']: {
+      //     slidesPerView: 2,
+      //     spaceBetween: 14
+      //   }
+      // },
       pagination: {
         el: '#services-pagination',
         clickable: true
-      }
+      },
+      navigation: {
+        nextEl: '#services-btn-right',
+        prevEl: '#services-btn-left',
+      },
     };
   }
 
@@ -97,9 +101,9 @@ export class ServicesComponent implements OnInit, AfterViewInit {
 
   checkBreakpoint() {
     if (this.breakpoint && this.breakpoint.matches) {
-      this.swiper.destroy(true, true);
+      // this.swiper.destroy(true, true);
     } else {
-      this.initSwiper();
+      // this.initSwiper();
     }
   }
 }

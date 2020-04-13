@@ -9,11 +9,12 @@
     content: "";
     position: absolute;
     z-index: -1;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 900px;
-    background-image: linear-gradient(180deg, #efcd4f 15%, $white);
+    top: -206px;
+    left: -50px;
+    right: -113px;
+    height: 884px;
+    background: #efcd4f;
+    transform: rotate3d(0, 0, 1, 7deg);
   }
 
   &-container {
@@ -83,7 +84,7 @@
 
   &-heading h1 {
     margin-top: 20px;
-    font-size: 52px;
+    font-size: 55px;
     line-height: 60px;
     color: $white;
     text-transform: uppercase;

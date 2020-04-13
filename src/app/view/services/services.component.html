@@ -67,6 +67,8 @@
     </div>
   </div>
   <div id="services-pagination" class="swiper-pagination"></div>
+  <button id="services-btn-left" class="swiper-btn swiper-btn--left">&nbsp;</button>
+  <button id="services-btn-right" class="swiper-btn swiper-btn--right">&nbsp;</button>
 </div>
 <app-modal *ngIf="modal" [title]="modalTitle" (close)="modal = false">
   <app-service-order-form [serviceTitle]="modalTitle"></app-service-order-form>

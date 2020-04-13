@@ -3,7 +3,7 @@
 .service-card {
   position: relative;
   //margin: 7px;
-  min-height: 320px;
+  min-height: 360px;
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -22,11 +22,11 @@
     align-items: center;
     text-align: center;
     background-color: rgba($yellow, 0.9);
-    opacity: 0;
+    //opacity: 0;
     transition: all 0.3s ease-in;
 
     .service-card:hover & {
-      opacity: 1;
+      //opacity: 1;
     }
   }
 

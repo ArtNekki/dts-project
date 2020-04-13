@@ -14,7 +14,6 @@
   cursor: pointer;
 
   &:hover {
-    //color: $gray-dark;
     background-color: rgba($yellow, 0.5);
     transform: translateY(-3px);
   }
@@ -26,6 +25,15 @@
   &--lg {
     padding: 20px 40px;
     border-radius: 30px;
+  }
+
+  &--inverse {
+    color: $gray-dark;
+    background-color: $white;
+
+    &:hover {
+      background-color: rgba($white, 0.9);
+    }
   }
 
   &--transport {
