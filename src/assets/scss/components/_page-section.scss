@@ -6,16 +6,8 @@
     margin-top: 120px;
   }
 
-  //&--about {
-  //  margin-top: 80px;
-  //}
-
-  &--about .container {
-    height: 335px;
-    background-image: url("assets/img/content/about.jpg");
-    background-repeat: no-repeat;
-    background-position: 100% 0;
-    background-size: 600px;
+  &--about {
+    background: #f9f9f9;
   }
 
   &--buy .container {

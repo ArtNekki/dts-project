@@ -2,30 +2,36 @@
   <div class="page-header-container container">
     <nav class="page-header-nav">
       <a href="#" class="page-header-logo">Logo</a>
-      <ul class="page-header-list">
-        <li routerLinkActive="active">
-          <a routerLink='.' fragment='transport'>Аренда техники</a>
-        </li>
-        <li>
-          <a routerLink='.' fragment='services'>Услуги</a>
-        </li>
-        <li>
-          <a routerLink='.' fragment='services'>Материалы</a>
-        </li>
-        <li>
-          <a routerLink='.' fragment='about'>О нас</a>
-        </li>
-        <li>
-          <a href="#">Цены</a>
-        </li>
-        <li>
-          <a routerLink='.' fragment='contacts'>Контакты</a>
-        </li>
-      </ul>
+      <div class="page-header-menu">
+        <ul class="page-header-list">
+          <li routerLinkActive="active">
+            <a routerLink='.' fragment='transport'>Аренда техники</a>
+          </li>
+          <li>
+            <a routerLink='.' fragment='services'>Услуги</a>
+          </li>
+          <li>
+            <a routerLink='.' fragment='services'>Материалы</a>
+          </li>
+          <li>
+            <a routerLink='.' fragment='about'>О нас</a>
+          </li>
+          <li>
+            <a href="#">Цены</a>
+          </li>
+          <li>
+            <a routerLink='.' fragment='contacts'>Контакты</a>
+          </li>
+        </ul>
+        <button class="page-header-close">&times;</button>
+      </div>
+      <button class="page-header-open">
+        <span></span>
+      </button>
     </nav>
     <svg-icon class="page-header-img"  [src]="'/assets/img/svg/excovators.svg'"></svg-icon>
     <div class="row">
-      <div class="col-8">
+      <div class="col col-sm-8">
         <div class="page-header-heading">
           <h1 class="page-header-title">Нужна <br />спецтехника?</h1>
           <small>в Хабаровске или крае</small>
@@ -74,7 +80,7 @@
     </div>
     <div class="page-header-sale">
       <b>20%</b>
-      скидка при аренде от 2х недель
+      скидка при аренде<br /> от 2х недель
     </div>
   </div>
 </header>

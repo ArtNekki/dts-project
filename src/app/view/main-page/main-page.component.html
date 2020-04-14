@@ -1,11 +1,10 @@
-<app-page-header [transport]="transport"  [services]="services" [contacts]="contacts"></app-page-header>
+<app-page-header [transport]="transport"  [services]="services" [contacts]=""></app-page-header>
 <section #transport id="transport" class="page-section page-section--transport">
   <div class="container">
     <div class="page-section-heading">
-<!--          <small>Большой выбор</small>-->
-          <h2>Выберите технику</h2>
-          <small>У нас большой автопарк</small>
-        </div>
+      <h2>Выберите технику</h2>
+      <small>У нас большой автопарк</small>
+    </div>
     <router-outlet></router-outlet>
   </div>
 </section>
@@ -45,10 +44,9 @@
     </div>
   </div>
 </div>
-<div class="page-section">
+<div class="page-section page-section--about">
   <div class="container">
     <div class="page-section-heading">
-      <small>Немного</small>
       <h2>О нас</h2>
     </div>
     <p class="u-text-lg u-no-mg"><b>"ДальТрансСнаб"</b>- компания, которая специализируется на аренде стройтехники в
@@ -86,13 +84,22 @@
     <app-features></app-features>
   </div>
 </div>
-<div #contacts id="contacts" class="page-section page-section--contacts">
+<div #features id="print" class="page-section page-section--features">
   <div class="container">
     <div class="page-section-heading">
-      <small>Наши</small>
-      <h2>Контакты</h2>
+      <small>Скачать</small>
+      <h2>Прайслист</h2>
     </div>
-    <app-contacts></app-contacts>
+<!--    <app-features></app-features>-->
   </div>
 </div>
+<!--<div #contacts id="contacts" class="page-section page-section&#45;&#45;contacts">-->
+<!--  <div class="container">-->
+<!--    <div class="page-section-heading">-->
+<!--      <small>Наши</small>-->
+<!--      <h2>Контакты</h2>-->
+<!--    </div>-->
+<!--    <app-contacts></app-contacts>-->
+<!--  </div>-->
+<!--</div>-->
 <app-page-footer></app-page-footer>
