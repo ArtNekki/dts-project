@@ -4,22 +4,25 @@
 @charset 'utf-8';
 @import '~swiper/css/swiper.min.css';
 
-//utils
-@import 'assets/scss/utils/functions';
-@import 'assets/scss/utils/mixins';
-@import 'assets/scss/utils/utils';
-@import 'assets/scss/utils/breakpoints';
-@import 'assets/scss/utils/animations';
+//core
+@import 'assets/scss/core/functions';
+@import 'assets/scss/core/mixins';
+@import 'assets/scss/core/utils';
+@import 'assets/scss/core/breakpoints';
+@import 'assets/scss/core/animations';
 
 //settings
 @import 'variables';
 @import 'assets/scss/settings';
 
 //libs
-@import 'assets/scss/utils/libs';
+@import 'assets/scss/core/libs';
 
 // @import 'global/typography';
-@import 'assets/scss/utils/fonts';
+@import 'assets/scss/core/fonts';
+
+//utils
+@import 'assets/scss/utils';
 
 //grid
 @import "assets/scss/grid-framework/grid-framework";

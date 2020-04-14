@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col-5">
-    <ul class="list">
+  <div class="col col-lg-5">
+    <ul class="list list--transport-features">
       <li>
         <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
         <div class="list-text">Техника ведущих марок</div>
@@ -30,9 +30,11 @@
         <div class="list-text">Вся техника заправлена</div>
       </li>
     </ul>
-    <a [routerLink]="['transport', 'tippers']" fragment="transport" class="btn btn--transport btn--lg">Все варианты</a>
+    <div class="u-show-lg u-mgl-lg">
+      <a [routerLink]="['transport', 'tippers']" fragment="transport" class="btn btn--transport btn--lg">Все варианты</a>
+    </div>
   </div>
-  <div class="col-7">
+  <div class="col col-lg-7">
     <div class="swiper swiper--transport">
       <div #slider class="swiper-container">
         <div class="swiper-wrapper">
@@ -56,6 +58,9 @@
       <button id="transport-btn-left" class="swiper-btn swiper-btn--left">&nbsp;</button>
       <button id="transport-btn-right" class="swiper-btn swiper-btn--right">&nbsp;</button>
       <div id="transport-pagination" class="swiper-pagination"></div>
+    </div>
+    <div class="u-text-align-center u-hide-lg u-mgt--xl">
+      <a [routerLink]="['transport', 'tippers']" fragment="transport" class="btn btn--transport btn--lg">Все варианты</a>
     </div>
   </div>
 </div>

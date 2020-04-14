@@ -6,9 +6,13 @@
   list-style: none;
 
   li {
-    margin-bottom: 12px;
+    margin-bottom: 6px;
     display: flex;
     align-items: center;
+
+    @include media-breakpoint-up(sm) {
+      margin-bottom: 12px;
+    }
   }
 
   &-icon {
@@ -18,10 +22,46 @@
 
   &-text {
     margin-left: 10px;
-    font-size: 16px;
-    line-height: 21px;
+    font-size: 12px;
+    line-height: 17px;
     display: inline-block;
     vertical-align: middle;
+
+    @include media-breakpoint-up(sm) {
+      font-size: 16px;
+      line-height: 21px;
+    }
+  }
+
+  &--transport-features {
+
+    @include media-breakpoint-up(sm) {
+      column-count: 2;
+    }
+
+    @include media-breakpoint-up(lg) {
+      column-count: unset;
+    }
+
+    li {
+      @include media-breakpoint-up(sm) {
+        margin-bottom: 6px;
+      }
+
+      @include media-breakpoint-up(md) {
+        margin-bottom: 12px;
+      }
+    }
+
+    .list-text {
+      @include media-breakpoint-up(sm) {
+        font-size: 12px;
+      }
+
+      @include media-breakpoint-up(md) {
+        font-size: 16px;
+      }
+    }
   }
 
   small {

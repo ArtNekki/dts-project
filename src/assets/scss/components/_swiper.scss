@@ -85,7 +85,7 @@
     left: 50%;
     transform: translateX(-50%);
 
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(xl) {
       display: none;
     }
   }
@@ -112,6 +112,7 @@
     transform: translateY(-50%);
     width: 40px;
     height: 40px;
+    display: none;
     font-size: 0;
     background: none;
     border: 3px solid $gray-dark;
@@ -119,6 +120,10 @@
     opacity: 0.1;
     transition: all 0.1s ease-in;
     cursor: pointer;
+
+    @include media-breakpoint-up(xl) {
+      display: block;
+    }
 
     &:hover {
       opacity: 0.3;

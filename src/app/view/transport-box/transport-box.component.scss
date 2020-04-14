@@ -1,4 +1,7 @@
+@import 'src/assets/scss/core/functions';
+@import "src/assets/scss/core/breakpoints";
 @import "src/variables";
+@import "src/assets/scss/settings";
 
 .transport-box {
   position: relative;
@@ -28,13 +31,20 @@
     bottom: 0;
     padding: 40px;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
-    background-color: transparent;
+    background-color: rgba($black, 0.8);
     transition: background-color 0.25s ease-in;
 
+    @include media-breakpoint-up(sm) {
+      align-items: flex-start;
+      background-color: transparent;
+    }
+
     .transport-box--right & {
-      align-items: flex-end;
+      @include media-breakpoint-up(sm) {
+        align-items: flex-end;
+      }
     }
 
     .transport-box:hover & {
@@ -47,21 +57,36 @@
     margin-bottom: 10px;
     font-family: $font-family;
     font-size: 21px;
+    line-height: 24px;
     font-weight: 400;
+    text-align: center;
     text-transform: uppercase;
-    color: $gray-dark;
+    color: $white;
+
+    @include media-breakpoint-up(sm) {
+      text-align: unset;
+      color: $gray-dark;
+    }
   }
 
   &-label {
-    color: $gray-dark;
+    color: $white;
+
+    @include media-breakpoint-up(sm) {
+      color: $gray-dark;
+    }
   }
 
   &-btn {
     margin-top: 25px;
     margin-bottom: auto;
-    opacity: 0;
+    opacity: 1;
     order: 3;
     transition: all 0.3s ease-in;
+
+    @include media-breakpoint-up(sm) {
+      opacity: 0;
+    }
 
     .transport-box:hover & {
       opacity: 1;
