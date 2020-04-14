@@ -50,15 +50,19 @@ export class ServicesComponent implements OnInit, AfterViewInit {
   ngOnInit() {
 
     this.config = {
-      slidesPerView: 3,
-      spaceBetween: 20,
+      slidesPerView: 1,
+      spaceBetween: 0,
       breakpointsInverse: true,
-      // breakpoints: {
-      //   ['576']: {
-      //     slidesPerView: 2,
-      //     spaceBetween: 14
-      //   }
-      // },
+      breakpoints: {
+        ['576']: {
+          slidesPerView: 2,
+          spaceBetween: 14
+        },
+        ['820']: {
+          slidesPerView: 3,
+          spaceBetween: 14
+        }
+      },
       pagination: {
         el: '#services-pagination',
         clickable: true

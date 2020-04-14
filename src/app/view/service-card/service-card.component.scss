@@ -1,4 +1,7 @@
+@import 'src/assets/scss/core/functions';
+@import "src/assets/scss/core/breakpoints";
 @import "src/variables";
+@import "src/assets/scss/settings";
 
 .service-card {
   position: relative;
@@ -32,52 +35,57 @@
 
   &-title {
     position: relative;
-    margin-top: 40px;
-    margin-bottom: 25px;
-    padding-bottom: 20px;
+    margin-top: 25px;
+    margin-bottom: 15px;
     min-height: 60px;
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 19px;
+    line-height: 25px;
     color: $white;
     text-transform: uppercase;
 
-    &::before {
+    @include media-breakpoint-up(sm) {
+      font-size: 16px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      font-size: 19px;
+    }
+  }
+
+  &-price {
+    position: relative;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 20px;
+    color: $white;
+
+    &::before,
+    &::after {
       content: "";
       position: absolute;
       left: 50%;
-      bottom: 0;
       transform: translateX(-50%);
       width: 60px;
       height: 1px;
       background-color: $white;
     }
-  }
 
-  &-price {
-    position: absolute;
-    top: 170px;
-    font-size: 22px;
-    color: $white;
-    transition: all 0.4s ease-in;
+    &::before {
+      top: 0;
+    }
 
-    .service-card:hover & {
-      margin-top: 50px;
-      order: 1;
-      font-size: 19px;
+    &::after {
+      bottom: 0;
     }
   }
 
   &-text {
     position: relative;
     margin-top: 0;
-    margin-right: 30px;
-    margin-left: 30px;
     font-size: 14px;
-    line-height: 16px;
+    line-height: 18px;
     color: $white;
-
-    transform: translateX(300px);
-    transition: all 0.3s ease-out;
 
     .service-card:hover & {
       transform: translateX(0);
