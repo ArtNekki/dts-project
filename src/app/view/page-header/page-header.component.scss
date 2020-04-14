@@ -5,9 +5,13 @@
 
 .page-header {
   position: relative;
-  padding-bottom: 25px;
+  padding-bottom: 135px;
   width: 100%;
   overflow: hidden;
+
+  @include media-breakpoint-up(sm) {
+    padding-bottom: 25px;
+  }
 
   &::before {
     content: "";
@@ -16,16 +20,24 @@
     top: -207px;
     left: -50px;
     right: -113px;
-    height: 884px;
+    height: 745px;
     background-color: #efcd4f;
     //background-image: url("src/assets/img/bg/texture.jpg");
     //background-repeat: ;
     transform: rotate3d(0, 0, 1, 7deg);
+
+    @include media-breakpoint-up(sm) {
+      height: 885px;
+    }
   }
 
   &-container {
     position: relative;
-    min-height: 760px;
+    min-height: 480px;
+
+    @include media-breakpoint-up(sm) {
+      min-height: 760px;
+    }
   }
 
   &-img {
@@ -119,7 +131,6 @@
   }
 
   &-menu {
-    display: none;
     position: fixed;
     z-index: 100;
     top: 0;
@@ -127,7 +138,12 @@
     bottom: 0;
     left: 0;
     padding-top: 40px;
+    display: none;
     background: $white;
+
+    .page-header--menu-opened & {
+      display: block;
+    }
 
     @include media-breakpoint-up(sm) {
       position: static;
@@ -140,13 +156,19 @@
   &-close {
     position: absolute;
     z-index: 101;
-    top: 15px;
+    top: 0;
     right: 15px;
     margin: 0;
     padding: 0;
-    font-size: 35px;
+    font-size: 40px;
+    color: $orange;
     border: none;
     background: none;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
 
     @include media-breakpoint-up(sm) {
       display: none;
@@ -155,6 +177,7 @@
 
   &-list {
     margin: 0;
+    margin-top: 20px;
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -162,6 +185,7 @@
     list-style-type: none;
 
     @include media-breakpoint-up(sm) {
+      margin-top: 0;
       flex-direction: row;
       justify-content: center;
     }
@@ -169,10 +193,20 @@
   }
 
   &-list li {
-    padding: 5px 20px;
+    padding: 10px 20px;
+    border-top: 1px dashed $gray;
 
     @include media-breakpoint-up(sm) {
       padding: 25px 10px;
+      border: none;
+    }
+
+    &:last-child {
+      border-bottom: 1px dashed $gray;
+
+      @include media-breakpoint-up(sm) {
+        border: none;
+      }
     }
   }
 
@@ -222,27 +256,29 @@
 
   &-heading small {
     position: relative;
-    margin-top: -25px;
+    margin-top: -20px;
     display: block;
     font-size: 16px;
 
     @include media-breakpoint-up(sm) {
-      margin-top: -35px;
+      margin-top: -30px;
     }
   }
 
   &-promo {
     margin-top: 35px;
-    margin-bottom: 200px;
-    font-size: 14px;
+    margin-bottom: 50px;
+    font-size: 16px;
     font-style: italic;
     line-height: 17px;
 
     @include media-breakpoint-up(sm) {
       margin-top: 55px;
       margin-bottom: 50px;
+    }
+
+    @include media-breakpoint-up(md) {
       font-size: 20px;
-      font-style: italic;
       line-height: 26px;
     }
 
@@ -260,15 +296,21 @@
     top: 310px;
     right: 0;
     left: 0;
+    display: none;
     text-align: center;
     line-height: 20px;
     color: $white;
 
     @include media-breakpoint-up(sm) {
-      top: 230px;
-      right: 80px;
+      top: 280px;
+      right: 30px;
       left: unset;
       width: 160px;
+    }
+
+    @include media-breakpoint-up(md) {
+      top: 230px;
+      right: 80px;
     }
 
     @include media-breakpoint-up(lg) {
@@ -286,7 +328,7 @@
   &-features {
     //border: 1px solid red;
     position: absolute;
-    bottom: 0;
+    bottom: -120px;
     left: 20px;
     right: 20px;
     margin: 0;
@@ -299,6 +341,10 @@
     list-style: none;
     color: $gray-dark;
     box-shadow: 0 0 20px 0 rgba($black, 0.1);
+
+    @include media-breakpoint-up(sm) {
+      bottom: 0;
+    }
 
     li {
       flex-basis: 25%;
@@ -317,6 +363,16 @@
       vertical-align: middle;
       font-size: 16px;
       line-height: 19px;
+
+      //@include media-breakpoint-up(sm) {
+      //  font-size: 15px;
+      //  line-height: 17px;
+      //}
+      //
+      //@include media-breakpoint-up(lg) {
+      //  font-size: 16px;
+      //  line-height: 19px;
+      //}
     }
 
     &-icon {
@@ -334,3 +390,4 @@
     }
   }
 }
+

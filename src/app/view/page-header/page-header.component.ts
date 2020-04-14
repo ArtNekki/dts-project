@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostListener, InjectionToken, Input, OnInit, ViewChild} from '@angular/core';
 import Swiper from 'swiper';
 
 @Component({
@@ -12,6 +12,7 @@ export class PageHeaderComponent implements OnInit, AfterViewInit {
   @Input() features: HTMLElement;
   @Input() services: HTMLElement;
   @Input() contacts: HTMLElement;
+  @ViewChild('header', {read: ElementRef}) header: ElementRef;
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
 
   swiper: Swiper;
@@ -76,5 +77,14 @@ export class PageHeaderComponent implements OnInit, AfterViewInit {
     } else {
       this.initSwiper();
     }
+  }
+
+  openMenu() {
+    this.header.nativeElement.classList.add('page-header--menu-opened');
+    console.log('opened');
+  }
+
+  closeMenu() {
+    this.header.nativeElement.classList.remove('page-header--menu-opened');
   }
 }

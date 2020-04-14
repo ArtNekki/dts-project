@@ -1,31 +1,31 @@
-<header class="page-header">
+<header class="page-header" #header>
   <div class="page-header-container container">
     <nav class="page-header-nav">
       <a href="#" class="page-header-logo">Logo</a>
       <div class="page-header-menu">
         <ul class="page-header-list">
           <li routerLinkActive="active">
-            <a routerLink='.' fragment='transport'>Аренда техники</a>
+            <a routerLink='.' fragment='transport' (click)="closeMenu()">Аренда техники</a>
           </li>
           <li>
-            <a routerLink='.' fragment='services'>Услуги</a>
+            <a routerLink='.' fragment='services' (click)="closeMenu()">Услуги</a>
           </li>
           <li>
-            <a routerLink='.' fragment='services'>Материалы</a>
+            <a routerLink='.' fragment='services' (click)="closeMenu()">Материалы</a>
           </li>
           <li>
-            <a routerLink='.' fragment='about'>О нас</a>
+            <a routerLink='.' fragment='about' (click)="closeMenu()">О нас</a>
           </li>
           <li>
-            <a href="#">Цены</a>
+            <a href="#" (click)="closeMenu()">Цены</a>
           </li>
           <li>
-            <a routerLink='.' fragment='contacts'>Контакты</a>
+            <a routerLink='.' fragment='contacts' (click)="closeMenu()">Контакты</a>
           </li>
         </ul>
-        <button class="page-header-close">&times;</button>
+        <button class="page-header-close" (click)="closeMenu()">&times;</button>
       </div>
-      <button class="page-header-open">
+      <button class="page-header-open" (click)="openMenu()">
         <span></span>
       </button>
     </nav>
@@ -46,11 +46,18 @@
       <div class="swiper swiper--features swiper--header-features">
         <div #slider class="swiper-container">
           <div class="swiper-wrapper">
+            <div class="swiper-slide u-hide-sm">
+              <small class="page-header-text">
+                <b>20%</b>
+                <br />
+                скидка при аренде<br /> от 2х недель
+              </small>
+            </div>
             <div class="swiper-slide">
               <small class="page-header-text">
                 <b>10 лет</b>
                 <br />
-                опыта работы <br />на рынке спецтехники
+                опыта работы <br />в этой сфере
               </small>
             </div>
             <div class="swiper-slide">
@@ -71,14 +78,14 @@
               <small class="page-header-text">
                 <b>24/7</b>
                 <br />
-                Работаем круглосуточно <br />без выходных
+                Работаем <br />без выходных
               </small>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="page-header-sale">
+    <div class="page-header-sale u-show-sm">
       <b>20%</b>
       скидка при аренде<br /> от 2х недель
     </div>

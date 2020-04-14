@@ -52,6 +52,14 @@
   }
 }
 
+.u-hide-sm {
+
+  @include media-breakpoint-up(sm) {
+    display: none !important;
+  }
+}
+
+
 .u-show-lg {
   display: none !important;
 
