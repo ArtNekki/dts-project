@@ -42,6 +42,7 @@ import {NgSelectModule} from '@ng-select/ng-select';
 import { ContactsComponent } from './view/contacts/contacts.component';
 import { ServiceCardComponent } from './view/service-card/service-card.component';
 import { FeatureCardComponent } from './view/feature-card/feature-card.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 // const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 //   direction: 'horizontal',
@@ -88,7 +89,8 @@ registerLocaleData(ruLocale, 'ru');
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDXu6wNP79AG7OHTlyBMRufLdjdvSmwo0A',
       libraries: ['places']
-    })
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     {
