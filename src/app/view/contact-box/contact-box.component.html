@@ -5,7 +5,7 @@
   <div class="contact-box-aside">
     <h1 class="contact-box-title">{{title}}</h1>
     <div class="contact-box-content">
-      <p *ngIf="!href">{{text}}</p>
+      <p *ngIf="!href" [innerHTML]="text"></p>
       <a [href]="href" *ngIf="href" class="link link--block">{{text}}</a>
     </div>
   </div>

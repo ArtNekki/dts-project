@@ -1,15 +1,41 @@
+@import 'src/assets/scss/core/functions';
+@import "src/assets/scss/core/breakpoints";
 @import "src/variables";
+@import "src/assets/scss/settings";
 
 .contact-box {
   margin-top: 40px;
+  margin-left: 15px;
+  margin-right: 15px;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+
+  @include media-breakpoint-up(sm) {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
 
   &-icon {
     position: relative;
     transform: translateY(-3px);
-    margin-right: 20px;
+    margin-bottom: 20px;
     transition: all 0.3s ease-in;
+
+    @include media-breakpoint-up(sm) {
+      margin-right: 20px;
+      margin-bottom: 0;
+    }
+
+    @include media-breakpoint-up(md) {
+     display: none;
+    }
+
+    @include media-breakpoint-up(lg) {
+      display: block;
+    }
 
     &:hover {
       transform: translateY(0);
@@ -37,4 +63,11 @@
     line-height: 16px;
     color: $gray-dark;
   }
+
+  br {
+    @include media-breakpoint-up(sm) {
+      display: none;
+    }
+  }
 }
+

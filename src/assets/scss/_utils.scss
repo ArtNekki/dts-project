@@ -44,6 +44,14 @@
   justify-content: center;
 }
 
+.u-show-sm {
+  display: none !important;
+
+  @include media-breakpoint-up(sm) {
+    display: block !important;
+  }
+}
+
 .u-show-lg {
   display: none !important;
 
