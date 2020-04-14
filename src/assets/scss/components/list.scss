@@ -10,6 +10,10 @@
     display: flex;
     align-items: center;
 
+    .list--materials {
+      margin-bottom: 12px;
+    }
+
     @include media-breakpoint-up(sm) {
       margin-bottom: 12px;
     }
@@ -26,6 +30,11 @@
     line-height: 17px;
     display: inline-block;
     vertical-align: middle;
+
+    .list--materials & {
+      font-size: 16px;
+      line-height: 21px;
+    }
 
     @include media-breakpoint-up(sm) {
       font-size: 16px;

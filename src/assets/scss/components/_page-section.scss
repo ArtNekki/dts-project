@@ -10,12 +10,24 @@
     background: #f9f9f9;
   }
 
-  &--buy .container {
-    height: 650px;
-    background-image: url("src/assets/img/bg/sand-width-barrel.jpg");
-    background-repeat: no-repeat;
-    background-position: 71% 100%;
-    background-size: 78% auto;
+
+  &--materials .container {
+
+    @include media-breakpoint-up(sm) {
+      height: 600px;
+      background-image: url("src/assets/img/bg/sand-width-barrel.jpg");
+      background-repeat: no-repeat;
+      background-position: 150% 100%;
+      background-size: 93% auto;
+    }
+
+    @include media-breakpoint-up(md) {
+      height: 650px;
+      background-image: url("src/assets/img/bg/sand-width-barrel.jpg");
+      background-repeat: no-repeat;
+      background-position: 71% 100%;
+      background-size: 78% auto;
+    }
   }
 
   //&--features {
@@ -30,6 +42,14 @@
 
     .page-section--transport & {
       padding-top: 0;
+    }
+
+    .page-section--materials & {
+
+      @include media-breakpoint-up(sm) {
+        text-align: center;
+      }
+
     }
   }
 
