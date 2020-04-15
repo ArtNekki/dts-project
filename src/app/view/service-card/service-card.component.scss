@@ -20,17 +20,28 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     text-align: center;
     background-color: rgba($gray-dark, 0.4);
+  }
+
+  &-content {
+    transform: translateY(20%);
+    display: flex;
+    flex-direction: column;
     transition: all 0.3s ease-in;
+
+    .service-card:hover & {
+      transform: translateY(0);
+    }
   }
 
   &-img {
     display: block;
     width: 100%;
     height: auto;
+    filter: saturate(0.7) contrast(0.4);
+    transition: all 0.5s ease-in;
   }
 
   &-title {
@@ -42,6 +53,7 @@
     line-height: 25px;
     color: $white;
     text-transform: uppercase;
+    transition: all 0.3s ease-in;
 
     @include media-breakpoint-up(sm) {
       font-size: 16px;
@@ -105,7 +117,7 @@
     background-color: $white;
     opacity: 0;
     order: 2;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in 0.1s;
 
     &:hover {
       transform: translateY(3px);
