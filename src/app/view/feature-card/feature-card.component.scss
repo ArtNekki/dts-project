@@ -72,8 +72,11 @@
     }
 
     .feature-card--marked & {
-      margin-left: 8px;
       fill: rgba($gray-dark, 0.6);
+
+      @include media-breakpoint-up(lg) {
+        //margin-left: 8px;
+      }
     }
   }
 
@@ -87,8 +90,11 @@
     color: rgba($gray-dark, 0.6);
 
     .feature-card--marked & {
-      margin-left: -8px;
       color: rgba($gray-dark, 0.6);
+
+      @include media-breakpoint-up(lg) {
+        //margin-left: -8px;
+      }
     }
   }
 }
