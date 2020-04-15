@@ -14,6 +14,10 @@ import {HttpClientModule} from '@angular/common/http';
 import {HammerConfig} from './hammer.config';
 import { PageHeaderComponent } from './view/page-header/page-header.component';
 
+// mask
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+export let options: Partial<IConfig> | (() => Partial<IConfig>);
+
 
 // import { SwiperModule } from 'ngx-swiper-wrapper';
 // import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
@@ -84,6 +88,7 @@ registerLocaleData(ruLocale, 'ru');
     NgSelectModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    NgxMaskModule.forRoot(options),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AgmCoreModule.forRoot({

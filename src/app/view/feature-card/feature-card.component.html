@@ -1,6 +1,6 @@
 <div class="feature-card" [class.feature-card--marked]="marked">
-  <div class="feature-card-img">
-    <svg-icon src="/assets/img/svg/truck-clock.svg"></svg-icon>
+  <div class="feature-card-icon-wrap">
+    <svg-icon [src]="'/assets/img/svg/' + name + '.svg'" class="feature-card-icon"></svg-icon>
   </div>
-  <b [innerHTML]="text"></b>
+  <span class="feature-card-text" [innerHTML]="text"></span>
 </div>

@@ -55,7 +55,7 @@
     }
   }
 
-  &-img {
+  &-icon-wrap {
     position: relative;
     z-index: 2;
     height: 120px;
@@ -64,12 +64,31 @@
     align-items: center;
   }
 
-  b {
+  &-icon {
+    fill: rgba($gray-dark, 0.6);
+
+    @include media-breakpoint-up(lg) {
+      fill: $yellow;
+    }
+
+    .feature-card--marked & {
+      margin-left: 8px;
+      fill: rgba($gray-dark, 0.6);
+    }
+  }
+
+  &-text {
     position: relative;
     z-index: 2;
     display: block;
+    font-family: $font-family;
     font-size: 15px;
     line-height: 18px;
     color: rgba($gray-dark, 0.6);
+
+    .feature-card--marked & {
+      margin-left: -8px;
+      color: rgba($gray-dark, 0.6);
+    }
   }
 }

@@ -24,6 +24,7 @@
     "@angular/service-worker": "~9.1.0",
     "@ng-select/ng-select": "^4.0.0",
     "firebase": "^7.13.1",
+    "ngx-mask": "^9.0.1",
     "ngx-swiper-wrapper": "^9.0.1",
     "rxjs": "~6.5.4",
     "swiper": "^5.3.6",
