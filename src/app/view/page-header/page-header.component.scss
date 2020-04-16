@@ -62,7 +62,8 @@
     }
 
     @include media-breakpoint-up(lg) {
-      background-position: 7vw -73px;
+      background-size: 88% auto;
+      background-position: 15vw 35px;
     }
 
     @include media-breakpoint-up(xl) {
