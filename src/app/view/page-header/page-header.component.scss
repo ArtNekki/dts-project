@@ -51,14 +51,14 @@
       background-image: url("src/assets/img/svg/scoop.svg");
       background-repeat: no-repeat;
       background-size: 100% auto;
-      background-position: 12vw 60px;
+      background-position: 15vw 60px;
       opacity: 0.1;
       transform: rotate3d(0, 0, 1, 7deg);
     }
 
     @include media-breakpoint-up(md) {
-      //background-size: 95% auto;
-      //background-position: 16vw 60px;
+      background-size: 110% auto;
+      background-position: 7vw 65px;
     }
 
     @include media-breakpoint-up(lg) {
@@ -337,8 +337,8 @@
     }
 
     @include media-breakpoint-up(lg) {
-      bottom: 480px;
-      right: 80px;
+      bottom: 450px;
+      right: 85px;
     }
 
     b {
