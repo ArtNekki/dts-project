@@ -2,7 +2,7 @@
   <div #slider class="swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
-        <app-service-card title="Строительно-земельные<br />работы" price="15000" name="work-1">
+        <app-service-card title="Строительно-земельные<br />работы" price="15000" name="work-1" (onOpen)="openModal($event)">
           Рытье траншей и котлованов
         </app-service-card>
       </div>

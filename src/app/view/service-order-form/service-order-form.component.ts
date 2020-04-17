@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AngularFirestore} from '@angular/fire/firestore';
+import {AngularFireDatabase} from '@angular/fire/database';
 
 @Component({
   selector: 'app-service-order-form',
@@ -13,7 +15,7 @@ export class ServiceOrderFormComponent implements OnInit {
   addInfo: false;
   form: FormGroup;
 
-  constructor() { }
+  constructor(private af: AngularFirestore) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -44,7 +46,25 @@ export class ServiceOrderFormComponent implements OnInit {
     if (!this.form.valid) { return; }
 
     const formData = {serviceTitle: this.serviceTitle, ...this.form.value};
+
+    const name = 'nekki';
+    const email = 'work.mayatskiy@gmail.com';
+    const message = 'Hello world';
+
+    const date = Date();
+    const html = `
+      <div>From: ${name}</div>
+      <div>Email: <a href="mailto:${email}">${email}</a></div>
+      <div>Date: ${date}</div>
+      <div>Message: ${message}</div>
+    `;
+
+    const formRequest = { name };
+
+    this.af.collection('messages').add(formRequest);
     this.form.reset();
+
+    // this.form.reset();
 
     console.log(formData);
   }

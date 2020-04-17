@@ -1,7 +1,7 @@
 import {BrowserModule, HAMMER_GESTURE_CONFIG} from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AngularFireModule } from '@angular/fire';
+import { AngularFireModule} from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import {registerLocaleData} from '@angular/common';
@@ -33,7 +33,7 @@ import { PageHeaderInnerComponent } from './view/page-header-inner/page-header-i
 import { SidebarComponent } from './view/sidebar/sidebar.component';
 import { TransportListComponent } from './view/transport-list/transport-list.component';
 import {environment} from '../environments/environment';
-import {AngularFirestore} from '@angular/fire/firestore';
+import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
 import { TransportBoxComponent } from './view/transport-box/transport-box.component';
 import { FeaturesComponent } from './view/features/features.component';
 import { ContactFormComponent } from './view/contact-form/contact-form.component';
@@ -91,6 +91,7 @@ registerLocaleData(ruLocale, 'ru');
     NgxMaskModule.forRoot(options),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
+    AngularFirestoreModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDXu6wNP79AG7OHTlyBMRufLdjdvSmwo0A',
       libraries: ['places']

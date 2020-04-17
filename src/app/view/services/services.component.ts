@@ -88,9 +88,9 @@ export class ServicesComponent implements OnInit, AfterViewInit {
     this.checkBreakpoint();
   }
 
-  openModal(name: string) {
+  openModal(data) {
     this.modal = true;
-    this.modalTitle = name;
+    this.modalTitle = data.title;
   }
 
   setImage(name: string) {

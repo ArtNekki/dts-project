@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-service-card',
@@ -9,13 +9,14 @@ export class ServiceCardComponent implements OnInit {
   @Input() name;
   @Input() title;
   @Input() price;
+  @Output() onOpen: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  openModal(type: string) {
-   return false;
+  openModal() {
+   this.onOpen.emit(this);
   }
 }
