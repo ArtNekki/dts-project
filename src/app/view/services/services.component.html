@@ -1,47 +1,23 @@
-<div class="swiper">
-  <div #slider class="swiper-container">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <app-service-card title="Строительно-земельные<br />работы" price="15000" name="work-1" (onOpen)="openModal($event)">
-          Рытье траншей и котлованов
-        </app-service-card>
-      </div>
-      <div class="swiper-slide">
-        <app-service-card title="Благоустройство<br />территории" price="15000" name="work-2">
-          Очистка от грязи,мусора, снега, луж
-        </app-service-card>
-      </div>
-      <div class="swiper-slide">
-        <app-service-card title="Перевозка<br />грузов" price="15000" name="work-3">
-          Спецтехники, контейнеров, пиломатериалов, леса, емкостей, металлоконструкций
-        </app-service-card>
-      </div>
-      <div class="swiper-slide">
-        <app-service-card title="Доставка<br />инертных грузов" price="15000" name="work-4">
-          Песок, сланец, ПГС, щебень, отсев, грунт
-        </app-service-card>
-      </div>
-      <div class="swiper-slide">
-        <app-service-card title="Доставка<br />опасных грузов" price="15000" name="work-5">
-          Надо будет добавить текст
-        </app-service-card>
-      </div>
-      <div class="swiper-slide">
-        <app-service-card title="Аренда складов,<br />открытых площадок" price="15000" name="work-6">
-          Надо будет добавить текст
-        </app-service-card>
-      </div>
-      <div class="swiper-slide">
-        <app-service-card title="Работы<br />по откачке" price="15000" name="work-7">
-          Колодцев, выгребных ям, гаражей, туалетов, различных засоров
-        </app-service-card>
+<div #sliderWrapper class="swiper swiper--services">
+  <div *ngIf="itemsList; else loading">
+    <div #slider class="swiper-container">
+      <div class="swiper-wrapper">
+        <div *ngFor="let item of itemsList" class="swiper-slide">
+          <app-service-card [data]="item"  (onOpen)="openModal($event)">
+            {{item.preview}}
+          </app-service-card>
+        </div>
       </div>
     </div>
+    <div id="services-pagination" class="swiper-pagination"></div>
+    <button id="services-btn-left" class="swiper-btn swiper-btn--left">&nbsp;</button>
+    <button id="services-btn-right" class="swiper-btn swiper-btn--right">&nbsp;</button>
   </div>
-  <div id="services-pagination" class="swiper-pagination"></div>
-  <button id="services-btn-left" class="swiper-btn swiper-btn--left">&nbsp;</button>
-  <button id="services-btn-right" class="swiper-btn swiper-btn--right">&nbsp;</button>
 </div>
-<app-modal *ngIf="modal" [title]="modalTitle" (close)="modal = false">
-  <app-service-order-form [serviceTitle]="modalTitle"></app-service-order-form>
+<app-modal *ngIf="modal" [title]="serviceTitle" (close)="modal = false">
+  <app-service-order-form [serviceTitle]="serviceTitle" [serviceList]="serviceList"></app-service-order-form>
 </app-modal>
+
+<ng-template #loading>
+  <div>Loading...</div>
+</ng-template>

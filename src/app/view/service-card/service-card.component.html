@@ -1,12 +1,12 @@
 <article class="service-card">
   <img class="service-card-img"
-       [src]="'/assets/img/content/services/' + name + '.jpg'"
-       [srcset]="'/assets/img/content/services/' + name + '@2x.jpg 2x, /assets/img/content/services/' + name + '@3x.jpg 3x'"
+       [src]="'/assets/img/content/services/' + data.id + '.jpg'"
+       [srcset]="'/assets/img/content/services/' + data.id + '@2x.jpg 2x, /assets/img/content/services/' + data.id + '@3x.jpg 3x'"
   >
   <div class="service-card-overlay">
     <div class="service-card-content">
-      <h1 class="service-card-title" [innerHTML]="title"></h1>
-      <b class="service-card-price">от {{price | currency: 'RUB':'symbol-narrow':'4.0':'ru'}}</b>
+      <h1 class="service-card-title" [innerHTML]="data.name"></h1>
+      <b class="service-card-price">от {{data.price | currency: 'RUB':'symbol-narrow':'4.0':'ru'}}</b>
       <p class="service-card-text">
         <ng-content></ng-content>
       </p>

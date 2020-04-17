@@ -6,14 +6,13 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./service-card.component.scss']
 })
 export class ServiceCardComponent implements OnInit {
-  @Input() name;
-  @Input() title;
-  @Input() price;
+  @Input() data;
   @Output() onOpen: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log('data', this.data);
   }
 
   openModal() {

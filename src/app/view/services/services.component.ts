@@ -1,5 +1,7 @@
-import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostListener, OnInit, OnDestroy, ViewChild} from '@angular/core';
 import Swiper from 'swiper';
+import {ServicesService} from '../../core/services/services.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-services',
@@ -13,39 +15,22 @@ import Swiper from 'swiper';
 //   name?: string;
 // }
 
-export class ServicesComponent implements OnInit, AfterViewInit {
+export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
+  @ViewChild('sliderWrapper', {read: ElementRef}) sliderWrapper: ElementRef;
+
+  itemsList;
+  pSub;
 
   swiper: Swiper;
   breakpoint;
 
   config;
-  modalTitle;
+  serviceTitle;
+  serviceList;
   modal = false;
-  sliders = [
-    {
-      id: 'service-1',
-      title: 'Строительно-земельные работы',
-      name: 'land-work'
-    },
-    {
-      id: 'service-2',
-      title: 'Рытье траншей\n' + 'и котлованов',
-      name: 'land-work'
-    },
-    {
-      id: 'service-3',
-      title: 'Благоустройство территории',
-      name: 'land-work'
-    },
-    {
-      id: 'service-4',
-      title: 'Доставка спецтехники',
-      name: 'land-work'
-    }
-  ];
 
-  constructor() { }
+  constructor(private servicesService: ServicesService) { }
 
   ngOnInit() {
 
@@ -72,14 +57,36 @@ export class ServicesComponent implements OnInit, AfterViewInit {
         prevEl: '#services-btn-left',
       },
     };
+
+    this.pSub = this.servicesService.getItems().subscribe((data) => {
+      this.itemsList = data;
+
+      if (this.itemsList) {
+        this.sliderWrapper.nativeElement.classList.remove('swiper--services');
+
+        setTimeout(() => {
+          this.breakpoint = window.matchMedia(`(min-width: 992px)`);
+
+          this.initSwiper();
+          this.checkBreakpoint();
+        }, 0);
+      }
+    },
+
+    () => {
+
+    },
+    () => {
+
+    });
   }
 
 
   ngAfterViewInit(): void {
-    this.breakpoint = window.matchMedia(`(min-width: 992px)`);
-
-    this.initSwiper();
-    this.checkBreakpoint();
+    // this.breakpoint = window.matchMedia(`(min-width: 992px)`);
+    //
+    // this.initSwiper();
+    // this.checkBreakpoint();
   }
 
   @HostListener('window:resize', ['$event'])
@@ -88,9 +95,10 @@ export class ServicesComponent implements OnInit, AfterViewInit {
     this.checkBreakpoint();
   }
 
-  openModal(data) {
+  openModal(event) {
     this.modal = true;
-    this.modalTitle = data.title;
+    this.serviceTitle = event.data.name;
+    this.serviceList = event.data.list;
   }
 
   setImage(name: string) {
@@ -109,5 +117,9 @@ export class ServicesComponent implements OnInit, AfterViewInit {
     } else {
       // this.initSwiper();
     }
+  }
+
+  ngOnDestroy(): void {
+    this.pSub.unsubscribe();
   }
 }

@@ -10,6 +10,7 @@ import {AngularFireDatabase} from '@angular/fire/database';
 })
 export class ServiceOrderFormComponent implements OnInit {
   @Input() serviceTitle;
+  @Input() serviceList;
 
   entity: boolean;
   addInfo: false;
@@ -19,7 +20,7 @@ export class ServiceOrderFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      // variant: new FormControl('', [Validators.required]),
+      variant: new FormControl('', []),
       username: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
       tel: new FormControl('', [Validators.required]),
@@ -27,6 +28,8 @@ export class ServiceOrderFormComponent implements OnInit {
       workplace: new FormControl('', []),
       message: new FormControl('', [Validators.required])
     });
+
+    console.log('list', this.serviceList);
   }
 
   selectUserType(type) {

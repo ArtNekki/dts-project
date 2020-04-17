@@ -1,7 +1,7 @@
 <form class="form" autocomplete="off" [formGroup]="form" (ngSubmit)="onSubmit()">
-  <div class="form-field form-field--separator">
+  <div *ngIf="serviceList" class="form-field form-field--separator">
     <label class="form-label" for="serviceType">Вариант</label>
-    <ng-select name="serviceType" id="serviceType" [items]="[{name: 'Рытье траншей и котлованов', value: 'котлован'}]"  bindLabel="name" bindValue="id">
+    <ng-select name="serviceType" id="serviceType" [items]="serviceList" formControlName="variant" bindLabel="name" bindValue="id">
     </ng-select>
 <!--    <div class="form-validation" *ngIf="form.get('variant').invalid && form.get('variant').touched">-->
 <!--      <small *ngIf="form.get('variant').errors.required">Выберите вариант работы</small>-->
