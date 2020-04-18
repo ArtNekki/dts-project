@@ -47,6 +47,7 @@ import { ContactsComponent } from './view/contacts/contacts.component';
 import { ServiceCardComponent } from './view/service-card/service-card.component';
 import { FeatureCardComponent } from './view/feature-card/feature-card.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { SwitcherComponent } from './view/switcher/switcher.component';
 
 // const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 //   direction: 'horizontal',
@@ -77,7 +78,8 @@ registerLocaleData(ruLocale, 'ru');
     TransportCardComponent,
     ContactsComponent,
     ServiceCardComponent,
-    FeatureCardComponent
+    FeatureCardComponent,
+    SwitcherComponent
   ],
   imports: [
     BrowserModule,

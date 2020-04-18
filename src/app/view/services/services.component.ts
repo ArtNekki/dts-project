@@ -19,7 +19,7 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
   @ViewChild('sliderWrapper', {read: ElementRef}) sliderWrapper: ElementRef;
 
-  itemsList;
+  items;
   pSub;
 
   swiper: Swiper;
@@ -59,9 +59,9 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
     };
 
     this.pSub = this.servicesService.getItems().subscribe((data) => {
-      this.itemsList = data;
+      this.items = data;
 
-      if (this.itemsList) {
+      if (this.items) {
         this.sliderWrapper.nativeElement.classList.remove('swiper--services');
 
         setTimeout(() => {
@@ -98,7 +98,7 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
   openModal(event) {
     this.modal = true;
     this.serviceTitle = event.data.name;
-    this.serviceList = event.data.list;
+    this.serviceList = event.data.list.length ? [...event.data.list, {value: 0, name: '66666'}] : null;
   }
 
   setImage(name: string) {

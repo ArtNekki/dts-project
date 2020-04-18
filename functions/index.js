@@ -26,7 +26,7 @@ exports.sendEmail = functions
     const mailOptions = {
       from: `${gmailEmail}`,
       to: `${gmailEmail}`,
-      subject: 'contact form message',
+      subject: 'Заявка от ',
       html: `<h1>Order Confirmation</h1>
                                 <p>
                                    <b>Email: </b>${snap.data().name}<br>

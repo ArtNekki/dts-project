@@ -1,77 +1,75 @@
 <form class="form" autocomplete="off" [formGroup]="form" (ngSubmit)="onSubmit()">
-  <div *ngIf="serviceList" class="form-field form-field--separator">
-    <label class="form-label" for="serviceType">Вариант</label>
-    <ng-select name="serviceType" id="serviceType" [items]="serviceList" formControlName="variant" bindLabel="name" bindValue="id">
-    </ng-select>
-<!--    <div class="form-validation" *ngIf="form.get('variant').invalid && form.get('variant').touched">-->
-<!--      <small *ngIf="form.get('variant').errors.required">Выберите вариант работы</small>-->
-<!--    </div>-->
-<!--    <p class="form-text">Стоимость работы от <b>6000 р</b></p>-->
-  </div>
-  <div class="form-group form-group--right">
-    <div class="form-field form-field--inline">
-      <input type="radio" name="userType" id="individual" (change)="selectUserType('individual')" checked>
-      <label class="form-label" for="individual">Физ. лицо</label>
+  <div class="form-step-one" [ngStyle]="{display: stepTwo ? 'none' : 'block'}">
+    <div *ngIf="serviceList" class="form-field">
+      <label class="form-label" for="serviceType">Тип груза <span>*</span></label>
+      <ng-select name="serviceType" id="serviceType" [items]="serviceList" formControlName="variant" bindLabel="name" bindValue="value">
+      </ng-select>
+      <!--    <div class="form-validation" *ngIf="form.get('variant').invalid && form.get('variant').touched">-->
+      <!--      <small *ngIf="form.get('variant').errors.required">Выберите вариант работы</small>-->
+      <!--    </div>-->
+      <!--    <p class="form-text">Стоимость работы от <b>6000 р</b></p>-->
     </div>
-    <div class="form-field form-field--inline">
-      <input type="radio" name="userType" id="entity" (change)="selectUserType('entity')">
-      <label class="form-label" for="entity">Юр. лицо</label>
-    </div>
-  </div>
-  <div class="form-field" *ngIf="!entity">
-    <label class="form-label" for="name">ФИО</label>
-    <input type="text" id="name" class="input" formControlName="username">
-    <div class="form-validation" *ngIf="form.get('username').invalid && form.get('username').touched">
-      <small *ngIf="form.get('username').errors.required">ФИО не может быть пустым</small>
-    </div>
-  </div>
-  <div class="form-field" *ngIf="entity">
-    <label class="form-label" for="company-name">Название фирмы</label>
-    <input type="text" id="company-name" class="input" formControlName="companyname">
-    <div class="form-validation" *ngIf="form.get('companyname').invalid && form.get('companyname').touched">
-      <small *ngIf="form.get('companyname').errors.required">Название компании не может быть пустым</small>
-    </div>
-  </div>
-  <div class="form-field">
-    <label class="form-label" for="email">Эл. почта</label>
-    <input type="email" id="email" class="input" formControlName="email">
-    <div class="form-validation" *ngIf="form.get('email').invalid && form.get('email').touched">
-      <small *ngIf="form.get('email').errors.required">Название компании не может быть пустым</small>
-    </div>
-  </div>
-  <div class="form-field">
-    <label class="form-label" for="phone">Телефон</label>
-    <input type="tel" id="phone" class="input" formControlName="tel">
-    <div class="form-validation" *ngIf="form.get('tel').invalid && form.get('tel').touched">
-      <small *ngIf="form.get('tel').errors.required">Название компании не может быть пустым</small>
-    </div>
-  </div>
-  <div class="form-field form-field--inline form-field--right u-mgt-md u-mgb-md">
-<!--    <input type="checkbox" id="dop-info" (change)="addInfo = !addInfo">-->
-<!--    <label for="dop-info" class="form-label">Дополнительная информация</label>-->
-  </div>
-  <div *ngIf="addInfo">
     <div class="form-field">
-      <label class="form-label" for="work-time">Время работы</label>
+      <label class="form-label" for="work-time">Дата работы</label>
       <input type="tel" id="work-time" class="input" formControlName="worktime">
       <div class="form-validation" *ngIf="form.get('worktime').invalid && form.get('worktime').touched">
         <small *ngIf="form.get('worktime').errors.required">Название компании не может быть пустым</small>
       </div>
     </div>
     <div class="form-field">
-      <label class="form-label" for="work-place">Место проведения работы</label>
-      <input type="tel" id="work-place" class="input" formControlName="workplace">
+      <label class="form-label" for="work-place">Место проведения работы </label>
+      <textarea id="work-place" class="input" formControlName="workplace" cols="30" rows="5"></textarea>
       <div class="form-validation" *ngIf="form.get('workplace').invalid && form.get('workplace').touched">
         <small *ngIf="form.get('workplace').errors.required">Название компании не может быть пустым</small>
       </div>
     </div>
+    <button type="button" class="form-btn" [disabled]="" (click)="stepTwo = true">Дальше</button>
   </div>
-  <div class="form-field">
-    <label class="form-label" for="message">Текст</label>
-    <textarea id="message" class="input" cols="30" rows="5" formControlName="message"></textarea>
-    <div class="form-validation" *ngIf="form.get('message').invalid && form.get('message').touched">
-      <small *ngIf="form.get('message').errors.required">Название компании не может быть пустым</small>
+  <div class="form-step-two" [ngStyle]="{display: stepTwo ? 'block' : 'none'}">
+<!--    <div>Персональная информация:</div>-->
+<!--    <button class="form-btn" (click)="stepTwo = false">Назад</button>-->
+    <div class="form-group form-group--right">
+      <app-switcher name="user-type"
+                    [items]="[
+                    {id: 'individual', name: 'Физ. лицо', checked: true},
+                    {id: 'entity', name: 'Юр. лицо'}]" (onChange)="selectUserType($event)">
+      </app-switcher>
     </div>
+    <div class="form-field" *ngIf="!entity">
+      <label class="form-label" for="name">ФИО</label>
+      <input type="text" id="name" class="input" formControlName="username">
+      <div class="form-validation" *ngIf="form.get('username').invalid && form.get('username').touched">
+        <small *ngIf="form.get('username').errors.required">ФИО не может быть пустым</small>
+      </div>
+    </div>
+    <div class="form-field" *ngIf="entity">
+      <label class="form-label" for="company-name">Название фирмы</label>
+      <input type="text" id="company-name" class="input" formControlName="companyname">
+      <div class="form-validation" *ngIf="form.get('companyname').invalid && form.get('companyname').touched">
+        <small *ngIf="form.get('companyname').errors.required">Название компании не может быть пустым</small>
+      </div>
+    </div>
+    <div class="form-field">
+      <label class="form-label" for="email">Эл. почта</label>
+      <input type="email" id="email" class="input" formControlName="email">
+      <div class="form-validation" *ngIf="form.get('email').invalid && form.get('email').touched">
+        <small *ngIf="form.get('email').errors.required">Название компании не может быть пустым</small>
+      </div>
+    </div>
+    <div class="form-field">
+      <label class="form-label" for="phone">Телефон</label>
+      <input type="tel" id="phone" class="input" formControlName="tel">
+      <div class="form-validation" *ngIf="form.get('tel').invalid && form.get('tel').touched">
+        <small *ngIf="form.get('tel').errors.required">Название компании не может быть пустым</small>
+      </div>
+    </div>
+    <div class="form-field">
+      <label class="form-label" for="message">Текст</label>
+      <textarea id="message" class="input" cols="30" rows="5" formControlName="message"></textarea>
+      <div class="form-validation" *ngIf="form.get('message').invalid && form.get('message').touched">
+        <small *ngIf="form.get('message').errors.required">Название компании не может быть пустым</small>
+      </div>
+    </div>
+    <button type="submit" class="form-btn" [disabled]="form.invalid">Отправить</button>
   </div>
-  <button type="submit" class="form-btn" [disabled]="form.invalid">Отправить</button>
 </form>

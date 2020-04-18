@@ -1,0 +1,15 @@
+<!--<div class="form-field form-field&#45;&#45;inline">-->
+<!--  <input type="radio" name="userType" id="individual" (change)="selectUserType('individual')" checked>-->
+<!--  <label class="form-label" for="individual">Физ. лицо</label>-->
+<!--</div>-->
+<!--<div class="form-field form-field&#45;&#45;inline">-->
+<!--  <input type="radio" name="userType" id="entity" (change)="selectUserType('entity')">-->
+<!--  <label class="form-label" for="entity">Юр. лицо</label>-->
+<!--</div>-->
+
+<div class="switcher">
+  <div *ngFor="let item of items" class="switcher-item">
+    <input type="radio" [name]="name" [id]="item.id" (change)="switchType(item.id)" [checked]="item.checked">
+    <label class="switcher-label" [for]="item.id">{{item.name}}</label>
+  </div>
+</div>

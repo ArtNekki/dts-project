@@ -1,8 +1,8 @@
 <div #sliderWrapper class="swiper swiper--services">
-  <div *ngIf="itemsList; else loading">
+  <div *ngIf="items; else loading">
     <div #slider class="swiper-container">
       <div class="swiper-wrapper">
-        <div *ngFor="let item of itemsList" class="swiper-slide">
+        <div *ngFor="let item of items" class="swiper-slide">
           <app-service-card [data]="item"  (onOpen)="openModal($event)">
             {{item.preview}}
           </app-service-card>

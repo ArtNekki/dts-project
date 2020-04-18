@@ -15,6 +15,7 @@ export class ServiceOrderFormComponent implements OnInit {
   entity: boolean;
   addInfo: false;
   form: FormGroup;
+  stepTwo = false;
 
   constructor(private af: AngularFirestore) { }
 
@@ -32,10 +33,11 @@ export class ServiceOrderFormComponent implements OnInit {
     console.log('list', this.serviceList);
   }
 
-  selectUserType(type) {
-    this.entity = type === 'entity';
+  selectUserType(id) {
+    console.log(console.log('id', id));
+    this.entity = id === 'entity';
 
-    if (type === 'entity') {
+    if (id === 'entity') {
       this.form.controls.companyname = new FormControl('', [Validators.required]);
       delete this.form.controls.username;
 
@@ -48,23 +50,16 @@ export class ServiceOrderFormComponent implements OnInit {
   onSubmit() {
     if (!this.form.valid) { return; }
 
-    const formData = {serviceTitle: this.serviceTitle, ...this.form.value};
+    const variant = this.serviceList.filter((item) => {
+      return this.form.value.variant === item.value;
+    })[0];
 
-    const name = 'nekki';
-    const email = 'work.mayatskiy@gmail.com';
-    const message = 'Hello world';
+    console.log('ccccc', variant);
 
-    const date = Date();
-    const html = `
-      <div>From: ${name}</div>
-      <div>Email: <a href="mailto:${email}">${email}</a></div>
-      <div>Date: ${date}</div>
-      <div>Message: ${message}</div>
-    `;
+    const formData = {serviceTitle: this.serviceTitle, variant: variant.name, date: new Date(), ...this.form.value};
 
-    const formRequest = { name };
 
-    this.af.collection('messages').add(formRequest);
+    // this.af.collection('messages').add(formData);
     this.form.reset();
 
     // this.form.reset();
