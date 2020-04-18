@@ -34,16 +34,17 @@ export class ServiceOrderFormComponent implements OnInit {
   }
 
   selectUserType(id) {
-    console.log(console.log('id', id));
     this.entity = id === 'entity';
 
     if (id === 'entity') {
       this.form.controls.companyname = new FormControl('', [Validators.required]);
+      this.form.controls.companyperson = new FormControl('', [Validators.required]);
       delete this.form.controls.username;
 
     } else {
       this.form.controls.username = new FormControl('', [Validators.required]);
       delete this.form.controls.companyname;
+      delete this.form.controls.companyperson;
     }
   }
 

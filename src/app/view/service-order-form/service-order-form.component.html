@@ -28,7 +28,7 @@
   <div class="form-step-two" [ngStyle]="{display: stepTwo ? 'block' : 'none'}">
 <!--    <div>Персональная информация:</div>-->
 <!--    <button class="form-btn" (click)="stepTwo = false">Назад</button>-->
-    <div class="form-group form-group--right">
+    <div class="form-group form-group--right u-mgb-md">
       <app-switcher name="user-type"
                     [items]="[
                     {id: 'individual', name: 'Физ. лицо', checked: true},
@@ -47,6 +47,13 @@
       <input type="text" id="company-name" class="input" formControlName="companyname">
       <div class="form-validation" *ngIf="form.get('companyname').invalid && form.get('companyname').touched">
         <small *ngIf="form.get('companyname').errors.required">Название компании не может быть пустым</small>
+      </div>
+    </div>
+    <div class="form-field" *ngIf="entity">
+      <label class="form-label" for="company-name">ФИО предствителя фирмы</label>
+      <input type="text" id="company-person" class="input" formControlName="companyperson">
+      <div class="form-validation" *ngIf="form.get('companyperson').invalid && form.get('companyperson').touched">
+        <small *ngIf="form.get('companyperson').errors.required">Название компании не может быть пустым</small>
       </div>
     </div>
     <div class="form-field">
