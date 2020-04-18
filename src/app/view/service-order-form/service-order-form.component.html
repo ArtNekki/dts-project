@@ -10,8 +10,8 @@
       <!--    <p class="form-text">Стоимость работы от <b>6000 р</b></p>-->
     </div>
     <div class="form-field">
-      <label class="form-label" for="work-time">Дата работы</label>
-      <input type="tel" id="work-time" class="input" formControlName="worktime">
+      <label class="form-label">Дата проведения работ</label>
+      <input type="text" id="work-time" name="work-time" angular-mydatepicker [options]="dpOptions" locale="ru" #dp="angular-mydatepicker" class="input" (click)="dp.openCalendar()" formControlName="worktime" >
       <div class="form-validation" *ngIf="form.get('worktime').invalid && form.get('worktime').touched">
         <small *ngIf="form.get('worktime').errors.required">Название компании не может быть пустым</small>
       </div>

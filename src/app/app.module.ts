@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AngularFireModule} from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularMyDatePickerModule } from 'angular-mydatepicker';
 
 import {registerLocaleData} from '@angular/common';
 import ruLocale from '@angular/common/locales/ru';
@@ -98,6 +99,7 @@ registerLocaleData(ruLocale, 'ru');
       apiKey: 'AIzaSyDXu6wNP79AG7OHTlyBMRufLdjdvSmwo0A',
       libraries: ['places']
     }),
+    AngularMyDatePickerModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [

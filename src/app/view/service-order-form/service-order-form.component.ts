@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {AngularFireDatabase} from '@angular/fire/database';
+import {IAngularMyDpOptions, IMyDateModel} from 'angular-mydatepicker';
 
 @Component({
   selector: 'app-service-order-form',
@@ -12,6 +13,13 @@ export class ServiceOrderFormComponent implements OnInit {
   @Input() serviceTitle;
   @Input() serviceList;
 
+  dpOptions: IAngularMyDpOptions = {
+    dateRange: false,
+    dateFormat: 'dd.mm.yyyy'
+    // other options...
+  };
+
+
   entity: boolean;
   addInfo: false;
   form: FormGroup;
@@ -20,18 +28,26 @@ export class ServiceOrderFormComponent implements OnInit {
   constructor(private af: AngularFirestore) { }
 
   ngOnInit(): void {
+    const model: IMyDateModel = {isRange: false, singleDate: {jsDate: new Date()}, dateRange: null};
+
     this.form = new FormGroup({
       variant: new FormControl('', []),
       username: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
       tel: new FormControl('', [Validators.required]),
-      worktime: new FormControl('', []),
+      worktime: new FormControl(model, []),
       workplace: new FormControl('', []),
       message: new FormControl('', [Validators.required])
     });
 
     console.log('list', this.serviceList);
   }
+
+  // setDate(): void {
+  //   // Set today date using the patchValue function
+  //   let model: IMyDateModel = {isRange: false, singleDate: {jsDate: new Date()}, dateRange: null};
+  //   this.myForm.patchValue({myDate: model);
+  // }
 
   selectUserType(id) {
     this.entity = id === 'entity';
