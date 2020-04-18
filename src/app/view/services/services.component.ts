@@ -98,7 +98,7 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
   openModal(event) {
     this.modal = true;
     this.serviceTitle = event.data.name;
-    this.serviceList = event.data.list.length ? [...event.data.list, {value: 0, name: '66666'}] : null;
+    this.serviceList = event.data.list.length ? [...event.data.list, {value: 0, name: '66666', selected: true}] : null;
   }
 
   setImage(name: string) {

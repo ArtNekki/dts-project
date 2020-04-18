@@ -49,6 +49,8 @@ import { ServiceCardComponent } from './view/service-card/service-card.component
 import { FeatureCardComponent } from './view/feature-card/feature-card.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { SwitcherComponent } from './view/switcher/switcher.component';
+import {DeviceDetectorModule} from 'ngx-device-detector';
+import { SelectComponent } from './view/select/select.component';
 
 // const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 //   direction: 'horizontal',
@@ -80,7 +82,8 @@ registerLocaleData(ruLocale, 'ru');
     ContactsComponent,
     ServiceCardComponent,
     FeatureCardComponent,
-    SwitcherComponent
+    SwitcherComponent,
+    SelectComponent
   ],
   imports: [
     BrowserModule,
@@ -95,6 +98,7 @@ registerLocaleData(ruLocale, 'ru');
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
+    DeviceDetectorModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDXu6wNP79AG7OHTlyBMRufLdjdvSmwo0A',
       libraries: ['places']

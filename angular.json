@@ -31,7 +31,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/what-input/dist/what-input.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -98,7 +100,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/what-input/dist/what-input.js"
+            ]
           }
         },
         "lint": {

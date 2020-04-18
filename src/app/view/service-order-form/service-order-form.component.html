@@ -2,12 +2,10 @@
   <div class="form-step-one" [ngStyle]="{display: stepTwo ? 'none' : 'block'}">
     <div *ngIf="serviceList" class="form-field">
       <label class="form-label" for="serviceType">Тип груза <span>*</span></label>
-      <ng-select name="serviceType" id="serviceType" [items]="serviceList" formControlName="variant" bindLabel="name" bindValue="value">
-      </ng-select>
-      <!--    <div class="form-validation" *ngIf="form.get('variant').invalid && form.get('variant').touched">-->
-      <!--      <small *ngIf="form.get('variant').errors.required">Выберите вариант работы</small>-->
-      <!--    </div>-->
-      <!--    <p class="form-text">Стоимость работы от <b>6000 р</b></p>-->
+      <app-select id="serviceType" [items]="serviceList" formControlName="variant"></app-select>
+<!--      <div class="form-validation" *ngIf="form.get('variant').invalid && form.get('variant').touched">-->
+<!--        <small *ngIf="form.get('variant').errors.required">Выберите вариант работы</small>-->
+<!--      </div>-->
     </div>
     <div class="form-field">
       <label class="form-label">Дата проведения работ</label>
