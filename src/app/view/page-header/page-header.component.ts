@@ -81,10 +81,11 @@ export class PageHeaderComponent implements OnInit, AfterViewInit {
 
   openMenu() {
     this.header.nativeElement.classList.add('page-header--menu-opened');
-    console.log('opened');
+    document.documentElement.classList.add('modal-opened');
   }
 
   closeMenu() {
     this.header.nativeElement.classList.remove('page-header--menu-opened');
+    document.documentElement.classList.remove('modal-opened');
   }
 }

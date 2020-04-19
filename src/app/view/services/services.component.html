@@ -14,7 +14,7 @@
     <button id="services-btn-right" class="swiper-btn swiper-btn--right">&nbsp;</button>
   </div>
 </div>
-<app-modal *ngIf="modal" [title]="serviceTitle" (close)="modal = false">
+<app-modal *ngIf="modal" [title]="serviceTitle" (close)="closeModal()">
   <app-service-order-form [serviceTitle]="serviceTitle" [serviceList]="serviceList"></app-service-order-form>
 </app-modal>
 
