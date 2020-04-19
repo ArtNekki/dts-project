@@ -13,8 +13,12 @@
   appearance: none;
   outline: none;
 
-  &--lg {
-    height: 50px;
+  &--date {
+    &::-webkit-inner-spin-button,
+    &::-webkit-calendar-picker-indicator {
+      display: none;
+      -webkit-appearance: none;
+    }
   }
 
   @include media-breakpoint-up(lg) {

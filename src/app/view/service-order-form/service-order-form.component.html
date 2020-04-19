@@ -9,7 +9,7 @@
     </div>
     <div class="form-field">
       <label class="form-label">Дата проведения работ</label>
-      <input type="text" id="work-time" name="work-time" angular-mydatepicker [options]="dpOptions" locale="ru" #dp="angular-mydatepicker" class="input" (click)="dp.openCalendar()" formControlName="worktime" >
+      <app-datepicker id="work-time" name="work-time" formControlName="worktime"></app-datepicker>
       <div class="form-validation" *ngIf="form.get('worktime').invalid && form.get('worktime').touched">
         <small *ngIf="form.get('worktime').errors.required">Название компании не может быть пустым</small>
       </div>
