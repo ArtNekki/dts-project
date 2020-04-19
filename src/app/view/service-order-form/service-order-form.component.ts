@@ -33,7 +33,7 @@ export class ServiceOrderFormComponent implements OnInit {
     const model: IMyDateModel = {isRange: false, singleDate: {jsDate: new Date()}, dateRange: null};
 
     this.form = new FormGroup({
-      variant: new FormControl('', [Validators.required]),
+      variant: new FormControl(this.serviceList[2].value, []),
       username: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
       tel: new FormControl('', [Validators.required]),

@@ -1,6 +1,6 @@
 import {Component, forwardRef, Input, OnInit} from '@angular/core';
 import {DeviceDetectorService} from 'ngx-device-detector';
-import {NG_VALUE_ACCESSOR} from '@angular/forms';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
   selector: 'app-select',
@@ -15,14 +15,13 @@ import {NG_VALUE_ACCESSOR} from '@angular/forms';
   ]
 })
 
-export class SelectComponent implements OnInit {
+export class SelectComponent implements  ControlValueAccessor {
   @Input() id;
   @Input() items;
 
-  constructor(public deviceService: DeviceDetectorService) { }
+  value: string;
 
-  ngOnInit(): void {
-  }
+  constructor(public deviceService: DeviceDetectorService) { }
 
   changeValue(data) {
     const value = (data && data.value) || data;
@@ -30,6 +29,7 @@ export class SelectComponent implements OnInit {
   }
 
   writeValue(value) {
+    this.value = value;
     this.onChange(value);
   }
 
