@@ -1,8 +1,13 @@
-<div class="transport-details">
-  <div class="transport-details-sidebar">
-    <app-sidebar (onChange)="changeData($event)"></app-sidebar>
+<div #container class="transport-details">
+  <div class="transport-details-header">
+    <button type="button" class="transport-details-back" (click)="goBack()">Вернуться к выбору транспорта</button>
   </div>
-  <div class="transport-details-form">
-    <app-transport-order-form [id]="transportId"></app-transport-order-form>
+  <div class="transport-details-content">
+    <div class="transport-details-sidebar">
+      <app-sidebar (onChange)="changeData($event)"></app-sidebar>
+    </div>
+    <div class="transport-details-form">
+      <app-transport-order-form [id]="transportId"></app-transport-order-form>
+    </div>
   </div>
 </div>

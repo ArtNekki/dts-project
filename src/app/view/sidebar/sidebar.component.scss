@@ -1,11 +1,22 @@
+@import 'src/assets/scss/core/functions';
+@import "src/assets/scss/core/breakpoints";
 @import "src/variables";
+@import "src/assets/scss/settings";
 
 .sidebar {
 
   &-list {
     margin: 0;
-    padding: 10px 0;
+    padding: 0;
+    //display: flex;
+    //overflow-x: auto;
     list-style: none;
+
+    @include media-breakpoint-up(md) {
+      padding: 10px 0;
+      display: block;
+      overflow-x: unset;
+    }
   }
 
   &-input {
@@ -19,16 +30,23 @@
     font-size: 14px;
     line-height: 16px;
     color: $gray-dark;
+    white-space: nowrap;
     text-decoration: none;
     cursor: pointer;
 
     &:hover {
-      background-color: $white;
+
+      @include media-breakpoint-up(md) {
+        background-color: $white;
+      }
     }
 
     .sidebar-input:checked ~ & {
-      background-color: $white;
       color: $black;
+
+      @include media-breakpoint-up(md) {
+        background-color: $white;
+      }
     }
 
     .sidebar-input:checked:hover ~ & {

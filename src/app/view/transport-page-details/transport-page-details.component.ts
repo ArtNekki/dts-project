@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
@@ -8,6 +8,8 @@ import {Router} from '@angular/router';
 })
 export class TransportPageDetailsComponent implements OnInit {
   @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
+  @ViewChild('container', {read: ElementRef}) container: ElementRef;
+
   transportId;
 
   constructor(private router: Router) { }
@@ -23,5 +25,11 @@ export class TransportPageDetailsComponent implements OnInit {
   changeData(id: any) {
    this.onChange.emit(id);
    this.transportId = id;
+   this.container.nativeElement.classList.add('transport-details--to-form');
+  }
+
+  goBack() {
+    this.container.nativeElement.classList.remove('transport-details--to-form');
+    // this.transportId = null;
   }
 }

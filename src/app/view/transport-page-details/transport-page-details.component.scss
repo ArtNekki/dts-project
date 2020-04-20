@@ -1,19 +1,121 @@
+@import 'src/assets/scss/core/functions';
+@import "src/assets/scss/core/breakpoints";
 @import "src/variables";
+@import "src/assets/scss/settings";
 
 .transport-details {
-  position: relative;
-  padding-top: 30px;
-  min-width: 600px;
-  display: flex;
-  border-top: 1px solid $gray;
+
+  &-header {
+    margin-bottom: 30px;
+    border-top: 1px solid $gray;
+
+    .transport-details--to-form & {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid $gray;
+
+      @include media-breakpoint-up(md) {
+        padding-top: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+    }
+  }
+
+  &-back {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    padding-left: 15px;
+    display: none;
+    background: none;
+    border: none;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba($gray-dark, 0.6);
+
+    .transport-details--to-form & {
+      display: block;
+
+      @include media-breakpoint-up(md) {
+        display: none;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      border: 2px solid rgba($gray-dark, 0.6);
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+      transform: rotate3d(0, 0, 1, -45deg);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      color: $gray-dark;
+    }
+  }
+
+  &-content {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    @include media-breakpoint-up(md) {
+      flex-direction: row;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    min-width: 600px;
+  }
 
   &-sidebar {
-    flex-basis: 40%;
     background-color: $gray;
+    transition: transform 0.5s ease-in;
+
+    .transport-details--to-form & {
+      transform: translateX(-100%);
+      position: absolute;
+
+      @include media-breakpoint-up(md) {
+        transform: translateX(0);
+        position: static;
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      flex-basis: 40%;
+    }
   }
 
   &-form {
-    margin-left: 30px;
-    flex-basis: calc(60% - 30px);
+    position: absolute;
+    transform: translateX(100vw);
+    transition: transform 0.5s ease-in;
+
+    @include media-breakpoint-up(md) {
+      position: static;
+      margin-left: 30px;
+      flex-basis: calc(60% - 30px);
+      transform: translateX(0);
+    }
+
+    .transport-details--to-form & {
+      position: static;
+      transform: translateX(0);
+    }
+
   }
 }
