@@ -1,4 +1,4 @@
-<div #container class="transport-details">
+<div #container [class]="'transport-details ' + activeClass">
   <div class="transport-details-header">
     <button type="button" class="transport-details-back" (click)="goBack()">Вернуться к выбору транспорта</button>
   </div>

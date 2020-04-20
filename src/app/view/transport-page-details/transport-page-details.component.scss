@@ -9,7 +9,7 @@
     margin-bottom: 30px;
     border-top: 1px solid $gray;
 
-    .transport-details--to-form & {
+    .transport-details--selected & {
       padding-top: 10px;
       padding-bottom: 10px;
       border-bottom: 1px solid $gray;
@@ -34,7 +34,7 @@
     line-height: 16px;
     color: rgba($gray-dark, 0.6);
 
-    .transport-details--to-form & {
+    .transport-details--selected & {
       display: block;
 
       @include media-breakpoint-up(md) {
@@ -85,7 +85,7 @@
     background-color: $gray;
     transition: transform 0.5s ease-in;
 
-    .transport-details--to-form & {
+    .transport-details--selected & {
       transform: translateX(-100%);
       position: absolute;
 
@@ -112,7 +112,7 @@
       transform: translateX(0);
     }
 
-    .transport-details--to-form & {
+    .transport-details--selected & {
       position: static;
       transform: translateX(0);
     }
