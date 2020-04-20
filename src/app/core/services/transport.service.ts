@@ -3,6 +3,7 @@ import {of} from 'rxjs';
 import {environment} from '../../../environments/environment';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {AngularFirestore} from '@angular/fire/firestore';
+import {filter, map, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,16 @@ export class TransportService {
     return this.firestore.collection(id).valueChanges();
   }
 
-  getNames() {
-    return this.firestore.collection('transport').valueChanges();
+  getItems() {
+    return this.firestore.collection('transports').valueChanges();
+  }
+
+  getPromoItems() {
+    return this.firestore.collection<any>('transports').valueChanges()
+      .pipe(
+        map((data) => {
+          return data.filter(item => item.promo);
+        })
+      );
   }
 }

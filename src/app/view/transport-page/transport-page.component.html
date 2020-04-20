@@ -36,36 +36,29 @@
   </div>
   <div class="col col-lg-7">
     <div class="swiper swiper--transport">
-      <div #slider class="swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <app-transport-box name="tippers" price="10000" title="Cамосвалы" labelPosition="right"></app-transport-box>
-          </div>
-          <div class="swiper-slide">
-            <app-transport-box name="tractors" price="25000" title="Тракторы"></app-transport-box>
-          </div>
-          <div class="swiper-slide">
-            <app-transport-box name="excovators" price="40000" title="Эксковаторы"></app-transport-box>
-          </div>
-          <div class="swiper-slide">
-            <app-transport-box name="f-loaders" price="70000" title="Фронтальные погрузчики"></app-transport-box>
-          </div>
-          <div class="swiper-slide">
-            <app-transport-box name="bulldozers" price="70000" title="Бульдозеры"></app-transport-box>
+      <div *ngIf="promoItems; else loading">
+        <div #slider class="swiper-container">
+          <div class="swiper-wrapper">
+            <div *ngFor="let item of promoItems" class="swiper-slide">
+              <app-transport-box [data]="item"></app-transport-box>
+            </div>
           </div>
         </div>
+        <button id="transport-btn-left" class="swiper-btn swiper-btn--left">&nbsp;</button>
+        <button id="transport-btn-right" class="swiper-btn swiper-btn--right">&nbsp;</button>
+        <div id="transport-pagination" class="swiper-pagination"></div>
       </div>
-      <button id="transport-btn-left" class="swiper-btn swiper-btn--left">&nbsp;</button>
-      <button id="transport-btn-right" class="swiper-btn swiper-btn--right">&nbsp;</button>
-      <div id="transport-pagination" class="swiper-pagination"></div>
     </div>
     <div class="u-text-align-center u-hide-lg u-mgt--xl">
       <a routerLink="." fragment="transport" class="btn btn--transport btn--lg" (click)="openModal()">Все варианты</a>
     </div>
+    <ng-template #loading>
+      <div>Loading...</div>
+    </ng-template>
   </div>
 </div>
 
 <app-modal *ngIf="modalIsOpen" [title]="formatTitle()" (close)="closeModal()">
-  <app-transport-page-details (onChange)="setTitleId($event)"></app-transport-page-details>
+  <app-transport-page-details (onChange)="setTransportId($event)"></app-transport-page-details>
 <!--  <app-service-order-form [serviceTitle]="serviceTitle" [serviceList]="serviceList"></app-service-order-form>-->
 </app-modal>

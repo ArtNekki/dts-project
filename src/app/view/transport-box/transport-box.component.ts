@@ -6,10 +6,7 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./transport-box.component.scss']
 })
 export class TransportBoxComponent implements OnInit {
-  @Input() title;
-  @Input() name;
-  @Input() price;
-  @Input() labelPosition;
+  @Input() data;
 
   constructor() { }
 

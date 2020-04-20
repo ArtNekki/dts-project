@@ -11,7 +11,8 @@ export class SidebarComponent implements OnInit {
   @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
   @Input() transportId;
 
-  // list$: Observable<any>;
+  items;
+
   list = [
     {
       id: 'tippers',
@@ -63,7 +64,10 @@ export class SidebarComponent implements OnInit {
   constructor(private transportService: TransportService) { }
 
   ngOnInit(): void {
-    // this.list$ = this.transportService.getNames();
+    this.transportService.getItems().subscribe((data) => {
+      this.items = data;
+      console.log('items', this.items);
+    });
   }
 
   changeOption(id) {

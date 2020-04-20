@@ -1,22 +1,25 @@
-import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import Swiper from 'swiper';
+import {TransportService} from '../../core/services/transport.service';
 
 @Component({
   selector: 'app-transport-page',
   templateUrl: './transport-page.component.html',
   styleUrls: ['./transport-page.component.scss']
 })
-export class TransportPageComponent implements OnInit, AfterViewInit {
+export class TransportPageComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
 
-  titleId;
+  transportId;
   swiper: Swiper;
   breakpoint;
+  promoItems;
+  pSub;
 
   config;
   modalIsOpen = false;
 
-  constructor() { }
+  constructor(private transportService: TransportService) { }
 
 
   ngOnInit() {
@@ -41,14 +44,29 @@ export class TransportPageComponent implements OnInit, AfterViewInit {
         prevEl: '#transport-btn-left',
       },
     };
+
+    this.pSub = this.transportService.getPromoItems().subscribe((data) => {
+      this.promoItems = data;
+
+
+      if (this.promoItems) {
+
+        setTimeout(() => {
+          this.breakpoint = window.matchMedia(`(min-width: 992px)`);
+
+          this.initSwiper();
+          this.checkBreakpoint();
+        }, 0);
+      }
+    });
   }
 
 
   ngAfterViewInit(): void {
-    this.breakpoint = window.matchMedia(`(min-width: 992px)`);
-
-    this.initSwiper();
-    this.checkBreakpoint();
+    // this.breakpoint = window.matchMedia(`(min-width: 992px)`);
+    //
+    // this.initSwiper();
+    // this.checkBreakpoint();
   }
 
   @HostListener('window:resize', ['$event'])
@@ -77,18 +95,22 @@ export class TransportPageComponent implements OnInit, AfterViewInit {
 
   closeModal() {
     this.modalIsOpen = false;
-    this.titleId = null;
+    this.transportId = null;
   }
 
-  setTitleId(data: any) {
-    this.titleId = data;
+  setTransportId(data: any) {
+    this.transportId = data;
   }
 
   formatTitle() {
-    if (this.titleId) {
-      return `Заявка на ${this.titleId}`;
+    if (this.transportId) {
+      return `Заявка на ${this.transportId}`;
     } else {
       return 'Выберите транспорт';
     }
+  }
+
+  ngOnDestroy(): void {
+    this.pSub.unsubscribe();
   }
 }
