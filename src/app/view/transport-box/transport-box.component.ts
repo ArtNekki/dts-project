@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-transport-box',
@@ -7,10 +7,15 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class TransportBoxComponent implements OnInit {
   @Input() data;
+  @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  goTo(id: string) {
+    this.onChange.emit(id);
   }
 
 }
