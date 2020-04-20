@@ -1,15 +1,29 @@
+@import 'src/assets/scss/core/functions';
+@import "src/assets/scss/core/breakpoints";
 @import "src/variables";
+@import "src/assets/scss/settings";
 
 .modal {
-  position: relative;
-  padding: 25px;
-  min-width: 350px;
-  //height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
   //max-height: 670px;
   background-color: $white;
   box-shadow: 0 0 15px 0 rgba($gray-dark, 0.6);
-  //overflow-y: auto;
-  //overflow-x: hidden;
+  overflow-y: auto;
+
+  @include media-breakpoint-up(md) {
+    position: relative;
+    top: unset;
+    left: unset;
+    width: auto;
+    height: auto;
+    padding: 25px;
+    min-width: 350px;
+  }
 
   &-backdrop {
     position: fixed;
@@ -26,25 +40,38 @@
 
   &-title {
     margin: 0;
-    margin-bottom: 30px;
-    font-size: 22px;
-    line-height: 24px;
+    margin-bottom: 20px;
+    padding-right: 30px;
+    font-size: 19px;
+    line-height: 21px;
     text-transform: uppercase;
     color: $gray-dark;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 30px;
+      font-size: 22px;
+      line-height: 24px;
+    }
   }
 
   &-close {
     position: absolute;
-    top: -70px;
-    right: -7px;
+    top: 0;
+    right: 13px;
     margin: 0;
     padding: 0;
+    font-size: 30px;
     background-color: transparent;
     border: none;
-    font-size: 65px;
     color: $yellow;
     cursor: pointer;
     outline: none;
+
+    @include media-breakpoint-up(md) {
+      top: 0;
+      right: 20px;
+      font-size: 45px;
+    }
 
     &:hover {
       color: rgba($yellow, 0.7);
