@@ -9,10 +9,12 @@ import Swiper from 'swiper';
 export class TransportPageComponent implements OnInit, AfterViewInit {
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
 
+  titleId;
   swiper: Swiper;
   breakpoint;
 
   config;
+  modalIsOpen = false;
 
   constructor() { }
 
@@ -69,4 +71,24 @@ export class TransportPageComponent implements OnInit, AfterViewInit {
     }
   }
 
+  openModal() {
+    this.modalIsOpen = true;
+  }
+
+  closeModal() {
+    this.modalIsOpen = false;
+    this.titleId = null;
+  }
+
+  setTitleId(data: any) {
+    this.titleId = data;
+  }
+
+  formatTitle() {
+    if (this.titleId) {
+      return `Заявка на ${this.titleId}`;
+    } else {
+      return 'Выберите транспорт';
+    }
+  }
 }

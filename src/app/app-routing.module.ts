@@ -13,12 +13,7 @@ const routerOptions: ExtraOptions = {
 };
 
 const routes: Routes = [
-  {path: '', component: MainPageComponent, children: [
-      {path: '', component: TransportPageComponent},
-      {path: 'transport', component: TransportPageDetailsComponent, children: [
-          {path: ':id', component: TransportListComponent}
-      ]}
-  ]}
+  {path: '', component: MainPageComponent}
 
 ];
 

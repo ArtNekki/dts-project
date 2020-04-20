@@ -5,36 +5,34 @@
   &-list {
     margin: 0;
     padding: 10px 0;
-    background-color: $gray;
     list-style: none;
   }
 
-  &-item {
-    padding: 5px 20px 5px 20px;
-
-    &:hover {
-      background-color: $white;
-    }
-
-    &--active {
-      background-color: $white;
-      font-weight: 700;
-    }
+  &-input {
+    display: none;
   }
 
-  a {
+  &-label {
     position: relative;
+    padding: 10px 20px 10px 20px;
+    display: block;
     font-size: 14px;
     line-height: 16px;
     color: $gray-dark;
     text-decoration: none;
     cursor: pointer;
 
-    .sidebar-item:hover & {
-      //transform: translateX(15px);
-      display: inline-block;
-      margin-left: 10px;
-      color: red;
+    &:hover {
+      background-color: $white;
+    }
+
+    .sidebar-input:checked ~ & {
+      background-color: $white;
+      color: $black;
+    }
+
+    .sidebar-input:checked:hover ~ & {
+      color: lighten($gray-dark, 10%);
     }
   }
 }

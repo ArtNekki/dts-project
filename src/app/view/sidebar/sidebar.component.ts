@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {TransportService} from '../../core/services/transport.service';
 import {Observable} from 'rxjs';
 
@@ -8,6 +8,7 @@ import {Observable} from 'rxjs';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
+  @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
   // list$: Observable<any>;
   list = [
     {
@@ -61,6 +62,10 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     // this.list$ = this.transportService.getNames();
+  }
+
+  changeOption(id) {
+    this.onChange.emit(id);
   }
 
 }

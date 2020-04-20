@@ -1,16 +1,14 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AngularFirestore} from '@angular/fire/firestore';
 
 @Component({
-  selector: 'app-service-order-form',
-  templateUrl: './service-order-form.component.html',
-  styleUrls: ['./service-order-form.component.scss']
+  selector: 'app-transport-order-form',
+  templateUrl: './transport-order-form.component.html',
+  styleUrls: ['./transport-order-form.component.scss']
 })
-export class ServiceOrderFormComponent implements OnInit {
-  @Input() serviceTitle;
-  @Input() serviceList;
-
+export class TransportOrderFormComponent implements OnInit, OnChanges{
+  @Input('id') transportId: string;
   entity: boolean;
   form: FormGroup;
   stepTwo = false;
@@ -19,14 +17,20 @@ export class ServiceOrderFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      variant: new FormControl(this.serviceList[2].value, []),
       username: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
       tel: new FormControl('', [Validators.required]),
-      worktime: new FormControl('', []),
-      workplace: new FormControl('', []),
       message: new FormControl('', [Validators.required])
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.stepTwo = false;
+
+    if (!changes.transportId.firstChange) {
+      this.form.reset();
+    }
+
   }
 
   selectUserType(id) {
@@ -47,13 +51,7 @@ export class ServiceOrderFormComponent implements OnInit {
   onSubmit() {
     if (!this.form.valid) { return; }
 
-    const variant = this.serviceList.filter((item) => {
-      return this.form.value.variant === item.value;
-    })[0];
-
-    console.log('ccccc', variant);
-
-    const formData = {serviceTitle: this.serviceTitle, variant: variant.name, date: new Date(), ...this.form.value};
+    const formData = { date: new Date(), ...this.form.value};
 
 
     // this.af.collection('messages').add(formData);

@@ -1,11 +1,8 @@
 <div class="transport-details">
-  <div class="row">
-    <div class="col-3">
-      <app-sidebar></app-sidebar>
-    </div>
-    <div class="col-9">
-      <router-outlet></router-outlet>
-    </div>
+  <div class="transport-details-sidebar">
+    <app-sidebar (onChange)="changeData($event)"></app-sidebar>
   </div>
-  <button class="transport-details-close" (click)="close()">&times;</button>
+  <div class="transport-details-form">
+    <app-transport-order-form [id]="transportId"></app-transport-order-form>
+  </div>
 </div>

@@ -31,7 +31,7 @@
       </li>
     </ul>
     <div class="u-show-lg u-mgl-lg">
-      <a [routerLink]="['transport', 'tippers']" fragment="transport" class="btn btn--transport btn--lg">Все варианты</a>
+      <a routerLink="." fragment="transport" class="btn btn--transport btn--lg" (click)="openModal()">Все варианты</a>
     </div>
   </div>
   <div class="col col-lg-7">
@@ -64,3 +64,8 @@
     </div>
   </div>
 </div>
+
+<app-modal *ngIf="modalIsOpen" [title]="formatTitle()" (close)="closeModal()">
+  <app-transport-page-details (onChange)="setTitleId($event)"></app-transport-page-details>
+<!--  <app-service-order-form [serviceTitle]="serviceTitle" [serviceList]="serviceList"></app-service-order-form>-->
+</app-modal>
