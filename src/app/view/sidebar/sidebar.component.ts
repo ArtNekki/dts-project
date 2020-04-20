@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {TransportService} from '../../core/services/transport.service';
 import {Observable} from 'rxjs';
 
@@ -9,6 +9,8 @@ import {Observable} from 'rxjs';
 })
 export class SidebarComponent implements OnInit {
   @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
+  @Input() transportId;
+
   // list$: Observable<any>;
   list = [
     {

@@ -4,7 +4,7 @@
   </div>
   <div class="transport-details-content">
     <div class="transport-details-sidebar">
-      <app-sidebar (onChange)="changeData($event)"></app-sidebar>
+      <app-sidebar (onChange)="changeData($event)" [transportId]="transportId"></app-sidebar>
     </div>
     <div class="transport-details-form">
       <app-transport-order-form [id]="transportId"></app-transport-order-form>
