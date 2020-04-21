@@ -1,7 +1,9 @@
-<div class="modal-backdrop">
-  <article class="modal">
+<article class="modal-backdrop">
+  <div [class]="'modal ' + (cssMod || '')">
     <h1 class="modal-title" [innerHTML]="title"></h1>
-    <ng-content></ng-content>
+    <div class="modal-content">
+      <ng-content></ng-content>
+    </div>
     <button class="modal-close" (click)="close.emit()">&times;</button>
-  </article>
-</div>
+  </div>
+</article>

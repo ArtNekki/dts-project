@@ -58,7 +58,7 @@
   </div>
 </div>
 
-<app-modal *ngIf="modalIsOpen" [title]="formatTitle()" (close)="closeModal()">
+<app-modal *ngIf="modalIsOpen" [title]="formatTitle()" (close)="closeModal()"  cssMod="modal--transport">
   <app-transport-page-details (onChange)="setTransportId($event)" [transportId]="transportId"></app-transport-page-details>
 <!--  <app-service-order-form [serviceTitle]="serviceTitle" [serviceList]="serviceList"></app-service-order-form>-->
 </app-modal>
