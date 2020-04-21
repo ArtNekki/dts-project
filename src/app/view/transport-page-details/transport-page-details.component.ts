@@ -12,6 +12,7 @@ export class TransportPageDetailsComponent implements OnInit, OnChanges {
 
   @Input() transportId;
   activeClass;
+  isLoaded = true;
 
   constructor(private router: Router) { }
 
@@ -27,6 +28,12 @@ export class TransportPageDetailsComponent implements OnInit, OnChanges {
    this.onChange.emit(id);
    this.transportId = id;
    this.container.nativeElement.classList.add('transport-details--selected');
+
+   this.isLoaded = false;
+
+   setTimeout(() => {
+     this.isLoaded = true;
+   }, 1000);
   }
 
   goBack() {

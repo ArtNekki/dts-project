@@ -4,6 +4,8 @@
 @import "src/assets/scss/settings";
 
 .sidebar {
+  position: relative;
+  height: 100%;
 
   &-list {
     margin: 0;

@@ -108,7 +108,7 @@
     transition: transform 0.5s ease-in;
 
     @include media-breakpoint-up(sm) {
-      position: static;
+      position: relative;
       margin-left: 15px;
       flex-basis: calc(60% - 15px);
       transform: translateX(0);
