@@ -21,7 +21,9 @@
         <small *ngIf="form.get('workplace').errors.required">Название компании не может быть пустым</small>
       </div>
     </div>
-    <button type="button" class="form-btn" [disabled]="" (click)="stepTwo = true">Дальше</button>
+    <div class="form-group form-group--right">
+      <button type="button" class="btn btn--md" [disabled]="" (click)="stepTwo = true">Дальше</button>
+    </div>
   </div>
   <div class="form-step-two" [ngStyle]="{display: stepTwo ? 'block' : 'none'}">
 <!--    <div>Персональная информация:</div>-->
@@ -75,6 +77,9 @@
         <small *ngIf="form.get('message').errors.required">Название компании не может быть пустым</small>
       </div>
     </div>
-    <button type="submit" class="form-btn" [disabled]="form.invalid">Отправить</button>
+    <div class="form-group">
+      <button type="button" class="btn btn--md" (click)="stepTwo = false">Назад</button>
+      <button type="submit" class="btn btn--md" [disabled]="form.invalid">Отправить</button>
+    </div>
   </div>
 </form>
