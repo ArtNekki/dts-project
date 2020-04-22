@@ -1,5 +1,5 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {TransportService} from '../../core/services/transport.service';
 import {TransportItem} from '../transport-box/transport-box.component';
@@ -14,17 +14,13 @@ export class TransportOrderFormComponent implements OnInit, OnChanges{
   entity: boolean;
   form: FormGroup;
   stepTwo = false;
+  transportParams;
 
   constructor(private af: AngularFirestore, private transportService: TransportService) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      tippers: new FormGroup({
-       operatingWeight: new FormControl(''),
-       enginePower: new FormControl(''),
-       carryingCapacity: new FormControl(''),
-       bodyVolume: new FormControl('')
-      }),
+      params: new FormGroup({}),
       date: new FormControl(''),
       location: new FormControl(''),
       username: new FormControl('', [Validators.required]),
@@ -40,7 +36,17 @@ export class TransportOrderFormComponent implements OnInit, OnChanges{
     if (changes.transportId.currentValue) {
       this.transportService.getById(changes.transportId.currentValue)
         .subscribe((data: TransportItem) => {
-            console.log('data9999', data);
+
+            if (data.params) {
+              this.transportParams = data.params;
+
+              data.params.forEach((param) => {
+                (this.form.get('params') as FormGroup).addControl(param.id, new FormControl(''));
+              });
+
+              console.log('newww', this.form);
+            }
+
         });
     }
 

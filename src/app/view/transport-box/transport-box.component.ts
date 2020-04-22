@@ -5,6 +5,7 @@ export interface TransportItem {
   name: string;
   price: string;
   promo?: boolean;
+  params?: any;
 }
 
 @Component({
