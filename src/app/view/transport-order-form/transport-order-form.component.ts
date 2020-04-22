@@ -3,17 +3,27 @@ import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {TransportService} from '../../core/services/transport.service';
 import {TransportItem} from '../transport-box/transport-box.component';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-transport-order-form',
   templateUrl: './transport-order-form.component.html',
-  styleUrls: ['./transport-order-form.component.scss']
+  styleUrls: ['./transport-order-form.component.scss'],
+  animations: [
+    trigger('field', [
+      transition(':enter', [
+        style({opacity: 0}),
+        animate(800)
+      ])
+    ])
+  ]
 })
 export class TransportOrderFormComponent implements OnInit, OnChanges {
   @Input('id') transportId: string;
   entity: boolean;
   form: FormGroup;
   transportParams;
+  fieldState = '';
 
   FormSteps = {
     one: 'one',

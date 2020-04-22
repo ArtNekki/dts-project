@@ -45,21 +45,21 @@
                     {id: 'entity', name: 'Юр. лицо'}]" (onChange)="selectUserType($event)">
       </app-switcher>
     </div>
-    <div class="form-field" *ngIf="!entity">
+    <div class="form-field" *ngIf="!entity" [@field]="fieldState">
       <label class="form-label" for="name">ФИО</label>
       <input type="text" id="name" class="input" formControlName="username">
       <div class="form-validation" *ngIf="form.get('username').invalid && form.get('username').touched">
         <small *ngIf="form.get('username').errors.required">ФИО не может быть пустым</small>
       </div>
     </div>
-    <div class="form-field" *ngIf="entity">
+    <div class="form-field" *ngIf="entity" [@field]="fieldState">
       <label class="form-label" for="company-name">Название фирмы</label>
       <input type="text" id="company-name" class="input" formControlName="companyname">
       <div class="form-validation" *ngIf="form.get('companyname').invalid && form.get('companyname').touched">
         <small *ngIf="form.get('companyname').errors.required">Название компании не может быть пустым</small>
       </div>
     </div>
-    <div class="form-field" *ngIf="entity">
+    <div class="form-field" *ngIf="entity" [@field]="fieldState">
       <label class="form-label" for="company-name">ФИО предствителя фирмы</label>
       <input type="text" id="company-person" class="input" formControlName="companyperson">
       <div class="form-validation" *ngIf="form.get('companyperson').invalid && form.get('companyperson').touched">
