@@ -1,29 +1,44 @@
 <form class="form" autocomplete="off" [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="form-step-one" [ngStyle]="{display: stepTwo ? 'none' : 'block'}">
-      <div *ngIf="transportId; else empty">
-        {{transportId}}
-        <div class="form-group form-group--right">
-          <button type="button" class="btn btn--md" [disabled]="" (click)="stepTwo = true">Дальше</button>
+    <div *ngIf="transportId; else empty">
+      {{transportId}}
+
+      <div formGroupName="tippers">
+        <div class="form-field">
+          <label class="form-label">Эксплуатационная масса, кг</label>
+          <app-select id="operatingWeight" [items]="[{ value: '9150', name: '9150' },{ value: '8150', name: '8150' }]" formControlName="operatingWeight"></app-select>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Мощность двигателя, л.c</label>
+          <app-select id="enginePower" [items]="[{ value: '225', name: '225' },{ value: '400', name: '400' }]" formControlName="enginePower"></app-select>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Грузоподьемность, тонн</label>
+          <app-select id="carryingCapacity" [items]="[{ value: '13', name: '13' },{ value: '25', name: '25' }]" formControlName="carryingCapacity"></app-select>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Обьем кузова, м<sup>3</sup></label>
+          <app-select id="bodyVolume" [items]="[{ value: '8', name: '8' },{ value: '10', name: '10' }]" formControlName="bodyVolume"></app-select>
         </div>
       </div>
-<!--    <div class="form-field">-->
-<!--      <label class="form-label" for="serviceType">Тип груза <span>*</span></label>-->
-<!--      <app-select id="serviceType" [items]="[]" formControlName="variant"></app-select>-->
-<!--    </div>-->
-<!--    <div class="form-field">-->
-<!--      <label class="form-label">Дата проведения работ</label>-->
-<!--      <app-datepicker id="work-time" name="work-time" formControlName="worktime"></app-datepicker>-->
-<!--      <div class="form-validation" *ngIf="form.get('worktime').invalid && form.get('worktime').touched">-->
-<!--        <small *ngIf="form.get('worktime').errors.required">Название компании не может быть пустым</small>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="form-field">-->
-<!--      <label class="form-label" for="work-place">Место проведения работы </label>-->
-<!--      <textarea id="work-place" class="input" formControlName="workplace" cols="30" rows="5"></textarea>-->
-<!--      <div class="form-validation" *ngIf="form.get('workplace').invalid && form.get('workplace').touched">-->
-<!--        <small *ngIf="form.get('workplace').errors.required">Название компании не может быть пустым</small>-->
-<!--      </div>-->
-<!--    </div>-->
+      <div class="form-field">
+        <label class="form-label">Когда нужен?</label>
+        <app-datepicker id="date" name="date" formControlName="date"></app-datepicker>
+        <div class="form-validation" *ngIf="form.get('date').invalid && form.get('date').touched">
+          <small *ngIf="form.get('date').errors.required">Название компании не может быть пустым</small>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="location">Куда доставить?</label>
+        <textarea id="location" class="input" formControlName="location" cols="30" rows="5"></textarea>
+        <div class="form-validation" *ngIf="form.get('location').invalid && form.get('location').touched">
+          <small *ngIf="form.get('location').errors.required">Название компании не может быть пустым</small>
+        </div>
+      </div>
+      <div class="form-group form-group--right">
+        <button type="button" class="btn btn--md" [disabled]="" (click)="stepTwo = true">Дальше</button>
+      </div>
+    </div>
     <ng-template #empty>
       <p>Транспорт не выбран...</p>
     </ng-template>

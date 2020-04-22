@@ -17,6 +17,14 @@ export class TransportOrderFormComponent implements OnInit, OnChanges{
 
   ngOnInit(): void {
     this.form = new FormGroup({
+      tippers: new FormGroup({
+       operatingWeight: new FormControl(''),
+       enginePower: new FormControl(''),
+       carryingCapacity: new FormControl(''),
+       bodyVolume: new FormControl('')
+      }),
+      date: new FormControl(''),
+      location: new FormControl(''),
       username: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
       tel: new FormControl('', [Validators.required]),
