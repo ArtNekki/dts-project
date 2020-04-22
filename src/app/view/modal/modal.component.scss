@@ -12,6 +12,7 @@
   background-color: $white;
   box-shadow: 0 0 15px 0 rgba($gray-dark, 0.6);
   overflow-y: auto;
+  transition: all 2.5s ease-in;
 
   &:not(&--transport) {
     @include media-breakpoint-up(sm) {

@@ -1,37 +1,41 @@
 <form class="form" autocomplete="off" [formGroup]="form" (ngSubmit)="onSubmit()">
-  <div class="form-step-one" [ngStyle]="{display: stepTwo ? 'none' : 'block'}">
+  <div class="form-step-one" [ngStyle]="{display: this.currentStep == this.FormSteps.one ? 'block' : 'none'}">
     <div *ngIf="transportId; else empty">
-      {{transportId}}
-
       <div formGroupName="params">
         <div *ngFor="let param of transportParams" class="form-field">
           <label class="form-label">{{ param.name }}</label>
           <app-select [id]="param.id" [items]="param.items" [formControlName]="param.id"></app-select>
         </div>
       </div>
-      <div class="form-field">
-        <label class="form-label">Когда нужен?</label>
-        <app-datepicker id="date" name="date" formControlName="date"></app-datepicker>
-        <div class="form-validation" *ngIf="form.get('date').invalid && form.get('date').touched">
-          <small *ngIf="form.get('date').errors.required">Название компании не может быть пустым</small>
-        </div>
-      </div>
-      <div class="form-field">
-        <label class="form-label" for="location">Куда доставить?</label>
-        <textarea id="location" class="input" formControlName="location" cols="30" rows="5"></textarea>
-        <div class="form-validation" *ngIf="form.get('location').invalid && form.get('location').touched">
-          <small *ngIf="form.get('location').errors.required">Название компании не может быть пустым</small>
-        </div>
-      </div>
       <div class="form-group form-group--right">
-        <button type="button" class="btn btn--md" [disabled]="" (click)="stepTwo = true">Дальше</button>
+        <button type="button" class="btn btn--md" [disabled]="" (click)="this.goToStep(this.FormSteps.two)">Дальше</button>
       </div>
     </div>
     <ng-template #empty>
       <p>Транспорт не выбран...</p>
     </ng-template>
   </div>
-  <div class="form-step-two" [ngStyle]="{display: stepTwo ? 'block' : 'none'}">
+  <div class="form-step-two" [ngStyle]="{display: this.currentStep == this.FormSteps.two ? 'block' : 'none'}">
+    <div class="form-field">
+      <label class="form-label">Когда нужен?</label>
+      <app-datepicker id="date" name="date" formControlName="date"></app-datepicker>
+      <div class="form-validation" *ngIf="form.get('date').invalid && form.get('date').touched">
+        <small *ngIf="form.get('date').errors.required">Название компании не может быть пустым</small>
+      </div>
+    </div>
+    <div class="form-field">
+      <label class="form-label" for="location">Куда доставить?</label>
+      <textarea id="location" class="input" formControlName="location" cols="30" rows="5"></textarea>
+      <div class="form-validation" *ngIf="form.get('location').invalid && form.get('location').touched">
+        <small *ngIf="form.get('location').errors.required">Название компании не может быть пустым</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="button" class="btn btn--md" (click)="this.goToStep(this.FormSteps.one)">Назад</button>
+      <button type="submit" class="btn btn--md" (click)="this.goToStep(this.FormSteps.three)">Дальше</button>
+    </div>
+  </div>
+  <div class="form-step-three" [ngStyle]="{display: this.currentStep == this.FormSteps.three ? 'block' : 'none'}">
     <!--    <div>Персональная информация:</div>-->
     <!--    <button class="form-btn" (click)="stepTwo = false">Назад</button>-->
     <div class="form-group form-group--right u-mgb-md">
@@ -84,7 +88,7 @@
       </div>
     </div>
     <div class="form-group">
-      <button type="button" class="btn btn--md" (click)="stepTwo = false">Назад</button>
+      <button type="button" class="btn btn--md" (click)="this.goToStep(this.FormSteps.two)">Назад</button>
       <button type="submit" class="btn btn--md" [disabled]="form.invalid">Отправить</button>
     </div>
   </div>

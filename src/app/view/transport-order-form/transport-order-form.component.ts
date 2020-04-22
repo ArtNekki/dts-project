@@ -9,12 +9,19 @@ import {TransportItem} from '../transport-box/transport-box.component';
   templateUrl: './transport-order-form.component.html',
   styleUrls: ['./transport-order-form.component.scss']
 })
-export class TransportOrderFormComponent implements OnInit, OnChanges{
+export class TransportOrderFormComponent implements OnInit, OnChanges {
   @Input('id') transportId: string;
   entity: boolean;
   form: FormGroup;
-  stepTwo = false;
   transportParams;
+
+  FormSteps = {
+    one: 'one',
+    two: 'two',
+    three: 'three'
+  }
+
+  currentStep = this.FormSteps.one;
 
   constructor(private af: AngularFirestore, private transportService: TransportService) { }
 
@@ -31,7 +38,7 @@ export class TransportOrderFormComponent implements OnInit, OnChanges{
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.stepTwo = false;
+    this.currentStep = this.FormSteps.one;
 
     if (changes.transportId.currentValue) {
       this.transportService.getById(changes.transportId.currentValue)
@@ -83,5 +90,9 @@ export class TransportOrderFormComponent implements OnInit, OnChanges{
     // this.form.reset();
 
     console.log(formData);
+  }
+
+  goToStep(step: string) {
+    this.currentStep = step;
   }
 }
