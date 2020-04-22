@@ -30,6 +30,15 @@ export class TransportService {
       );
   }
 
+  getById(id) {
+    return this.firestore.collection('transport').doc(id).valueChanges()
+      .pipe(
+        map((data: TransportItem) => {
+          return {id, ...data};
+        })
+      );
+  }
+
   getPromoItems() {
     return this.firestore.collection('/transport', ref => ref.where('promo', '==', true)).snapshotChanges()
       .pipe(

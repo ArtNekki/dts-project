@@ -1,6 +1,8 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AngularFirestore} from '@angular/fire/firestore';
+import {TransportService} from '../../core/services/transport.service';
+import {TransportItem} from '../transport-box/transport-box.component';
 
 @Component({
   selector: 'app-transport-order-form',
@@ -13,7 +15,7 @@ export class TransportOrderFormComponent implements OnInit, OnChanges{
   form: FormGroup;
   stepTwo = false;
 
-  constructor(private af: AngularFirestore) { }
+  constructor(private af: AngularFirestore, private transportService: TransportService) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -34,6 +36,13 @@ export class TransportOrderFormComponent implements OnInit, OnChanges{
 
   ngOnChanges(changes: SimpleChanges): void {
     this.stepTwo = false;
+
+    if (changes.transportId.currentValue) {
+      this.transportService.getById(changes.transportId.currentValue)
+        .subscribe((data: TransportItem) => {
+            console.log('data9999', data);
+        });
+    }
 
     if (!changes.transportId.firstChange) {
       this.form.reset();
