@@ -24,9 +24,9 @@ export class TransportPageDetailsComponent implements OnInit, OnChanges {
     this.router.navigate(['/'], { fragment: 'transport' });
   }
 
-  changeData(id: any) {
-   this.onChange.emit(id);
-   this.transportId = id;
+  changeData(item: any) {
+   this.onChange.emit(item);
+   this.transportId = item.id;
    this.container.nativeElement.classList.add('transport-details--selected');
 
    this.isLoaded = false;

@@ -2,6 +2,21 @@ import {AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, V
 import Swiper from 'swiper';
 import {TransportService} from '../../core/services/transport.service';
 
+const TransportMap = {
+  'auto-containers': 'Контейнеровоза',
+  'auto-towers': 'Автовышки',
+  'bulldozers': 'Бульдозера',
+  'chambos': 'Илососа',
+  'crawler-excavators': 'Экскаватора',
+  'front-loaders': 'Фронтального погрузчика',
+  'gasoline-tankers': 'Бензовоза',
+  'low-loaders': 'Низкорамного трала',
+  'power-stations': 'Электростанции',
+  'timber-tracks': 'Сортиментовоза',
+  'tippers': 'Самосвала',
+  'tractors': 'Трактора'
+}
+
 @Component({
   selector: 'app-transport-page',
   templateUrl: './transport-page.component.html',
@@ -11,6 +26,7 @@ export class TransportPageComponent implements OnInit, AfterViewInit, OnDestroy 
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
 
   transportId;
+  transportPrice;
   swiper: Swiper;
   breakpoint;
   promoItems;
@@ -98,16 +114,13 @@ export class TransportPageComponent implements OnInit, AfterViewInit, OnDestroy 
     this.transportId = null;
   }
 
-  setTransportId(data: any) {
-    this.transportId = data;
+  setTransportData(data: any) {
+    this.transportId = data.id;
+    this.transportPrice = data.price;
   }
 
   formatTitle() {
-    if (this.transportId) {
-      return `Заявка на ${this.transportId}`;
-    } else {
-      return 'Выберите транспорт';
-    }
+    return TransportMap[this.transportId];
   }
 
   ngOnDestroy(): void {

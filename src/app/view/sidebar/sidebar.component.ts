@@ -38,8 +38,8 @@ export class SidebarComponent implements OnInit, OnDestroy {
     });
   }
 
-  changeOption(id) {
-    this.onChange.emit(id);
+  changeOption(item) {
+    this.onChange.emit(item);
   }
 
 }

@@ -63,6 +63,18 @@ svg {
   height: inherit;
 }
 
+.modal-title small {
+  display: block;
+  font-size: 14px;
+  text-transform: none;
+  font-weight: 400;
+  line-height: 0px;
+
+  &:first-of-type {
+    margin-top: 25px;
+  }
+}
+
 //.mobile-menu--opened .page-header-menu {
 //  display: block !important;
 //}

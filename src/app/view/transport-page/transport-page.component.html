@@ -40,7 +40,7 @@
         <div #slider class="swiper-container">
           <div class="swiper-wrapper">
             <div *ngFor="let item of promoItems" class="swiper-slide">
-              <app-transport-box [data]="item" (onChange)="setTransportId($event); openModal()"></app-transport-box>
+              <app-transport-box [data]="item" (onChange)="setTransportData($event); openModal()"></app-transport-box>
             </div>
           </div>
         </div>
@@ -58,7 +58,7 @@
   </div>
 </div>
 
-<app-modal *ngIf="modalIsOpen" [title]="formatTitle()" (close)="closeModal()"  cssMod="modal--transport">
-  <app-transport-page-details (onChange)="setTransportId($event)" [transportId]="transportId"></app-transport-page-details>
+<app-modal *ngIf="modalIsOpen" [title]="transportId ? 'Аренда ' + this.formatTitle() + '<br /><small>Цена за сутки: от <b>' + (this.transportPrice | currency: 'RUB':'symbol-narrow':'4.0':'ru') + '</b></small><br /><small>Цена за доставку: <b>договорная</b></small>' : 'Выберите транспорт'" (close)="closeModal()"  cssMod="modal--transport">
+  <app-transport-page-details (onChange)="setTransportData($event)" [transportId]="transportId"></app-transport-page-details>
 <!--  <app-service-order-form [serviceTitle]="serviceTitle" [serviceList]="serviceList"></app-service-order-form>-->
 </app-modal>

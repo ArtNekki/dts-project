@@ -23,8 +23,8 @@ export class TransportBoxComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goTo(id: string) {
-    this.onChange.emit(id);
+  goTo(data) {
+    this.onChange.emit(data);
   }
 
 }
