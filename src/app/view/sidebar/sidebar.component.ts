@@ -29,6 +29,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   loadItems() {
     this.psub = this.transportService.getItems().subscribe((data) => {
+      console.log('666', data);
       this.items = data;
 
       setTimeout(() => {

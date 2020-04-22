@@ -4,6 +4,7 @@ import {environment} from '../../../environments/environment';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {filter, map, tap} from 'rxjs/operators';
+import {TransportItem} from '../../view/transport-box/transport-box.component';
 
 @Injectable({
   providedIn: 'root'
@@ -17,14 +18,27 @@ export class TransportService {
   }
 
   getItems() {
-    return this.firestore.collection('transports').valueChanges();
+     return this.firestore.collection('transport').snapshotChanges()
+      .pipe(
+        map((actions) => {
+          return actions.map(a => {
+            const id = a.payload.doc.id;
+            const data = a.payload.doc.data() as TransportItem;
+            return {id, ...data};
+          });
+        })
+      );
   }
 
   getPromoItems() {
-    return this.firestore.collection<any>('transports').valueChanges()
+    return this.firestore.collection('/transport', ref => ref.where('promo', '==', true)).snapshotChanges()
       .pipe(
-        map((data) => {
-          return data.filter(item => item.promo);
+        map((actions) => {
+          return actions.map(a => {
+            const id = a.payload.doc.id;
+            const data = a.payload.doc.data() as TransportItem;
+            return {id, ...data};
+          });
         })
       );
   }
