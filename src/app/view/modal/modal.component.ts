@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {animate, style, transition, trigger} from '@angular/animations';
 
 @Component({
@@ -14,7 +14,7 @@ import {animate, style, transition, trigger} from '@angular/animations';
     ])
   ]
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent implements OnInit, OnChanges {
   @Input() title = 'Модальное окно';
   @Input() cssMod: string;
   @Output() close = new EventEmitter<void>();
@@ -25,6 +25,10 @@ export class ModalComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('changes', changes);
   }
 
 }
