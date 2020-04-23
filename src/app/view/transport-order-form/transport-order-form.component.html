@@ -1,5 +1,5 @@
 <form class="form" autocomplete="off" [formGroup]="form" (ngSubmit)="onSubmit()">
-  <div class="form-step-one" [ngStyle]="{display: this.currentStep == this.FormSteps.one ? 'block' : 'none'}">
+  <div class="form-step-one" [@stepOne]="currentStep">
     <div *ngIf="transportId; else empty">
       <div formGroupName="params">
         <div *ngFor="let param of transportParams" class="form-field">
@@ -8,14 +8,14 @@
         </div>
       </div>
       <div class="form-group form-group--right">
-        <button type="button" class="btn btn--md" [disabled]="" (click)="this.goToStep(this.FormSteps.two)">Дальше</button>
+        <button type="button" class="btn btn--md" [disabled]="" (click)="goToStep(FormSteps.two)">Дальше</button>
       </div>
     </div>
     <ng-template #empty>
       <p>Транспорт не выбран...</p>
     </ng-template>
   </div>
-  <div class="form-step-two" [ngStyle]="{display: this.currentStep == this.FormSteps.two ? 'block' : 'none'}">
+  <div class="form-step-two" [@stepTwo]="currentStep">
     <div class="form-field">
       <label class="form-label">Когда нужен?</label>
       <app-datepicker id="date" name="date" formControlName="date"></app-datepicker>
@@ -31,11 +31,11 @@
       </div>
     </div>
     <div class="form-group">
-      <button type="button" class="btn btn--md" (click)="this.goToStep(this.FormSteps.one)">Назад</button>
-      <button type="submit" class="btn btn--md" (click)="this.goToStep(this.FormSteps.three)">Дальше</button>
+      <button type="button" class="btn btn--md" (click)="goToStep(FormSteps.one)">Назад</button>
+      <button type="submit" class="btn btn--md" (click)="goToStep(FormSteps.three)">Дальше</button>
     </div>
   </div>
-  <div class="form-step-three" [ngStyle]="{display: this.currentStep == this.FormSteps.three ? 'block' : 'none'}">
+  <div class="form-step-three" [@stepThree]="currentStep">
     <!--    <div>Персональная информация:</div>-->
     <!--    <button class="form-btn" (click)="stepTwo = false">Назад</button>-->
     <div class="form-group form-group--right u-mgb-md">
@@ -88,7 +88,7 @@
       </div>
     </div>
     <div class="form-group">
-      <button type="button" class="btn btn--md" (click)="this.goToStep(this.FormSteps.two)">Назад</button>
+      <button type="button" class="btn btn--md" (click)="goToStep(FormSteps.two)">Назад</button>
       <button type="submit" class="btn btn--md" [disabled]="form.invalid">Отправить</button>
     </div>
   </div>

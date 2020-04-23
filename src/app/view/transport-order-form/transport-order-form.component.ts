@@ -3,7 +3,7 @@ import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {TransportService} from '../../core/services/transport.service';
 import {TransportItem} from '../transport-box/transport-box.component';
-import {animate, style, transition, trigger} from '@angular/animations';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-transport-order-form',
@@ -15,7 +15,25 @@ import {animate, style, transition, trigger} from '@angular/animations';
         style({opacity: 0}),
         animate(800)
       ])
-    ])
+    ]),
+    trigger('stepOne', [
+      state('one', style({ position: 'relative', display: 'block', transform: 'translateX(0)' })),
+      state('two', style({transform: 'translateX(-100%)', position: 'absolute'})),
+      state('three', style({transform: 'translateX(-100%)', position: 'absolute'})),
+      transition('one <=> *', animate(200)),
+    ]),
+    trigger('stepTwo', [
+      state('one', style({ position: 'absolute',  transform: 'translateX(150%)', opacity: 0})),
+      state('two', style({transform: 'translateX(0)', position: 'relative', opacity: 1})),
+      state('three', style({transform: 'translateX(-100%)', position: 'absolute', opacity: 0})),
+      transition('two <=> *', animate(200)),
+    ]),
+    trigger('stepThree', [
+      state('one', style({ position: 'absolute',  transform: 'translateX(150%)', opacity: 0})),
+      state('two', style({ position: 'absolute',  transform: 'translateX(150%)', opacity: 0})),
+      state('three', style({transform: 'translateX(0)', position: 'relative', opacity: 1})),
+      transition('three <=> *', animate(200)),
+    ]),
   ]
 })
 export class TransportOrderFormComponent implements OnInit, OnChanges {
