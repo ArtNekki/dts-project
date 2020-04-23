@@ -142,4 +142,10 @@
     font-size: 12px;
     color: red;
   }
+
+  &--all-transport {
+    @include media-breakpoint-up(sm) {
+      display: none;
+    }
+  }
 }

@@ -8,8 +8,8 @@
         </div>
       </div>
       <div class="form-group form-group--buttons">
-        <button type="button" class="btn btn--md btn--prev" [disabled]="" (click)="this.onChange.emit()">Вся техника</button>
-        <button type="button" class="btn btn--md btn--next" [disabled]="" (click)="goToStep(FormSteps.two)">Доставка</button>
+        <button type="button" class="btn btn--md btn--prev form--all-transport" [disabled]="" (click)="this.onChange.emit()">Вся техника</button>
+        <button type="button" class="btn btn--md btn--next u-mgl-auto" [disabled]="" (click)="goToStep(FormSteps.two)">Доставка</button>
       </div>
     </div>
     <ng-template #empty>
