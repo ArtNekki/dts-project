@@ -22,6 +22,10 @@
     text-transform: uppercase;
   }
 
+  &-step {
+    background-color: $white;
+  }
+
   &-step-heading {
     margin-top: 10px;
     margin-bottom: 20px;

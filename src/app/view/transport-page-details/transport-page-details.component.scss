@@ -85,6 +85,7 @@
     overflow: hidden;
 
     @include media-breakpoint-up(sm) {
+      display: flex;
       flex-direction: row;
     }
   }
@@ -129,8 +130,12 @@
 
     .transport-details--selected & {
       position: static;
-      display: flex;
+      display: block;
       transform: translateX(0);
+
+      @include media-breakpoint-up(md) {
+        display: flex;
+      }
     }
 
   }

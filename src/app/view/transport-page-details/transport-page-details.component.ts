@@ -39,7 +39,7 @@ export class TransportPageDetailsComponent implements OnInit, OnChanges {
   goBack() {
     this.container.nativeElement.classList.remove('transport-details--selected');
     this.transportId = null;
-    this.onChange.emit(this.transportId);
+    this.onChange.emit({id: this.transportId, name: null, price: null});
   }
 
   ngOnChanges(changes: SimpleChanges): void {
