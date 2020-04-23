@@ -80,7 +80,7 @@
     position: relative;
     //margin-bottom: 20px;
     padding: 20px 15px 20px 15px;
-    //padding-right: 50px;
+    padding-right: 50px;
     //min-height: 170px;
     background-color: $white;
     border-bottom: 1px solid $gray;
@@ -113,18 +113,35 @@
   }
 
   :host ::ng-deep &-contact {
-    margin-top: 10px;
-    text-align: right;
+    position: absolute;
+    bottom: 18px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
 
     @include media-breakpoint-up(sm) {
-      position: absolute;
-      bottom: 18px;
-      right: 15px;
-      margin-top: 0;
+      width: auto;
+      height: auto;
     }
 
-    @include media-breakpoint-up(md) {
-      right: 20px;
+    &-text {
+      display: none;
+
+      @include media-breakpoint-up(sm) {
+        display: block;
+      }
+    }
+
+    svg {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      fill: $yellow;
+
+      @include media-breakpoint-up(sm) {
+        display: none;
+        right: 20px;
+      }
     }
   }
 

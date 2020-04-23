@@ -15,6 +15,15 @@
   </div>
 </div>
 <app-modal *ngIf="modal" [title]="serviceTitle" (close)="closeModal()">
+  <div header class="modal-contact">
+    <a href="tel:+79510277322">
+      <svg-icon [src]="'/assets/img/svg/phone-circle.svg'"></svg-icon>
+    </a>
+    <div class="modal-contact-text">
+      <small>Наш телефон:</small>
+      <b><a href="tel:+79510277322">+79510277322</a></b>
+    </div>
+  </div>
   <app-service-order-form body [serviceTitle]="serviceTitle" [serviceList]="serviceList"></app-service-order-form>
 </app-modal>
 
