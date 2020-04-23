@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ElementRef, HostListener, OnInit, OnDestroy, V
 import Swiper from 'swiper';
 import {ServicesService} from '../../core/services/services.service';
 import {Observable} from 'rxjs';
+import {ServiceCard} from '../service-card/service-card.component';
 
 @Component({
   selector: 'app-services',
@@ -26,8 +27,7 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
   breakpoint;
 
   config;
-  serviceTitle;
-  serviceList;
+  serviceData: ServiceCard;
   modal = false;
 
   constructor(private servicesService: ServicesService) { }
@@ -97,8 +97,9 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
 
   openModal(event) {
     this.modal = true;
-    this.serviceTitle = event.data.name;
-    this.serviceList = event.data.list.length ? [...event.data.list, {value: 0, name: '66666', selected: true}] : null;
+    this.serviceData = event.data;
+    // this.serviceTitle = event.data.name;
+    // this.serviceList = event.data.list.length ? [...event.data.list, {value: 0, name: '66666', selected: true}] : null;
 
     document.documentElement.classList.add('modal-opened');
   }

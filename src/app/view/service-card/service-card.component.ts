@@ -1,5 +1,13 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
+export interface ServiceCard {
+  id: string;
+  name: string;
+  preview: string;
+  price: string;
+  list: any;
+}
+
 @Component({
   selector: 'app-service-card',
   templateUrl: './service-card.component.html',

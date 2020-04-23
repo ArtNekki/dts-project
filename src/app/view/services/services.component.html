@@ -14,17 +14,20 @@
     <button id="services-btn-right" class="swiper-btn swiper-btn--right">&nbsp;</button>
   </div>
 </div>
-<app-modal *ngIf="modal" [title]="serviceTitle" (close)="closeModal()">
-  <div header class="modal-contact">
-    <a href="tel:+79510277322">
-      <svg-icon [src]="'/assets/img/svg/phone-circle.svg'"></svg-icon>
-    </a>
-    <div class="modal-contact-text">
-      <small>Наш телефон:</small>
-      <b><a href="tel:+79510277322">+79510277322</a></b>
+<app-modal *ngIf="modal" [title]="serviceData.name" (close)="closeModal()">
+  <div header>
+    <small>Цена за час от: <b>{{serviceData.price | currency: 'RUB':'symbol-narrow':'4.0':'ru'}}</b></small>
+    <div  class="modal-contact">
+      <a href="tel:+79510277322">
+        <svg-icon [src]="'/assets/img/svg/phone-circle.svg'"></svg-icon>
+      </a>
+      <div class="modal-contact-text">
+        <small>Наш телефон:</small>
+        <b><a href="tel:+79510277322">+79510277322</a></b>
+      </div>
     </div>
   </div>
-  <app-service-order-form body [serviceTitle]="serviceTitle" [serviceList]="serviceList"></app-service-order-form>
+  <app-service-order-form body [data]="serviceData"></app-service-order-form>
 </app-modal>
 
 <ng-template #loading>

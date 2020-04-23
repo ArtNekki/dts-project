@@ -8,16 +8,17 @@ import {AngularFirestore} from '@angular/fire/firestore';
   styleUrls: ['./service-order-form.component.scss']
 })
 export class ServiceOrderFormComponent implements OnInit {
-  @Input() serviceTitle;
-  @Input() serviceList;
+  @Input() data;
 
   entity: boolean;
   form: FormGroup;
   stepTwo = false;
+  serviceList = [];
 
   constructor(private af: AngularFirestore) { }
 
   ngOnInit(): void {
+    this.serviceList = this.data.list.length ? [...this.data.list, {value: 0, name: '66666', selected: true}] : null;
     this.form = new FormGroup({
       variant: new FormControl(this.serviceList[2].value, []),
       username: new FormControl('', [Validators.required]),
@@ -51,10 +52,7 @@ export class ServiceOrderFormComponent implements OnInit {
       return this.form.value.variant === item.value;
     })[0];
 
-    console.log('ccccc', variant);
-
-    const formData = {serviceTitle: this.serviceTitle, variant: variant.name, date: new Date(), ...this.form.value};
-
+    const formData = {serviceTitle: this.data.name, variant: variant.name, date: new Date(), ...this.form.value};
 
     // this.af.collection('messages').add(formData);
     this.form.reset();
