@@ -1,13 +1,13 @@
-<form class="form" autocomplete="off" [formGroup]="form" (ngSubmit)="onSubmit()">
-  <div class="form-step-one" [@stepOne]="currentStep">
-    <div *ngIf="transportId; else empty">
-      <div formGroupName="params">
+<form class="form u-full-height" autocomplete="off" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-step u-full-height" [@stepOne]="currentStep">
+    <div *ngIf="transportId; else empty" class="u-full-height">
+      <div formGroupName="params" class="u-full-height">
         <div *ngFor="let param of transportParams" class="form-field">
           <label class="form-label">{{ param.name }}</label>
           <app-select [id]="param.id" [items]="param.items" [formControlName]="param.id"></app-select>
         </div>
       </div>
-      <div class="form-group form-group--right">
+      <div class="form-group form-group--buttons form-group--right">
         <button type="button" class="btn btn--md" [disabled]="" (click)="goToStep(FormSteps.two)">Дальше</button>
       </div>
     </div>
@@ -15,7 +15,7 @@
       <p>Транспорт не выбран...</p>
     </ng-template>
   </div>
-  <div class="form-step-two" [@stepTwo]="currentStep">
+  <div class="form-step u-full-height" [@stepTwo]="currentStep">
     <div class="form-field">
       <label class="form-label">Когда нужен?</label>
       <app-datepicker id="date" name="date" formControlName="date"></app-datepicker>
@@ -30,12 +30,12 @@
         <small *ngIf="form.get('location').errors.required">Название компании не может быть пустым</small>
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group form-group--buttons">
       <button type="button" class="btn btn--md" (click)="goToStep(FormSteps.one)">Назад</button>
       <button type="submit" class="btn btn--md" (click)="goToStep(FormSteps.three)">Дальше</button>
     </div>
   </div>
-  <div class="form-step-three" [@stepThree]="currentStep">
+  <div class="form-step u-full-height" [@stepThree]="currentStep">
     <!--    <div>Персональная информация:</div>-->
     <!--    <button class="form-btn" (click)="stepTwo = false">Назад</button>-->
     <div class="form-group form-group--right u-mgb-md">
@@ -87,7 +87,7 @@
         <small *ngIf="form.get('message').errors.required">Название компании не может быть пустым</small>
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group form-group--buttons">
       <button type="button" class="btn btn--md" (click)="goToStep(FormSteps.two)">Назад</button>
       <button type="submit" class="btn btn--md" [disabled]="form.invalid">Отправить</button>
     </div>

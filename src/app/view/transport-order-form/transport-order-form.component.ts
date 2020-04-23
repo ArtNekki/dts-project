@@ -17,7 +17,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
       ])
     ]),
     trigger('stepOne', [
-      state('one', style({ position: 'relative', display: 'block', transform: 'translateX(0)' })),
+      state('one', style({ position: 'relative', display: 'flex', transform: 'translateX(0)' })),
       state('two', style({transform: 'translateX(-100%)', position: 'absolute'})),
       state('three', style({transform: 'translateX(-100%)', position: 'absolute'})),
       transition('one <=> *', animate(200)),

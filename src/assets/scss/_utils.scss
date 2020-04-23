@@ -27,6 +27,14 @@
   margin-left: 35px;
 }
 
+.u-full-height {
+  @include media-breakpoint-up(md) {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+}
+
 .u-mgb-md {
   margin-bottom: 15px;
 }

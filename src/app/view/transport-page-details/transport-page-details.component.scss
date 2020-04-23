@@ -3,6 +3,14 @@
 @import "src/variables";
 @import "src/assets/scss/settings";
 
+:host {
+  @include media-breakpoint-up(md) {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+}
+
 .transport-details {
 
   @include media-breakpoint-up(md) {
@@ -74,8 +82,6 @@
     position: relative;
     width: 100%;
     min-height: 400px;
-    display: flex;
-    flex-direction: column;
     overflow: hidden;
 
     @include media-breakpoint-up(sm) {
@@ -118,10 +124,12 @@
     @include media-breakpoint-up(md) {
       margin-left: 30px;
       flex-basis: calc(60% - 30px);
+      flex-direction: column;
     }
 
     .transport-details--selected & {
       position: static;
+      display: flex;
       transform: translateX(0);
     }
 

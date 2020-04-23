@@ -1,10 +1,6 @@
 .form {
   //width: 280px;
 
-  //@include media-breakpoint-up(md) {
-  //  width: 320px;
-  //}
-
   &--contact {
     margin-left: 40px;
     margin-right: 40px;
@@ -25,7 +21,6 @@
     font-weight: 300;
     text-transform: uppercase;
   }
-
 
   &-step-heading {
     margin-top: 10px;
@@ -70,6 +65,12 @@
 
     &--right {
       justify-content: flex-end;
+    }
+
+    &--buttons {
+      @include media-breakpoint-up(md) {
+        margin-top: auto;
+      }
     }
 
     .form-field:not(:last-child) {

@@ -1,7 +1,7 @@
 <article class="modal-backdrop">
   <div [class]="'modal ' + (cssMod || '')" [@modal]="modalState" >
     <h1 class="modal-title" [innerHTML]="title"></h1>
-    <div class="modal-content">
+    <div class="modal-content u-full-height">
       <ng-content></ng-content>
     </div>
     <button class="modal-close" (click)="close.emit()">&times;</button>
