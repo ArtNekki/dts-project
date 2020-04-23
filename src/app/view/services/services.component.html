@@ -17,15 +17,6 @@
 <app-modal *ngIf="modal" [title]="serviceData.name" (close)="closeModal()">
   <div header>
     <small>Цена за час от: <b>{{serviceData.price | currency: 'RUB':'symbol-narrow':'4.0':'ru'}}</b></small>
-    <div  class="modal-contact">
-      <a href="tel:+79510277322">
-        <svg-icon [src]="'/assets/img/svg/phone-circle.svg'"></svg-icon>
-      </a>
-      <div class="modal-contact-text">
-        <small>Наш телефон:</small>
-        <b><a href="tel:+79510277322">+79510277322</a></b>
-      </div>
-    </div>
   </div>
   <app-service-order-form body [data]="serviceData"></app-service-order-form>
 </app-modal>

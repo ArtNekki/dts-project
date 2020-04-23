@@ -62,15 +62,15 @@
   <div header *ngIf="transportId">
     <small>Цена за сутки от: <b>{{transportPrice | currency: 'RUB':'symbol-narrow':'4.0':'ru'}}</b></small>
     <small>Цена за доставку: <b>договорная</b></small>
-    <div class="modal-contact">
-      <a href="tel:+79510277322">
-        <svg-icon [src]="'/assets/img/svg/phone-circle.svg'"></svg-icon>
-      </a>
-      <div class="modal-contact-text">
-        <small>Наш телефон:</small>
-        <b><a href="tel:+79510277322">+79510277322</a></b>
-      </div>
-    </div>
+<!--    <div class="modal-contact">-->
+<!--      <a href="tel:+79510277322">-->
+<!--        <svg-icon [src]="'/assets/img/svg/phone-circle.svg'"></svg-icon>-->
+<!--      </a>-->
+<!--      <div class="modal-contact-text">-->
+<!--        <small>Наш телефон:</small>-->
+<!--        <b><a href="tel:+79510277322">+79510277322</a></b>-->
+<!--      </div>-->
+<!--    </div>-->
   </div>
   <app-transport-page-details body (onChange)="setTransportData($event)" [transportId]="transportId"></app-transport-page-details>
 <!--  <app-service-order-form [serviceTitle]="serviceTitle" [serviceList]="serviceList"></app-service-order-form>-->
