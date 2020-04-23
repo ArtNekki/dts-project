@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {TransportService} from '../../core/services/transport.service';
@@ -38,6 +38,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 })
 export class TransportOrderFormComponent implements OnInit, OnChanges {
   @Input('id') transportId: string;
+  @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
   entity: boolean;
   form: FormGroup;
   transportParams;

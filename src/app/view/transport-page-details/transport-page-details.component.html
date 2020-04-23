@@ -1,13 +1,10 @@
 <div #container [class]="'transport-details u-full-height ' + activeClass">
-  <div class="transport-details-header">
-    <button type="button" class="transport-details-back" (click)="goBack()">Вернуться к выбору транспорта</button>
-  </div>
   <div class="transport-details-content u-full-height">
     <div class="transport-details-sidebar">
       <app-sidebar (onChange)="changeData($event)" [transportId]="transportId"></app-sidebar>
     </div>
     <div class="transport-details-form">
-      <app-transport-order-form  [id]="transportId"></app-transport-order-form>
+      <app-transport-order-form [id]="transportId" (onChange)="goBack()"></app-transport-order-form>
       <ng-template #loading>
         <app-loader></app-loader>
       </ng-template>

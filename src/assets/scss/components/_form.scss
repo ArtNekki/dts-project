@@ -72,6 +72,8 @@
     }
 
     &--buttons {
+      margin-top: 30px;
+
       @include media-breakpoint-up(md) {
         margin-top: auto;
       }
