@@ -14,7 +14,7 @@
 .transport-details {
 
   @include media-breakpoint-up(md) {
-    min-width: 600px;
+    min-width: 640px;
   }
 
   &-header {
@@ -123,8 +123,8 @@
     }
 
     @include media-breakpoint-up(md) {
-      margin-left: 30px;
-      flex-basis: calc(60% - 30px);
+      margin-left: 25px;
+      flex-basis: calc(60% - 25px);
       flex-direction: column;
     }
 

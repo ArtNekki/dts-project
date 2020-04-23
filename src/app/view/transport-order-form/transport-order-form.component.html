@@ -8,7 +8,7 @@
         </div>
       </div>
       <div class="form-group form-group--buttons form-group--right">
-        <button type="button" class="btn btn--md btn--next" [disabled]="" (click)="goToStep(FormSteps.two)">Дальше</button>
+        <button type="button" class="btn btn--md btn--next" [disabled]="" (click)="goToStep(FormSteps.two)">Доставка</button>
       </div>
     </div>
     <ng-template #empty>
@@ -31,8 +31,8 @@
       </div>
     </div>
     <div class="form-group form-group--buttons">
-      <button type="button" class="btn btn--md" (click)="goToStep(FormSteps.one)">Назад</button>
-      <button type="submit" class="btn btn--md" (click)="goToStep(FormSteps.three)">Дальше</button>
+      <button type="button" class="btn btn--md btn--prev" (click)="goToStep(FormSteps.one)">Параметры</button>
+      <button type="submit" class="btn btn--md btn--next" (click)="goToStep(FormSteps.three)">Личные данные</button>
     </div>
   </div>
   <div class="form-step u-full-height" [@stepThree]="currentStep">
@@ -88,7 +88,7 @@
       </div>
     </div>
     <div class="form-group form-group--buttons">
-      <button type="button" class="btn btn--md" (click)="goToStep(FormSteps.two)">Назад</button>
+      <button type="button" class="btn btn--md btn--prev" (click)="goToStep(FormSteps.two)">Доставка</button>
       <button type="submit" class="btn btn--md" [disabled]="form.invalid">Отправить</button>
     </div>
   </div>
