@@ -92,7 +92,7 @@
 
   &-sidebar {
     background-color: rgba($gray, 0.5);
-    transition: transform 0.5s ease-in;
+    transition: transform 0.2s ease-in;
 
     .transport-details--selected & {
       transform: translateX(-100%);
@@ -112,7 +112,7 @@
   &-form {
     position: absolute;
     transform: translateX(100vw);
-    transition: transform 0.5s ease-in;
+    transition: transform 0.2s ease-in;
     overflow: hidden;
 
     @include media-breakpoint-up(sm) {

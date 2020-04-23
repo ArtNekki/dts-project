@@ -1,8 +1,15 @@
 <article class="modal-backdrop">
   <div [class]="'modal ' + (cssMod || '')" [@modal]="modalState" >
-    <h1 class="modal-title" [innerHTML]="title"></h1>
+    <div class="modal-header">
+      <h1 class="modal-title" [innerHTML]="title"></h1>
+      <ng-content select="[header]"></ng-content>
+      <a href="tel:+79510277322" class="modal-contact">
+        <small>Наш телефон:</small>
+        <b>+79510277322</b>
+      </a>
+    </div>
     <div class="modal-content u-full-height">
-      <ng-content></ng-content>
+      <ng-content select="[body]"></ng-content>
     </div>
     <button class="modal-close" (click)="close.emit()">&times;</button>
   </div>

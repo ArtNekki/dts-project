@@ -17,6 +17,11 @@ const TransportMap = {
   'tractors': 'Трактора'
 }
 
+export interface TransportData {
+  transportId: string;
+  transportPrice: string;
+}
+
 @Component({
   selector: 'app-transport-page',
   templateUrl: './transport-page.component.html',

@@ -59,32 +59,76 @@
     }
   }
 
-  &-title {
-    margin: 0;
-    margin-bottom: 20px;
-    padding: 20px 15px 30px 15px;
+  &-header {
+    position: relative;
+    //margin-bottom: 20px;
+    padding: 20px 15px 20px 15px;
     padding-right: 50px;
-    font-size: 19px;
-    line-height: 21px;
-    text-transform: uppercase;
-    color: $gray-dark;
+    min-height: 115px;
     border-bottom: 1px solid $gray;
 
-    .modal--transport & {
-      margin-bottom: 0;
-    }
-
     @include media-breakpoint-up(md) {
-      //margin-bottom: 30px;
-      //padding: 25px;
       padding-right: 50px;
       padding-left: 25px;
-      font-size: 22px;
-      line-height: 24px;
 
       .modal--transport & {
         margin-bottom: 0;
       }
+    }
+  }
+
+  &-header small {
+    display: block;
+    font-size: 14px;
+    color: rgba($gray-dark, 0.7);
+    text-transform: none;
+    font-weight: 400;
+  }
+
+  &-header b {
+    color: $gray-dark;
+  }
+
+  &-contact {
+    position: absolute;
+    right: 15px;
+    bottom: 5px;
+    text-decoration: none;
+    text-align: right;
+
+    @include media-breakpoint-up(md) {
+      right: 20px;
+    }
+  }
+
+  &-contact small {
+    font-size: 12px;
+    color: rgba($gray-dark, 0.4);
+  }
+
+  &-contact b {
+    font-size: 16px;
+    color: $yellow;
+
+    .modal-contact:hover & {
+      color: rgba($yellow, 0.6);
+    }
+  }
+
+  &-title {
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: 19px;
+    line-height: 21px;
+    text-transform: uppercase;
+    color: $gray-dark;
+
+
+    @include media-breakpoint-up(md) {
+      //margin-bottom: 30px;
+      //padding: 25px;
+      font-size: 22px;
+      line-height: 24px;
     }
   }
 

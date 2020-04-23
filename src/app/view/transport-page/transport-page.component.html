@@ -58,7 +58,11 @@
   </div>
 </div>
 
-<app-modal *ngIf="modalIsOpen" [title]="transportId ? 'Аренда ' + this.formatTitle() + '<br /><small>Цена за сутки: от <b>' + (this.transportPrice | currency: 'RUB':'symbol-narrow':'4.0':'ru') + '</b></small><br /><small>Цена за доставку: <b>договорная</b></small>' : 'Выберите транспорт'" (close)="closeModal()"  cssMod="modal--transport">
-  <app-transport-page-details (onChange)="setTransportData($event)" [transportId]="transportId"></app-transport-page-details>
+<app-modal *ngIf="modalIsOpen" [title]="transportId ? 'Аренда ' + this.formatTitle() : 'Выберите транспорт'" (close)="closeModal()"  cssMod="modal--transport">
+  <div header *ngIf="transportId">
+    <small>Цена за сутки от: <b>{{transportPrice | currency: 'RUB':'symbol-narrow':'4.0':'ru'}}</b></small>
+    <small>Цена за доставку: <b>договорная</b></small>
+  </div>
+  <app-transport-page-details body (onChange)="setTransportData($event)" [transportId]="transportId"></app-transport-page-details>
 <!--  <app-service-order-form [serviceTitle]="serviceTitle" [serviceList]="serviceList"></app-service-order-form>-->
 </app-modal>

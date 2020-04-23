@@ -15,7 +15,7 @@
   </div>
 </div>
 <app-modal *ngIf="modal" [title]="serviceTitle" (close)="closeModal()">
-  <app-service-order-form [serviceTitle]="serviceTitle" [serviceList]="serviceList"></app-service-order-form>
+  <app-service-order-form body [serviceTitle]="serviceTitle" [serviceList]="serviceList"></app-service-order-form>
 </app-modal>
 
 <ng-template #loading>
