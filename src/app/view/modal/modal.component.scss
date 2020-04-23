@@ -61,19 +61,19 @@
 
   &-header {
     position: relative;
-    //margin-bottom: 20px;
+    margin-bottom: 20px;
     padding: 20px 15px 20px 15px;
     padding-right: 50px;
     min-height: 115px;
     border-bottom: 1px solid $gray;
 
+    .modal--transport & {
+      margin-bottom: 0;
+    }
+
     @include media-breakpoint-up(md) {
       padding-right: 50px;
       padding-left: 25px;
-
-      .modal--transport & {
-        margin-bottom: 0;
-      }
     }
   }
 
