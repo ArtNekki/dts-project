@@ -4,16 +4,48 @@
 @import "src/assets/scss/settings";
 
 .switcher {
+  position: relative;
   display: flex;
 
+  &-item {
+
+    &:first-child {
+      margin-right: 15px;
+    }
+  }
+
   &-label {
-    padding: 5px 10px;
+    position: relative;
     display: block;
     font-size: 14px;
     line-height: 16px;
-    color: $gray-dark;
-    background-color: rgba($gray-dark, 0.3);
+    color: rgba($gray-dark, 0.5);
     cursor: pointer;
+
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: '';
+      margin-right: 5px;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border: 1px solid rgba($gray-dark, 0.3);
+      border-radius: 50%;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 9px;
+      height: 9px;
+      display: none;
+      background-color: rgba($gray-dark, 0.3);
+      border-radius: 50%;
+    }
   }
 
   input {
@@ -21,7 +53,16 @@
   }
 
   input:checked ~ &-label {
-    background-color: $yellow;
-    color: $white;
+    //color: rgba($yellow, 0.6);
+
+    &::before,
+    &::after {
+      border-color: $yellow;
+    }
+
+    &::after {
+      display: block;
+      background-color: $yellow;
+    }
   }
 }
