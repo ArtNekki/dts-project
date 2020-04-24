@@ -13,6 +13,14 @@
   appearance: none;
   outline: none;
 
+  .form-field--invalid & {
+    border-color: $red;
+
+    &:hover {
+      border-color: $red;
+    }
+  }
+
   &--date {
     background-image: url('~assets/img/svg/calendar.svg');
     background-repeat: no-repeat;

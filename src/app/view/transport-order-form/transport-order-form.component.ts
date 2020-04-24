@@ -59,9 +59,9 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
       date: new FormControl(''),
       location: new FormControl(''),
       username: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
+      email: new FormControl('', []),
       tel: new FormControl('', [Validators.required]),
-      message: new FormControl('', [Validators.required])
+      message: new FormControl('', [])
     });
   }
 

@@ -37,6 +37,23 @@
     border-radius: 30px;
   }
 
+  &--gray {
+    background-color: rgba($gray-dark, 0.3);
+
+    &:hover {
+      background-color: rgba($gray-dark, 0.2);
+    }
+  }
+
+  &--success {
+    color: $white;
+    background-color: rgba($green, 0.7);
+
+    &:hover {
+      background-color: rgba($green, 0.5);
+    }
+  }
+
   &--inverse {
     color: $gray-dark;
     background-color: $white;
@@ -47,6 +64,8 @@
   }
 
   &--next {
+    padding-top: 13px;
+    padding-bottom: 13px;
     padding-right: 35px;
 
     &::before,
@@ -69,6 +88,8 @@
   }
 
   &--prev {
+    padding-top: 13px;
+    padding-bottom: 13px;
     padding-left: 35px;
 
     &::before,
