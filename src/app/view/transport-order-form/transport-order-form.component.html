@@ -1,7 +1,7 @@
 <form class="form u-full-height" autocomplete="off" [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="form-step u-full-height" [@stepOne]="currentStep">
     <div *ngIf="transportId; else empty" class="u-full-height">
-      <div formGroupName="params" class="u-full-height">
+      <div *ngIf="transportParams" formGroupName="params" class="u-full-height">
         <div *ngFor="let param of transportParams" class="form-field" [@field]="fieldState">
           <label class="form-label">{{ param.name }}</label>
           <app-select [id]="param.id" [items]="param.items" [formControlName]="param.id"></app-select>

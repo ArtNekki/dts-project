@@ -41,7 +41,7 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
   @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
   entity: boolean;
   form: FormGroup;
-  transportParams;
+  transportParams = null;
   fieldState = '';
 
   FormSteps = {
@@ -56,7 +56,6 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      params: new FormGroup({}),
       date: new FormControl(''),
       location: new FormControl(''),
       username: new FormControl('', [Validators.required]),
@@ -70,20 +69,24 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
     this.currentStep = this.FormSteps.one;
 
     if (changes.transportId.currentValue) {
+      this.transportParams = null;
+      this.form.removeControl('params');
+
       this.transportService.getById(changes.transportId.currentValue)
         .subscribe((data: TransportItem) => {
 
             if (data.params) {
               this.transportParams = data.params;
 
+              const params = new FormGroup({});
+
               data.params.forEach((param) => {
-                param.items.unshift({value: '', name: 'Не выбрано'});
-                (this.form.get('params') as FormGroup).addControl(param.id, new FormControl(''));
+                param.items.unshift({name: 'Не выбрано', value: '0'});
+                params.addControl(param.id, new FormControl(''));
               });
 
-              console.log('newww', this.form);
+              this.form.addControl('params', params);
             }
-
         });
     }
 
