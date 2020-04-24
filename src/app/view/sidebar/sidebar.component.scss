@@ -14,7 +14,7 @@
     //overflow-x: auto;
     list-style: none;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(sm) {
       padding: 10px 0;
       display: block;
       overflow-x: unset;
@@ -38,18 +38,25 @@
     transition: transform 0.3s ease-in;
 
     &:hover {
+      @include media-breakpoint-up(sm) {
+        background-color: $white;
+      }
+
       @include media-breakpoint-up(md) {
         transform: translateX(20px);
-        background-color: $white;
       }
     }
 
     .sidebar-input:checked ~ & {
-      color: $black;
+      color: $gray-dark;
+      font-weight: 600;
+
+      @include media-breakpoint-up(sm) {
+        background-color: $white;
+      }
 
       @include media-breakpoint-up(md) {
         transform: translateX(20px);
-        background-color: $white;
       }
     }
 

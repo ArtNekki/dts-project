@@ -30,8 +30,13 @@
   }
 
   &-sidebar {
+    margin-top: 20px;
     background-color: rgba($gray, 0.5);
     transition: transform 0.2s ease-in;
+
+    @include media-breakpoint-up(sm) {
+      margin-top: 0;
+    }
 
     .transport-details--selected & {
       transform: translateX(-100%);

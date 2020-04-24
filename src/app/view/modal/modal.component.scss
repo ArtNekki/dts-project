@@ -17,7 +17,7 @@
     width: auto;
     height: auto;
     width: 350px;
-    max-height: 775px;
+    height: 775px;
     background-color: transparent;
   }
 
@@ -66,21 +66,19 @@
   }
 
   &-content {
-    padding: 15px;
-    padding-top: 20px;
+    padding: 30px 15px;
     background-color: $white;
     overflow-y: auto;
 
     @include media-breakpoint-up(md) {
-      padding: 25px;
-      padding-top: 25px;
+      padding: 30px 25px;
     }
   }
 
   &-header {
     position: relative;
     //margin-bottom: 20px;
-    padding: 20px 15px 20px 15px;
+    padding: 20px 15px 30px 15px;
     padding-right: 50px;
     //min-height: 170px;
     background-color: $white;
