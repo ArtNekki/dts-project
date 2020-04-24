@@ -1,5 +1,5 @@
 <aside class="sidebar">
-  <ul class="sidebar-list">
+  <ul class="sidebar-list" *ngIf="items">
     <li class="sidebar-item" routerLinkActive="sidebar-item--active" *ngFor="let item of items">
       <input type="radio" class="sidebar-input" name="transport" [id]="item.id" (change)="changeOption(item)" [checked]="transportId === item.id">
       <label [for]="item.id" class="sidebar-label">{{ item.name }}</label>

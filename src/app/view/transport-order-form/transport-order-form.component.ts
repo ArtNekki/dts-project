@@ -77,6 +77,7 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
               this.transportParams = data.params;
 
               data.params.forEach((param) => {
+                param.items.unshift({value: '', name: 'Не выбрано'});
                 (this.form.get('params') as FormGroup).addControl(param.id, new FormControl(''));
               });
 

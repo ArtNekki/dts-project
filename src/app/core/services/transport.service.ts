@@ -40,7 +40,7 @@ export class TransportService {
   }
 
   getPromoItems() {
-    return this.firestore.collection('/transport', ref => ref.where('promo', '==', true)).snapshotChanges()
+    return this.firestore.collection('transport').snapshotChanges()
       .pipe(
         map((actions) => {
           return actions.map(a => {
@@ -48,7 +48,8 @@ export class TransportService {
             const data = a.payload.doc.data() as TransportItem;
             return {id, ...data};
           });
-        })
+        }),
+        map((items) => items.filter((item) => item.promo))
       );
   }
 }

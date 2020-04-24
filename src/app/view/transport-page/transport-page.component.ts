@@ -3,18 +3,18 @@ import Swiper from 'swiper';
 import {TransportService} from '../../core/services/transport.service';
 
 const TransportMap = {
-  'auto-containers': 'Контейнеровоза',
-  'auto-towers': 'Автовышки',
-  'bulldozers': 'Бульдозера',
-  'chambos': 'Илососа',
-  'crawler-excavators': 'Экскаватора',
-  'front-loaders': 'Фронтального погрузчика',
-  'gasoline-tankers': 'Бензовоза',
-  'low-loaders': 'Низкорамного трала',
-  'power-stations': 'Электростанции',
-  'timber-tracks': 'Сортиментовоза',
-  'tippers': 'Самосвала',
-  'tractors': 'Трактора'
+  'auto-containers': 'Контейнеровоз',
+  'auto-towers': 'Автовышка',
+  'bulldozers': 'Бульдозер',
+  'chambos': 'Илосос',
+  'crawler-excavators': 'Экскаватор',
+  'front-loaders': 'Фронтальный погрузчик',
+  'gasoline-tankers': 'Бензовоз',
+  'low-loaders': 'Низкорамный трал',
+  'power-stations': 'Электростанция',
+  'timber-tracks': 'Сортиментовоз',
+  'tippers': 'Самосвал',
+  'tractors': 'Трактор'
 }
 
 export interface TransportData {

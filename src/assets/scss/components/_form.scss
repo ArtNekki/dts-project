@@ -1,5 +1,5 @@
 .form {
-  //width: 280px;
+  margin-top: 20px;
 
   &--contact {
     margin-left: 40px;
@@ -112,7 +112,7 @@
     //font-family: $secondary-font-family;
     font-size: 14px;
     line-height: 22px;
-    color: $gray-dark;
+    color: rgba($gray-dark, 0.8);
 
     .form-field--inline & {
       margin-left: 10px;

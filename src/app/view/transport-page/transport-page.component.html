@@ -58,7 +58,7 @@
   </div>
 </div>
 
-<app-modal *ngIf="modalIsOpen" [title]="transportId ? 'Аренда ' + this.formatTitle() : 'Выберите транспорт'" (close)="closeModal()"  cssMod="modal--transport">
+<app-modal *ngIf="modalIsOpen" [title]="transportId ? this.formatTitle() : 'Выберите транспорт'" (close)="closeModal()"  cssMod="modal--transport">
   <div header *ngIf="transportId">
     <small>Цена за сутки от: <b>{{transportPrice | currency: 'RUB':'symbol-narrow':'4.0':'ru'}}</b></small>
     <small>Цена за доставку: <b>договорная</b></small>

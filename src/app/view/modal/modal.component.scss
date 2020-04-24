@@ -73,6 +73,7 @@
 
     @include media-breakpoint-up(md) {
       padding: 25px;
+      padding-top: 25px;
     }
   }
 
@@ -113,8 +114,9 @@
   }
 
   :host ::ng-deep &-contact {
-    text-align: right;
-    background-color: #f4f4f4;
+    position: relative;
+    height: 5px;
+    background: linear-gradient(45deg, $white, #efcd4f);
 
     svg {
       margin-right: 5px;
@@ -140,7 +142,10 @@
   }
 
   &-contact-inner {
-    padding: 10px 40px;
+    position: absolute;
+    top: -16px;
+    right: 0;
+    padding: 7px 30px;
     display: inline-block;
     background-color: rgba($yellow, 1);
   }
