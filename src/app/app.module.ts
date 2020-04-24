@@ -55,6 +55,8 @@ import { DatepickerComponent } from './view/datepicker/datepicker.component';
 import { TransportOrderFormComponent } from './view/transport-order-form/transport-order-form.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LoaderComponent } from './view/loader/loader.component';
+import { MaterialsComponent } from './view/materials/materials.component';
+import { MaterialOrderFormComponent } from './view/material-order-form/material-order-form.component';
 
 // const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 //   direction: 'horizontal',
@@ -90,7 +92,9 @@ registerLocaleData(ruLocale, 'ru');
     SelectComponent,
     DatepickerComponent,
     TransportOrderFormComponent,
-    LoaderComponent
+    LoaderComponent,
+    MaterialsComponent,
+    MaterialOrderFormComponent
   ],
   imports: [
     BrowserModule,
