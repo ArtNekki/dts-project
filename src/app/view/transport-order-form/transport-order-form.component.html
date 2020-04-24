@@ -13,23 +13,30 @@
       </div>
     </div>
     <ng-template #empty>
-      <p>Транспорт не выбран...</p>
+      <div>Транспорт не выбран...</div>
     </ng-template>
   </div>
   <div class="form-step u-full-height" [@stepTwo]="currentStep">
     <div class="form-field">
-      <label class="form-label">Когда нужен?</label>
+      <label class="form-label">Когда нужна техника?</label>
       <app-datepicker id="date" name="date" formControlName="date"></app-datepicker>
       <div class="form-validation" *ngIf="form.get('date').invalid && form.get('date').touched">
         <small *ngIf="form.get('date').errors.required">Название компании не может быть пустым</small>
       </div>
     </div>
     <div class="form-field">
-      <label class="form-label" for="location">Куда доставить?</label>
+      <label class="form-label" for="location">Куда технику доставить?</label>
       <textarea id="location" class="input" formControlName="location" cols="30" rows="5"></textarea>
       <div class="form-validation" *ngIf="form.get('location').invalid && form.get('location').touched">
         <small *ngIf="form.get('location').errors.required">Название компании не может быть пустым</small>
       </div>
+    </div>
+    <div class="form-field">
+      <label class="form-label" for="remarks">Доп. иформация</label>
+      <textarea id="remarks" class="input" formControlName="remarks" cols="30" rows="5"></textarea>
+<!--      <div class="form-validation" *ngIf="form.get('location').invalid && form.get('location').touched">-->
+<!--        <small *ngIf="form.get('location').errors.required">Название компании не может быть пустым</small>-->
+<!--      </div>-->
     </div>
     <div class="form-group form-group--buttons">
       <button type="button" class="btn btn--md btn--prev btn--gray" (click)="goToStep(FormSteps.one)">Параметры</button>

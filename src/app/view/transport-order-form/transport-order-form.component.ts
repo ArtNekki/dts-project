@@ -58,6 +58,7 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
     this.form = new FormGroup({
       date: new FormControl(''),
       location: new FormControl(''),
+      remarks: new FormControl(''),
       username: new FormControl('', [Validators.required]),
       email: new FormControl('', []),
       tel: new FormControl('', [Validators.required]),
