@@ -70,7 +70,10 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
 
     if (changes.transportId.currentValue) {
       this.transportParams = null;
-      this.form.removeControl('params');
+
+      if (this.form) {
+        this.form.removeControl('params');
+      }
 
       this.transportService.getById(changes.transportId.currentValue)
         .subscribe((data: TransportItem) => {
