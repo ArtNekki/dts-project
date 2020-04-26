@@ -4,15 +4,26 @@
 @import "src/assets/scss/settings";
 
 .loader {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
+  height: 60vw;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba($gray, 0.5);
+
+  &:not(&--services) {
+    @include media-breakpoint-up(sm) {
+      height: 68.5vw;
+    }
+
+    @include media-breakpoint-up(md) {
+      height: 33vw;
+    }
+
+    @include media-breakpoint-up(lg) {
+      height: 388px;
+    }
+  }
 
   svg {
     width: 100px;

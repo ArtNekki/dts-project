@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col col-lg-5">
+  <div class="col-12 col-md-6 col-lg-5">
     <ul class="list list--transport-features">
       <li>
         <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
@@ -30,11 +30,11 @@
         <div class="list-text">Вся техника заправлена</div>
       </li>
     </ul>
-    <div class="u-show-lg u-mgl-lg">
-      <a routerLink="." fragment="transport" class="btn btn--transport btn--lg" (click)="openModal()">Все варианты</a>
+    <div class="u-show-md u-mgl-lg">
+      <a routerLink="." fragment="transport" class="btn btn--md" (click)="openModal()">Все варианты</a>
     </div>
   </div>
-  <div class="col col-lg-7">
+  <div class="col-12 col-md-6 col-lg-7">
     <div class="swiper swiper--transport">
       <div *ngIf="promoItems; else loading">
         <div #slider class="swiper-container">
@@ -49,8 +49,8 @@
         <div id="transport-pagination" class="swiper-pagination"></div>
       </div>
     </div>
-    <div class="u-text-align-center u-hide-lg u-mgt--xl">
-      <a routerLink="." fragment="transport" class="btn btn--transport btn--lg" (click)="openModal()">Все варианты</a>
+    <div class="u-text-align-center u-hide-md u-mgt--xl">
+      <a routerLink="." fragment="transport" class="btn btn--transport btn--md" (click)="openModal()">Все варианты</a>
     </div>
     <ng-template #loading>
       <app-loader></app-loader>

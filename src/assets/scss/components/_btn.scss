@@ -32,6 +32,11 @@
     }
   }
 
+  &--md {
+    padding: 15px 30px;
+    border-radius: 25px;
+  }
+
   &--lg {
     padding: 20px 40px;
     border-radius: 30px;
@@ -111,9 +116,13 @@
     }
   }
 
-  //&--transport {
-  //  margin-top: 15px;
-  //  margin-left: 35px;
-  //}
+  &--transport {
+
+    @include media-breakpoint-up(md) {
+      margin-left: 25px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+  }
 
 }

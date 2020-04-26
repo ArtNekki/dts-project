@@ -24,7 +24,7 @@
 }
 
 .u-mgl-lg {
-  margin-left: 35px;
+  margin-left: 30px;
 }
 
 .u-mgl-auto {
@@ -73,6 +73,14 @@
   }
 }
 
+.u-show-md {
+  display: none !important;
+
+  @include media-breakpoint-up(md) {
+    display: block !important;
+  }
+}
+
 .u-hide-sm {
 
   @include media-breakpoint-up(sm) {
@@ -80,6 +88,12 @@
   }
 }
 
+.u-hide-md {
+
+  @include media-breakpoint-up(md) {
+    display: none !important;
+  }
+}
 
 .u-show-lg {
   display: none !important;
