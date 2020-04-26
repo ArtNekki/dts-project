@@ -26,12 +26,15 @@
   }
 
   &-content {
-    transform: translateY(20%);
     display: flex;
     flex-direction: column;
-    transition: all 0.3s ease-in;
 
-    .service-card:hover & {
+    ::ng-deep [data-whatintent='mouse'] & {
+      transform: translateY(20%);
+      transition: all 0.3s ease-in;
+    }
+
+    ::ng-deep [data-whatintent='mouse'] .service-card:hover & {
       transform: translateY(0);
     }
   }
@@ -117,15 +120,18 @@
     border-radius: 30px;
     box-shadow: none;
     background-color: $white;
-    opacity: 0;
     order: 2;
-    transition: all 0.2s ease-in 0.1s;
+
+    ::ng-deep [data-whatintent='mouse'] & {
+      opacity: 0;
+      transition: all 0.2s ease-in 0.1s;
+    }
 
     &:hover {
       transform: translateY(3px);
     }
 
-    .service-card:hover & {
+    ::ng-deep [data-whatintent='mouse'] .service-card:hover & {
       opacity: 1;
     }
   }
