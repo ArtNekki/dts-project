@@ -15,8 +15,8 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
       ])
     ]),
     trigger('stepOne', [
-      state('one', style({ position: 'relative', display: 'block', transform: 'translateX(0)' })),
-      state('two', style({transform: 'translateX(-100%)', position: 'absolute'})),
+      state('one', style({ position: 'relative', display: 'block', transform: 'translateX(0)', opacity: 1 })),
+      state('two', style({transform: 'translateX(-100%)', position: 'absolute', opacity: 0})),
       transition('one <=> *', animate(200)),
     ]),
     trigger('stepTwo', [

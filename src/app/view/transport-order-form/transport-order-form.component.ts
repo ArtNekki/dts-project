@@ -17,9 +17,9 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
       ])
     ]),
     trigger('stepOne', [
-      state('one', style({ position: 'relative', display: 'flex', transform: 'translateX(0)' })),
-      state('two', style({transform: 'translateX(-100%)', position: 'absolute'})),
-      state('three', style({transform: 'translateX(-100%)', position: 'absolute'})),
+      state('one', style({ position: 'relative', display: 'flex', transform: 'translateX(0)', opacity: 1 })),
+      state('two', style({transform: 'translateX(-100%)', position: 'absolute', opacity: 0})),
+      state('three', style({transform: 'translateX(-100%)', position: 'absolute', opacity: 0})),
       transition('one <=> *', animate(200)),
     ]),
     trigger('stepTwo', [
@@ -29,8 +29,8 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
       transition('two <=> *', animate(200)),
     ]),
     trigger('stepThree', [
-      state('one', style({ position: 'absolute',  transform: 'translateX(150%)', opacity: 0})),
-      state('two', style({ position: 'absolute',  transform: 'translateX(150%)', opacity: 0})),
+      state('one', style({ position: 'absolute',  transform: 'translateX(100%)', opacity: 0})),
+      state('two', style({ position: 'absolute',  transform: 'translateX(100%)', opacity: 0})),
       state('three', style({transform: 'translateX(0)', position: 'relative', opacity: 1})),
       transition('three <=> *', animate(200)),
     ]),
