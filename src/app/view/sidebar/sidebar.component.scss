@@ -27,7 +27,7 @@
 
   &-label {
     position: relative;
-    padding: 10px 20px 10px 20px;
+    padding: 10px 20px 10px 15px;
     display: block;
     font-size: 14px;
     line-height: 16px;
@@ -36,6 +36,10 @@
     text-decoration: none;
     cursor: pointer;
     transition: transform 0.3s ease-in;
+
+    @include media-breakpoint-up(md) {
+      padding-left: 25px;
+    }
 
     &:hover {
       @include media-breakpoint-up(sm) {

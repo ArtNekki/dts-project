@@ -26,4 +26,8 @@ export class ServiceCardComponent implements OnInit {
   openModal() {
    this.onOpen.emit(this);
   }
+
+  formatText(text) {
+    return text ? text.split('&').join('<br />') : '';
+  }
 }

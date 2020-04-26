@@ -5,11 +5,10 @@
   >
   <div class="service-card-overlay">
     <div class="service-card-content">
-      <h1 class="service-card-title" [innerHTML]="data.name"></h1>
-      <b class="service-card-price">от {{data.price | currency: 'RUB':'symbol-narrow':'4.0':'ru'}}</b>
-      <p class="service-card-text">
-        <ng-content></ng-content>
-      </p>
+      <h1 class="service-card-title" [innerHTML]="formatText(data.name)"></h1>
+      <b class="service-card-price">
+        {{+data.price ? 'от ' + (data.price | currency: 'RUB':'symbol-narrow':'4.0':'ru') : data.price}}</b>
+      <p class="service-card-text" [innerHTML]="formatText(data.preview)"></p>
     </div>
     <a routerLink='.' fragment='services' class="btn service-card-btn" (click)="openModal()">Заказать</a>
   </div>

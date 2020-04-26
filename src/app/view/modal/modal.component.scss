@@ -9,21 +9,21 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  overflow: hidden;
   background-color: $white;
 
   @include media-breakpoint-up(sm) {
     position: relative;
-    width: auto;
     height: auto;
-    width: 350px;
-    height: 775px;
-    background-color: transparent;
+    width: 365px;
   }
 
   &--transport {
+    max-width: unset;
+
     @include media-breakpoint-up(sm) {
       width: 550px;
+      min-height: 690px;
     }
 
     @include media-breakpoint-up(md) {
@@ -66,22 +66,16 @@
   }
 
   &-content {
-    padding: 30px 15px;
-    background-color: $white;
+    margin-top: 20px;
     overflow-y: auto;
-
-    @include media-breakpoint-up(md) {
-      padding: 30px 25px;
-    }
   }
 
   &-header {
     position: relative;
     //margin-bottom: 20px;
-    padding: 20px 15px 30px 15px;
+    padding: 20px 15px 25px 15px;
     padding-right: 50px;
     //min-height: 170px;
-    background-color: $white;
     //border-bottom: 1px solid $gray;
 
     @include media-breakpoint-up(sm) {

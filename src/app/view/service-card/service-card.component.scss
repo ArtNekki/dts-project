@@ -5,7 +5,7 @@
 
 .service-card {
   position: relative;
-  height: 360px;
+  height: 380px;
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -39,7 +39,9 @@
   &-img {
     display: block;
     width: 100%;
-    height: auto;
+    height: inherit;
+    object-fit: cover;
+    object-position: bottom;
     filter: saturate(0.7) contrast(0.4);
     transition: all 0.5s ease-in;
   }

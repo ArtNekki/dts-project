@@ -34,7 +34,7 @@
 .u-full-height {
   width: 100%;
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(sm) {
     display: flex;
     flex-direction: column;
     flex-grow: 1;

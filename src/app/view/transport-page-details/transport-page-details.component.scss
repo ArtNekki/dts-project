@@ -4,7 +4,7 @@
 @import "src/assets/scss/settings";
 
 :host {
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(sm) {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -19,8 +19,9 @@
 
   &-content {
     position: relative;
+    margin-top: 8px;
     width: 100%;
-    min-height: 400px;
+    //min-height: 400px;
     overflow: hidden;
 
     @include media-breakpoint-up(sm) {
@@ -56,20 +57,19 @@
   &-form {
     position: absolute;
     transform: translateX(100vw);
+    flex-grow: 1;
     transition: transform 0.2s ease-in;
     overflow: hidden;
 
     @include media-breakpoint-up(sm) {
       position: relative;
-      margin-left: 15px;
       flex-basis: calc(60% - 15px);
+      flex-direction: column;
       transform: translateX(0);
     }
 
     @include media-breakpoint-up(md) {
-      margin-left: 25px;
       flex-basis: calc(60% - 25px);
-      flex-direction: column;
     }
 
     .transport-details--selected & {
@@ -77,10 +77,9 @@
       display: block;
       transform: translateX(0);
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(sm) {
         display: flex;
       }
     }
-
   }
 }

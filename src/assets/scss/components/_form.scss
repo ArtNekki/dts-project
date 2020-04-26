@@ -1,5 +1,4 @@
 .form {
-  margin-top: 20px;
 
   &--contact {
     margin-left: 40px;
@@ -23,7 +22,14 @@
   }
 
   &-step {
+    padding: 30px 15px;
     background-color: $white;
+    overflow-y: auto;
+
+    @include media-breakpoint-up(md) {
+      padding: 25px;
+      padding-bottom: 30px;
+    }
   }
 
   &-step-heading {
@@ -76,6 +82,7 @@
 
       @include media-breakpoint-up(md) {
         margin-top: auto;
+        padding-top: 10px;
       }
     }
 
