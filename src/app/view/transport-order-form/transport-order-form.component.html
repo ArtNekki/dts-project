@@ -16,27 +16,18 @@
       <div>Транспорт не выбран...</div>
     </ng-template>
   </div>
-  <div class="form-step u-full-height" [@stepTwo]="currentStep">
+  <div class="form-step u-full-height" formGroupName="delivery" [@stepTwo]="currentStep">
     <div class="form-field">
       <label class="form-label">Когда нужна техника?</label>
       <app-datepicker id="date" name="date" formControlName="date"></app-datepicker>
-      <div class="form-validation" *ngIf="form.get('date').invalid && form.get('date').touched">
-        <small *ngIf="form.get('date').errors.required">Название компании не может быть пустым</small>
-      </div>
     </div>
     <div class="form-field">
       <label class="form-label" for="location">Куда технику доставить?</label>
       <textarea id="location" class="input" formControlName="location" cols="30" rows="5"></textarea>
-      <div class="form-validation" *ngIf="form.get('location').invalid && form.get('location').touched">
-        <small *ngIf="form.get('location').errors.required">Название компании не может быть пустым</small>
-      </div>
     </div>
     <div class="form-field">
       <label class="form-label" for="remarks">Доп. иформация</label>
       <textarea id="remarks" class="input" formControlName="remarks" cols="30" rows="5"></textarea>
-<!--      <div class="form-validation" *ngIf="form.get('location').invalid && form.get('location').touched">-->
-<!--        <small *ngIf="form.get('location').errors.required">Название компании не может быть пустым</small>-->
-<!--      </div>-->
     </div>
     <div class="form-group form-group--buttons">
       <button type="button" class="btn btn--md btn--prev btn--gray" (click)="goToStep(FormSteps.one)">Параметры</button>
@@ -53,41 +44,45 @@
                     {id: 'entity', name: 'Юр. лицо'}]" (onChange)="selectUserType($event)">
       </app-switcher>
     </div>
-    <div class="form-field" [class.form-field--invalid]="form.get('username').invalid && form.get('username').touched" *ngIf="!entity" [@field]="fieldState">
-      <label class="form-label" for="name">ФИО <span>(обязательно)</span></label>
-      <input type="text" id="name" class="input" formControlName="username">
-      <div class="form-validation" *ngIf="form.get('username').invalid && form.get('username').touched">
-        <small *ngIf="form.get('username').errors.required">Напишите ваше имя</small>
-      </div>
-    </div>
-    <div class="form-field" *ngIf="entity" [class.form-field--invalid]="form.get('companyname').invalid && form.get('companyname').touched" [@field]="fieldState">
-      <label class="form-label" for="company-name">Название фирмы <span>(обязательно)</span></label>
-      <input type="text" id="company-name" class="input" formControlName="companyname">
-      <div class="form-validation" *ngIf="form.get('companyname').invalid && form.get('companyname').touched">
-        <small *ngIf="form.get('companyname').errors.required">Напишите название компании</small>
-      </div>
-    </div>
-    <div class="form-field" *ngIf="entity" [class.form-field--invalid]="form.get('companyperson').invalid && form.get('companyperson').touched" [@field]="fieldState">
-      <label class="form-label" for="company-name">ФИО предствителя фирмы <span>(обязательно)</span></label>
-      <input type="text" id="company-person" class="input" formControlName="companyperson">
-      <div class="form-validation" *ngIf="form.get('companyperson').invalid && form.get('companyperson').touched">
-        <small *ngIf="form.get('companyperson').errors.required">Напишите фио представителя компании</small>
-      </div>
-    </div>
-    <div class="form-field">
-      <label class="form-label" for="email">Эл. почта</label>
-      <input type="email" id="email" class="input" formControlName="email">
-      <div class="form-validation" *ngIf="form.get('email').invalid && form.get('email').touched">
-        <small *ngIf="form.get('email').errors.required">Название компании не может быть пустым</small>
-      </div>
-    </div>
-    <div class="form-field" [class.form-field--invalid]="form.get('tel').invalid && form.get('tel').touched">
-      <label class="form-label" for="phone">Телефон <span>(обязательно)</span></label>
-      <input type="tel" id="phone" class="input" formControlName="tel">
-      <div class="form-validation" *ngIf="form.get('tel').invalid && form.get('tel').touched">
-        <small *ngIf="form.get('tel').errors.required">Напишите телефон</small>
-      </div>
-    </div>
+   <div formGroupName="personal">
+     <div class="form-field" *ngIf="!entity" [@field]="fieldState" [class.form-field--invalid]="form.get('personal').get('userName').invalid && form.get('personal').get('userName').touched">
+       <label class="form-label" for="name">ФИО</label>
+       <input type="text" id="name" class="input" formControlName="userName">
+       <div class="form-validation" *ngIf="form.get('personal').get('userName').invalid && form.get('personal').get('userName').touched">
+         <small *ngIf="form.get('personal').get('userName').errors.required">Это поле не может быть пустым</small>
+       </div>
+     </div>
+     <div class="form-field" *ngIf="entity" [@field]="fieldState" [class.form-field--invalid]="form.get('personal').get('companyName').invalid && form.get('personal').get('companyName').touched">
+       <label class="form-label" for="company-name">Название фирмы</label>
+       <input type="text" id="company-name" class="input" formControlName="companyName">
+       <div class="form-validation" *ngIf="form.get('personal').get('companyName').invalid && form.get('personal').get('companyName').touched">
+         <small *ngIf="form.get('personal').get('companyName').errors.required">Это поле не может быть пустым</small>
+       </div>
+     </div>
+     <div class="form-field" *ngIf="entity" [@field]="fieldState" [class.form-field--invalid]="form.get('personal').get('companyPerson').invalid && form.get('personal').get('companyPerson').touched">
+       <label class="form-label" for="company-name">ФИО предствителя</label>
+       <input type="text" id="company-person" class="input" formControlName="companyPerson">
+       <div class="form-validation" *ngIf="form.get('personal').get('companyPerson').invalid && form.get('personal').get('companyPerson').touched">
+         <small *ngIf="form.get('personal').get('companyPerson').errors.required">Это поле не может быть пустым</small>
+       </div>
+     </div>
+     <div class="form-field" [class.form-field--invalid]="form.get('personal').get('email').invalid && form.get('personal').get('email').touched">
+       <label class="form-label" for="email">Эл. почта</label>
+       <input type="email" id="email" class="input" formControlName="email">
+       <div class="form-validation" *ngIf="form.get('personal').get('email').invalid && form.get('personal').get('email').touched">
+         <small *ngIf="form.get('personal').get('email').errors.required">Это поле не может быть пустым</small>
+         <small *ngIf="form.get('personal').get('email').errors.email">Эл. почта указана некорректно</small>
+       </div>
+     </div>
+     <div class="form-field" [class.form-field--invalid]="form.get('personal').get('tel').invalid && form.get('personal').get('tel').touched">
+       <label class="form-label" for="phone">Телефон</label>
+       <input type="tel" id="phone" class="input" formControlName="tel" mask="(000) 000-0000" prefix="+7">
+       <div class="form-validation" *ngIf="form.get('personal').get('tel').invalid && form.get('personal').get('tel').touched">
+         <small *ngIf="form.get('personal').get('tel').errors.required">Это поле не может быть пустым</small>
+         <small *ngIf="form.get('personal').get('tel').errors.mask">Телефон указан некорректно</small>
+       </div>
+     </div>
+   </div>
     <div class="form-field">
       <label class="form-label" for="message">Текст</label>
       <textarea id="message" class="input" cols="30" rows="5" formControlName="message"></textarea>

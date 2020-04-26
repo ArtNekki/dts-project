@@ -56,12 +56,16 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      date: new FormControl(''),
-      location: new FormControl(''),
-      remarks: new FormControl(''),
-      username: new FormControl('', [Validators.required]),
-      email: new FormControl('', []),
-      tel: new FormControl('', [Validators.required]),
+      delivery: new FormGroup({
+        date: new FormControl(''),
+        location: new FormControl(''),
+        remarks: new FormControl(''),
+      }),
+      personal: new FormGroup({
+        userName: new FormControl('', [Validators.required]),
+        email: new FormControl('', [Validators.required, Validators.email]),
+        tel: new FormControl('', [Validators.required]),
+      }),
       message: new FormControl('', [])
     });
   }
@@ -104,14 +108,13 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
     this.entity = id === 'entity';
 
     if (id === 'entity') {
-      this.form.controls.companyname = new FormControl('', [Validators.required]);
-      this.form.controls.companyperson = new FormControl('', [Validators.required]);
-      delete this.form.controls.username;
-
+      (this.form.get('personal') as FormGroup).removeControl('userName');
+      (this.form.get('personal') as FormGroup).addControl('companyName', new FormControl('', [Validators.required]));
+      (this.form.get('personal') as FormGroup).addControl('companyPerson', new FormControl('', [Validators.required]));
     } else {
-      this.form.controls.username = new FormControl('', [Validators.required]);
-      delete this.form.controls.companyname;
-      delete this.form.controls.companyperson;
+      (this.form.get('personal') as FormGroup).addControl('userName', new FormControl('', [Validators.required]));
+      (this.form.get('personal') as FormGroup).removeControl('companyName');
+      (this.form.get('personal') as FormGroup).removeControl('companyPerson');
     }
   }
 
