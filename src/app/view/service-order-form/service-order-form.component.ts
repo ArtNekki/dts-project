@@ -60,8 +60,8 @@ export class ServiceOrderFormComponent implements OnInit {
 
     if (this.data.id.indexOf('rental') === -1) {
       const workGroup = new FormGroup({
-        worktime: new FormControl('', []),
-        workplace: new FormControl('', []),
+        time: new FormControl('', []),
+        place: new FormControl('', []),
       });
 
       this.form.addControl('work', workGroup);

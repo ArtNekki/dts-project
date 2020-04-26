@@ -24,7 +24,7 @@ export class ModalComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit(): void {
-
+    this.title = (this.title.indexOf('&') !== -1) ? this.title.split('&').join('<br />') : this.title;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
