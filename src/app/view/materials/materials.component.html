@@ -18,10 +18,7 @@
   </div>
 </div>
 
-<app-modal *ngIf="modal" title="Материалы" (close)="closeModal()">
-  <div header>
-<!--    <small>Цена за час от: <b>{{'' | currency: 'RUB':'symbol-narrow':'4.0':'ru'}}</b></small>-->
-  </div>
+<app-modal *ngIf="modal" title="Продажа" (close)="closeModal()">
   <app-material-order-form body></app-material-order-form>
 </app-modal>
 

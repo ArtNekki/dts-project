@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, forwardRef, Input, OnInit, Output} from '@angular/core';
 import {DeviceDetectorService} from 'ngx-device-detector';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
@@ -18,6 +18,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 export class SelectComponent implements  ControlValueAccessor {
   @Input() id;
   @Input() items;
+  @Output() change: EventEmitter<any> = new EventEmitter<any>();
 
   value: string;
 
@@ -26,6 +27,7 @@ export class SelectComponent implements  ControlValueAccessor {
   changeValue(data) {
     const value = (data && data.value) || data;
     this.writeValue(value);
+    this.change.emit(value);
   }
 
   writeValue(value) {
