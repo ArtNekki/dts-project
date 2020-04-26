@@ -33,12 +33,15 @@
 
 .u-full-height {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 
-  @include media-breakpoint-up(sm) {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
+  //@include media-breakpoint-up(sm) {
+  //  display: flex;
+  //  flex-direction: column;
+  //  flex-grow: 1;
+  //}
 }
 
 .u-mgb-md {

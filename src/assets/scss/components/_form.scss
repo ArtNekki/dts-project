@@ -1,5 +1,7 @@
 .form {
   min-height: 360px;
+  width: 100%;
+  overflow-x: hidden;
 
   &--contact {
     margin-left: 40px;
@@ -24,6 +26,7 @@
 
   &-step {
     padding: 30px 15px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
