@@ -48,7 +48,11 @@ html.modal-opened {
   overflow: hidden;
 
   body {
-    //position: fixed;
+    //[data-whatintent='mouse'] & {
+    //  position: fixed;
+    //}
+
+    position: fixed;
   }
 }
 

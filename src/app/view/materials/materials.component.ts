@@ -15,9 +15,11 @@ export class MaterialsComponent implements OnInit {
 
   openModal() {
     this.modal = true;
+    document.documentElement.classList.add('modal-opened');
   }
 
   closeModal() {
     this.modal = false;
+    document.documentElement.classList.remove('modal-opened');
   }
 }

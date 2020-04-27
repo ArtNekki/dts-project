@@ -112,11 +112,13 @@ export class TransportPageComponent implements OnInit, AfterViewInit, OnDestroy 
 
   openModal() {
     this.modalIsOpen = true;
+    document.documentElement.classList.add('modal-opened');
   }
 
   closeModal() {
     this.modalIsOpen = false;
     this.transportId = null;
+    document.documentElement.classList.remove('modal-opened');
   }
 
   setTransportData(data: any) {
