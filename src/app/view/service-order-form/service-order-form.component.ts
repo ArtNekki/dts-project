@@ -46,7 +46,7 @@ export class ServiceOrderFormComponent implements OnInit {
   constructor(private af: AngularFirestore) { }
 
   ngOnInit(): void {
-    this.serviceList = (this.data.list && this.data.list.length) ? [...this.data.list, {value: '', name: 'Не выбрано', selected: true}] : null;
+    this.serviceList = (this.data.list && this.data.list.length) ? [{value: '', name: 'Не выбрано'}, ...this.data.list] : null;
 
     this.form = new FormGroup({
       variant: new FormControl('', []),
