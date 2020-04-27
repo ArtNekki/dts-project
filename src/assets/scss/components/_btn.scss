@@ -125,4 +125,11 @@
     }
   }
 
+  &--materials {
+
+    @include media-breakpoint-up(sm) {
+      margin-left: 30px;
+    }
+  }
+
 }

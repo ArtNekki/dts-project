@@ -32,6 +32,16 @@
     }
   }
 
+  &--materials .col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include media-breakpoint-up(sm) {
+      display: block;
+    }
+  }
+
   //&--features {
   //  margin-top: 60px;
   //  background-color: $gray-dark;
@@ -52,10 +62,7 @@
     }
 
     .page-section--materials & {
-
-      @include media-breakpoint-up(sm) {
-        text-align: center;
-      }
+      text-align: center;
     }
 
     .page-section--about & {
