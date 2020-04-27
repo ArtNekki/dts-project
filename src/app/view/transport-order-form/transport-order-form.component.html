@@ -25,10 +25,6 @@
       <label class="form-label" for="location">Куда технику доставить?</label>
       <textarea id="location" class="input" formControlName="location" cols="30" rows="5"></textarea>
     </div>
-    <div class="form-field">
-      <label class="form-label" for="remarks">Доп. иформация</label>
-      <textarea id="remarks" class="input" formControlName="remarks" cols="30" rows="5"></textarea>
-    </div>
     <div class="form-group form-group--buttons">
       <button type="button" class="btn btn--md btn--prev btn--gray" (click)="goToStep(FormSteps.one)">Параметры</button>
       <button type="submit" class="btn btn--md btn--next" (click)="goToStep(FormSteps.three)">Личные данные</button>
@@ -84,7 +80,7 @@
      </div>
    </div>
     <div class="form-field">
-      <label class="form-label" for="message">Текст</label>
+      <label class="form-label" for="message">Сообщение</label>
       <textarea id="message" class="input" cols="30" rows="5" formControlName="message"></textarea>
       <div class="form-validation" *ngIf="form.get('message').invalid && form.get('message').touched">
         <small *ngIf="form.get('message').errors.required">Название компании не может быть пустым</small>
