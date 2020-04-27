@@ -1,5 +1,5 @@
 <div *ngIf="deviceService.isMobile() || deviceService.isTablet()" class="select">
-  <select #select [name]="id" [id]="id" class="select-inner" (change)="changeValue(select.value)">
+  <select #select [name]="id" [id]="id" class="select-inner" (change)="changeValue($event)">
     <option *ngFor="let item of items" [value]="item.value">{{ item.name }}</option>
   </select>
 </div>

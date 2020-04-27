@@ -25,7 +25,15 @@ export class SelectComponent implements  ControlValueAccessor {
   constructor(public deviceService: DeviceDetectorService) { }
 
   changeValue(data) {
-    const value = (data && data.value) || data;
+    let value = null;
+
+    if (data.stopPropagation) {
+      data.stopPropagation();
+      value = data.target.value;
+    } else {
+      value = data.value;
+    }
+
     this.writeValue(value);
     this.change.emit(value);
   }
