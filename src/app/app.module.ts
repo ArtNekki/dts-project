@@ -112,7 +112,7 @@ registerLocaleData(ruLocale, 'ru');
     AngularFirestoreModule,
     DeviceDetectorModule.forRoot(),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDXu6wNP79AG7OHTlyBMRufLdjdvSmwo0A',
+      apiKey: environment.firebaseConfig.apiKey,
       libraries: ['places']
     }),
     AngularMyDatePickerModule,
