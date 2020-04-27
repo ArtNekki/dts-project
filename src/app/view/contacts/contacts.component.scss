@@ -3,9 +3,16 @@
 @import "src/variables";
 @import "src/assets/scss/settings";
 
+//:host {
+//  width: 100%;
+//  overflow: hidden;
+//}
+
 .contacts {
   position: relative;
   z-index: 10;
+  //margin-left: -$grid-gutter-width / 2;
+  //margin-right: -$grid-gutter-width / 2;
   background-color: $white;
   box-shadow: 0 0 10px 0 rgba($gray-dark, 0.1);
 
@@ -25,6 +32,7 @@
     }
 
     &:last-child {
+      padding-top: 0;
       padding-left: 20px;
       padding-right: 20px;
 
@@ -32,7 +40,6 @@
         padding-top: 0;
         display: flex;
         flex-wrap: wrap;
-        align-items: center;
       }
 
       @include media-breakpoint-up(md) {
@@ -44,12 +51,6 @@
       @include media-breakpoint-up(lg) {
         padding-left: 5px;
         padding-right: 20px;
-      }
-    }
-
-    div {
-      @include media-breakpoint-up(sm) {
-        flex-basis: 50%;
       }
     }
   }

@@ -1,3 +1,12 @@
+@import 'src/assets/scss/core/functions';
+@import "src/assets/scss/core/breakpoints";
+@import "src/variables";
+@import "src/assets/scss/settings";
+
 agm-map {
-  height: 500px;
+  height: 80vw;
+
+  @include media-breakpoint-up(sm) {
+    height: 500px;
+  }
 }
