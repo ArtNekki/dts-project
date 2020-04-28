@@ -20,15 +20,26 @@
     top: -207px;
     left: -50px;
     right: -113px;
-    height: 745px;
+    height: 773px;
     background-color: #efcd4f;
     background-image: linear-gradient(-25deg, #efcd4f 20%, #f5da77);
     //background-image: url("src/assets/img/bg/texture.jpg");
     //background-repeat: ;
-    transform: rotate3d(0, 0, 1, 7deg);
+    transform: rotate3d(0, 0, 1, 10deg);
 
     @include media-breakpoint-up(sm) {
-      height: 885px;
+      height: 876px;
+      transform: rotate3d(0, 0, 1, 10deg);
+    }
+
+    @include media-breakpoint-up(md) {
+      height: 883px;
+      transform: rotate3d(0, 0, 1, 10deg);
+    }
+
+    @include media-breakpoint-up(md) {
+      height: 880px;
+      transform: rotate3d(0, 0, 1, 7deg);
     }
   }
 
@@ -38,7 +49,7 @@
     z-index: -2;
     width: 75vw;
     height: 130vw;
-    bottom: 177px;
+    bottom: 208px;
     left: 50%;
     transform: translateX(-50%);
     background-image: url("src/assets/img/svg/header.svg");
@@ -68,6 +79,7 @@
 
     @include media-breakpoint-up(lg) {
       display: block;
+      bottom: 115px;
       background-size: 88% auto;
       background-position: 15vw 35px;
     }
@@ -82,10 +94,10 @@
 
   &-container {
     position: relative;
-    min-height: 480px;
+    min-height: 440px;
 
     @include media-breakpoint-up(sm) {
-      min-height: 760px;
+      min-height: 672px;
     }
   }
 
