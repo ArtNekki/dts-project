@@ -1,0 +1,33 @@
+<nav class="nav" #nav>
+  <div class="nav-content">
+    <div class="nav-inner container">
+      <a href="#" class="nav-logo">Logo</a>
+      <div class="nav-mobile">
+        <ul class="nav-list">
+          <li routerLinkActive="nav-item-active">
+            <a routerLink='.' fragment='transport' (click)="closeMenu()">Аренда техники</a>
+          </li>
+          <li routerLinkActive="nav-item-active">
+            <a routerLink='.' fragment='services' (click)="closeMenu()">Услуги</a>
+          </li>
+          <li routerLinkActive="nav-item-active">
+            <a routerLink='.' fragment='services' (click)="closeMenu()">Продажа</a>
+          </li>
+          <li routerLinkActive="nav-item-active">
+            <a routerLink='.' fragment='about' (click)="closeMenu()">О нас</a>
+          </li>
+          <li routerLinkActive="nav-item-active">
+            <a href="#" (click)="closeMenu()">Цены</a>
+          </li>
+          <li routerLinkActive="nav-item-active">
+            <a routerLink='.' fragment='contacts' (click)="closeMenu()">Контакты</a>
+          </li>
+        </ul>
+        <button class="nav-close" (click)="closeMenu()">&times;</button>
+      </div>
+      <button class="nav-open" (click)="openMenu()">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>

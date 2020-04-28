@@ -1,33 +1,5 @@
 <header class="page-header" #header>
-  <nav class="page-header-nav container">
-    <a href="#" class="page-header-logo">Logo</a>
-    <div class="page-header-menu">
-      <ul class="page-header-list">
-        <li routerLinkActive="active">
-          <a routerLink='.' fragment='transport' (click)="closeMenu()">Аренда техники</a>
-        </li>
-        <li>
-          <a routerLink='.' fragment='services' (click)="closeMenu()">Услуги</a>
-        </li>
-        <li>
-          <a routerLink='.' fragment='services' (click)="closeMenu()">Продажа</a>
-        </li>
-        <li>
-          <a routerLink='.' fragment='about' (click)="closeMenu()">О нас</a>
-        </li>
-        <li>
-          <a href="#" (click)="closeMenu()">Цены</a>
-        </li>
-        <li>
-          <a routerLink='.' fragment='contacts' (click)="closeMenu()">Контакты</a>
-        </li>
-      </ul>
-      <button class="page-header-close" (click)="closeMenu()">&times;</button>
-    </div>
-    <button class="page-header-open" (click)="openMenu()">
-      <span></span>
-    </button>
-  </nav>
+  <app-nav></app-nav>
   <div class="page-header-container container">
     <div class="row">
       <div class="col col-sm-8">

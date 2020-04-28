@@ -19,17 +19,31 @@ export class PageHeaderComponent implements OnInit {
 
   }
 
-  scroll(el: HTMLElement) {
-    el.scrollIntoView({behavior: 'smooth'});
-  }
-
-  openMenu() {
-    this.header.nativeElement.classList.add('page-header--menu-opened');
-    document.documentElement.classList.add('modal-opened');
-  }
-
-  closeMenu() {
-    this.header.nativeElement.classList.remove('page-header--menu-opened');
-    document.documentElement.classList.remove('modal-opened');
-  }
+  // ngAfterViewInit(): void {
+  //   this.setStickyMenu();
+  // }
+  //
+  // @HostListener('window:scroll', ['$event'])
+  //
+  // scroll(event) {
+  //   this.setStickyMenu();
+  // }
+  //
+  // setStickyMenu() {
+  //   if (this.header.nativeElement.getBoundingClientRect().top < -30) {
+  //     document.documentElement.classList.add('nav-sticky');
+  //   } else {
+  //     document.documentElement.classList.remove('nav-sticky');
+  //   }
+  // }
+  //
+  // openMenu() {
+  //   this.header.nativeElement.classList.add('page-header--menu-opened');
+  //   document.documentElement.classList.add('modal-opened');
+  // }
+  //
+  // closeMenu() {
+  //   this.header.nativeElement.classList.remove('page-header--menu-opened');
+  //   document.documentElement.classList.remove('modal-opened');
+  // }
 }
