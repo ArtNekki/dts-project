@@ -2,7 +2,7 @@
   <div class="swiper swiper--features swiper--header-features">
     <div #slider class="swiper-container">
       <div class="swiper-wrapper">
-        <div class="swiper-slide u-hide-sm">
+        <div *ngIf="smBreakpoint" class="swiper-slide">
           <b class="promo-title">20%</b>
           <div class="promo-label">скидка при аренде<br /> от 2х недель</div>
         </div>

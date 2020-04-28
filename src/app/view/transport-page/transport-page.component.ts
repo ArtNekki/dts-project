@@ -49,6 +49,12 @@ export class TransportPageComponent implements OnInit, AfterViewInit, OnDestroy 
       slidesPerView: 1,
       spaceBetween: 20,
       breakpointsInverse: true,
+      // autoplay: {
+      //   delay: 2000,
+      //   stopOnLastSlide: false,
+      //   disableOnInteraction: true
+      // },
+      // loop: true,
       // breakpoints: {
       //   ['576']: {
       //     slidesPerView: 2,

@@ -13,6 +13,7 @@ export class PromoComponent implements OnInit, AfterViewInit {
   breakpoint;
 
   config;
+  smBreakpoint = false;
 
   constructor() { }
 
@@ -20,15 +21,24 @@ export class PromoComponent implements OnInit, AfterViewInit {
     this.config = {
       slidesPerView: 1,
       spaceBetween: 20,
+      autoplay: {
+        delay: 2000,
+        stopOnLastSlide: false,
+        disableOnInteraction: true
+      },
+      loop: true,
       breakpointsInverse: true,
       breakpoints: {
         ['576']: {
           slidesPerView: 2,
+          // autoplay: null
           // spaceBetween: 14
         },
         ['710']: {
           slidesPerView: 3,
-          spaceBetween: 0
+          spaceBetween: 0,
+          // loop: true,
+          autoplay: false
         }
       },
       pagination: {
@@ -40,6 +50,8 @@ export class PromoComponent implements OnInit, AfterViewInit {
         prevEl: '#services-btn-left',
       },
     };
+
+    this.smBreakpoint = window.matchMedia(`(max-width: 576px)`).matches;
   }
 
   ngAfterViewInit(): void {
@@ -53,6 +65,7 @@ export class PromoComponent implements OnInit, AfterViewInit {
 
   resize() {
     this.checkBreakpoint();
+    this.smBreakpoint = window.matchMedia(`(max-width: 576px)`).matches;
   }
 
   initSwiper() {
