@@ -336,7 +336,7 @@
     @include media-breakpoint-up(sm) {
       //top: 280px;
       top: unset;
-      bottom: 350px;
+      bottom: 380px;
       right: 30px;
       left: unset;
       width: 160px;
@@ -345,12 +345,16 @@
     @include media-breakpoint-up(md) {
       //top: 230px;
       right: 60px;
-      bottom: 400px;
+      bottom: 440px;
     }
 
     @include media-breakpoint-up(lg) {
-      bottom: 450px;
+      bottom: 485px;
       right: 85px;
+    }
+
+    @include media-breakpoint-up(xl) {
+      bottom: 435px;
     }
 
     b {
@@ -358,7 +362,7 @@
       font-size: 60px;
       line-height: 65px;
 
-      @include media-breakpoint-up(lg) {
+      @include media-breakpoint-up(md) {
         font-size: 65px;
         line-height: 70px;
       }
@@ -384,8 +388,8 @@
       position: absolute;
       z-index: -1;
       bottom: 98%;
-      right: 35px;
-      width: 48vw;
+      right: 25px;
+      width: 52vw;
       height: auto;
       display: block;
     }
