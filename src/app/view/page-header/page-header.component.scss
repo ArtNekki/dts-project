@@ -36,10 +36,11 @@
     content: "";
     position: absolute;
     z-index: -2;
-    width: 100%;
+    width: 75vw;
     height: 130vw;
     bottom: 177px;
-    left: 11vw;
+    left: 50%;
+    transform: translateX(-50%);
     background-image: url("src/assets/img/svg/header.svg");
     background-repeat: no-repeat;
     opacity: 0.2;
