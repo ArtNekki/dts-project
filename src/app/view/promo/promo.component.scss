@@ -1,0 +1,72 @@
+@import 'src/assets/scss/core/functions';
+@import "src/assets/scss/core/breakpoints";
+@import "src/variables";
+@import "src/assets/scss/settings";
+
+.promo {
+  //border: 1px solid red;
+  margin: 0;
+  padding: 25px 40px 35px 40px;
+  //width: 100%;
+  text-align: center;
+  //display: flex;
+  background-color: $white;
+  border-radius: 20px;
+  list-style: none;
+  color: $gray-dark;
+  box-shadow: 0 0 20px 0 rgba($black, 0.1);
+
+  @include media-breakpoint-up(sm) {
+    bottom: 0;
+  }
+
+  &-title {
+    display: block;
+    font-size: 80px;
+    line-height: 85px;
+    color: $yellow;
+
+    @include media-breakpoint-up(sm) {
+      font-size: 50px;
+      line-height: 60px;
+      font-size: 70px;
+      line-height: 75px;
+    }
+
+    @include media-breakpoint-up(md) {
+      font-size: 58px;
+      line-height: 65px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      font-size: 70px;
+      line-height: 75px;
+    }
+
+    small {
+      //font-size: 24px;
+      //line-height: 26px;
+    }
+  }
+
+  &-label {
+    display: block;
+    font-size: 16px;
+    line-height: 17px;
+
+    //@include media-breakpoint-up(sm) {
+    //  font-size: 15px;
+    //  line-height: 17px;
+    //}
+    //
+    //@include media-breakpoint-up(lg) {
+    //  font-size: 16px;
+    //  line-height: 19px;
+    //}
+  }
+
+  &-text-offset {
+    position: relative;
+    left: -8px;
+  }
+}

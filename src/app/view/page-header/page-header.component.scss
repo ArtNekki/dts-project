@@ -5,7 +5,7 @@
 
 .page-header {
   position: relative;
-  padding-bottom: 135px;
+  padding-bottom: 165px;
   width: 100%;
   overflow: hidden;
 
@@ -367,12 +367,11 @@
         line-height: 70px;
       }
     }
-
   }
 
   &-footer {
     position: absolute;
-    bottom: -125px;
+    bottom: -150px;
     left: 20px;
     right: 20px;
 
@@ -400,58 +399,6 @@
 
     @include media-breakpoint-up(lg) {
       width: 500px;
-    }
-  }
-
-  &-features {
-    //border: 1px solid red;
-    margin: 0;
-    padding: 25px 40px 35px 40px;
-    //width: 100%;
-    text-align: center;
-    //display: flex;
-    background-color: $white;
-    border-radius: 20px;
-    list-style: none;
-    color: $gray-dark;
-    box-shadow: 0 0 20px 0 rgba($black, 0.1);
-
-    @include media-breakpoint-up(sm) {
-      bottom: 0;
-    }
-
-    li {
-      flex-basis: 25%;
-      text-align: center;
-    }
-
-    b {
-      display: block;
-      font-size: 50px;
-      line-height: 60px;
-      color: $yellow;
-    }
-
-    small {
-      display: block;
-      font-size: 16px;
-      line-height: 17px;
-
-      //@include media-breakpoint-up(sm) {
-      //  font-size: 15px;
-      //  line-height: 17px;
-      //}
-      //
-      //@include media-breakpoint-up(lg) {
-      //  font-size: 16px;
-      //  line-height: 19px;
-      //}
-    }
-
-    &-icon {
-      vertical-align: middle;
-      fill: $yellow;
-      //display: none;
     }
   }
 

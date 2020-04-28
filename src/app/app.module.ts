@@ -57,6 +57,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LoaderComponent } from './view/loader/loader.component';
 import { MaterialsComponent } from './view/materials/materials.component';
 import { MaterialOrderFormComponent } from './view/material-order-form/material-order-form.component';
+import { PromoComponent } from './view/promo/promo.component';
 
 // const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 //   direction: 'horizontal',
@@ -94,7 +95,8 @@ registerLocaleData(ruLocale, 'ru');
     TransportOrderFormComponent,
     LoaderComponent,
     MaterialsComponent,
-    MaterialOrderFormComponent
+    MaterialOrderFormComponent,
+    PromoComponent
   ],
   imports: [
     BrowserModule,
