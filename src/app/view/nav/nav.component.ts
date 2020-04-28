@@ -1,4 +1,5 @@
 import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {ActivatedRoute, ActivationEnd, NavigationEnd, Params, Router} from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -7,27 +8,62 @@ import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild} f
 })
 export class NavComponent implements OnInit, AfterViewInit {
   @ViewChild('nav', {read: ElementRef}) nav: ElementRef;
+  currentFragment = '';
+  isSticky = false;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    this.currentFragment = this.route.snapshot.fragment;
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const target = this.router.parseUrl(event.url).fragment;
+        this.currentFragment = target;
+
+        if (target) {
+          this.scrollToSection(target);
+        }
+      }
+    });
   }
 
   ngAfterViewInit(): void {
     this.setStickyMenu();
+
+    setTimeout(() => {
+      this.scrollToSection(this.currentFragment);
+    }, 0);
   }
 
   @HostListener('window:scroll', ['$event'])
 
   scroll(event) {
     this.setStickyMenu();
+    this.removeFragment();
+  }
+
+  scrollToSection(target) {
+    const section = document.getElementById(target);
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
   }
 
   setStickyMenu() {
     if (this.nav.nativeElement.getBoundingClientRect().top < -30) {
-      document.documentElement.classList.add('nav-sticky');
+      this.isSticky = true;
     } else {
-      document.documentElement.classList.remove('nav-sticky');
+      this.isSticky = false;
+    }
+  }
+
+  removeFragment() {
+    if (this.nav.nativeElement.getBoundingClientRect().top === 0) {
+      this.router.navigate(['.'], {relativeTo: this.route, queryParams: []});
     }
   }
 

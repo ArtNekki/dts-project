@@ -6,10 +6,10 @@ import {TransportListComponent} from './view/transport-list/transport-list.compo
 import {TransportPageDetailsComponent} from './view/transport-page-details/transport-page-details.component';
 
 const routerOptions: ExtraOptions = {
-  scrollPositionRestoration: 'enabled',
-  anchorScrolling: 'enabled',
+  // scrollPositionRestoration: 'enabled',
+  // anchorScrolling: 'enabled',
   scrollOffset: [0, 0],
-  onSameUrlNavigation: 'reload'
+  // onSameUrlNavigation: 'reload'
 };
 
 const routes: Routes = [

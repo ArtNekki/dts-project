@@ -8,7 +8,7 @@
 
  &-content {
    position: relative;
-   margin-top: 20px;
+   //margin-top: 0;
    margin-bottom: 20px;
    min-height: 70px;
    transition: all 0.2s ease-in;
@@ -17,9 +17,9 @@
      margin-top: 0;
    }
 
-   ::ng-deep .nav-sticky & {
+   .nav--sticky & {
      position: fixed;
-     z-index: 10;
+     z-index: 20;
      width: 100%;
      background: $white;
      box-shadow: 0 0 10px 0 rgba($gray-dark, 0.3);
@@ -74,7 +74,7 @@
 
   }
 
-  &-list li {
+  &-item {
     padding: 10px 20px;
     border-top: 1px dashed $gray;
 
@@ -92,13 +92,29 @@
     }
   }
 
-  &-list a {
+  &-link {
     font-size: 14px;
     color: $gray-dark;
     text-decoration: none;
 
     &:hover {
       color: $white;
+    }
+
+    .nav-item-active & {
+      color: $white;
+    }
+
+    .nav-item-active &:hover {
+      cursor: default;
+    }
+
+    .nav--sticky  &:hover {
+      color: $yellow;
+    }
+
+    .nav--sticky .nav-item-active & {
+      color: $yellow;
     }
   }
 
@@ -166,11 +182,6 @@
     @include media-breakpoint-up(sm) {
       display: none;
     }
-  }
-
-  &-item-active {
-    font-weight: 500;
-    //color: $yellow;
   }
 }
 

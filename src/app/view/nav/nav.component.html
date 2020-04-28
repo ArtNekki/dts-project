@@ -1,26 +1,26 @@
-<nav class="nav" #nav>
+<nav class="nav" [class.nav--sticky]="isSticky" #nav>
   <div class="nav-content">
     <div class="nav-inner container">
       <a href="#" class="nav-logo">Logo</a>
       <div class="nav-mobile">
         <ul class="nav-list">
-          <li routerLinkActive="nav-item-active">
-            <a routerLink='.' fragment='transport' (click)="closeMenu()">Аренда техники</a>
+          <li class="nav-item" [class.nav-item-active]="currentFragment === 'transport'">
+            <a routerLink='.' fragment='transport' class="nav-link" (click)="closeMenu()">Аренда техники</a>
           </li>
-          <li routerLinkActive="nav-item-active">
-            <a routerLink='.' fragment='services' (click)="closeMenu()">Услуги</a>
+          <li class="nav-item" [class.nav-item-active]="currentFragment === 'services'">
+            <a routerLink='.' fragment='services' class="nav-link" (click)="closeMenu()">Услуги</a>
           </li>
-          <li routerLinkActive="nav-item-active">
-            <a routerLink='.' fragment='services' (click)="closeMenu()">Продажа</a>
+          <li class="nav-item" [class.nav-item-active]="currentFragment === 'materials'">
+            <a routerLink='.' fragment='materials' class="nav-link" (click)="closeMenu()">Продажа</a>
           </li>
-          <li routerLinkActive="nav-item-active">
-            <a routerLink='.' fragment='about' (click)="closeMenu()">О нас</a>
+          <li class="nav-item" [class.nav-item-active]="currentFragment === 'about'">
+            <a routerLink='.' fragment='about' class="nav-link" (click)="closeMenu()">О нас</a>
           </li>
-          <li routerLinkActive="nav-item-active">
-            <a href="#" (click)="closeMenu()">Цены</a>
+          <li class="nav-item" [class.nav-item-active]="currentFragment === 'price'">
+            <a routerLink='.' fragment='price' class="nav-link" (click)="closeMenu()">Цены</a>
           </li>
-          <li routerLinkActive="nav-item-active">
-            <a routerLink='.' fragment='contacts' (click)="closeMenu()">Контакты</a>
+          <li class="nav-item" [class.nav-item-active]="currentFragment === 'contacts'">
+            <a routerLink='.' fragment='contacts' class="nav-link" (click)="closeMenu()">Контакты</a>
           </li>
         </ul>
         <button class="nav-close" (click)="closeMenu()">&times;</button>
