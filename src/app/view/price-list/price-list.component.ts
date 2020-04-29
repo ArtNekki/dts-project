@@ -13,10 +13,17 @@ export class PriceListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  copyLink(el: HTMLInputElement) {
-    el.select();
-    document.execCommand('copy');
-
+  // copyLink(el: HTMLInputElement) {
+  //   el.select();
+  //   document.execCommand('copy');
+  //
+  //   this.isCopied = true;
+  //
+  //   setTimeout(() => {
+  //     this.isCopied = false;
+  //   }, 1500);
+  // }
+  copied() {
     this.isCopied = true;
 
     setTimeout(() => {

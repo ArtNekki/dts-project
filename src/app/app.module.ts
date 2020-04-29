@@ -19,6 +19,9 @@ import { PageHeaderComponent } from './view/page-header/page-header.component';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
+// clipboard
+import { ClipboardModule } from 'ngx-clipboard';
+
 
 // import { SwiperModule } from 'ngx-swiper-wrapper';
 // import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
@@ -116,6 +119,7 @@ registerLocaleData(ruLocale, 'ru');
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
+    ClipboardModule,
     DeviceDetectorModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: environment.firebaseConfig.apiKey,
