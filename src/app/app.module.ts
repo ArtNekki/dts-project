@@ -59,6 +59,7 @@ import { MaterialsComponent } from './view/materials/materials.component';
 import { MaterialOrderFormComponent } from './view/material-order-form/material-order-form.component';
 import { PromoComponent } from './view/promo/promo.component';
 import { NavComponent } from './view/nav/nav.component';
+import { PriceListComponent } from './view/price-list/price-list.component';
 
 // const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 //   direction: 'horizontal',
@@ -98,7 +99,8 @@ registerLocaleData(ruLocale, 'ru');
     MaterialsComponent,
     MaterialOrderFormComponent,
     PromoComponent,
-    NavComponent
+    NavComponent,
+    PriceListComponent
   ],
   imports: [
     BrowserModule,
