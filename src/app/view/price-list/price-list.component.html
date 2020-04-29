@@ -1,5 +1,5 @@
 <div class="price-list" [class.price-list--copied]="isCopied">
-  <div class="price-list-field">
+  <div class="price-list-field" (click)="copyLink(el)">
     <input #el type="text" class="price-list-input input" value="https://drive.google.com/file/d/1hkaerR_W44i7tRhQ2cBNWiuFvsPgB2w-/view?usp=sharing">
   </div>
   <button class="price-list-btn" (click)="copyLink(el)" [disabled]="isCopied">Скопировать ссылку</button>

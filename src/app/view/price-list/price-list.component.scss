@@ -4,13 +4,16 @@
 @import "src/assets/scss/settings";
 
 .price-list {
-  display: flex;
+  text-align: right;
+
+  @include media-breakpoint-up(sm) {
+    display: flex;
+  }
 
   &-field {
     position: relative;
     display: flex;
     flex-grow: 1;
-    cursor: not-allowed;
 
     &::before {
       content: "Cсылка добавлена в буфер обмена";
@@ -34,9 +37,14 @@
   }
 
   &-input {
-    height: auto;
+    height: 50px;
     padding-right: 20px;
     padding-left: 20px;
+    text-overflow: ellipsis;
+
+    @include media-breakpoint-up(sm) {
+      height: auto;
+    }
 
     &::selection {
       color: rgba($gray-dark, 0.5);
@@ -45,8 +53,10 @@
 
   &-btn {
     position: relative;
-    margin-left: 20px;
-    padding: 23px;
+    margin-top: 25px;
+    padding: 20px;
+    font-size: 14px;
+    line-height: 16px;
     background-color: $yellow;
     color: $white;
     border: none;
@@ -54,6 +64,13 @@
     cursor: pointer;
     transition: all 0.2s ease-in;
 
+    @include media-breakpoint-up(sm) {
+      margin-top: 0;
+      margin-left: 20px;
+      padding: 23px;
+      font-size: 16px;
+      line-height: 18px;
+    }
 
     &:hover {
       background-color: rgba($yellow, 0.8);
