@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-price-list',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./price-list.component.scss']
 })
 export class PriceListComponent implements OnInit {
+  @ViewChild('inputTarget', {read: ElementRef}) input: ElementRef;
   isCopied = false;
 
   constructor() { }
@@ -25,6 +26,7 @@ export class PriceListComponent implements OnInit {
   // }
   copied() {
     this.isCopied = true;
+    this.input.nativeElement.blur();
 
     setTimeout(() => {
       this.isCopied = false;
