@@ -33,12 +33,12 @@
     }
 
     @include media-breakpoint-up(md) {
-      height: 883px;
+      height: 865px;
       transform: rotate3d(0, 0, 1, 10deg);
     }
 
-    @include media-breakpoint-up(md) {
-      height: 880px;
+    @include media-breakpoint-up(lg) {
+      height: 861px;
       transform: rotate3d(0, 0, 1, 7deg);
     }
   }
