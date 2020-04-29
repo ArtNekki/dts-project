@@ -116,6 +116,14 @@
     .nav--sticky .nav-item-active & {
       color: $yellow;
     }
+
+    ::ng-deep .menu-opened &:hover {
+      color: $yellow;
+    }
+
+    ::ng-deep .menu-opened .nav-item-active & {
+      color: $yellow;
+    }
   }
 
   &-open {
@@ -136,6 +144,10 @@
       height: 5px;
       background: $white;
 
+      .nav--sticky & {
+        background: $yellow;
+      }
+
       &::before,
       &::after {
         content: '';
@@ -144,6 +156,10 @@
         height: 5px;
         width: 100%;
         background: $white;
+
+        .nav--sticky & {
+          background: $yellow;
+        }
       }
 
       &::before {
@@ -159,8 +175,6 @@
       display: none;
     }
   }
-
-
 
   &-close {
     position: absolute;
