@@ -17,14 +17,30 @@ var transporter = nodemailer.createTransport({
   }
 });
 
+const TransportMap = {
+  'auto-containers': 'Контейнеровоза',
+  'auto-towers': 'Автовышки',
+  'bulldozers': 'Бульдозера',
+  'chambos': 'Илососа',
+  'crawler-excavators': 'Гусеничного экскаватора',
+  'front-loaders': 'Фронтального погрузчика',
+  'gasoline-tankers': 'Бензовоза',
+  'low-loaders': 'Низкорамный трала',
+  'power-stations': 'Электростанции',
+  'timber-tracks': 'Сортиментовоза',
+  'tippers': 'Самосвала',
+  'tractors': 'Трактора'
+}
+
 const renderPersonalData = function(data) {
   return `
-    <h3>Контактные данные:</h3>
+    <h3>Данные клиента:</h3>
    <table border="0" cellpadding="0" cellspacing="0" width="250">
-   <tr>
-      <td>Компания:</td>
-      <td><b>${data.personal.companyName || 'не заполнено'}</b></td>
+    <tr>
+      <td>Имя:</td>
+      <td><b>${data.personal.userName || data.personal.companyPerson || 'не заполнено'}</b></td>
    </tr>
+   ${data.personal.companyName ? (() => `<tr><td>Название компании:</td><td><b>${data.personal.companyName || 'не заполнено'}</b></td></tr>`)() : ''}
   <tr>
     <td>Email: </td>
     <td><b>${data.personal.email || 'не заполнено'}</b></td>
@@ -94,22 +110,22 @@ const renderRentalData = function(data) {
 const renderTransportData = function(data) {
   return `
    <h3>Данные по аренде:</h3>
-   <table border="0" cellpadding="0" cellspacing="0" width="500">
+   <table border="0" cellpadding="0" cellspacing="0" width="300">
    <tr>
-      <td>Техника:</td>
+      <td>Модель:</td>
       <td><b>${data.model || 'не заполнено'}</b></td>
     </tr>
      <tr>
-      <td>Дата предоставления</td>
+      <td>Дата предоставления:</td>
       <td><b>${data.rent.date || 'не заполнено'}</b></td>
     </tr>
     <tr>
-      <td>Место доставки</td>
-      <td><b>${data.rent.date || 'не заполнено'}</b></td>
+      <td>Место доставки:</td>
+      <td><b>${data.rent.location || 'не заполнено'}</b></td>
     </tr>
      <tr>
-      <td>Период аренды</td>
-      <td><b>${data.rent.date || 'не заполнено'}</b></td>
+      <td>Период аренды:</td>
+      <td><b>${data.rent.period || 'не заполнено'}</b></td>
     </tr>
    </table>
   `
@@ -126,7 +142,7 @@ exports.sendEmail = functions
     const mailOptions = {
       from: `${gmailEmail}`,
       to: `${gmailEmail}`,
-      subject: `Заявка на услугу '${data.serviceTitle.split('&').join(' ') || data.serviceTitle}' от ${data.personal.userName || data.personal.companyPerson}`,
+      subject: `Заявка на услугу '${data.serviceTitle.split('&').join(' ') || data.serviceTitle}'`,
       html: `
         <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
           <html xmlns="http://www.w3.org/1999/xhtml">
@@ -164,7 +180,7 @@ exports.sendTransportEmail = functions
     const mailOptions = {
       from: `${gmailEmail}`,
       to: `${gmailEmail}`,
-      subject: `Заявка на аренду техники от ${data.personal.userName || data.personal.companyPerson}`,
+      subject: `Заявка на аренду ${TransportMap[data.transport]}`,
       html: `
         <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
           <html xmlns="http://www.w3.org/1999/xhtml">
