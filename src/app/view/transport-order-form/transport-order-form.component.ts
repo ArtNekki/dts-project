@@ -58,7 +58,7 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      delivery: new FormGroup({
+      rent: new FormGroup({
         date: new FormControl(''),
         location: new FormControl(''),
         period: new FormControl('')
@@ -83,7 +83,7 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
 
             if (data.models.length) {
               this.transportModels = [{value: '', name: 'Не выбрано'}, ...data.models];
-              this.form.addControl('models', new FormControl('', Validators.required));
+              this.form.addControl('model', new FormControl('', Validators.required));
             }
         });
     }
@@ -111,12 +111,12 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
     if (!this.form.valid) { return; }
 
     const model = this.transportModels.filter((item) => {
-      return item.value === this.form.value.models;
+      return item.value === this.form.value.model;
     })[0].name;
 
-    const formData = { date: new Date(), ...this.form.value, models: model};
+    const formData = { date: new Date(), ...this.form.value, model};
 
-    this.af.collection('messages').add(formData);
+    this.af.collection('transport-email').add(formData);
     this.form.reset();
 
     console.log(formData);

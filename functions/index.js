@@ -85,7 +85,31 @@ const renderRentalData = function(data) {
    <table border="0" cellpadding="0" cellspacing="0" width="500">
    <tr>
       <td>Обьект аренды:</td>
-      <td><b>${data.variant ? data.variant : 'не заполнено'}</b></td>
+      <td><b>${data.variant || 'не заполнено'}</b></td>
+    </tr>
+   </table>
+  `
+}
+
+const renderTransportData = function(data) {
+  return `
+   <h3>Данные по аренде:</h3>
+   <table border="0" cellpadding="0" cellspacing="0" width="500">
+   <tr>
+      <td>Техника:</td>
+      <td><b>${data.model || 'не заполнено'}</b></td>
+    </tr>
+     <tr>
+      <td>Дата предоставления</td>
+      <td><b>${data.rent.date || 'не заполнено'}</b></td>
+    </tr>
+    <tr>
+      <td>Место доставки</td>
+      <td><b>${data.rent.date || 'не заполнено'}</b></td>
+    </tr>
+     <tr>
+      <td>Период аренды</td>
+      <td><b>${data.rent.date || 'не заполнено'}</b></td>
     </tr>
    </table>
   `
@@ -97,7 +121,6 @@ exports.sendEmail = functions
   .document('messages/{messageId}')
   .onCreate((snap, context) => {
 
-    console.log('snap', snap.data());
     const data = snap.data();
 
     const mailOptions = {
@@ -130,26 +153,39 @@ exports.sendEmail = functions
   });
 
 
-// exports.sendServiceMail = functions.firestore
-//   .document('service-messages/{messageId}')
-//   .onCreate((snap, context) => {
-//
-//     const mailOptions = {
-//       from: `${gmailEmail}`,
-//       to: `${gmailEmail}`,
-//       subject: 'contact form message',
-//       html: `<h1>Order Confirmation</h1>
-//                                 <p>
-//                                    <b>Email: </b>${snap.data().name}<br>
-//                                 </p>`
-//     };
-//
-//
-//     return transporter.sendMail(mailOptions, (error, data) => {
-//       console.log('snap', snap.data());
-//       if (error) {
-//         return
-//       }
-//       console.log("Sent!")
-//     });
-//   });
+exports.sendTransportEmail = functions
+  .region('asia-northeast1')
+  .firestore
+  .document('transport-email/{emailId}')
+  .onCreate((snap, context) => {
+
+    const data = snap.data();
+
+    const mailOptions = {
+      from: `${gmailEmail}`,
+      to: `${gmailEmail}`,
+      subject: `Заявка на аренду техники от ${data.personal.userName || data.personal.companyPerson}`,
+      html: `
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <head>
+ 	           <title></title>
+ 	           <style type="text/css"></style>
+            </head>
+            <body>
+           	  <!-- Email content goes here -->
+              ${data.model && renderTransportData(data)}
+              ${renderPersonalData(data)}
+            </body>
+          </html>
+        `
+    };
+
+
+    return transporter.sendMail(mailOptions, (error, data) => {
+      if (error) {
+        return
+      }
+      console.log("Sent!")
+    });
+  });

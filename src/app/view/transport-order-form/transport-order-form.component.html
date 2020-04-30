@@ -4,7 +4,7 @@
       <div *ngIf="transportModels && transportModels.length" class="u-full-height">
         <div class="form-field">
           <label class="form-label">Модель:</label>
-          <app-select id="models" [items]="transportModels" formControlName="models" (change)="onChangeParam($event)"></app-select>
+          <app-select id="models" [items]="transportModels" formControlName="model" (change)="onChangeParam($event)"></app-select>
         </div>
         <div *ngIf="transportProps" class="form-field">
           <div class="form-label">Характеристики:</div>
@@ -25,7 +25,7 @@
       <div>Транспорт не выбран...</div>
     </ng-template>
   </div>
-  <div class="form-step u-full-height" formGroupName="delivery" [@stepTwo]="currentStep">
+  <div class="form-step u-full-height" formGroupName="rent" [@stepTwo]="currentStep">
     <div class="form-field">
       <label class="form-label">Когда нужна техника?</label>
       <app-datepicker id="date" name="date" formControlName="date"></app-datepicker>
@@ -103,9 +103,9 @@
       <button type="button" class="btn btn--md btn--prev btn--gray" (click)="goToStep(FormSteps.two)">Доставка</button>
       <button type="submit" class="btn btn--md btn--success" [disabled]="form.invalid">Отправить</button>
     </div>
-    <div class="form-message form-message--success">
-      <h3>Ваша заявка успешно отправлена!</h3>
-      <small>Мы с вами свяжемся в течении 60 минут.</small>
-    </div>
+<!--    <div class="form-message form-message&#45;&#45;success">-->
+<!--      <h3>Ваша заявка успешно отправлена!</h3>-->
+<!--      <small>Мы с вами свяжемся в течении 60 минут.</small>-->
+<!--    </div>-->
   </div>
 </form>
