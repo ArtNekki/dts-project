@@ -41,7 +41,7 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
   @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
   entity: boolean;
   form: FormGroup;
-  transportParams = null;
+  transportModels = null;
   transportProps = null;
   currentTransport = null;
   fieldState = '';
@@ -60,7 +60,8 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
     this.form = new FormGroup({
       delivery: new FormGroup({
         date: new FormControl(''),
-        location: new FormControl('')
+        location: new FormControl(''),
+        period: new FormControl('')
       }),
       personal: new FormGroup({
         userName: new FormControl('', [Validators.required]),
@@ -75,27 +76,14 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
     this.currentStep = this.FormSteps.one;
 
     if (changes.transportId.currentValue) {
-      this.transportParams = null;
-
-      if (this.form) {
-        this.form.removeControl('params');
-      }
 
       this.transportService.getById('transport', changes.transportId.currentValue)
         .subscribe((data: TransportItem) => {
             this.currentTransport = changes.transportId.currentValue;
 
-            if (data.params) {
-              this.transportParams = data.params;
-
-              const params = new FormGroup({});
-
-              data.params.forEach((param) => {
-                param.items.unshift({name: 'Не выбрано', value: ''});
-                params.addControl(param.id, new FormControl(''));
-              });
-
-              this.form.addControl('params', params);
+            if (data.models.length) {
+              this.transportModels = [{value: '', name: 'Не выбрано'}, ...data.models];
+              this.form.addControl('models', new FormControl('', Validators.required));
             }
         });
     }
@@ -103,7 +91,6 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
     if (!changes.transportId.firstChange) {
       this.form.reset();
     }
-
   }
 
   selectUserType(id) {
@@ -123,13 +110,14 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
   onSubmit() {
     if (!this.form.valid) { return; }
 
-    const formData = { date: new Date(), ...this.form.value};
+    const model = this.transportModels.filter((item) => {
+      return item.value === this.form.value.models;
+    })[0].name;
 
+    const formData = { date: new Date(), ...this.form.value, models: model};
 
     // this.af.collection('messages').add(formData);
     this.form.reset();
-
-    // this.form.reset();
 
     console.log(formData);
   }
@@ -138,13 +126,9 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
     this.currentStep = step;
   }
 
-  onChangeParam(id: any, value) {
-    if (id !== 'models') {
-      return;
-    }
-
+  onChangeParam(value) {
     this.transportService.getById(this.currentTransport, value).subscribe((data) => {
-      console.log('data', data);
+      this.transportProps = data.params;
     });
   }
 }

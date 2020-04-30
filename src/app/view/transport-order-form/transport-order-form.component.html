@@ -1,10 +1,19 @@
 <form class="form u-full-height" autocomplete="off" [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="form-step u-full-height" [@stepOne]="currentStep">
     <div *ngIf="transportId; else empty" class="u-full-height">
-      <div *ngIf="transportParams" formGroupName="params" class="u-full-height">
-        <div *ngFor="let param of transportParams" class="form-field" [@field]="fieldState">
-          <label class="form-label">{{ param.name }}</label>
-          <app-select [id]="param.id" [items]="param.items" [formControlName]="param.id" (change)="onChangeParam(param.id, $event)"></app-select>
+      <div *ngIf="transportModels && transportModels.length" class="u-full-height">
+        <div class="form-field">
+          <label class="form-label">Модель:</label>
+          <app-select id="models" [items]="transportModels" formControlName="models" (change)="onChangeParam($event)"></app-select>
+        </div>
+        <div *ngIf="transportProps" class="form-field">
+          <div class="form-label">Характеристики:</div>
+          <table class="table">
+            <tr *ngFor="let prop of transportProps">
+              <td>{{prop.name}}</td>
+              <td>{{prop.value}}</td>
+            </tr>
+          </table>
         </div>
         <div class="form-group form-group--buttons">
           <button type="button" class="btn btn--md btn--prev btn--gray u-hide-sm" [disabled]="" (click)="this.onChange.emit()">Вся техника</button>
@@ -22,7 +31,11 @@
       <app-datepicker id="date" name="date" formControlName="date"></app-datepicker>
     </div>
     <div class="form-field">
-      <label class="form-label" for="location">Куда технику доставить?</label>
+      <label class="form-label">На какой период?</label>
+      <app-select id="period" [items]="[{ value: '', name: 'Не выбрано' }, { value: '1', name: '1 час' }, { value: '2-4', name: '2 - 4 часа' }, { value: '4-8', name: '4 - 8 часа' }, { value: 'more', name: '8 часов и более' }]" formControlName="period"></app-select>
+    </div>
+    <div class="form-field">
+      <label class="form-label" for="location">Куда доставить?</label>
       <textarea id="location" class="input" formControlName="location" cols="30" rows="5"></textarea>
     </div>
     <div class="form-group form-group--buttons">
