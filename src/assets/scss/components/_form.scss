@@ -177,4 +177,36 @@
       font-size: 25px;
     }
   }
+
+  .form-message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &--success {
+      background-color: $green;
+    }
+
+    &--error {
+      background-color: $red;
+    }
+
+    h3 {
+      font-size: 18px;
+      line-height: 20px;
+      color: $white;
+    }
+
+    small {
+      font-size: 14px;
+      line-height: 16px;
+      color: $white;
+    }
+  }
 }

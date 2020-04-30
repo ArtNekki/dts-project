@@ -116,7 +116,7 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
 
     const formData = { date: new Date(), ...this.form.value, models: model};
 
-    // this.af.collection('messages').add(formData);
+    this.af.collection('messages').add(formData);
     this.form.reset();
 
     console.log(formData);
