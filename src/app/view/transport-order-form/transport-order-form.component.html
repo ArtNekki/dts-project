@@ -4,7 +4,7 @@
       <div *ngIf="transportParams" formGroupName="params" class="u-full-height">
         <div *ngFor="let param of transportParams" class="form-field" [@field]="fieldState">
           <label class="form-label">{{ param.name }}</label>
-          <app-select [id]="param.id" [items]="param.items" [formControlName]="param.id"></app-select>
+          <app-select [id]="param.id" [items]="param.items" [formControlName]="param.id" (change)="onChangeParam(param.id, $event)"></app-select>
         </div>
         <div class="form-group form-group--buttons">
           <button type="button" class="btn btn--md btn--prev btn--gray u-hide-sm" [disabled]="" (click)="this.onChange.emit()">Вся техника</button>

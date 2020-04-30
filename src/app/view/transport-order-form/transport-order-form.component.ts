@@ -42,6 +42,8 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
   entity: boolean;
   form: FormGroup;
   transportParams = null;
+  transportProps = null;
+  currentTransport = null;
   fieldState = '';
 
   FormSteps = {
@@ -79,8 +81,9 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
         this.form.removeControl('params');
       }
 
-      this.transportService.getById(changes.transportId.currentValue)
+      this.transportService.getById('transport', changes.transportId.currentValue)
         .subscribe((data: TransportItem) => {
+            this.currentTransport = changes.transportId.currentValue;
 
             if (data.params) {
               this.transportParams = data.params;
@@ -133,5 +136,15 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
 
   goToStep(step: string) {
     this.currentStep = step;
+  }
+
+  onChangeParam(id: any, value) {
+    if (id !== 'models') {
+      return;
+    }
+
+    this.transportService.getById(this.currentTransport, value).subscribe((data) => {
+      console.log('data', data);
+    });
   }
 }

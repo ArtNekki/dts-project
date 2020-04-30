@@ -30,8 +30,8 @@ export class TransportService {
       );
   }
 
-  getById(id) {
-    return this.firestore.collection('transport').doc(id).valueChanges()
+  getById(path, id) {
+    return this.firestore.collection(path).doc(id).valueChanges()
       .pipe(
         map((data: TransportItem) => {
           return {id, ...data};
