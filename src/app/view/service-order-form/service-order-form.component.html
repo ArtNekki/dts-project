@@ -58,7 +58,7 @@
       </div>
       <div class="form-field" [class.form-field--invalid]="form.get('personal').get('tel').invalid && form.get('personal').get('tel').touched">
         <label class="form-label" for="phone">Телефон <span>(обязательно)</span></label>
-        <input type="tel" id="phone" class="input" formControlName="tel" mask="(000) 000-0000" prefix="+7">
+        <input type="text" id="phone" class="input" formControlName="tel" mask="(000) 000-0000" prefix="+7">
         <div class="form-validation" *ngIf="form.get('personal').get('tel').invalid && form.get('personal').get('tel').touched">
           <small *ngIf="form.get('personal').get('tel').errors.required">Это поле не может быть пустым</small>
           <small *ngIf="form.get('personal').get('tel').errors.mask">Телефон указан некорректно</small>

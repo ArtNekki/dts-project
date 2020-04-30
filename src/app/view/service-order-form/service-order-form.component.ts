@@ -89,14 +89,15 @@ export class ServiceOrderFormComponent implements OnInit {
       return this.form.value.variant === item.value;
     })[0];
 
-    const formData = {serviceTitle: this.data.name, variant: variant.name, date: new Date(), ...this.form.value};
+    const formData = {...this.form.value, id: this.data.id, serviceTitle: this.data.name, variant: variant.name, date: new Date()};
 
-    // this.af.collection('messages').add(formData);
+    this.af.collection('messages').add(formData);
     this.form.reset();
 
     // this.form.reset();
 
     console.log(formData);
+    console.log('dataId', this.data.id);
   }
 
   setTitleLabel(id: any) {
