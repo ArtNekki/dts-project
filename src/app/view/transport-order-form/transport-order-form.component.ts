@@ -56,7 +56,7 @@ const animationDuration = 200;
       state('two', style({position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, transform: 'translateX(100%)', opacity: 0 })),
       state('three', style({position: 'relative', transform: 'translateX(0)', opacity: 1 })),
       transition('two => three', animate(animationDuration, keyframes([
-        style({ opacity: 1, offset: 0 }),
+        style({ position: 'relative', opacity: 1, offset: 0 }),
         style({ transform: 'translateX(0)', offset: 1})
       ]))),
       transition('three => two', animate(animationDuration, keyframes([
