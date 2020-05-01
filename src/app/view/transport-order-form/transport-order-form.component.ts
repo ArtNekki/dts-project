@@ -124,6 +124,8 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
     })[0].name;
 
     const formData = { date: new Date(), ...this.form.value, model, transport: this.currentTransport};
+    console.log(formData);
+
     this.formSubmitState = this.SubmitState.SENDING;
 
     this.af.collection('transport-email').add(formData)
@@ -136,10 +138,7 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
       })
       .catch((error) => {
         this.formSubmitState = this.SubmitState.FAIL;
-      })
-    this.form.reset();
-
-    console.log(formData);
+      });
   }
 
   goToStep(step: string) {

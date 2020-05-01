@@ -40,6 +40,14 @@ export class ServiceOrderFormComponent implements OnInit {
     three: 'three'
   }
 
+  SubmitState = {
+    SENDING: 'sending',
+    SUCCESS: 'success',
+    FAIL: 'fail'
+  }
+
+  formSubmitState;
+
   currentStep = this.FormSteps.one;
   fieldState = '';
 
@@ -82,32 +90,14 @@ export class ServiceOrderFormComponent implements OnInit {
     }
   }
 
-  onSubmit() {
-    if (!this.form.valid) { return; }
-
-    const variant = this.serviceList.filter((item) => {
-      return this.form.value.variant === item.value;
-    })[0];
-
-    const formData = {...this.form.value, id: this.data.id, serviceTitle: this.data.name, variant: variant.name, date: new Date()};
-
-    this.af.collection('messages').add(formData);
-    this.form.reset();
-
-    // this.form.reset();
-
-    console.log(formData);
-    console.log('dataId', this.data.id);
-  }
-
   setTitleLabel(id: any) {
-   if (id.indexOf('cargo') !== -1) {
-     return 'Выберите груз';
-   } else if (id.indexOf('work') !== -1) {
+    if (id.indexOf('cargo') !== -1) {
+      return 'Выберите груз';
+    } else if (id.indexOf('work') !== -1) {
       return 'Выберите работу';
-   } else if (id.indexOf('rental') !== -1) {
-     return 'Выберите обьект аренды';
-   }
+    } else if (id.indexOf('rental') !== -1) {
+      return 'Выберите обьект аренды';
+    }
   }
 
   setDateLabel(id: any) {
@@ -128,5 +118,29 @@ export class ServiceOrderFormComponent implements OnInit {
 
   goToStep(step: string) {
     this.currentStep = step;
+  }
+
+  onSubmit() {
+    if (!this.form.valid) { return; }
+
+    const variant = this.serviceList.filter((item) => {
+      return this.form.value.variant === item.value;
+    })[0];
+
+    const formData = {...this.form.value, id: this.data.id, serviceTitle: this.data.name, variant: variant.name, date: new Date()};
+    console.log(formData);
+
+    this.formSubmitState = this.SubmitState.SENDING;
+
+    this.af.collection('messages').add(formData)
+      .then((result) => {
+        if (result) {
+          this.formSubmitState = this.SubmitState.SUCCESS;
+          this.form.reset();
+        }
+      })
+      .catch((error) => {
+        this.formSubmitState = this.SubmitState.FAIL;
+      });
   }
 }
