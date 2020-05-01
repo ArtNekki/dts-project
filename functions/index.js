@@ -17,6 +17,11 @@ var transporter = nodemailer.createTransport({
   }
 });
 
+const Offer = {
+  material: 'Материалов',
+  gasoline: 'Дизельного топлива'
+}
+
 const TransportMap = {
   'auto-containers': 'Контейнеровоза',
   'auto-towers': 'Автовышки',
@@ -131,6 +136,17 @@ const renderTransportData = function(data) {
   `
 }
 
+const renderSaleData = function(data) {
+  return `
+   <table border="0" cellpadding="0" cellspacing="0" width="200">
+   <tr>
+      <td>Материал:</td>
+      <td><b>${data.material || 'не заполнено'}</b></td>
+    </tr>
+   </table>
+  `
+}
+
 exports.sendEmail = functions
   .region('asia-northeast1')
   .firestore
@@ -217,7 +233,7 @@ exports.sendMaterialsEmail = functions
     const mailOptions = {
       from: `${gmailEmail}`,
       to: `${gmailEmail}`,
-      subject: `Заявка на покупку материалов`,
+      subject: `Заявка на покупку ${Offer[data.offer]}`,
       html: `
         <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
           <html xmlns="http://www.w3.org/1999/xhtml">
@@ -227,6 +243,7 @@ exports.sendMaterialsEmail = functions
             </head>
             <body>
            	  <!-- Email content goes here -->
+           	  ${renderSaleData(data)}
               ${renderPersonalData(data)}
             </body>
           </html>

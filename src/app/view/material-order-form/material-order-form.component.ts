@@ -140,10 +140,18 @@ export class MaterialOrderFormComponent implements OnInit {
   onSubmit() {
     if (!this.form.valid) { return; }
 
-    const variant = {};
+    let material = null;
 
-    const formData = {date: new Date(), ...this.form.value};
+    if (this.form.value.material) {
+
+      material = this.materials.filter((item) => {
+        return item.value === this.form.value.material;
+      })[0].name;
+    }
+
+    const formData = {date: new Date(), ...this.form.value, material};
     console.log(formData);
+    console.log('data', this.data);
 
     this.formSubmitState = this.SubmitState.SENDING;
 
