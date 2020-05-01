@@ -159,7 +159,6 @@ exports.sendEmail = functions
         `
     };
 
-
     return transporter.sendMail(mailOptions, (error, data) => {
       if (error) {
         return error;
@@ -198,6 +197,41 @@ exports.sendTransportEmail = functions
         `
     };
 
+    return transporter.sendMail(mailOptions, (error, data) => {
+      if (error) {
+        return error;
+      }
+      console.log("Sent!")
+      return data;
+    });
+  });
+
+exports.sendMaterialsEmail = functions
+  .region('asia-northeast1')
+  .firestore
+  .document('materials-email/{emailId}')
+  .onCreate((snap, context) => {
+
+    const data = snap.data();
+
+    const mailOptions = {
+      from: `${gmailEmail}`,
+      to: `${gmailEmail}`,
+      subject: `Заявка на покупку материалов`,
+      html: `
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <head>
+ 	           <title></title>
+ 	           <style type="text/css"></style>
+            </head>
+            <body>
+           	  <!-- Email content goes here -->
+              ${renderPersonalData(data)}
+            </body>
+          </html>
+        `
+    };
 
     return transporter.sendMail(mailOptions, (error, data) => {
       if (error) {

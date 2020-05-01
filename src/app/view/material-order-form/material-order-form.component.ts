@@ -24,6 +24,7 @@ const MaterialPrice = {
   [Material.gasoline]: '1700'
 }
 
+
 @Component({
   selector: 'app-material-order-form',
   templateUrl: './material-order-form.component.html',
@@ -61,6 +62,14 @@ export class MaterialOrderFormComponent implements OnInit {
     two: 'two',
     three: 'three'
   }
+
+  SubmitState = {
+    SENDING: 'sending',
+    SUCCESS: 'success',
+    FAIL: 'fail'
+  }
+
+  formSubmitState;
 
   materials = [
     {value: Material.sand, name: 'Песок'},
@@ -102,44 +111,51 @@ export class MaterialOrderFormComponent implements OnInit {
     }
   }
 
-  onSubmit() {
-    if (!this.form.valid) { return; }
-
-    const variant = {};
-
-    const formData = {date: new Date(), ...this.form.value};
-
-    // this.af.collection('messages').add(formData);
-    this.form.reset();
-
-    // this.form.reset();
-
-    console.log(formData);
-  }
-
   goToStep(step: string) {
     this.currentStep = step;
   }
 
 
   selectType(value: string) {
-   if (value === 'material') {
-     this.isMaterial = true;
-     this.form.addControl('material', new FormControl('', []));
-   } else {
-     this.isMaterial = false;
-     this.form.removeControl('material');
-   }
+    if (value === 'material') {
+      this.isMaterial = true;
+      this.form.addControl('material', new FormControl('', []));
+    } else {
+      this.isMaterial = false;
+      this.form.removeControl('material');
+    }
 
-   if (value === 'gasoline') {
-     this.showPrice(Material.gasoline);
-   } else {
-     this.showPrice(null);
-   }
+    if (value === 'gasoline') {
+      this.showPrice(Material.gasoline);
+    } else {
+      this.showPrice(null);
+    }
   }
 
   showPrice(value: any) {
     this.currentPrice = MaterialPrice[value];
     console.log(this.currentPrice);
+  }
+
+  onSubmit() {
+    if (!this.form.valid) { return; }
+
+    const variant = {};
+
+    const formData = {date: new Date(), ...this.form.value};
+    console.log(formData);
+
+    this.formSubmitState = this.SubmitState.SENDING;
+
+    this.af.collection('materials-email').add(formData)
+    .then((result) => {
+        if (result) {
+          this.formSubmitState = this.SubmitState.SUCCESS;
+          this.form.reset();
+        }
+      })
+      .catch((error) => {
+        this.formSubmitState = this.SubmitState.FAIL;
+      });
   }
 }
