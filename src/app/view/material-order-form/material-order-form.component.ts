@@ -24,6 +24,7 @@ const MaterialPrice = {
   [Material.gasoline]: '1700'
 }
 
+const animationDuration = 200;
 
 @Component({
   selector: 'app-material-order-form',
@@ -37,29 +38,31 @@ const MaterialPrice = {
       ])
     ]),
     trigger('stepOne', [
-      state('one', style({ position: 'relative',  transform: 'translateX(0)' })),
-      state('two', style({position: 'absolute', transform: 'translateX(-100%)' })),
-      transition('one => two', animate(200, keyframes([
-        style({ position: 'absolute', offset: 0 }),
+      state('one', style({ position: 'relative',  transform: 'translateX(0)', opacity: 1 })),
+      state('two', style({position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, transform: 'translateX(-100%)', opacity: 0})),
+      transition('one => two', animate(animationDuration, keyframes([
+        style({ position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, offset: 0 }),
         style({ transform: 'translateX(-100%)', offset: 1})
       ]))),
-      transition('two => one', animate(200, keyframes([
+      transition('two => one', animate(animationDuration, keyframes([
+        style({ opacity: 1, offset: 0 }),
         style({ transform: 'translateX(0)', offset: 1})
       ])))
     ]),
     trigger('stepTwo', [
-      state('one', style({ position: 'absolute',  transform: 'translateX(100%)' })),
-      state('two', style({position: 'relative', transform: 'translateX(0)' })),
-      transition('one => two', animate(200, keyframes([
-        style({ position: 'relative', offset: 0 }),
+      state('one', style({ position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, transform: 'translateX(100%)', opacity: 0 })),
+      state('two', style({position: 'relative', transform: 'translateX(0)', opacity: 1 })),
+      transition('one => two', animate(animationDuration, keyframes([
+        style({ position: 'relative', opacity: 1, offset: 0 }),
         style({ transform: 'translateX(0)', offset: 1})
       ]))),
-      transition('two => one', animate(200, keyframes([
+      transition('two => one', animate(animationDuration, keyframes([
         style({ transform: 'translateX(100%)', offset: 1})
       ]))),
     ])
   ]
 })
+
 export class MaterialOrderFormComponent implements OnInit {
   @Input() data;
 
