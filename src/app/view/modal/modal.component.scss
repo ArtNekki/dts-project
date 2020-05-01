@@ -75,7 +75,7 @@
     //margin-bottom: 20px;
     padding: 20px 15px 25px 15px;
     padding-right: 50px;
-    //min-height: 170px;
+    min-height: 100px;
     //border-bottom: 1px solid $gray;
 
     @include media-breakpoint-up(sm) {
@@ -218,7 +218,7 @@
     right: 13px;
     margin: 0;
     padding: 0;
-    font-size: 35px;
+    font-size: 45px;
     background-color: transparent;
     border: none;
     color: $yellow;
