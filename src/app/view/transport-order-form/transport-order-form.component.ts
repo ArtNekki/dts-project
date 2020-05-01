@@ -5,7 +5,7 @@ import {TransportService} from '../../core/services/transport.service';
 import {TransportItem} from '../transport-box/transport-box.component';
 import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 
-const animationDuration = 2000;
+const animationDuration = 200;
 
 @Component({
   selector: 'app-transport-order-form',
@@ -20,10 +20,10 @@ const animationDuration = 2000;
     ]),
     trigger('stepOne', [
       state('one', style({ position: 'relative',  transform: 'translateX(0)', opacity: 1 })),
-      state('two', style({position: 'absolute',  transform: 'translateX(-100%)', opacity: 0})),
-      state('three', style({position: 'absolute',  transform: 'translateX(-100%)', opacity: 0 })),
+      state('two', style({position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, transform: 'translateX(-100%)', opacity: 0})),
+      state('three', style({position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, transform: 'translateX(-100%)', opacity: 0 })),
       transition('one => two', animate(animationDuration, keyframes([
-        style({ position: 'absolute', offset: 0 }),
+        style({ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, offset: 0 }),
         style({ transform: 'translateX(-100%)', offset: 1})
       ]))),
       transition('two => one', animate(animationDuration, keyframes([
@@ -32,9 +32,9 @@ const animationDuration = 2000;
       ])))
     ]),
     trigger('stepTwo', [
-      state('one', style({ position: 'absolute',  transform: 'translateX(100%)', opacity: 0})),
+      state('one', style({ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, transform: 'translateX(100%)', opacity: 0})),
       state('two', style({position: 'relative', transform: 'translateX(0)', opacity: 1 })),
-      state('three', style({position: 'absolute', transform: 'translateX(-100%)', opacity: 0 })),
+      state('three', style({position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, transform: 'translateX(-100%)', opacity: 0 })),
       transition('one => two', animate(animationDuration, keyframes([
         style({ position: 'relative', opacity: 1, offset: 0 }),
         style({ transform: 'translateX(0)', offset: 1})
@@ -43,7 +43,7 @@ const animationDuration = 2000;
         style({ transform: 'translateX(100%)', offset: 1})
       ]))),
       transition('two => three', animate(animationDuration, keyframes([
-        style({ position: 'absolute', offset: 0 }),
+        style({ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, offset: 0 }),
         style({ transform: 'translateX(-100%)', offset: 1})
       ]))),
       transition('three => two', animate(animationDuration, keyframes([
@@ -52,8 +52,8 @@ const animationDuration = 2000;
       ]))),
     ]),
     trigger('stepThree', [
-      state('one', style({ position: 'absolute',  transform: 'translateX(100%)', opacity: 0 })),
-      state('two', style({position: 'absolute',  transform: 'translateX(100%)', opacity: 0 })),
+      state('one', style({ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, transform: 'translateX(100%)', opacity: 0 })),
+      state('two', style({position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, transform: 'translateX(100%)', opacity: 0 })),
       state('three', style({position: 'relative', transform: 'translateX(0)', opacity: 1 })),
       transition('two => three', animate(animationDuration, keyframes([
         style({ opacity: 1, offset: 0 }),
