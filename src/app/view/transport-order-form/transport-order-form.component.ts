@@ -43,16 +43,24 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
   form: FormGroup;
   transportModels = null;
   transportProps = null;
+  isTransportPropsLoading;
   currentTransport = null;
   fieldState = '';
 
-  FormSteps = {
-    one: 'one',
-    two: 'two',
-    three: 'three'
+  FormStep = {
+    ONE: 'one',
+    TWO: 'two',
+    THREE: 'three'
   }
 
-  currentStep = this.FormSteps.one;
+  SubmitState = {
+    SENDING: 'sending',
+    SUCCESS: 'success',
+    FAIL: 'fail'
+  }
+
+  formSubmitState;
+  currentStep = this.FormStep.ONE;
 
   constructor(private af: AngularFirestore, private transportService: TransportService) { }
 
@@ -73,9 +81,10 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.currentStep = this.FormSteps.one;
+    this.currentStep = this.FormStep.ONE;
 
     if (changes.transportId.currentValue) {
+      this.formSubmitState = null;
 
       this.transportService.getById('transport', changes.transportId.currentValue)
         .subscribe((data: TransportItem) => {
@@ -115,9 +124,19 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
     })[0].name;
 
     const formData = { date: new Date(), ...this.form.value, model, transport: this.currentTransport};
-    console.log('transport', this.currentTransport)
+    this.formSubmitState = this.SubmitState.SENDING;
 
-    this.af.collection('transport-email').add(formData);
+    this.af.collection('transport-email').add(formData)
+      .then((result) => {
+        if (result) {
+          this.formSubmitState = this.SubmitState.SUCCESS;
+          this.form.reset();
+          this.transportProps = null;
+        }
+      })
+      .catch((error) => {
+        this.formSubmitState = this.SubmitState.FAIL;
+      })
     this.form.reset();
 
     console.log(formData);
@@ -128,8 +147,14 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
   }
 
   onChangeParam(value) {
+    this.isTransportPropsLoading = true;
+
     this.transportService.getById(this.currentTransport, value).subscribe((data) => {
       this.transportProps = data.params;
+
+      if (this.transportProps) {
+        this.isTransportPropsLoading = false;
+      }
     });
   }
 }

@@ -11,6 +11,24 @@
   align-items: center;
   background-color: rgba($gray, 0.5);
 
+  :host-context(.loader--form) & {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    background-color: $white;
+  }
+
+  :host-context(.loader--sm) & {
+    height: 100px;
+  }
+
+  :host-context(.loader--invert) & {
+    background-color: $white;
+  }
+
   &:not(&--services) {
     @include media-breakpoint-up(sm) {
       height: 68.5vw;
@@ -28,5 +46,19 @@
   svg {
     width: 100px;
     height: 100px;
+    stroke: $white;
+
+    :host-context(.loader--form) & {
+      stroke: $gray;
+    }
+
+    :host-context(.loader--invert) & {
+      stroke: $gray;
+    }
+
+    :host-context(.loader--sm) & {
+      width: 50px;
+      height: 50px;
+    }
   }
 }

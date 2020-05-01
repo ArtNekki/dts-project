@@ -15,9 +15,10 @@
             </tr>
           </table>
         </div>
+        <app-loader *ngIf="isTransportPropsLoading" class="loader--sm loader--invert"></app-loader>
         <div class="form-group form-group--buttons">
           <button type="button" class="btn btn--md btn--prev btn--gray u-hide-sm" [disabled]="" (click)="this.onChange.emit()">Вся техника</button>
-          <button type="button" class="btn btn--md btn--next u-mgl-auto" [disabled]="" (click)="goToStep(FormSteps.two)">Доставка</button>
+          <button type="button" class="btn btn--md btn--next u-mgl-auto" [disabled]="" (click)="goToStep(FormStep.TWO)">Доставка</button>
         </div>
       </div>
     </div>
@@ -39,8 +40,8 @@
       <textarea id="location" class="input" formControlName="location" cols="30" rows="5"></textarea>
     </div>
     <div class="form-group form-group--buttons">
-      <button type="button" class="btn btn--md btn--prev btn--gray" (click)="goToStep(FormSteps.one)">Параметры</button>
-      <button type="submit" class="btn btn--md btn--next" (click)="goToStep(FormSteps.three)">Личные данные</button>
+      <button type="button" class="btn btn--md btn--prev btn--gray" (click)="goToStep(FormStep.ONE)">Параметры</button>
+      <button type="submit" class="btn btn--md btn--next" (click)="goToStep(FormStep.THREE)">Личные данные</button>
     </div>
   </div>
   <div class="form-step u-full-height" [@stepThree]="currentStep">
@@ -100,12 +101,19 @@
       </div>
     </div>
     <div class="form-group form-group--buttons">
-      <button type="button" class="btn btn--md btn--prev btn--gray" (click)="goToStep(FormSteps.two)">Доставка</button>
+      <button type="button" class="btn btn--md btn--prev btn--gray" (click)="goToStep(FormStep.TWO)">Доставка</button>
       <button type="submit" class="btn btn--md btn--success" [disabled]="form.invalid">Отправить</button>
     </div>
-<!--    <div class="form-message form-message&#45;&#45;success">-->
-<!--      <h3>Ваша заявка успешно отправлена!</h3>-->
-<!--      <small>Мы с вами свяжемся в течении 60 минут.</small>-->
-<!--    </div>-->
+    <app-loader *ngIf="formSubmitState === SubmitState.SENDING" class="loader--form"></app-loader>
+    <div class="form-message form-message--success" *ngIf="formSubmitState === SubmitState.SUCCESS">
+      <h2>Спасибо!</h2>
+      <h3>Ваша заявка успешно отправлена!</h3>
+      <small>Мы с вами свяжемся в течении 60 минут.</small>
+    </div>
+    <div class="form-message form-message--error" *ngIf="formSubmitState === SubmitState.FAIL">
+      <h2>Извините!</h2>
+      <h3>Не удалось отправить сообщение.</h3>
+      <small>Но Вы можете нам позвонить.</small>
+    </div>
   </div>
 </form>

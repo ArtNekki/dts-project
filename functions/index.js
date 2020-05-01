@@ -162,9 +162,10 @@ exports.sendEmail = functions
 
     return transporter.sendMail(mailOptions, (error, data) => {
       if (error) {
-        return
+        return error;
       }
       console.log("Sent!")
+      return data;
     });
   });
 
@@ -200,8 +201,9 @@ exports.sendTransportEmail = functions
 
     return transporter.sendMail(mailOptions, (error, data) => {
       if (error) {
-        return
+        return error;
       }
       console.log("Sent!")
+      return data;
     });
   });
