@@ -5,6 +5,8 @@ import {TransportService} from '../../core/services/transport.service';
 import {TransportItem} from '../transport-box/transport-box.component';
 import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 
+const animationDuration = 2000;
+
 @Component({
   selector: 'app-transport-order-form',
   templateUrl: './transport-order-form.component.html',
@@ -17,43 +19,47 @@ import {animate, keyframes, state, style, transition, trigger} from '@angular/an
       ])
     ]),
     trigger('stepOne', [
-      state('one', style({ position: 'relative',  transform: 'translateX(0)' })),
-      state('two', style({position: 'absolute', transform: 'translateX(-100%)' })),
-      state('three', style({position: 'absolute', transform: 'translateX(-100%)' })),
-      transition('one => two', animate(200, keyframes([
+      state('one', style({ position: 'relative',  transform: 'translateX(0)', opacity: 1 })),
+      state('two', style({position: 'absolute',  transform: 'translateX(-100%)', opacity: 0})),
+      state('three', style({position: 'absolute',  transform: 'translateX(-100%)', opacity: 0 })),
+      transition('one => two', animate(animationDuration, keyframes([
         style({ position: 'absolute', offset: 0 }),
         style({ transform: 'translateX(-100%)', offset: 1})
       ]))),
-      transition('two => one', animate(200, keyframes([
+      transition('two => one', animate(animationDuration, keyframes([
+        style({ opacity: 1, offset: 0 }),
         style({ transform: 'translateX(0)', offset: 1})
       ])))
     ]),
     trigger('stepTwo', [
-      state('one', style({ position: 'absolute',  transform: 'translateX(100%)' })),
-      state('two', style({position: 'relative', transform: 'translateX(0)' })),
-      state('three', style({position: 'relative', transform: 'translateX(-100%)' })),
-      transition('one => two', animate(200, keyframes([
-        style({ position: 'relative', offset: 0 }),
+      state('one', style({ position: 'absolute',  transform: 'translateX(100%)', opacity: 0})),
+      state('two', style({position: 'relative', transform: 'translateX(0)', opacity: 1 })),
+      state('three', style({position: 'absolute', transform: 'translateX(-100%)', opacity: 0 })),
+      transition('one => two', animate(animationDuration, keyframes([
+        style({ position: 'relative', opacity: 1, offset: 0 }),
         style({ transform: 'translateX(0)', offset: 1})
       ]))),
-      transition('two => one', animate(200, keyframes([
+      transition('two => one', animate(animationDuration, keyframes([
         style({ transform: 'translateX(100%)', offset: 1})
       ]))),
-      transition('two => three', animate(200, keyframes([
+      transition('two => three', animate(animationDuration, keyframes([
+        style({ position: 'absolute', offset: 0 }),
         style({ transform: 'translateX(-100%)', offset: 1})
       ]))),
-      transition('three => two', animate(200, keyframes([
+      transition('three => two', animate(animationDuration, keyframes([
+        style({ opacity: 1, offset: 0 }),
         style({ transform: 'translateX(0)', offset: 1})
       ]))),
     ]),
     trigger('stepThree', [
-      state('one', style({ position: 'absolute',  transform: 'translateX(100%)' })),
-      state('two', style({position: 'absolute', transform: 'translateX(100%)' })),
-      state('three', style({position: 'absolute', transform: 'translateX(0)' })),
-      transition('two => three', animate(200, keyframes([
+      state('one', style({ position: 'absolute',  transform: 'translateX(100%)', opacity: 0 })),
+      state('two', style({position: 'absolute',  transform: 'translateX(100%)', opacity: 0 })),
+      state('three', style({position: 'relative', transform: 'translateX(0)', opacity: 1 })),
+      transition('two => three', animate(animationDuration, keyframes([
+        style({ opacity: 1, offset: 0 }),
         style({ transform: 'translateX(0)', offset: 1})
       ]))),
-      transition('three => two', animate(200, keyframes([
+      transition('three => two', animate(animationDuration, keyframes([
         style({ transform: 'translateX(100%)', offset: 1})
       ]))),
     ])
