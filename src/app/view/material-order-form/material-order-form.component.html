@@ -70,7 +70,7 @@
       <button type="button" class="btn btn--md btn--prev btn--gray" (click)="goToStep(FormSteps.one)">Доставка</button>
       <button type="submit" class="btn btn--md btn--success" [disabled]="form.invalid">Отправить</button>
     </div>
-    <app-loader *ngIf="formSubmitState === SubmitState.SENDING" class="loader--form"></app-loader>
+    <app-loader *ngIf="formSubmitState === SubmitState.SENDING" class="loader--absolute loader--invert"></app-loader>
     <div class="form-message form-message--success" *ngIf="formSubmitState === SubmitState.SUCCESS">
       <h2>Спасибо!</h2>
       <h3>Ваша заявка успешно отправлена!</h3>

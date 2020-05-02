@@ -35,8 +35,8 @@
     </div>
   </div>
   <div class="col-12 col-md-6 col-lg-7">
-    <div class="swiper swiper--transport">
-      <div *ngIf="promoItems; else loading">
+    <div class="swiper swiper--transport" [class.swiper--loading]="imagesLoading">
+      <div *ngIf="promoItems">
         <div #slider class="swiper-container">
           <div class="swiper-wrapper">
             <div *ngFor="let item of promoItems" class="swiper-slide">
@@ -48,13 +48,11 @@
         <button id="transport-btn-right" class="swiper-btn swiper-btn--right">&nbsp;</button>
         <div id="transport-pagination" class="swiper-pagination"></div>
       </div>
+      <app-loader  *ngIf="imagesLoading" class="loader--absolute"></app-loader>
     </div>
     <div class="u-text-align-center u-hide-md u-mgt--xl">
       <a routerLink="." fragment="transport" class="btn btn--transport btn--md" (click)="openModal()">Все варианты</a>
     </div>
-    <ng-template #loading>
-      <app-loader></app-loader>
-    </ng-template>
   </div>
 </div>
 

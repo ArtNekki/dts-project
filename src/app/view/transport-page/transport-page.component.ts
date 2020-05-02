@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import Swiper from 'swiper';
 import {TransportService} from '../../core/services/transport.service';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 const TransportMap = {
   'auto-containers': 'Контейнеровоз',
@@ -25,7 +26,17 @@ export interface TransportData {
 @Component({
   selector: 'app-transport-page',
   templateUrl: './transport-page.component.html',
-  styleUrls: ['./transport-page.component.scss']
+  styleUrls: ['./transport-page.component.scss'],
+  animations: [
+    trigger('loader', [
+      transition(':leave', [
+        style({opacity: 1}),
+        animate(4000, style({
+          opacity: 0
+        }))
+      ])
+    ])
+  ]
 })
 export class TransportPageComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
@@ -38,6 +49,8 @@ export class TransportPageComponent implements OnInit, AfterViewInit, OnDestroy 
   pSub;
 
   loadedImages = 0;
+  imagesLoading = true;
+  loaderState = '';
 
   config;
   modalIsOpen = false;
@@ -51,6 +64,7 @@ export class TransportPageComponent implements OnInit, AfterViewInit, OnDestroy 
       slidesPerView: 1,
       spaceBetween: 20,
       breakpointsInverse: true,
+      updateOnImagesReady: true,
       // autoplay: {
       //   delay: 2000,
       //   stopOnLastSlide: false,
@@ -80,6 +94,15 @@ export class TransportPageComponent implements OnInit, AfterViewInit, OnDestroy 
 
     this.pSub = this.transportService.getPromoItems().subscribe((data) => {
       this.promoItems = data;
+
+      if (this.promoItems) {
+        setTimeout(() => {
+          this.breakpoint = window.matchMedia(`(min-width: 992px)`);
+
+          this.initSwiper();
+          this.checkBreakpoint();
+        }, 0);
+      }
     });
   }
 
@@ -140,13 +163,8 @@ export class TransportPageComponent implements OnInit, AfterViewInit, OnDestroy 
 
     if (this.promoItems && (this.promoItems.length === this.loadedImages)) {
       setTimeout(() => {
-        this.breakpoint = window.matchMedia(`(min-width: 992px)`);
-
-        this.initSwiper();
-        this.checkBreakpoint();
+        this.imagesLoading = false;
       }, 0);
-
-      console.log('loaded Images', this.loadedImages);
     }
   }
 }

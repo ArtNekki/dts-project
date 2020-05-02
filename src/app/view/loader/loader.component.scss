@@ -9,16 +9,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba($gray, 0.5);
+  background-color: #f7f7f7;
 
-  :host-context(.loader--form) & {
+  :host-context(.loader--absolute) & {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     height: 100%;
-    background-color: $white;
+    z-index: 100;
   }
 
   :host-context(.loader--sm) & {
