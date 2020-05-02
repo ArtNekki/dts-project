@@ -25,6 +25,7 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
 
   swiper: Swiper;
   breakpoint;
+  itemsLoading = true;
 
   config;
   serviceData: ServiceCard;
@@ -68,7 +69,8 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
       this.items = data;
 
       if (this.items) {
-        this.sliderWrapper.nativeElement.classList.remove('swiper--services');
+        this.itemsLoading = false;
+        // this.sliderWrapper.nativeElement.classList.remove('swiper--services');
 
         setTimeout(() => {
           this.breakpoint = window.matchMedia(`(min-width: 992px)`);

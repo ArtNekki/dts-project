@@ -2,11 +2,6 @@
   position: relative;
   //box-shadow: 0 0 15px rgba($black, 0.1)
 
-  //&--services {
-  //  height: 360px;
-  //  background-color: $gray;
-  //}
-
   &-container {
 
     .swiper--features & {
@@ -45,6 +40,11 @@
   }
 
   &-slide {
+
+    .swiper--services & {
+      height: 360px;
+      background-color: red;
+    }
 
     .swiper--features & {
       @include media-breakpoint-up(lg) {
@@ -177,4 +177,8 @@
   @include media-breakpoint-up(xl) {
     height: 415px;
   }
+}
+
+.swiper--services.swiper--loading {
+  height: 360px;
 }

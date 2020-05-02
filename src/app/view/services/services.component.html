@@ -1,5 +1,5 @@
-<div #sliderWrapper class="swiper swiper--services">
-  <div *ngIf="items; else loading">
+<div #sliderWrapper class="swiper swiper--services" [class.swiper--loading]="itemsLoading">
+  <div *ngIf="items;">
     <div #slider class="swiper-container">
       <div class="swiper-wrapper">
         <div *ngFor="let item of items" class="swiper-slide">
@@ -11,6 +11,7 @@
     <button id="services-btn-left" class="swiper-btn swiper-btn--left">&nbsp;</button>
     <button id="services-btn-right" class="swiper-btn swiper-btn--right">&nbsp;</button>
   </div>
+  <app-loader *ngIf="itemsLoading" class="loader--absolute"></app-loader>
 </div>
 <app-modal *ngIf="modal" [title]="serviceData.name" (close)="closeModal()">
   <div header>
@@ -18,7 +19,3 @@
   </div>
   <app-service-order-form body [data]="serviceData"></app-service-order-form>
 </app-modal>
-
-<ng-template #loading>
-  <app-loader></app-loader>
-</ng-template>

@@ -2,6 +2,7 @@
   <img class="service-card-img"
        [src]="'/assets/img/content/services/' + data.id + '.jpg'"
        [srcset]="'/assets/img/content/services/' + data.id + '@2x.jpg 2x, /assets/img/content/services/' + data.id + '@3x.jpg 3x'"
+        (load)="onLoad()"
   >
   <div class="service-card-overlay">
     <div class="service-card-content">
@@ -12,4 +13,5 @@
     </div>
     <a routerLink='.' fragment='services' class="btn service-card-btn" (click)="openModal()">Заказать</a>
   </div>
+  <app-loader *ngIf="imageLoading" class="loader--absolute"></app-loader>
 </article>

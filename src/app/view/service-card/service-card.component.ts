@@ -17,6 +17,8 @@ export class ServiceCardComponent implements OnInit {
   @Input() data;
   @Output() onOpen: EventEmitter<any> = new EventEmitter<any>();
 
+  imageLoading = true;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -29,5 +31,9 @@ export class ServiceCardComponent implements OnInit {
 
   formatText(text) {
     return text ? text.split('&').join('<br />') : '';
+  }
+
+  onLoad() {
+    this.imageLoading = false;
   }
 }
