@@ -93,7 +93,12 @@ export class TransportPageComponent implements OnInit, AfterViewInit, OnDestroy 
     };
 
     this.pSub = this.transportService.getPromoItems().subscribe((data) => {
-      this.promoItems = data;
+      const tippers = data.length && data.filter((item) => item.id === 'tippers')[0];
+      const tippersPos = data.indexOf(tippers);
+
+      data.splice(tippersPos, 1);
+
+      this.promoItems = [tippers, ...data];
 
       if (this.promoItems) {
         setTimeout(() => {
