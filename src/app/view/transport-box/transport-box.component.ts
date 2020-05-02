@@ -30,8 +30,8 @@ export class TransportBoxComponent implements OnInit {
     this.onChange.emit(data);
   }
 
-  loadImage() {
-    this.onLoadImage.emit();
+  loadImage(id: string) {
+    this.onLoadImage.emit(id);
   }
 
   formatTitle(name: any) {

@@ -1,5 +1,5 @@
 <article class="transport-box" [class.transport-box--right]="data.id === 'tippers'">
-  <img class="transport-box-img" (load)="loadImage()"
+  <img class="transport-box-img" (load)="loadImage(data.id)"
        [src]="'/assets/img/content/transport/' + data.id + '.jpg'"
        [srcset]="'/assets/img/content/transport/' + data.id + '@2x.jpg 2x, /assets/img/content/transport/' + data.id + '@3x.jpg 3x'"
   >

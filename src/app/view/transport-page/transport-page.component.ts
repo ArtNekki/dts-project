@@ -163,10 +163,12 @@ export class TransportPageComponent implements OnInit, AfterViewInit, OnDestroy 
     this.pSub.unsubscribe();
   }
 
-  calculateLoadedImages() {
+  calculateLoadedImages(id) {
+    if (id !== 'tippers' && id !== 'bulldozers') { return; }
+
     this.loadedImages++;
 
-    if (this.promoItems && (this.promoItems.length === this.loadedImages)) {
+    if (this.loadedImages === 2) {
       setTimeout(() => {
         this.imagesLoading = false;
       }, 0);
