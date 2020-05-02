@@ -1,5 +1,5 @@
 <article class="transport-box" [class.transport-box--right]="data.id === 'tippers'">
-  <img class="transport-box-img"
+  <img class="transport-box-img" (load)="loadImage()"
        [src]="'/assets/img/content/transport/' + data.id + '.jpg'"
        [srcset]="'/assets/img/content/transport/' + data.id + '@2x.jpg 2x, /assets/img/content/transport/' + data.id + '@3x.jpg 3x'"
   >
@@ -10,6 +10,7 @@
       <b>{{data.price | currency: 'RUB':'symbol-narrow':'4.0':'ru'}}</b>
       /час
     </div>
+
     <a routerLink="." fragment="transport" class="transport-box-btn btn" (click)="goTo(data)">Выбрать</a>
   </div>
 </article>

@@ -37,6 +37,8 @@ export class TransportPageComponent implements OnInit, AfterViewInit, OnDestroy 
   promoItems;
   pSub;
 
+  loadedImages = 0;
+
   config;
   modalIsOpen = false;
 
@@ -55,12 +57,16 @@ export class TransportPageComponent implements OnInit, AfterViewInit, OnDestroy 
       //   disableOnInteraction: true
       // },
       // loop: true,
-      // breakpoints: {
-      //   ['576']: {
-      //     slidesPerView: 2,
-      //     spaceBetween: 14
-      //   }
-      // },
+      breakpoints: {
+        ['576']: {
+          slidesPerView: 2,
+          spaceBetween: 14
+        },
+        ['768']: {
+          slidesPerView: 1,
+          spaceBetween: 14
+        }
+      },
       pagination: {
         el: '#transport-pagination',
         clickable: true,
@@ -74,17 +80,6 @@ export class TransportPageComponent implements OnInit, AfterViewInit, OnDestroy 
 
     this.pSub = this.transportService.getPromoItems().subscribe((data) => {
       this.promoItems = data;
-
-
-      if (this.promoItems) {
-
-        setTimeout(() => {
-          this.breakpoint = window.matchMedia(`(min-width: 992px)`);
-
-          this.initSwiper();
-          this.checkBreakpoint();
-        }, 0);
-      }
     });
   }
 
@@ -138,5 +133,20 @@ export class TransportPageComponent implements OnInit, AfterViewInit, OnDestroy 
 
   ngOnDestroy(): void {
     this.pSub.unsubscribe();
+  }
+
+  calculateLoadedImages() {
+    this.loadedImages++;
+
+    if (this.promoItems && (this.promoItems.length === this.loadedImages)) {
+      setTimeout(() => {
+        this.breakpoint = window.matchMedia(`(min-width: 992px)`);
+
+        this.initSwiper();
+        this.checkBreakpoint();
+      }, 0);
+
+      console.log('loaded Images', this.loadedImages);
+    }
   }
 }

@@ -40,7 +40,7 @@
         <div #slider class="swiper-container">
           <div class="swiper-wrapper">
             <div *ngFor="let item of promoItems" class="swiper-slide">
-              <app-transport-box [data]="item" (onChange)="setTransportData($event); openModal()"></app-transport-box>
+              <app-transport-box [data]="item" (onChange)="setTransportData($event); openModal()" (onLoadImage)="calculateLoadedImages()"></app-transport-box>
             </div>
           </div>
         </div>

@@ -18,6 +18,7 @@ export interface TransportItem {
 export class TransportBoxComponent implements OnInit {
   @Input() data;
   @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onLoadImage: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
@@ -28,4 +29,7 @@ export class TransportBoxComponent implements OnInit {
     this.onChange.emit(data);
   }
 
+  loadImage() {
+    this.onLoadImage.emit();
+  }
 }

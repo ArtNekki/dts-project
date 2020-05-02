@@ -24,27 +24,34 @@
   }
 
   &-overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    padding: 40px;
+    position: relative;
+    //padding: 40px;
+    padding: 15px;
+    padding-bottom: 5px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
     background-color: rgba($black, 0.8);
     transition: background-color 0.25s ease-in;
 
-    @include media-breakpoint-up(sm) {
-      align-items: flex-start;
-      justify-content: flex-start;
-      background-color: transparent;
-    }
+    //@include media-breakpoint-up(sm) {
+    //  align-items: flex-start;
+    //  justify-content: flex-start;
+    //  background-color: transparent;
+    //}
 
     @include media-breakpoint-up(md) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
       padding: 15px;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      background-color: transparent;
     }
 
     @include media-breakpoint-up(lg) {
@@ -56,7 +63,7 @@
     }
 
     .transport-box--right & {
-      @include media-breakpoint-up(sm) {
+      @include media-breakpoint-up(md) {
         align-items: flex-end;
       }
     }
@@ -69,22 +76,25 @@
   &-title {
     margin: 0;
     margin-bottom: 10px;
+    flex-basis: 100%;
     font-family: $font-family;
-    font-size: 21px;
-    line-height: 24px;
+    font-size: 17px;
+    line-height: 21px;
     font-weight: 400;
-    text-align: center;
+    text-align: left;
     text-transform: uppercase;
     color: $white;
 
     @include media-breakpoint-up(sm) {
-      text-align: unset;
-      color: $gray-dark;
+      font-size: 15px;
     }
 
     @include media-breakpoint-up(md) {
-      margin-bottom: 0;
-      font-size: 18px;
+      margin-bottom: 5px;
+      flex-basis: auto;
+      font-size: 19px;
+      color: $gray-dark;
+      text-align: unset;
     }
 
     @include media-breakpoint-up(lg) {
@@ -94,14 +104,21 @@
   }
 
   &-label {
+    position: relative;
+    top: -5px;
+    font-size: 14px;
+    line-height: 16px;
     color: $white;
 
     @include media-breakpoint-up(sm) {
-      color: $gray-dark;
+      top: -10px;
+      font-size: 12px;
     }
 
     @include media-breakpoint-up(md) {
+      position: static;
       font-size: 14px;
+      color: rgba($gray-dark, 0.7);
     }
 
     @include media-breakpoint-up(lg) {
@@ -110,22 +127,33 @@
   }
 
   &-btn {
-    margin-top: 25px;
+    //position: absolute;
+    //top: 50%;
+    //right: 15px;
+    //transform: translateY(-50%);
+    //margin-top: 25px;
+    position: relative;
+    top: -5px;
+    padding: 7px 15px;
+    align-self: flex-end;
     opacity: 1;
     order: 3;
     transition: all 0.3s ease-in;
 
-    @include media-breakpoint-up(sm) {
-      opacity: 0;
-
-      ::ng-deep [data-whatintent='touch'] {
-        opacity: 1;
-      }
-    }
+    //@include media-breakpoint-up(sm) {
+    //
+    //}
 
 
     @include media-breakpoint-up(md) {
       margin-top: 15px;
+      align-self: unset;
+
+      opacity: 0;
+
+        ::ng-deep [data-whatintent='touch'] {
+          opacity: 1;
+        }
     }
 
     @include media-breakpoint-up(lg) {
