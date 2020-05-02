@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {TransportService} from '../../core/services/transport.service';
 import {Observable} from 'rxjs';
+import {TransportItem} from '../transport-box/transport-box.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,7 +12,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
   @Input() transportId;
 
-  items = [];
+  items: Array<TransportItem> = [];
   psub;
   isLoaded = false;
 
@@ -29,8 +30,9 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   loadItems() {
     this.psub = this.transportService.getItems().subscribe((data) => {
-      console.log('666', data);
-      this.items = data;
+      this.items = data.sort((a: TransportItem, b: TransportItem) => {
+        return a.name.localeCompare(b.name);
+      });
 
       setTimeout(() => {
         this.isLoaded = true;
