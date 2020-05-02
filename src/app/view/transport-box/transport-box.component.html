@@ -4,13 +4,14 @@
        [srcset]="'/assets/img/content/transport/' + data.id + '@2x.jpg 2x, /assets/img/content/transport/' + data.id + '@3x.jpg 3x'"
   >
   <div class="transport-box-overlay">
-    <h1 class="transport-box-title">{{data.name}}</h1>
-    <div class="transport-box-label">
-      от
-      <b>{{data.price | currency: 'RUB':'symbol-narrow':'4.0':'ru'}}</b>
-      /час
+    <div>
+      <h1 class="transport-box-title" [innerHTML]="formatTitle(data.name)"></h1>
+      <div class="transport-box-label">
+        от
+        <b>{{data.price | currency: 'RUB':'symbol-narrow':'4.0':'ru'}}</b>
+        /час
+      </div>
     </div>
-
     <a routerLink="." fragment="transport" class="transport-box-btn btn" (click)="goTo(data)">Выбрать</a>
   </div>
 </article>

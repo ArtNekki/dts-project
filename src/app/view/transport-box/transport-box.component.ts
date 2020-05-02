@@ -20,7 +20,8 @@ export class TransportBoxComponent implements OnInit {
   @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
   @Output() onLoadImage: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
@@ -31,5 +32,11 @@ export class TransportBoxComponent implements OnInit {
 
   loadImage() {
     this.onLoadImage.emit();
+  }
+
+  formatTitle(name: any) {
+    const nameArray = name.split(' ');
+
+    return nameArray.length === 2 ? `<span>${nameArray[0]}</span> ${nameArray[1]}` : name;
   }
 }
