@@ -56,14 +56,14 @@
     </div>
    <div formGroupName="personal">
      <div class="form-field" *ngIf="!entity" [@field]="fieldState" [class.form-field--invalid]="form.get('personal').get('userName').invalid && form.get('personal').get('userName').touched">
-       <label class="form-label" for="name">Как к вам обращаться? <span>(обязательно)</span></label>
+       <label class="form-label" for="name">Как к Вам обращаться? <span>(обязательно)</span></label>
        <input type="text" id="name" class="input" formControlName="userName">
        <div class="form-validation" *ngIf="form.get('personal').get('userName').invalid && form.get('personal').get('userName').touched">
          <small *ngIf="form.get('personal').get('userName').errors.required">Это поле не может быть пустым</small>
        </div>
      </div>
      <div class="form-field" *ngIf="entity" [@field]="fieldState" [class.form-field--invalid]="form.get('personal').get('companyPerson').invalid && form.get('personal').get('companyPerson').touched">
-       <label class="form-label" for="company-name">Как к вам обращаться? <span>(обязательно)</span></label>
+       <label class="form-label" for="company-name">Как к Вам обращаться? <span>(обязательно)</span></label>
        <input type="text" id="company-person" class="input" formControlName="companyPerson">
        <div class="form-validation" *ngIf="form.get('personal').get('companyPerson').invalid && form.get('personal').get('companyPerson').touched">
          <small *ngIf="form.get('personal').get('companyPerson').errors.required">Это поле не может быть пустым</small>

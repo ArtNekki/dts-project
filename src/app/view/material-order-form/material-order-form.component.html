@@ -12,7 +12,7 @@
        от <b>{{ currentPrice | currency: 'RUB':'symbol-narrow':'4.0':'ru' }}</b>
     </div>
     <div class="form-group form-group--buttons">
-      <button type="button" class="btn btn--md btn--next u-mgl-auto" [disabled]="" (click)="goToStep(FormSteps.two)">Личная информация</button>
+      <button type="button" class="btn btn--sm btn--next u-mgl-auto" [disabled]="" (click)="goToStep(FormSteps.two)">Дальше</button>
     </div>
   </div>
   <div class="form-step" [@stepTwo]="currentStep">
@@ -25,10 +25,17 @@
     </div>
     <div formGroupName="personal">
       <div class="form-field" *ngIf="!entity" [@field]="fieldState" [class.form-field--invalid]="form.get('personal').get('userName').invalid && form.get('personal').get('userName').touched">
-        <label class="form-label" for="name">ФИО <span>(обязательно)</span></label>
+        <label class="form-label" for="name">Как к Вам обращаться? <span>(обязательно)</span></label>
         <input type="text" id="name" class="input" formControlName="userName">
         <div class="form-validation" *ngIf="form.get('personal').get('userName').invalid && form.get('personal').get('userName').touched">
           <small *ngIf="form.get('personal').get('userName').errors.required">Это поле не может быть пустым</small>
+        </div>
+      </div>
+      <div class="form-field" *ngIf="entity" [@field]="fieldState" [class.form-field--invalid]="form.get('personal').get('companyPerson').invalid && form.get('personal').get('companyPerson').touched">
+        <label class="form-label" for="company-name">Как к Вам обращаться? <span>(обязательно)</span></label>
+        <input type="text" id="company-person" class="input" formControlName="companyPerson">
+        <div class="form-validation" *ngIf="form.get('personal').get('companyPerson').invalid && form.get('personal').get('companyPerson').touched">
+          <small *ngIf="form.get('personal').get('companyPerson').errors.required">Это поле не может быть пустым</small>
         </div>
       </div>
       <div class="form-field" *ngIf="entity" [@field]="fieldState" [class.form-field--invalid]="form.get('personal').get('companyName').invalid && form.get('personal').get('companyName').touched">
@@ -36,13 +43,6 @@
         <input type="text" id="company-name" class="input" formControlName="companyName">
         <div class="form-validation" *ngIf="form.get('personal').get('companyName').invalid && form.get('personal').get('companyName').touched">
           <small *ngIf="form.get('personal').get('companyName').errors.required">Это поле не может быть пустым</small>
-        </div>
-      </div>
-      <div class="form-field" *ngIf="entity" [@field]="fieldState" [class.form-field--invalid]="form.get('personal').get('companyPerson').invalid && form.get('personal').get('companyPerson').touched">
-        <label class="form-label" for="company-name">ФИО предствителя <span>(обязательно)</span></label>
-        <input type="text" id="company-person" class="input" formControlName="companyPerson">
-        <div class="form-validation" *ngIf="form.get('personal').get('companyPerson').invalid && form.get('personal').get('companyPerson').touched">
-          <small *ngIf="form.get('personal').get('companyPerson').errors.required">Это поле не может быть пустым</small>
         </div>
       </div>
       <div class="form-field" [class.form-field--invalid]="form.get('personal').get('email').invalid && form.get('personal').get('email').touched">
@@ -67,8 +67,8 @@
       <textarea id="message" class="input" cols="30" rows="5" formControlName="message"></textarea>
     </div>
     <div class="form-group form-group--buttons">
-      <button type="button" class="btn btn--md btn--prev btn--gray" (click)="goToStep(FormSteps.one)">Доставка</button>
-      <button type="submit" class="btn btn--md btn--success" [disabled]="form.invalid">Отправить</button>
+      <button type="button" class="btn btn--sm btn--prev btn--dark" (click)="goToStep(FormSteps.one)">Назад</button>
+      <button type="submit" class="btn btn--sm btn--success" [disabled]="form.invalid">Отправить</button>
     </div>
     <app-loader *ngIf="formSubmitState === SubmitState.SENDING" class="loader--absolute loader--invert"></app-loader>
     <div class="form-message form-message--success" *ngIf="formSubmitState === SubmitState.SUCCESS">
