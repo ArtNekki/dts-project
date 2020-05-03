@@ -11,7 +11,7 @@
         {{+data.price ? 'от ' + (data.price | currency: 'RUB':'symbol-narrow':'4.0':'ru') : data.price}}</b>
       <p class="service-card-text" [innerHTML]="formatText(data.preview)"></p>
     </div>
-    <a routerLink='.' fragment='services' class="btn service-card-btn" (click)="openModal()">Заказать</a>
+    <a routerLink='.' fragment='services' class="btn btn--md service-card-btn" (click)="openModal()">Заказать</a>
   </div>
   <app-loader *ngIf="imageLoading" class="loader--absolute"></app-loader>
 </article>

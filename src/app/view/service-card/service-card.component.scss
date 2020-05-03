@@ -110,16 +110,9 @@
   }
 
   &-btn {
-    position: relative;
     margin-top: auto;
     margin-bottom: 10px;
-    padding: 20px 40px;
-    color: $gray-dark;
-    font-size: 14px;
-    text-transform: uppercase;
-    border-radius: 30px;
-    box-shadow: none;
-    background-color: $white;
+
     order: 2;
 
     ::ng-deep [data-whatintent='mouse'] & {

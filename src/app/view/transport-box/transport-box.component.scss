@@ -136,23 +136,10 @@
   }
 
   &-btn {
-    //position: absolute;
-    //top: 50%;
-    //right: 15px;
-    //transform: translateY(-50%);
-    //margin-top: 25px;
-    //position: relative;
-    //top: -5px;
-    padding: 7px 15px;
     align-self: center;
     opacity: 1;
     order: 3;
     transition: all 0.3s ease-in;
-
-    //@include media-breakpoint-up(sm) {
-    //
-    //}
-
 
     @include media-breakpoint-up(md) {
       margin-top: 15px;
