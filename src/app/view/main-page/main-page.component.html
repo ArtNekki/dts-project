@@ -27,29 +27,30 @@
   </div>
 </div>
 <div id="about" class="page-section page-section--about">
-  <div class="container">
-    <div class="page-section-heading">
-      <h2>Кто мы?</h2>
+  <div>
+    <div class="container">
+      <div class="page-section-heading">
+        <h2>Кто мы?</h2>
+      </div>
+      <p class="u-no-mgt">Компания "ДальТрансСнаб" ведет свою деятельность с 2009 года.</p>
+      <p>Мы специализируемся на аренде стройтехники в Хабаровске и Хабаровском крае и предоставлении услуг по выполнению работ с ее использованием.</p>
+      <p>В нашем автопарке имеется большой выбор техники, которая позволяет быстро и эффективно выполнять любые поставленные задачи.</p>
+      <p>Сотрудничая с нами,<b> Вам не потребуется:</b></p>
+      <ul class="list list--about-features">
+        <li>
+          <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
+          <div class="list-text">Покупать спецтехнику</div>
+        </li>
+        <li>
+          <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
+          <div class="list-text">Нести расходы на ремонт и обслуживание</div>
+        </li>
+        <li>
+          <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
+          <div class="list-text">Содержать штат водителей и механников</div>
+        </li>
+      </ul>
     </div>
-    <p class="u-no-mgt">Компания "ДальТрансСнаб" ведет свою деятельность с 2009 года.</p>
-    <p>Мы специализируемся на аренде стройтехники в Хабаровске и Хабаровском крае и предоставлении услуг по выполнению работ с ее использованием.</p>
-    <p>В нашем автопарке имеется большой выбор техники, которая позволяет быстро и эффективно выполнять любые поставленные задачи.</p>
-    <p>Сотрудничая с нами,<b> Вам не потребуется:</b></p>
-    <ul class="list list--about-features">
-      <li>
-        <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
-        <div class="list-text">Покупать спецтехнику</div>
-      </li>
-      <li>
-        <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
-        <div class="list-text">Нести расходы на ремонт и обслуживание</div>
-      </li>
-      <li>
-        <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
-        <div class="list-text">Содержать штат водителей и механников</div>
-      </li>
-    </ul>
-
   </div>
 </div>
 <div #features id="features" class="page-section page-section--features">
@@ -62,12 +63,14 @@
   </div>
 </div>
 <div #price id="price" class="page-section page-section--about">
-  <div class="container">
-    <div class="page-section-heading">
-      <small>Наш полный</small>
-      <h2>Прайслист</h2>
+  <div>
+    <div class="container">
+      <div class="page-section-heading">
+        <small>Наш полный</small>
+        <h2>Прайслист</h2>
+      </div>
+      <app-price-list></app-price-list>
     </div>
-    <app-price-list></app-price-list>
   </div>
 </div>
 <div #contacts id="contacts" class="page-section page-section--contacts">

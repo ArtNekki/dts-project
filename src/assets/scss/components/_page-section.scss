@@ -9,9 +9,13 @@
   }
 
   &--about {
-    //margin-top: 100px;
-    padding-bottom: 45px;
-    background: #f9f9f9;
+    padding-top: 45px;
+
+    & > div {
+      padding-top: 45px;
+      padding-bottom: 45px;
+      background: #f9f9f9;
+    }
   }
 
 
