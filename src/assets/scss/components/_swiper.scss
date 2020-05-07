@@ -87,12 +87,19 @@
   }
 
   &-pagination {
+    margin-top: 5px;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
 
     @include media-breakpoint-up(xl) {
       display: none;
+    }
+
+    .page-section--features & {
+      @include media-breakpoint-up(lg) {
+        display: none;
+      }
     }
   }
 
