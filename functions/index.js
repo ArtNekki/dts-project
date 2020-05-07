@@ -138,10 +138,20 @@ const renderTransportData = function(data) {
 
 const renderSaleData = function(data) {
   return `
-   <table border="0" cellpadding="0" cellspacing="0" width="200">
+   <table border="0" cellpadding="0" cellspacing="0" width="230">
    <tr>
       <td>Материал:</td>
       <td><b>${data.material || 'не заполнено'}</b></td>
+      ${data.gasolineCount ? (() => `<tr><td>Количество (литров):</td><td><b>${data.gasolineCount || 'не заполнено'}</b></td></tr>`)() : ''}
+      ${data.materialsCount ? (() => `<tr><td>Количество (тонн):</td><td><b>${data.materialsCount || 'не заполнено'}</b></td></tr>`)() : ''}
+    <tr>
+      <td>Дата:</td>
+      <td><b>${data.delivery.date || 'не заполнено'}</b></td>
+    </tr>
+    <tr>
+      <td>Адрес:</td>
+      <td><b>${data.delivery.location || 'не заполнено'}</b></td>
+    </tr>
     </tr>
    </table>
   `
