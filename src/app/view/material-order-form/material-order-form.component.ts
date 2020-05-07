@@ -39,9 +39,10 @@ const animationDuration = 200;
     ]),
     trigger('stepOne', [
       state('one', style({ position: 'relative',  transform: 'translateX(0)', opacity: 1 })),
-      state('two', style({position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, transform: 'translateX(-100%)', opacity: 0})),
+      state('two', style({position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, transform: 'translateX(-100%)', opacity: 0})),
+      state('three', style({position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, transform: 'translateX(-100%)', opacity: 0 })),
       transition('one => two', animate(animationDuration, keyframes([
-        style({ position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, offset: 0 }),
+        style({ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, offset: 0 }),
         style({ transform: 'translateX(-100%)', offset: 1})
       ]))),
       transition('two => one', animate(animationDuration, keyframes([
@@ -50,13 +51,34 @@ const animationDuration = 200;
       ])))
     ]),
     trigger('stepTwo', [
-      state('one', style({ position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, transform: 'translateX(100%)', opacity: 0 })),
+      state('one', style({ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, transform: 'translateX(100%)', opacity: 0})),
       state('two', style({position: 'relative', transform: 'translateX(0)', opacity: 1 })),
+      state('three', style({position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, transform: 'translateX(-100%)', opacity: 0 })),
       transition('one => two', animate(animationDuration, keyframes([
         style({ position: 'relative', opacity: 1, offset: 0 }),
         style({ transform: 'translateX(0)', offset: 1})
       ]))),
       transition('two => one', animate(animationDuration, keyframes([
+        style({ transform: 'translateX(100%)', offset: 1})
+      ]))),
+      transition('two => three', animate(animationDuration, keyframes([
+        style({ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, offset: 0 }),
+        style({ transform: 'translateX(-100%)', offset: 1})
+      ]))),
+      transition('three => two', animate(animationDuration, keyframes([
+        style({ opacity: 1, offset: 0 }),
+        style({ transform: 'translateX(0)', offset: 1})
+      ]))),
+    ]),
+    trigger('stepThree', [
+      state('one', style({ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, transform: 'translateX(100%)', opacity: 0 })),
+      state('two', style({position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, transform: 'translateX(100%)', opacity: 0 })),
+      state('three', style({position: 'relative', transform: 'translateX(0)', opacity: 1 })),
+      transition('two => three', animate(animationDuration, keyframes([
+        style({ position: 'relative', opacity: 1, offset: 0 }),
+        style({ transform: 'translateX(0)', offset: 1})
+      ]))),
+      transition('three => two', animate(animationDuration, keyframes([
         style({ transform: 'translateX(100%)', offset: 1})
       ]))),
     ])
@@ -104,6 +126,10 @@ export class MaterialOrderFormComponent implements OnInit {
     this.form = new FormGroup({
       offer: new FormControl('', []),
       message: new FormControl('', []),
+      delivery: new FormGroup({
+        date: new FormControl(''),
+        location: new FormControl(''),
+      }),
       personal: new FormGroup({
         userName: new FormControl('', [Validators.required]),
         email: new FormControl('', [Validators.required, Validators.email]),
@@ -141,9 +167,18 @@ export class MaterialOrderFormComponent implements OnInit {
     }
 
     if (value === 'gasoline') {
-      this.showPrice(Material.gasoline);
+      if (this.form.get('materialsCount')) {
+        this.form.removeControl('materialsCount');
+      }
+
+      this.form.addControl('gasolineCount', new FormControl('', []));
     } else {
-      this.showPrice(null);
+      // this.showPrice(null);
+      if (this.form.get('gasolineCount')) {
+        this.form.removeControl('gasolineCount');
+      }
+
+      this.form.addControl('materialsCount', new FormControl('', []));
     }
   }
 

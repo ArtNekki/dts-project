@@ -8,14 +8,42 @@
       <label class="form-label" for="material">Выберите материал</label>
       <app-select id="material" [items]="materials" formControlName="material" (change)="showPrice($event)"></app-select>
     </div>
-    <div class="form-price" *ngIf="currentPrice">
-       от <b>{{ currentPrice | currency: 'RUB':'symbol-narrow':'4.0':'ru' }}</b>
+<!--    <div class="form-price" *ngIf="currentPrice">-->
+<!--       от <b>{{ currentPrice | currency: 'RUB':'symbol-narrow':'4.0':'ru' }}</b>-->
+<!--    </div>-->
+    <div class="form-field" *ngIf="form.get('gasolineCount')" [@field]="fieldState" [class.form-field--invalid]="form.get('gasolineCount').invalid && form.get('gasolineCount').touched">
+      <label class="form-label" for="name">Сколько литров? <span>(цифры)</span></label>
+      <input type="text" id="gasolineCount" class="input input--sm" formControlName="gasolineCount" mask="999999">
+      <div class="form-validation" *ngIf="form.get('gasolineCount').invalid && form.get('gasolineCount').touched">
+        <!--        <small *ngIf="form.get('personal').get('userName').errors.required">Это поле не может быть пустым</small>-->
+      </div>
+    </div>
+    <div class="form-field" *ngIf="form.get('materialsCount')" [@field]="fieldState" [class.form-field--invalid]="form.get('materialsCount').invalid && form.get('materialsCount').touched">
+      <label class="form-label" for="name">Сколько тонн? <span>(цифры)</span></label>
+      <input type="text" id="materialsCount" class="input input--sm" formControlName="materialsCount" mask="999999">
+      <div class="form-validation" *ngIf="form.get('materialsCount').invalid && form.get('materialsCount').touched">
+        <!--        <small *ngIf="form.get('personal').get('userName').errors.required">Это поле не может быть пустым</small>-->
+      </div>
     </div>
     <div class="form-group form-group--buttons">
       <button type="button" class="btn btn--sm btn--next u-mgl-auto" [disabled]="" (click)="goToStep(FormSteps.two)">Дальше</button>
     </div>
   </div>
-  <div class="form-step" [@stepTwo]="currentStep">
+  <div class="form-step u-full-height" formGroupName="delivery" [@stepTwo]="currentStep">
+    <div class="form-field">
+      <label class="form-label">Когда нужнен?</label>
+      <app-datepicker id="date" name="date" formControlName="date"></app-datepicker>
+    </div>
+    <div class="form-field">
+      <label class="form-label" for="location">Куда доставить?</label>
+      <textarea id="location" class="input" formControlName="location" cols="30" rows="5"></textarea>
+    </div>
+    <div class="form-group form-group--buttons">
+      <button type="button" class="btn btn--sm btn--prev btn--dark" (click)="goToStep(FormSteps.one)">Назад</button>
+      <button type="submit" class="btn btn--sm btn--next" (click)="goToStep(FormSteps.three)">Дальше</button>
+    </div>
+  </div>
+  <div class="form-step" [@stepThree]="currentStep">
     <div class="form-group form-group--right u-mgb-md">
       <app-switcher name="user-type"
                     [items]="[
@@ -67,7 +95,7 @@
       <textarea id="message" class="input" cols="30" rows="5" formControlName="message"></textarea>
     </div>
     <div class="form-group form-group--buttons">
-      <button type="button" class="btn btn--sm btn--prev btn--dark" (click)="goToStep(FormSteps.one)">Назад</button>
+      <button type="button" class="btn btn--sm btn--prev btn--dark" (click)="goToStep(FormSteps.two)">Назад</button>
       <button type="submit" class="btn btn--sm btn--success" [disabled]="form.invalid">Отправить</button>
     </div>
     <app-loader *ngIf="formSubmitState === SubmitState.SENDING" class="loader--absolute loader--invert"></app-loader>
