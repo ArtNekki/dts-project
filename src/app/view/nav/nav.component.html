@@ -16,6 +16,9 @@
           <li class="nav-item" [class.nav-item-active]="currentFragment === 'about'">
             <a routerLink='.' fragment='about' class="nav-link" (click)="closeMenu()">О нас</a>
           </li>
+          <li class="nav-item" [class.nav-item-active]="currentFragment === 'features'">
+            <a routerLink='.' fragment='features' class="nav-link" (click)="closeMenu()">Преимущества</a>
+          </li>
           <li class="nav-item" [class.nav-item-active]="currentFragment === 'price'">
             <a routerLink='.' fragment='price' class="nav-link" (click)="closeMenu()">Цены</a>
           </li>

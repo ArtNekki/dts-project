@@ -1,14 +1,16 @@
 @import "src/variables";
 
 .page-section {
+  margin-bottom: 20px;
+  padding-top: 80px;
 
   &--transport {
-    margin-top: 95px;
+    //margin-top: 95px;
   }
 
   &--about {
-    margin-top: 100px;
-    padding: 45px 0;
+    //margin-top: 100px;
+    padding-bottom: 45px;
     background: #f9f9f9;
   }
 
@@ -16,7 +18,8 @@
   &--materials .container {
 
     @include media-breakpoint-up(sm) {
-      height: 600px;
+      margin-bottom: 60px;
+      height: 500px;
       background-image: url("src/assets/img/bg/sand-width-barrel.jpg");
       background-repeat: no-repeat;
       background-position: 150% 100%;
@@ -24,7 +27,7 @@
     }
 
     @include media-breakpoint-up(md) {
-      height: 650px;
+      height: 550px;
       background-image: url("src/assets/img/bg/sand-width-barrel.jpg");
       background-repeat: no-repeat;
       background-position: 71% 100%;
@@ -42,18 +45,17 @@
     }
   }
 
-  //&--features {
-  //  margin-top: 60px;
-  //  background-color: $gray-dark;
-  //}
+  &--features {
+    margin-bottom: 80px;
+  }
 
   &-heading {
-    padding-top: 90px;
+    //padding-top: 90px;
     padding-bottom: 35px;
     font-family: $font-family;
 
     @include media-breakpoint-up(sm) {
-      padding-top: 120px;
+      //padding-top: 120px;
       padding-bottom: 45px;
     }
 
