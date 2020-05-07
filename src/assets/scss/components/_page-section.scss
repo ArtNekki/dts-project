@@ -1,8 +1,8 @@
 @import "src/variables";
 
 .page-section {
-  margin-bottom: 20px;
-  padding-top: 80px;
+  margin-bottom: 10px;
+  padding-top: 90px;
 
   &--transport {
     //margin-top: 95px;
@@ -16,9 +16,9 @@
 
 
   &--materials .container {
+    margin-bottom: 60px;
 
     @include media-breakpoint-up(sm) {
-      margin-bottom: 60px;
       height: 500px;
       background-image: url("src/assets/img/bg/sand-width-barrel.jpg");
       background-repeat: no-repeat;
