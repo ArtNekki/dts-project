@@ -66,18 +66,23 @@
     position: relative;
     z-index: 2;
     margin-bottom: 15px;
-    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
 
     @include media-breakpoint-up(sm) {
       margin-top: 35px;
+      height: 80px;
     }
   }
 
   &-icon {
     fill: rgba($gray-dark, 0.6);
+    width: 75px;
+
+    @include media-breakpoint-up(sm) {
+      width: unset;
+    }
 
     @include media-breakpoint-up(lg) {
       fill: $yellow;
@@ -97,9 +102,13 @@
     z-index: 2;
     display: block;
     font-family: $font-family;
-    font-size: 15px;
+    font-size: 17px;
     line-height: 18px;
     color: rgba($gray-dark, 0.6);
+
+    @include media-breakpoint-up(sm) {
+      font-size: 15px;
+    }
 
     .feature-card--marked & {
       color: rgba($gray-dark, 0.6);
