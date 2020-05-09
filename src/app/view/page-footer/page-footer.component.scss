@@ -1,4 +1,7 @@
+@import 'src/assets/scss/core/functions';
+@import "src/assets/scss/core/breakpoints";
 @import "src/variables";
+@import "src/assets/scss/settings";
 
 .page-footer {
   margin-top: -65px;
@@ -8,9 +11,17 @@
   background-color: $yellow;
   background-image: url("src/assets/img/bg/footer-bg.png");
   background-size: 1020px auto;
-  background-position: 50% 100%;
+  background-position: 56% 100%;
   background-repeat: no-repeat;
   overflow: hidden;
+
+  @include media-breakpoint-up(sm) {
+    background-position: 36% 100%;
+  }
+
+  @include media-breakpoint-up(md) {
+    background-position: 50% 100%;
+  }
 
   &-container {
     position: relative;
