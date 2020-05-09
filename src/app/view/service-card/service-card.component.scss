@@ -22,7 +22,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: rgba($gray-dark, 0.4);
+    background-color: rgba($gray-dark, 0.2);
   }
 
   &-content {
@@ -45,7 +45,8 @@
     height: inherit;
     object-fit: cover;
     object-position: bottom;
-    filter: saturate(0.7) contrast(0.4);
+    //filter: saturate(0.7) contrast(0.4);
+    filter: contrast(0.5);
     transition: all 0.5s ease-in;
   }
 

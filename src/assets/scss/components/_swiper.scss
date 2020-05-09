@@ -127,9 +127,9 @@
     display: none;
     font-size: 0;
     background: none;
-    border: 3px solid $gray-dark;
+    border: 3px solid $gray;
     border-bottom-color: transparent;
-    opacity: 0.1;
+    //opacity: 0.1;
     transition: all 0.1s ease-in;
     cursor: pointer;
 
@@ -138,7 +138,7 @@
     }
 
     &:hover {
-      opacity: 0.3;
+      //opacity: 0.3;
     }
 
     &:active {
@@ -153,13 +153,48 @@
       left: -50px;
       border-right-color: transparent;
       transform: rotate3d(0, 0, 1, -45deg);
+
+      &:hover {
+        border-color: $yellow;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+      }
+
+      &.swiper-button-disabled:hover {
+        border-color: $gray;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        cursor: not-allowed;
+      }
+
+      &.swiper-button-disabled:active {
+        top: 50%;
+      }
     }
 
     &--right {
       right: -50px;
       border-left-color: transparent;
       transform: rotate3d(0, 0, 1, 45deg);
+
+      &:hover {
+        border-color: $yellow;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+      }
+
+      &.swiper-button-disabled:hover {
+        border-color: $gray;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+        cursor: not-allowed;
+      }
+
+      &.swiper-button-disabled:active {
+        top: 50%;
+      }
     }
+
   }
 }
 
