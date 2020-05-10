@@ -9,10 +9,6 @@
   //padding-bottom: 30px;
   //min-height: 400px;
   background-color: $yellow;
-  background-image: url("src/assets/img/bg/footer-bg.png");
-  background-size: 1020px auto;
-  background-position: 56% 100%;
-  background-repeat: no-repeat;
   overflow: hidden;
 
   @include media-breakpoint-up(sm) {
@@ -26,6 +22,14 @@
   &-container {
     position: relative;
     min-height: 300px;
+    background-image: url("src/assets/img/bg/footer-bg.png");
+    background-size: 1020px auto;
+    background-position: 56% 100%;
+    background-repeat: no-repeat;
+
+    @include media-breakpoint-up(md) {
+      opacity: 0.7;
+    }
 
     &::before {
       content: "";
