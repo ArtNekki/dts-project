@@ -1,7 +1,9 @@
 <nav class="nav" [class.nav--sticky]="isSticky" #nav>
   <div class="nav-content">
     <div class="nav-inner container">
-      <a href="#" class="nav-logo">Logo</a>
+      <a routerLink='.' fragment="header" class="nav-logo">
+        <svg-icon [src]="'/assets/img/svg/logo.svg'"></svg-icon>
+      </a>
       <div class="nav-mobile">
         <ul class="nav-list">
           <li class="nav-item" [class.nav-item-active]="currentFragment === 'transport'">
