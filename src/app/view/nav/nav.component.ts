@@ -38,7 +38,7 @@ export class NavComponent implements OnInit, AfterViewInit {
 
   @HostListener('window:scroll', ['$event'])
 
-  scroll(event) {
+  scroll() {
     this.setStickyMenu();
     this.removeFragment();
   }

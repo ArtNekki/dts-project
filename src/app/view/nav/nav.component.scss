@@ -43,8 +43,8 @@
  }
 
   &__inner {
-    min-height: $mobile-nav-height;
     width: 100%;
+    min-height: $mobile-nav-height;
     display: flex;
     justify-content: space-between;
     align-items: center;
