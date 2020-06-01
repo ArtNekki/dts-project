@@ -154,3 +154,11 @@
 
   @return mix($color-base, $color, $level * $theme-color-interval);
 }
+
+
+@function calculateRem($size) {
+  $remSize: $size / 16px * 1rem;
+  //Default font size on html element is 100%, equivalent to 16px;
+  @return #{$remSize};
+}
+

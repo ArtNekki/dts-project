@@ -68,12 +68,12 @@ export class NavComponent implements OnInit, AfterViewInit {
   }
 
   openMenu() {
-    document.documentElement.classList.add('menu-opened');
-    document.documentElement.classList.add('modal-opened');
+    document.documentElement.classList.add('menu--opened');
+    document.documentElement.classList.add('modal--opened');
   }
 
   closeMenu() {
-    document.documentElement.classList.remove('menu-opened');
-    document.documentElement.classList.remove('modal-opened');
+    document.documentElement.classList.remove('menu--opened');
+    document.documentElement.classList.remove('modal--opened');
   }
 }
