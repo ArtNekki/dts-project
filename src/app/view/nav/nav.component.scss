@@ -125,11 +125,11 @@
       color: $white;
     }
 
-    .nav-item--active & {
+    .nav__item--active & {
       color: $white;
     }
 
-    .nav-item--active &:hover {
+    .nav__item--active &:hover {
       cursor: default;
     }
 
@@ -137,7 +137,7 @@
       color: $yellow;
     }
 
-    .nav--sticky .nav-item--active & {
+    .nav--sticky .nav__item--active & {
       color: $yellow;
     }
 
@@ -145,7 +145,7 @@
       color: $yellow;
     }
 
-    ::ng-deep .menu--opened .nav-item--active & {
+    ::ng-deep .menu--opened .nav__item--active & {
       color: $yellow;
     }
   }
@@ -161,9 +161,27 @@
       outline: none;
     }
 
-    span {
-      position: relative;
-      display: block;
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+
+  &__open  span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 5px;
+    background: $white;
+
+    .nav--sticky & {
+      background: $yellow;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
       width: 100%;
       height: 5px;
       background: $white;
@@ -171,32 +189,14 @@
       .nav--sticky & {
         background: $yellow;
       }
-
-      &::before,
-      &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        width: 100%;
-        height: 5px;
-        background: $white;
-
-        .nav--sticky & {
-          background: $yellow;
-        }
-      }
-
-      &::before {
-        top: -10px;
-      }
-
-      &::after {
-        top: 10px;
-      }
     }
 
-    @include media-breakpoint-up(md) {
-      display: none;
+    &::before {
+      top: -10px;
+    }
+
+    &::after {
+      top: 10px;
     }
   }
 
