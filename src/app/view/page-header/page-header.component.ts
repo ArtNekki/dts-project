@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, HostListener, InjectionToken, Input, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-page-header',

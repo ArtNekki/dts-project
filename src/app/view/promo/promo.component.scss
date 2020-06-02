@@ -4,68 +4,90 @@
 @import "src/assets/scss/settings";
 
 .promo {
-  //border: 1px solid red;
   margin: 0;
   padding: 25px 40px 35px 40px;
-  //width: 100%;
+  color: $gray-dark;
   text-align: center;
-  //display: flex;
   background-color: $white;
   border-radius: 20px;
   list-style: none;
-  color: $gray-dark;
   box-shadow: 0 0 20px 0 rgba($black, 0.1);
 
   @include media-breakpoint-up(sm) {
     bottom: 0;
   }
 
-  &-title {
+  &__content {
+    position: relative;
+  }
+
+  &__container {
+    padding: 6px 0;
+
+    @include media-breakpoint-up(md) {
+      overflow: visible;
+    }
+  }
+
+  &__wrapper {
+    @include media-breakpoint-up(md) {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+
+  &__item {
+    @include media-breakpoint-up(md) {
+      flex-basis: 25%;
+    }
+  }
+
+  &__title {
     display: block;
-    font-size: 80px;
-    line-height: 85px;
+    font-size: calculateRem(80px);
+    line-height: calculateRem(85px);
     color: $yellow;
 
     @include media-breakpoint-up(sm) {
-      font-size: 50px;
-      line-height: 60px;
-      font-size: 70px;
-      line-height: 75px;
+      font-size: calculateRem(70px);
+      line-height: calculateRem(75px);
     }
 
     @include media-breakpoint-up(md) {
-      font-size: 58px;
-      line-height: 65px;
+      font-size: calculateRem(58px);
+      line-height: calculateRem(65px);
     }
 
     @include media-breakpoint-up(lg) {
-      font-size: 70px;
-      line-height: 75px;
-    }
-
-    small {
-      //font-size: 24px;
-      line-height: 20px;
+      font-size: calculateRem(70px);
+      line-height: calculateRem(75px);
     }
   }
 
-  &-label {
+  &__title small {
+    line-height: calculateRem(20px);
+  }
+
+  &__text {
+    $text-lg: calculateRem(16px);
+    $line-height-lg: calculateRem(19px);
+
     display: block;
-    font-size: 16px;
-    line-height: 17px;
+    font-size: $text-lg;
+    line-height: $line-height-lg;
 
-    //@include media-breakpoint-up(sm) {
-    //  font-size: 15px;
-    //  line-height: 17px;
-    //}
-    //
-    //@include media-breakpoint-up(lg) {
-    //  font-size: 16px;
-    //  line-height: 19px;
-    //}
+    @include media-breakpoint-up(md) {
+      font-size: calculateRem(14px);
+      line-height: calculateRem(17px);
+    }
+
+    @include media-breakpoint-up(lg) {
+      font-size: $text-lg;
+      line-height: $line-height-lg;
+    }
   }
 
-  &-text-offset {
+  &__text-offset {
     position: relative;
     left: -8px;
   }
