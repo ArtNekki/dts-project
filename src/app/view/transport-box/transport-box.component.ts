@@ -36,7 +36,6 @@ export class TransportBoxComponent implements OnInit {
 
   formatTitle(name: any) {
     const nameArray = name.split(' ');
-
     return nameArray.length === 2 ? `<span>${nameArray[0]}</span> ${nameArray[1]}` : name;
   }
 }

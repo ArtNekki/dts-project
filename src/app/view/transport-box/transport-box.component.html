@@ -1,17 +1,17 @@
 <article class="transport-box" [class.transport-box--right]="data.id === 'tippers'">
-  <img class="transport-box-img" (load)="loadImage(data.id)"
+  <img class="transport-box__img" (load)="loadImage(data.id)"
        [src]="'/assets/img/content/transport/' + data.id + '.jpg'"
        [srcset]="'/assets/img/content/transport/' + data.id + '@2x.jpg 2x, /assets/img/content/transport/' + data.id + '@3x.jpg 3x'"
   >
-  <div class="transport-box-overlay">
+  <div class="transport-box__overlay">
     <div>
-      <h1 class="transport-box-title" [innerHTML]="formatTitle(data.name)"></h1>
-      <div class="transport-box-label">
+      <h1 class="transport-box__title" [innerHTML]="formatTitle(data.name)"></h1>
+      <div class="transport-box__text">
         от
         <b>{{data.price | currency: 'RUB':'symbol-narrow':'4.0':'ru'}}</b>
         /час
       </div>
     </div>
-    <a routerLink="." fragment="transport" class="transport-box-btn btn btn--xs" (click)="goTo(data)">Выбрать</a>
+    <a routerLink="." fragment="transport" class="transport-box__btn btn btn--xs" (click)="goTo(data)">Выбрать</a>
   </div>
 </article>

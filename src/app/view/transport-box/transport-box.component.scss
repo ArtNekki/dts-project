@@ -7,15 +7,11 @@
   position: relative;
   background-color: rgba($gray, 0.15);
 
-  &-img {
+  &__img {
     width: 100%;
     height: auto;
     display: inline-block;
     transition: all 0.2s ease-in;
-
-    .transport-box:hover & {
-      //filter: blur(5px);
-    }
   }
 
   &-svg {
@@ -23,23 +19,15 @@
     height: 200px;
   }
 
-  &-overlay {
+  &__overlay {
     position: relative;
-    //padding: 40px;
     padding: 15px;
-    //padding-bottom: 5px;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
     background-color: #535252;
     transition: background-color 0.25s ease-in;
-
-    //@include media-breakpoint-up(sm) {
-    //  align-items: flex-start;
-    //  justify-content: flex-start;
-    //  background-color: transparent;
-    //}
 
     @include media-breakpoint-up(md) {
       position: absolute;
@@ -68,43 +56,41 @@
         text-align: right;
       }
     }
-
-    .transport-box:hover & {
-      //background-color: rgba($gray-dark, 0.9);
-    }
   }
 
-  &-title {
-    margin: 0;
-    margin-bottom: 10px;
+  &__title {
+    margin: 0 0 10px 0;
     flex-basis: 100%;
     font-family: $font-family;
-    font-size: 17px;
-    line-height: 21px;
+    font-size: calculateRem(17px);
+    line-height: calculateRem(21px);
     font-weight: 400;
     text-align: left;
     text-transform: uppercase;
     color: $white;
 
     @include media-breakpoint-up(sm) {
-      font-size: 15px;
+      font-size: calculateRem(15px);
+      line-height: calculateRem(18px);
     }
 
     @include media-breakpoint-up(md) {
       margin-bottom: 5px;
       flex-basis: auto;
-      font-size: 19px;
+      font-size: calculateRem(19px);
+      line-height: calculateRem(22px);
       color: $gray-dark;
       text-align: unset;
     }
 
     @include media-breakpoint-up(lg) {
       margin-bottom: 7px;
-      font-size: 24px;
+      font-size: calculateRem(24px);
+      line-height: calculateRem(27px);
     }
   }
 
-  ::ng-deep &-title span {
+  ::ng-deep &__title span {
     display: none;
 
     @include media-breakpoint-up(md) {
@@ -112,30 +98,30 @@
     }
   }
 
-  &-label {
+  &__text {
     position: relative;
     top: -5px;
-    font-size: 14px;
-    line-height: 16px;
+    font-size: calculateRem(14px);
+    line-height: calculateRem(16px);
     color: $white;
 
     @include media-breakpoint-up(sm) {
       top: -10px;
-      font-size: 12px;
+      font-size: calculateRem(12px);
     }
 
     @include media-breakpoint-up(md) {
       position: static;
-      font-size: 14px;
+      font-size: calculateRem(14px);
       color: rgba($gray-dark, 0.7);
     }
 
     @include media-breakpoint-up(lg) {
-      font-size: 16px;
+      font-size: calculateRem(16px);
     }
   }
 
-  &-btn {
+  &__btn {
     align-self: center;
     opacity: 1;
     order: 3;

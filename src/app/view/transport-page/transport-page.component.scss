@@ -40,13 +40,13 @@
   &__text {
     margin-left: 10px;
     display: inline-block;
-    font-size: 14px;
-    line-height: 17px;
+    font-size: calculateRem(14px);
+    line-height: calculateRem(17px);
     vertical-align: middle;
 
     @include media-breakpoint-up(md) {
-      font-size: 16px;
-      line-height: 18px;
+      font-size: calculateRem(16px);
+      line-height: calculateRem(18px);
     }
   }
 
