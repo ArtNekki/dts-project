@@ -1,41 +1,41 @@
-<div class="row">
+<div class="transport row">
   <div class="col-12 col-md-6 col-lg-5">
-    <ul class="list list--transport-features">
-      <li>
-        <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
-        <div class="list-text">Доставка в удобное для вас время</div>
+    <ul class="transport__list">
+      <li class="transport__item">
+        <svg-icon class="transport__icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
+        <div class="transport__text">Доставка в удобное для вас время</div>
       </li>
-      <li>
-        <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
-        <div class="list-text">Техника ведущих марок</div>
+      <li class="transport__item">
+        <svg-icon class="transport__icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
+        <div class="transport__text">Техника ведущих марок</div>
       </li>
-      <li>
-        <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
-        <div class="list-text">При первой аренде доставим бесплатно</div>
+      <li class="transport__item">
+        <svg-icon class="transport__icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
+        <div class="transport__text">При первой аренде доставим бесплатно</div>
       </li>
-      <li>
-        <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
-        <div class="list-text">Аренда почасовая долгосрочная</div>
+      <li class="transport__item">
+        <svg-icon class="transport__icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
+        <div class="transport__text">Аренда почасовая долгосрочная</div>
       </li>
-      <li>
-        <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
-        <div class="list-text">Вся техника исправна</div>
+      <li class="transport__item">
+        <svg-icon class="transport__icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
+        <div class="transport__text">Вся техника исправна</div>
       </li>
-      <li>
-        <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
-        <div class="list-text">Вся техника укомплектована</div>
+      <li class="transport__item">
+        <svg-icon class="transport__icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
+        <div class="transport__text">Вся техника укомплектована</div>
       </li>
-      <li>
-        <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
-        <div class="list-text">Вся техника заправлена</div>
+      <li class="transport__item">
+        <svg-icon class="transport__icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
+        <div class="transport__text">Вся техника заправлена</div>
       </li>
     </ul>
-    <div class="u-show-md u-mgl-lg">
+    <div class="transport__btn">
       <a routerLink="." fragment="transport" class="btn btn--md" (click)="openModal()">Все варианты</a>
     </div>
   </div>
   <div class="col-12 col-md-6 col-lg-7">
-    <div class="swiper swiper--transport" [class.swiper--loading]="imagesLoading">
+    <div class="transport__slider" [class.transport__slider--loading]="imagesLoading">
       <div *ngIf="promoItems">
         <div #slider class="swiper-container">
           <div class="swiper-wrapper">
@@ -50,7 +50,7 @@
       </div>
       <app-loader  *ngIf="imagesLoading" class="loader--absolute"></app-loader>
     </div>
-    <div class="u-text-align-center u-hide-md u-mgt--xl">
+    <div class="transport__btn--mobile">
       <a routerLink="." fragment="transport" class="btn btn--transport btn--md" (click)="openModal()">Все варианты</a>
     </div>
   </div>
@@ -60,16 +60,6 @@
   <div header *ngIf="transportId">
     <small>Цена в час от: <b>{{transportPrice | currency: 'RUB':'symbol-narrow':'4.0':'ru'}}</b></small>
     <small>Цена за доставку: <b>договорная</b></small>
-<!--    <div class="modal-contact">-->
-<!--      <a href="tel:+79510277322">-->
-<!--        <svg-icon [src]="'/assets/img/svg/phone-circle.svg'"></svg-icon>-->
-<!--      </a>-->
-<!--      <div class="modal-contact-text">-->
-<!--        <small>Наш телефон:</small>-->
-<!--        <b><a href="tel:+79510277322">+79510277322</a></b>-->
-<!--      </div>-->
-<!--    </div>-->
   </div>
   <app-transport-page-details body (onChange)="setTransportData($event)" [transportId]="transportId"></app-transport-page-details>
-<!--  <app-service-order-form [serviceTitle]="serviceTitle" [serviceList]="serviceList"></app-service-order-form>-->
 </app-modal>

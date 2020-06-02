@@ -1,0 +1,91 @@
+@import 'src/assets/scss/core/functions';
+@import "src/assets/scss/core/breakpoints";
+@import "src/variables";
+@import "src/assets/scss/settings";
+
+.transport {
+
+  &__list {
+    margin: 10px 0 40px 0;
+    padding: 0;
+    list-style: none;
+
+    @include media-breakpoint-up(sm) {
+      column-count: 2;
+    }
+
+    @include media-breakpoint-up(md) {
+      column-count: unset;
+    }
+  }
+
+  &__item {
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__icon {
+    display: inline-flex;
+    width: 20px;
+    height: 20px;
+    fill: $yellow;
+    vertical-align: middle;
+  }
+
+  &__text {
+    margin-left: 10px;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 17px;
+    vertical-align: middle;
+
+    @include media-breakpoint-up(md) {
+      font-size: 16px;
+      line-height: 18px;
+    }
+  }
+
+  &__btn {
+    margin-left: 30px;
+    display: none;
+
+    @include media-breakpoint-up(md) {
+      display: block;
+    }
+
+    &--mobile {
+      margin-top: 75px;
+      text-align: center;
+
+      @include media-breakpoint-up(md) {
+        display: none;
+      }
+    }
+  }
+
+  &__slider.transport__slider--loading {
+    position: relative;
+    height: 87.5vw;
+
+    @include media-breakpoint-up(sm) {
+      height: 47.5vw;
+    }
+
+    @include media-breakpoint-up(md) {
+      height: 32.5vw;
+    }
+
+    @include media-breakpoint-up(lg) {
+      height: 39vw;
+    }
+
+    @include media-breakpoint-up(xl) {
+      height: 415px;
+    }
+  }
+}
