@@ -1,17 +1,17 @@
 <article class="service-card">
-  <img class="service-card-img"
+  <img class="service-card__img"
        [src]="'/assets/img/content/services/' + data.id + '.jpg'"
        [srcset]="'/assets/img/content/services/' + data.id + '@2x.jpg 2x, /assets/img/content/services/' + data.id + '@3x.jpg 3x'"
         (load)="onLoad()"
   >
-  <div class="service-card-overlay">
-    <div class="service-card-content">
-      <h1 class="service-card-title" [innerHTML]="formatText(data.name)"></h1>
-      <b class="service-card-price">
+  <div class="service-card__overlay">
+    <div class="service-card__content">
+      <h1 class="service-card__title" [innerHTML]="formatText(data.name)"></h1>
+      <b class="service-card__price">
         {{+data.price ? 'от ' + (data.price | currency: 'RUB':'symbol-narrow':'4.0':'ru') : data.price}}</b>
-      <p class="service-card-text" [innerHTML]="formatText(data.preview)"></p>
+      <p class="service-card__text" [innerHTML]="formatText(data.preview)"></p>
     </div>
-    <a routerLink='.' fragment='services' class="btn btn--md service-card-btn" (click)="openModal()">Заказать</a>
+    <a routerLink='.' fragment='services' class="service-card__btn btn btn--md" (click)="openModal()">Заказать</a>
   </div>
   <app-loader *ngIf="imageLoading" class="loader--absolute"></app-loader>
 </article>

@@ -11,7 +11,7 @@
   background-repeat: no-repeat;
   overflow: hidden;
 
-  &-overlay {
+  &__overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -25,7 +25,7 @@
     background-color: rgba($gray-dark, 0.4);
   }
 
-  &-content {
+  &__content {
     display: flex;
     flex-direction: column;
 
@@ -39,43 +39,42 @@
     }
   }
 
-  &-img {
+  &__img {
     display: block;
     width: 100%;
     height: inherit;
     object-fit: cover;
     object-position: bottom;
-    //filter: saturate(0.7) contrast(0.4);
     filter: contrast(0.5);
     transition: all 0.5s ease-in;
   }
 
-  &-title {
+  &__title {
     position: relative;
     margin-top: 25px;
     margin-bottom: 15px;
     min-height: 60px;
-    font-size: 19px;
-    line-height: 25px;
+    font-size: calculateRem(19px);
+    line-height: calculateRem(25px);
     color: $white;
     text-transform: uppercase;
     transition: all 0.3s ease-in;
 
     @include media-breakpoint-up(sm) {
-      font-size: 16px;
+      font-size: calculateRem(16px);
     }
 
     @include media-breakpoint-up(lg) {
-      font-size: 19px;
+      font-size: calculateRem(19px);
     }
   }
 
-  &-price {
+  &__price {
     position: relative;
     margin-bottom: 30px;
     padding-top: 20px;
     padding-bottom: 20px;
-    font-size: 20px;
+    font-size: calculateRem(20px);
     color: $white;
 
     &::before,
@@ -98,11 +97,11 @@
     }
   }
 
-  &-text {
+  &__text {
     position: relative;
     margin-top: 0;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: calculateRem(14px);
+    line-height: calculateRem(18px);
     color: $white;
 
     .service-card:hover & {
@@ -110,7 +109,7 @@
     }
   }
 
-  &-btn {
+  &__btn {
     margin-top: auto;
     margin-bottom: 10px;
 
@@ -128,9 +127,5 @@
     ::ng-deep [data-whatintent='mouse'] .service-card:hover & {
       opacity: 1;
     }
-  }
-
-  svg {
-    fill: red !important;
   }
 }
