@@ -1,20 +1,20 @@
-<div class="row">
+<div class="materials row">
   <div class="col col-sm-8 offset-sm-2 offset-md-3 offset-lg-3">
-    <ul class="list list--materials">
-      <li>
-        <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
-        <div class="list-text">
+    <ul class="materials__list">
+      <li class="materials__item">
+        <svg-icon class="materials__icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
+        <div class="materials__text">
           Инертные материалы
           <br>
           <small>(Песок, Сланец, ПГС, Щебень...)</small>
         </div>
       </li>
-      <li>
-        <svg-icon class="list-icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
-        <div class="list-text">Дизельное топливо</div>
+      <li class="materials__item">
+        <svg-icon class="materials__icon" [src]="'/assets/img/svg/ok-sm.svg'"></svg-icon>
+        <div class="materials__text">Дизельное топливо</div>
       </li>
     </ul>
-    <button class="btn btn--md btn--materials" (click)="openModal()">Заказать</button>
+    <button class="materials__btn btn btn--md" (click)="openModal()">Заказать</button>
   </div>
 </div>
 

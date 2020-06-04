@@ -1,0 +1,36 @@
+@import 'src/assets/scss/core/functions';
+@import "src/assets/scss/core/breakpoints";
+@import "src/variables";
+@import "src/assets/scss/settings";
+
+.materials {
+
+  &__list {
+    margin: 10px 0 40px 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    vertical-align: middle;
+    fill: $yellow;
+  }
+
+  &__text {
+    margin-left: 10px;
+    font-size: calculateRem(16px);
+    line-height: calculateRem(21px);
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__text small {
+    color: rgba($gray-dark, 0.6);
+  }
+}
