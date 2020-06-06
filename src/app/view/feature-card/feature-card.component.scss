@@ -6,13 +6,13 @@
 .feature-card {
   position: relative;
   padding: 15px;
+  height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   flex-basis: 20%;
   flex-grow: 1;
-  height: 250px;
   border-radius: 20px;
 
   @include media-breakpoint-up(sm) {
@@ -62,7 +62,7 @@
     }
   }
 
-  &-icon-wrap {
+  &__icon-wrap {
     position: relative;
     z-index: 2;
     margin-bottom: 15px;
@@ -76,9 +76,9 @@
     }
   }
 
-  &-icon {
-    fill: rgba($gray-dark, 0.6);
+  &__icon {
     width: 70px;
+    fill: rgba($gray-dark, 0.6);
 
     @include media-breakpoint-up(sm) {
       width: unset;
@@ -90,33 +90,25 @@
 
     .feature-card--marked & {
       fill: rgba($gray-dark, 0.6);
-
-      @include media-breakpoint-up(lg) {
-        //margin-left: 8px;
-      }
     }
   }
 
-  &-text {
+  &__text {
     position: relative;
     z-index: 2;
     display: block;
     font-family: $font-family;
-    font-size: 16px;
-    line-height: 19px;
+    font-size: calculateRem(16px);
+    line-height: calculateRem(19px);
     color: rgba($gray-dark, 0.6);
 
     @include media-breakpoint-up(sm) {
-      font-size: 15px;
-      line-height: 18px;
+      font-size: calculateRem(15px);
+      line-height: calculateRem(18px);
     }
 
     .feature-card--marked & {
       color: rgba($gray-dark, 0.6);
-
-      @include media-breakpoint-up(lg) {
-        //margin-left: -8px;
-      }
     }
   }
 }
