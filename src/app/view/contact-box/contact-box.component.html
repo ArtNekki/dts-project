@@ -1,10 +1,10 @@
 <article class="contact-box">
-  <div class="contact-box-icon">
-    <svg-icon class="contact-box-svg" width="35" height="35" [src]="'/assets/img/svg/' + icon + '.svg'"></svg-icon>
+  <div class="contact-box__icon">
+    <svg-icon class="contact-box__svg" width="35" height="35" [src]="'/assets/img/svg/' + icon + '.svg'"></svg-icon>
   </div>
-  <div class="contact-box-aside">
-    <h1 class="contact-box-title">{{title}}</h1>
-    <div class="contact-box-content">
+  <div class="contact-box__aside">
+    <h1 class="contact-box__title">{{title}}</h1>
+    <div class="contact-box__content">
       <p *ngIf="!href" [innerHTML]="text"></p>
       <a [href]="href" *ngIf="href" class="link link--block">{{text}}</a>
     </div>

@@ -11,65 +11,47 @@
 }
 
 .contact-box {
-  margin-top: 30px;
-  margin-left: 15px;
-  margin-right: 15px;
+  margin: 30px 15px 0 15px;
   display: flex;
   flex-direction: row;
-  //flex-direction: column;
-  //align-items: center;
-  //text-align: center;
 
   @include media-breakpoint-up(sm) {
     margin-top: 40px;
     flex-direction: row;
-    //align-items: center;
     text-align: left;
   }
 
-  &-icon {
+  &__icon {
     position: relative;
     transform: translateY(-3px);
     margin-right: 20px;
     margin-bottom: 0;
     transition: all 0.3s ease-in;
 
-    //@include media-breakpoint-up(sm) {
-    //
-    //}
-
-    //@include media-breakpoint-up(md) {
-    // display: none;
-    //}
-
-    //@include media-breakpoint-up(lg) {
-    //  display: block;
-    //}
-
     &:hover {
       transform: translateY(0);
     }
   }
 
-  &-svg {
+  &__svg {
     width: 30px;
     height: 30px;
     fill: $yellow;
   }
 
-  &-title {
+  &__title {
     margin: 0 0 10px 0;
     font-family: $font-family;
-    font-size: 16px;
-    line-height: 16px;
+    font-size: calculateRem(16px);
+    line-height: calculateRem(19px);
     color: $gray-dark;
     text-transform: uppercase;
   }
 
   p {
     margin: 0;
-    font-size: 14px;
-    line-height: 16px;
+    font-size: calculateRem(14px);
+    line-height: calculateRem(16px);
     color: $gray-dark;
   }
 
