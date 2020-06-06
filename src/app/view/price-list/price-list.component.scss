@@ -10,7 +10,7 @@
     display: flex;
   }
 
-  &-field {
+  &__field {
     position: relative;
     display: flex;
     flex-grow: 1;
@@ -25,8 +25,8 @@
       bottom: 0;
       right: 0;
       padding: 17px 20px;
-      font-size: 14px;
-      line-height: 16px;
+      font-size: calculateRem(14px);
+      line-height: calculateRem(16px);
       color: $white;
       background-color: $green;
       border-radius: 5px;
@@ -42,7 +42,7 @@
     }
   }
 
-  &-input {
+  &__input {
     height: 50px;
     padding-right: 20px;
     padding-left: 20px;
@@ -57,12 +57,12 @@
     }
   }
 
-  &-btn {
+  &__btn {
     position: relative;
     margin-top: 25px;
     padding: 20px;
-    font-size: 14px;
-    line-height: 16px;
+    font-size: calculateRem(14px);
+    line-height: calculateRem(16px);
     background-color: $yellow;
     color: $white;
     border: none;
@@ -74,8 +74,8 @@
       margin-top: 0;
       margin-left: 20px;
       padding: 23px;
-      font-size: 16px;
-      line-height: 18px;
+      font-size: calculateRem(16px);
+      line-height: calculateRem(18px);
     }
 
     &:hover {

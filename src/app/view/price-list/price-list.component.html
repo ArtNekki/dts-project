@@ -1,6 +1,6 @@
 <div class="price-list" [class.price-list--copied]="isCopied">
-  <div class="price-list-field" [ngxClipboard]="inputTarget" (cbOnSuccess)="copied()">
-    <input #inputTarget type="text" class="price-list-input input" value="https://drive.google.com/file/d/1hkaerR_W44i7tRhQ2cBNWiuFvsPgB2w-/view?usp=sharing">
+  <div class="price-list__field" [ngxClipboard]="inputTarget" (cbOnSuccess)="copied()">
+    <input #inputTarget type="text" class="price-list__input input" value="https://drive.google.com/file/d/1hkaerR_W44i7tRhQ2cBNWiuFvsPgB2w-/view?usp=sharing">
   </div>
-  <button class="price-list-btn" [disabled]="isCopied" [ngxClipboard]="inputTarget" (cbOnSuccess)="copied()">Скопировать ссылку</button>
+  <button class="price-list__btn" [disabled]="isCopied" [ngxClipboard]="inputTarget" (cbOnSuccess)="copied()">Скопировать ссылку</button>
 </div>
