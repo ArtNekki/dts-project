@@ -4,18 +4,18 @@
       <div *ngIf="transportModels && transportModels.length" class="form__full-height">
         <div class="form__field">
           <label class="form__label">Модель:</label>
-          <app-select id="models" [items]="transportModels" formControlName="model" (change)="onChangeParam($event)"></app-select>
+          <app-select id="models" [items]="transportModels" formControlName="model" (change)="changeModel($event)"></app-select>
         </div>
-        <div *ngIf="transportProps" class="form__field">
+        <div *ngIf="modelProps && modelProps.length" class="form__field">
           <div class="form__label">Характеристики:</div>
           <table class="table">
-            <tr *ngFor="let prop of transportProps">
+            <tr *ngFor="let prop of modelProps">
               <td>{{prop.name}}</td>
               <td>{{prop.value}}</td>
             </tr>
           </table>
         </div>
-        <app-loader *ngIf="isTransportPropsLoading" class="loader--sm loader--invert"></app-loader>
+        <app-loader *ngIf="isModelPropsLoading" class="loader--sm loader--invert"></app-loader>
         <div class="form__group form__group--buttons">
           <button type="button" class="form__btn form__btn--prev form__btn--all-transport" (click)="this.onChange.emit()">Вся техника</button>
           <button type="button" class="form__btn form__btn--next" [disabled]="" (click)="goToStep(FormStep.TWO)">Дальше</button>

@@ -1,8 +1,8 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {TransportService} from '../../core/services/transport.service';
-import {TransportItem} from '../transport-box/transport-box.component';
+import {TransportItem, TransportModel} from '../transport-box/transport-box.component';
 import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 
 const animationDuration = 200;
@@ -65,16 +65,23 @@ const animationDuration = 200;
     ])
   ]
 })
-export class TransportOrderFormComponent implements OnInit, OnChanges {
+
+export class TransportOrderFormComponent implements OnInit, OnChanges, OnDestroy {
   @Input('id') transportId: string;
   @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
+
   entity: boolean;
+
   form: FormGroup;
+  formSubmitState;
+
   transportModels = null;
-  transportProps = null;
-  isTransportPropsLoading;
   currentTransport = null;
-  fieldState = '';
+  modelProps = null;
+  isModelPropsLoading = false;
+
+  transportSubscribe = null;
+  modelSubscribe = null;
 
   FormStep = {
     ONE: 'one',
@@ -88,12 +95,13 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
     FAIL: 'fail'
   }
 
-  formSubmitState;
   currentStep = this.FormStep.ONE;
+  fieldState = '';
 
   constructor(private af: AngularFirestore, private transportService: TransportService) { }
 
   ngOnInit(): void {
+    // form init
     this.form = new FormGroup({
       rent: new FormGroup({
         date: new FormControl(''),
@@ -110,22 +118,28 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    // when select new transport in sidebar, set form's step to first step
     this.currentStep = this.FormStep.ONE;
 
     if (changes.transportId.currentValue) {
       this.formSubmitState = null;
+      this.transportModels = null;
+      this.modelProps = null;
 
-      this.transportService.getById('transport', changes.transportId.currentValue)
+      // if transport's ID got, we load model's characteristic data from database for current transport
+      // and add a new form's control
+      this.transportSubscribe = this.transportService.getById('transport', changes.transportId.currentValue)
         .subscribe((data: TransportItem) => {
-            this.currentTransport = changes.transportId.currentValue;
+          this.currentTransport = changes.transportId.currentValue;
 
-            if (data.models.length) {
-              this.transportModels = [{value: '', name: 'Не выбрано'}, ...data.models];
-              this.form.addControl('model', new FormControl('', Validators.required));
-            }
-        });
+          if (data.models.length) {
+            this.transportModels = [{value: '', name: 'Не выбрано'}, ...data.models];
+            this.form.addControl('model', new FormControl('', Validators.required));
+          }
+      });
     }
 
+    // when transport selected in sidebar, we reset form's data
     if (!changes.transportId.firstChange) {
       this.form.reset();
     }
@@ -145,6 +159,38 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
     }
   }
 
+  goToStep(step: string) {
+    this.currentStep = step;
+  }
+
+  changeModel(value) {
+    this.modelProps = null;
+
+    // Get model's characteristics
+    if (value) {
+      this.isModelPropsLoading = true;
+
+      this.modelSubscribe = this.transportService.getById(this.currentTransport, value).subscribe((data: TransportItem) => {
+        this.modelProps = data.params;
+
+        if (this.modelProps) {
+          this.isModelPropsLoading = false;
+        }
+      });
+    }
+  }
+
+  ngOnDestroy(): void {
+
+    if (this.transportSubscribe) {
+      this.transportSubscribe.unsubscribe();
+    }
+
+    if (this.modelSubscribe) {
+      this.modelSubscribe.unsubscribe();
+    }
+  }
+
   onSubmit() {
     if (!this.form.valid) { return; }
 
@@ -153,36 +199,21 @@ export class TransportOrderFormComponent implements OnInit, OnChanges {
     })[0].name;
 
     const formData = { date: new Date(), ...this.form.value, model, transport: this.currentTransport};
-    console.log(formData);
+    console.log('formData', formData);
 
     this.formSubmitState = this.SubmitState.SENDING;
 
     this.af.collection('transport-email').add(formData)
       .then((result) => {
+
         if (result) {
           this.formSubmitState = this.SubmitState.SUCCESS;
           this.form.reset();
-          this.transportProps = null;
+          this.modelProps = null;
         }
       })
       .catch((error) => {
         this.formSubmitState = this.SubmitState.FAIL;
       });
-  }
-
-  goToStep(step: string) {
-    this.currentStep = step;
-  }
-
-  onChangeParam(value) {
-    this.isTransportPropsLoading = true;
-
-    this.transportService.getById(this.currentTransport, value).subscribe((data) => {
-      this.transportProps = data.params;
-
-      if (this.transportProps) {
-        this.isTransportPropsLoading = false;
-      }
-    });
   }
 }

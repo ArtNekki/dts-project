@@ -9,6 +9,16 @@ export interface TransportItem {
   models?: any;
 }
 
+export interface ModelItem {
+  name: string;
+  value: string;
+}
+
+export interface TransportModel {
+  id: string;
+  params: Array<ModelItem>;
+}
+
 @Component({
   selector: 'app-transport-box',
   templateUrl: './transport-box.component.html',
