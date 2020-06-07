@@ -18,13 +18,14 @@
     border-top-color: rgba($gray-dark, 0.6);
   }
 
-  &-inner {
+  &__inner {
     padding-right: 8px;
     padding-left: 8px;
     height: 36px;
     width: 100%;
-    font-size: 14px;
-    line-height: 22px;
+    font-family: $font-family;
+    font-size: calculateRem(14px);
+    line-height: calculateRem(22px);
     color: rgba($gray-dark, 0.7);
     background-color: $white;
     border-radius: 5px;

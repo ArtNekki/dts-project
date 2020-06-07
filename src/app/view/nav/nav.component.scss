@@ -112,6 +112,7 @@
   &__link {
     padding: 10px 20px;
     display: block;
+    font-family: $font-family;
     font-size: calculateRem(14px);
     line-height: calculateRem(16px);
     color: $gray-dark;
