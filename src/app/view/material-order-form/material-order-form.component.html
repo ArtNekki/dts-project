@@ -6,7 +6,7 @@
     </div>
     <div  class="form__field" *ngIf="isMaterial" [@field]="fieldState">
       <label class="form__label" for="material">Выберите материал</label>
-      <app-select id="material" [items]="materials" formControlName="material" (change)="showPrice($event)"></app-select>
+      <app-select id="material" [items]="materials" formControlName="material"></app-select>
     </div>
     <div class="form__field" *ngIf="form.get('gasolineCount')" [@field]="fieldState" [class.form__field--invalid]="form.get('gasolineCount').invalid && form.get('gasolineCount').touched">
       <label class="form__label" for="name">Сколько литров? <span>(цифры)</span></label>
@@ -19,7 +19,7 @@
       <div class="form__validation" *ngIf="form.get('materialsCount').invalid && form.get('materialsCount').touched"></div>
     </div>
     <div class="form__group form__group--buttons">
-      <button type="button" class="form__btn form__btn--next" [disabled]="" (click)="goToStep(FormSteps.two)">Дальше</button>
+      <button type="button" class="form__btn form__btn--next" [disabled]="" (click)="goToStep(FormStep.TWO)">Дальше</button>
     </div>
   </div>
   <div class="form__step" formGroupName="delivery" [@stepTwo]="currentStep">
@@ -32,8 +32,8 @@
       <textarea id="location" class="input" formControlName="location" cols="30" rows="5"></textarea>
     </div>
     <div class="form__group form__group--buttons">
-      <button type="button" class="form__btn form__btn--prev" (click)="goToStep(FormSteps.one)">Назад</button>
-      <button type="submit" class="form__btn form__btn--next" (click)="goToStep(FormSteps.three)">Дальше</button>
+      <button type="button" class="form__btn form__btn--prev" (click)="goToStep(FormStep.ONE)">Назад</button>
+      <button type="submit" class="form__btn form__btn--next" (click)="goToStep(FormStep.THREE)">Дальше</button>
     </div>
   </div>
   <div class="form__step" [@stepThree]="currentStep">
@@ -88,7 +88,7 @@
       <textarea id="message" class="input" cols="30" rows="5" formControlName="message"></textarea>
     </div>
     <div class="form__group form__group--buttons">
-      <button type="button" class="form__btn form__btn--prev" (click)="goToStep(FormSteps.two)">Назад</button>
+      <button type="button" class="form__btn form__btn--prev" (click)="goToStep(FormStep.TWO)">Назад</button>
       <button type="submit" class="form__btn form__btn--send" [disabled]="form.invalid">Отправить</button>
     </div>
     <app-loader *ngIf="formSubmitState === SubmitState.SENDING" class="loader--absolute loader--invert"></app-loader>

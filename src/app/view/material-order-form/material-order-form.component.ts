@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 import {AngularFirestore} from '@angular/fire/firestore';
-import {SelectComponent} from '../select/select.component';
 
 const Material = {
   sand: 'sand',
@@ -12,16 +11,6 @@ const Material = {
   ground: 'ground',
   pgs: 'pgs',
   gasoline: 'gasoline'
-}
-
-const MaterialPrice = {
-  [Material.sand]: '1500',
-  [Material.breakstone]: '1000',
-  [Material.shale]: '1200',
-  [Material.screening]: '1300',
-  [Material.ground]: '1900',
-  [Material.pgs]: '1500',
-  [Material.gasoline]: '1700'
 }
 
 const animationDuration = 200;
@@ -89,15 +78,14 @@ export class MaterialOrderFormComponent implements OnInit {
   @Input() data;
 
   entity: boolean;
-  form: FormGroup;
-  stepTwo = false;
-  isMaterial = false;
-  currentPrice = null;
 
-  FormSteps = {
-    one: 'one',
-    two: 'two',
-    three: 'three'
+  form: FormGroup;
+  formSubmitState;
+
+  FormStep = {
+    ONE: 'one',
+    TWO: 'two',
+    THREE: 'three'
   }
 
   SubmitState = {
@@ -106,7 +94,10 @@ export class MaterialOrderFormComponent implements OnInit {
     FAIL: 'fail'
   }
 
-  formSubmitState;
+  currentStep = this.FormStep.ONE;
+  fieldState = '';
+
+  isMaterial = false;
 
   materials = [
     {value: Material.sand, name: 'Песок'},
@@ -117,12 +108,10 @@ export class MaterialOrderFormComponent implements OnInit {
     {value: Material.pgs, name: 'Пгс'},
   ]
 
-  currentStep = this.FormSteps.one;
-  fieldState = '';
-
   constructor(private af: AngularFirestore) { }
 
   ngOnInit(): void {
+    // form init
     this.form = new FormGroup({
       offer: new FormControl('', []),
       message: new FormControl('', []),
@@ -156,7 +145,6 @@ export class MaterialOrderFormComponent implements OnInit {
     this.currentStep = step;
   }
 
-
   selectType(value: string) {
     if (value === 'material') {
       this.isMaterial = true;
@@ -172,19 +160,14 @@ export class MaterialOrderFormComponent implements OnInit {
       }
 
       this.form.addControl('gasolineCount', new FormControl('', []));
+
     } else {
-      // this.showPrice(null);
       if (this.form.get('gasolineCount')) {
         this.form.removeControl('gasolineCount');
       }
 
       this.form.addControl('materialsCount', new FormControl('', []));
     }
-  }
-
-  showPrice(value: any) {
-    this.currentPrice = MaterialPrice[value];
-    console.log(this.currentPrice);
   }
 
   onSubmit() {
@@ -200,20 +183,18 @@ export class MaterialOrderFormComponent implements OnInit {
     }
 
     const formData = {date: new Date(), ...this.form.value, material};
-    console.log(formData);
-    console.log('data', this.data);
 
     this.formSubmitState = this.SubmitState.SENDING;
 
     this.af.collection('materials-email').add(formData)
     .then((result) => {
-        if (result) {
-          this.formSubmitState = this.SubmitState.SUCCESS;
-          this.form.reset();
-        }
-      })
-      .catch((error) => {
-        this.formSubmitState = this.SubmitState.FAIL;
-      });
+      if (result) {
+        this.formSubmitState = this.SubmitState.SUCCESS;
+        this.form.reset();
+      }
+    })
+    .catch((error) => {
+      this.formSubmitState = this.SubmitState.FAIL;
+    });
   }
 }
