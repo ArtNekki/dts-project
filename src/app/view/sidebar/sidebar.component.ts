@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {TransportService} from '../../core/services/transport.service';
-import {Observable} from 'rxjs';
 import {TransportItem} from '../transport-box/transport-box.component';
 
 @Component({
@@ -13,7 +12,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   @Input() transportId;
 
   items: Array<TransportItem> = [];
-  psub;
+  sidebarSubscription;
   isLoaded = false;
 
   constructor(private transportService: TransportService) { }
@@ -25,11 +24,11 @@ export class SidebarComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.psub.unsubscribe();
+    this.sidebarSubscription.unsubscribe();
   }
 
   loadItems() {
-    this.psub = this.transportService.getItems().subscribe((data) => {
+    this.sidebarSubscription = this.transportService.getItems().subscribe((data) => {
       this.items = data.sort((a: TransportItem, b: TransportItem) => {
         return a.name.localeCompare(b.name);
       });
@@ -43,5 +42,4 @@ export class SidebarComponent implements OnInit, OnDestroy {
   changeOption(item) {
     this.onChange.emit(item);
   }
-
 }

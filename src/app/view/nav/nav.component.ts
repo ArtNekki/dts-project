@@ -1,13 +1,15 @@
 import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute, ActivationEnd, NavigationEnd, Params, Router} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
+
 export class NavComponent implements OnInit, AfterViewInit {
   @ViewChild('nav', {read: ElementRef}) nav: ElementRef;
+  
   currentFragment = '';
   isSticky = false;
 
