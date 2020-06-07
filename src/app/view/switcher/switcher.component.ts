@@ -18,5 +18,4 @@ export class SwitcherComponent implements OnInit {
   switchType(id) {
     this.onChange.emit(id);
   }
-
 }

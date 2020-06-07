@@ -7,18 +7,19 @@
   position: relative;
   display: flex;
 
-  &-item {
+  &__item {
 
     &:first-child {
       margin-right: 15px;
     }
   }
 
-  &-label {
+  &__label {
     position: relative;
     display: block;
-    font-size: 14px;
-    line-height: 16px;
+    font-family: $font-family;
+    font-size: calculateRem(14px);
+    line-height: calculateRem(16px);
     color: rgba($gray-dark, 0.5);
     cursor: pointer;
 
@@ -52,8 +53,7 @@
     display: none;
   }
 
-  input:checked ~ &-label {
-    //color: rgba($yellow, 0.6);
+  input:checked ~ &__label {
 
     &::before,
     &::after {
