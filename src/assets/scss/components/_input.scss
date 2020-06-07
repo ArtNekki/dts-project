@@ -3,9 +3,9 @@
   padding-left: 8px;
   height: 36px;
   width: 100%;
-  //font-family: $base-font-family;
-  font-size: 14px;
-  line-height: 22px;
+  font-family: $font-family;
+  font-size: calculateRem(14px);
+  line-height: calculateRem(22px);
   color: rgba($gray-dark, 0.5);
   background-color: $white;
   border-radius: 5px;
@@ -26,10 +26,6 @@
     }
   }
 
-  @include media-breakpoint-up(lg) {
-    border-radius: 5px;
-  }
-
   &:hover:not(&:disabled),
   &:focus {
     border-color: darken($gray, 10%);
@@ -42,10 +38,6 @@
     &:focus {
       border-color: $red;
     }
-  }
-
-  &--sm {
-    //width: 155px;
   }
 }
 

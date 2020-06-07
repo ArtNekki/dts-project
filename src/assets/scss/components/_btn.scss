@@ -124,20 +124,4 @@
       left: 23px;
     }
   }
-
-  &--transport {
-
-    @include media-breakpoint-up(md) {
-      margin-left: 25px;
-      padding-top: 12px;
-      padding-bottom: 12px;
-    }
-  }
-
-  &--materials {
-
-    @include media-breakpoint-up(sm) {
-      margin-left: 30px;
-    }
-  }
 }

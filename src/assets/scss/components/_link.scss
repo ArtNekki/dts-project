@@ -1,6 +1,6 @@
 .link {
-  font-size: 14px;
-  line-height: 14px;
+  font-size: calculateRem(14px);
+  line-height: calculateRem(16px);
   color: $gray-dark;
   text-decoration: none;
 
@@ -13,8 +13,9 @@
     color: $yellow;
   }
 
-  &:active {
-    color: rgba($gray, 0.7);
+  &:active,
+  &:focus {
+    color: rgba($gray, 1);
   }
 }
 
