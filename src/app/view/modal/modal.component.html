@@ -1,22 +1,18 @@
-<article class="modal-backdrop">
-  <div [class]="'modal ' + (cssMod || '')" [@modal]="modalState" >
-    <div class="modal-header">
-      <h1 class="modal-title" [innerHTML]="title"></h1>
+<article class="modal__backdrop">
+  <div [class]="'modal ' + (cssMod || '')">
+    <div class="modal__header">
+      <h1 class="modal__title" [innerHTML]="title"></h1>
       <ng-content select="[header]"></ng-content>
-<!--      <a href="tel:+79510277322" class="modal-contact">-->
-<!--        <small>Наш телефон:</small>-->
-<!--        <b>+79510277322</b>-->
-<!--      </a>-->
     </div>
-    <div class="modal-contact">
-      <div class="modal-contact-inner">
+    <div class="modal__contact">
+      <div class="modal__contact-inner">
         <svg-icon [src]="'/assets/img/svg/phone-solid.svg'"></svg-icon>
         <a href="tel:+7(962)5879804">+7(962)5879804</a>
       </div>
     </div>
-    <div class="modal-content u-full-height">
+    <div class="modal__content">
       <ng-content select="[body]"></ng-content>
     </div>
-    <button class="modal-close" (click)="close.emit()">&times;</button>
+    <button class="modal__close" (click)="close.emit()">&times;</button>
   </div>
 </article>
