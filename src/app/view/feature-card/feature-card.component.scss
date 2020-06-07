@@ -78,6 +78,7 @@
 
   &__icon {
     width: 70px;
+    height: auto;
     fill: rgba($gray-dark, 0.6);
 
     @include media-breakpoint-up(sm) {

@@ -2,7 +2,6 @@
 /* You can add utils styles to this file, and also import other style files */
 
 @charset 'utf-8';
-@import '~swiper/css/swiper.min.css';
 
 //core
 @import 'assets/scss/core/functions';
@@ -46,55 +45,7 @@ body {
 
 html.modal-opened {
   overflow: hidden;
-
-  body {
-    //overflow: hidden;
-    //[data-whatintent='mouse'] & {
-    //  position: fixed;
-    //}
-
-    //position: fixed;
-  }
 }
-
-.features svg {
-  display: inline-block;
-  fill: $yellow;
-  //display: none;
-}
-
-svg {
-  width: inherit;
-  height: inherit;
-}
-
-.modal-title small {
-  display: block;
-  font-size: 14px;
-  text-transform: none;
-  font-weight: 400;
-  line-height: 0px;
-
-  &:first-of-type {
-    margin-top: 25px;
-  }
-}
-
-.modal-header small {
-  display: block;
-  font-size: 12px;
-  color: rgba($gray-dark, 0.7);
-  text-transform: none;
-  font-weight: 400;
-}
-
-.modal-header b {
-  color: $gray-dark;
-}
-
-//.mobile-menu--opened .page-header-menu {
-//  display: block !important;
-//}
 
 //components
 @import "assets/scss/components/link";

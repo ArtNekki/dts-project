@@ -220,6 +220,11 @@
     }
   }
 
+  ::ng-deep &__img svg {
+    width: inherit;
+    height: inherit;
+  }
+
   &__btn {
     text-align: center;
 
