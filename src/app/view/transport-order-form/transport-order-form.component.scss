@@ -2,15 +2,8 @@
 @import "src/assets/scss/core/breakpoints";
 @import "src/variables";
 @import "src/assets/scss/settings";
+@import "src/assets/scss/utils";
 
 :host {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-
-  //@include media-breakpoint-up(sm) {
-  //  display: flex;
-  //  flex-direction: column;
-  //  flex-grow: 1;
-  //}
+ @extend .u-full-height;
 }

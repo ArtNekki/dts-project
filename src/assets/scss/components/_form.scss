@@ -1,31 +1,14 @@
 .form {
+  @extend .u-full-height;
+
   position: relative;
   min-height: 360px;
   width: 100%;
   overflow-x: hidden;
 
-  &--contact {
-    margin-left: 40px;
-    margin-right: 40px;
-    margin-bottom: 50px;
-  }
+  &__step {
+    @extend .u-full-height;
 
-  &-main {
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid $gray;
-  }
-
-  &-title {
-    margin-top: 10px;
-    margin-bottom: 18px;
-    font-size: 14px;
-    font-weight: 300;
-    text-transform: uppercase;
-  }
-
-  &-step {
     padding: 30px 15px;
     width: 100%;
     display: flex;
@@ -40,50 +23,19 @@
     }
   }
 
-  &-step-heading {
-    margin-top: 10px;
+  &__full-height {
+    @extend .u-full-height;
+  }
+
+  &__switcher {
     margin-bottom: 20px;
-    font-size: 16px;
-    line-height: 18px;
-    color: rgba($gray-dark, 0.7);
+    display: flex;
+    justify-content: flex-end;
   }
 
-  &-btn {
-    margin-top: 10px;
-    width: 100%;
-    padding: 15px 8px;
-    font-size: 17px;
-    text-align: center;
-    color: $black;
-    background-color: $yellow;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    outline: none;
-
-    @include hover {
-      background-color: lighten($yellow, 10%);
-    }
-
-    @include active {
-      background-color: lighten($yellow, 10%);
-      box-shadow: 0 0 10px rgba($yellow, 0.6);
-    }
-
-    &:disabled {
-      color: rgba($black, 0.2);
-      background-color: $gray !important;
-      cursor: not-allowed;
-    }
-  }
-
-  &-group {
+  &__group {
     display: flex;
     justify-content: space-between;
-
-    &--right {
-      justify-content: flex-end;
-    }
 
     &--buttons {
       margin-top: 30px;
@@ -94,92 +46,38 @@
       }
     }
 
-    .form-field:not(:last-child) {
+    .form__field:not(:last-child) {
       margin-right: 15px;
     }
   }
 
-  &-field {
+  &__field {
     position: relative;
     margin-bottom: 15px;
-
-    &--lg {
-      margin-bottom: 20px;
-    }
-
-    &--separator {
-      margin-bottom: 20px;
-    }
-
-    &--right {
-      text-align: right;
-    }
   }
 
-  &-footer {
-    padding-top: 17px;
-    text-align: center;
-  }
-
-  &-label {
+  &__label {
     margin-bottom: 5px;
     display: block;
-    //font-family: $secondary-font-family;
-    font-size: 14px;
-    line-height: 22px;
+    font-family: $font-family;
+    font-size: calculateRem(14px);
+    line-height: calculateRem(22px);
     color: rgba($gray-dark, 0.8);
-
-    .form-field--inline & {
-      margin-left: 10px;
-      display: inline-block;
-      vertical-align: top;
-    }
-
-    .form-field--lg & {
-      margin-bottom: 10px;
-      font-size: 15px;
-      color: rgba($gray-dark, 0.7);
-      line-height: 15px;
-      font-weight: 700;
-    }
-
-    span {
-      color: rgba($gray-dark, 0.4);
-    }
   }
 
-  &-text {
-    margin: 10px 0;
-    font-size: 14px;
+  &__label span {
+    color: rgba($gray-dark, 0.4);
   }
 
-  &-validation {
+  &__validation {
     position: absolute;
     bottom: -16px;
     right: 0;
-    font-size: 12px;
+    font-size: calculateRem(12px);
     color: $red;
   }
 
-  &--all-transport {
-    @include media-breakpoint-up(sm) {
-      display: none;
-    }
-  }
-
-  &-price {
-    margin-top: 20px;
-    font-size: 14px;
-    line-height: 16px;
-    text-align: right;
-    color: rgba($gray-dark, 0.6);
-
-    b {
-      font-size: 25px;
-    }
-  }
-
-  .form-message {
+  &__message {
     position: absolute;
     top: 0;
     left: 0;
@@ -197,25 +95,52 @@
     &--error {
       background-color: $red;
     }
+  }
 
-    h2 {
-      margin-top: 0;
-      margin-bottom: 0;
-      font-size: 30px;
-      line-height: 30px;
-      color: $white;
+  &__message h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: $font-family;
+    font-size: calculateRem(30px);
+    line-height: calculateRem(30px);
+    color: $white;
+  }
+
+  &__message h3 {
+    font-size: calculateRem(18px);
+    line-height: calculateRem(20px);
+    color: $white;
+  }
+
+  &__message small {
+    font-size: calculateRem(14px);
+    line-height: calculateRem(16px);
+    color: $white;
+  }
+
+  &__btn {
+    @extend .btn;
+    @extend .btn--sm;
+
+    &--prev {
+      @extend .btn--prev;
+      @extend .btn--dark;
     }
 
-    h3 {
-      font-size: 18px;
-      line-height: 20px;
-      color: $white;
+    &--next {
+      @extend .btn--next;
+
+      margin-left: auto;
     }
 
-    small {
-      font-size: 14px;
-      line-height: 16px;
-      color: $white;
+    &--send {
+      @extend .btn--success;
+    }
+
+    &--all-transport {
+      @include media-breakpoint-up(sm) {
+        display: none;
+      }
     }
   }
 }

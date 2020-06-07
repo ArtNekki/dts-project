@@ -35,7 +35,7 @@
     border-color: darken($gray, 10%);
   }
 
-  .form-field--invalid & {
+  .form__field--invalid & {
     border-color: $red;
 
     &:hover,
