@@ -1,5 +1,5 @@
 import {Component, forwardRef, Input, OnInit} from '@angular/core';
-import {IAngularMyDpOptions, IMyDateModel} from 'angular-mydatepicker';
+import {IAngularMyDpOptions} from 'angular-mydatepicker';
 import {DeviceDetectorService} from 'ngx-device-detector';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
@@ -22,7 +22,6 @@ export class DatepickerComponent implements ControlValueAccessor {
   dpOptions: IAngularMyDpOptions = {
     dateRange: false,
     dateFormat: 'dd.mm.yyyy'
-    // other options...
   };
 
   constructor(public deviceService: DeviceDetectorService) { }
@@ -33,7 +32,6 @@ export class DatepickerComponent implements ControlValueAccessor {
   }
 
   writeValue(value) {
-    // this.value = value;
     this.onChange(value);
   }
 
@@ -52,5 +50,4 @@ export class DatepickerComponent implements ControlValueAccessor {
   registerOnTouched(fn) {
     this.onTouched = fn;
   }
-
 }
