@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="form__group form__group--buttons">
-      <button type="button" class="form__btn form__btn--next" [disabled]="" (click)="goToStep(FormSteps.two)">Дальше</button>
+      <button type="button" class="form__btn form__btn--next" [disabled]="" (click)="goToStep(FormStep.TWO)">Дальше</button>
     </div>
   </div>
   <div class="form__step" [@stepTwo]="currentStep">
@@ -70,7 +70,7 @@
       <textarea id="message" class="input" cols="30" rows="5" formControlName="message"></textarea>
     </div>
     <div class="form__group form__group--buttons">
-      <button type="button" class="form__btn form__btn--prev" (click)="goToStep(FormSteps.one)">Назад</button>
+      <button type="button" class="form__btn form__btn--prev" (click)="goToStep(FormStep.ONE)">Назад</button>
       <button type="submit" class="form__btn form__btn--send" [disabled]="form.invalid">Отправить</button>
     </div>
     <app-loader *ngIf="formSubmitState === SubmitState.SENDING" class="loader--absolute loader--invert"></app-loader>

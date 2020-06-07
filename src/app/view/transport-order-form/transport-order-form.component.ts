@@ -199,7 +199,6 @@ export class TransportOrderFormComponent implements OnInit, OnChanges, OnDestroy
     })[0].name;
 
     const formData = { date: new Date(), ...this.form.value, model, transport: this.currentTransport};
-    console.log('formData', formData);
 
     this.formSubmitState = this.SubmitState.SENDING;
 

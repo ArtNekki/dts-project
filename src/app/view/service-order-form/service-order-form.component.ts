@@ -45,14 +45,16 @@ export class ServiceOrderFormComponent implements OnInit {
   @Input() data;
 
   entity: boolean;
+
   form: FormGroup;
-  stepTwo = false;
+  formSubmitState;
+
   serviceList = [];
 
-  FormSteps = {
-    one: 'one',
-    two: 'two',
-    three: 'three'
+  FormStep = {
+    ONE: 'one',
+    TWO: 'two',
+    THREE: 'three'
   }
 
   SubmitState = {
@@ -61,9 +63,7 @@ export class ServiceOrderFormComponent implements OnInit {
     FAIL: 'fail'
   }
 
-  formSubmitState;
-
-  currentStep = this.FormSteps.one;
+  currentStep = this.FormStep.ONE;
   fieldState = '';
 
   constructor(private af: AngularFirestore) { }
