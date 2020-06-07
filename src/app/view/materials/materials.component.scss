@@ -4,6 +4,31 @@
 @import "src/assets/scss/settings";
 
 .materials {
+  margin-bottom: 60px;
+
+  @include media-breakpoint-up(sm) {
+    height: 400px;
+    background-image: url("src/assets/img/bg/sand-width-barrel.jpg");
+    background-repeat: no-repeat;
+    background-position: 150% 100%;
+    background-size: 93% auto;
+  }
+
+  @include media-breakpoint-up(md) {
+    height: 450px;
+    background-position: 71% 100%;
+    background-size: 78% auto;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include media-breakpoint-up(sm) {
+      display: block;
+    }
+  }
 
   &__list {
     margin: 10px 0 40px 0;
@@ -32,5 +57,9 @@
 
   &__text small {
     color: rgba($gray-dark, 0.6);
+  }
+
+  &__btn {
+    margin-left: 30px;
   }
 }

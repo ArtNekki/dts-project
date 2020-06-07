@@ -4,11 +4,7 @@
   margin-bottom: 10px;
   padding-top: 90px;
 
-  &--transport {
-    //margin-top: 95px;
-  }
-
-  &--about {
+  &--bg {
     padding-top: 45px;
 
     & > div {
@@ -18,85 +14,40 @@
     }
   }
 
-
-  &--materials .container {
-    margin-bottom: 60px;
-
-    @include media-breakpoint-up(sm) {
-      height: 500px;
-      background-image: url("src/assets/img/bg/sand-width-barrel.jpg");
-      background-repeat: no-repeat;
-      background-position: 150% 100%;
-      background-size: 93% auto;
-    }
-
-    @include media-breakpoint-up(md) {
-      height: 550px;
-      background-image: url("src/assets/img/bg/sand-width-barrel.jpg");
-      background-repeat: no-repeat;
-      background-position: 71% 100%;
-      background-size: 78% auto;
-    }
-  }
-
-  &--materials .col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    @include media-breakpoint-up(sm) {
-      display: block;
-    }
-  }
-
   &--features {
     margin-bottom: 80px;
   }
 
-  &-heading {
-    //padding-top: 90px;
+  &__heading {
     padding-bottom: 35px;
     font-family: $font-family;
 
     @include media-breakpoint-up(sm) {
-      //padding-top: 120px;
       padding-bottom: 45px;
     }
 
-    .page-section--transport & {
-      padding-top: 0;
-    }
-
-    .page-section--materials & {
+    &--center {
       text-align: center;
-    }
-
-    .page-section--about & {
-      padding-top: 0;
     }
   }
 
-  &-heading h2 {
+  &__heading h2 {
     margin: 0;
-    font-size: 28px;
-    line-height: 30px;
+    font-size: calculateRem(28px);
+    line-height: calculateRem(30px);
     color: $gray-dark;
     text-transform: uppercase;
 
     @include media-breakpoint-up(sm) {
-      font-size: 35px;
-      line-height: 40px;
+      font-size: calculateRem(35px);
+      line-height: calculateRem(40px);
     }
   }
 
-  &-heading small {
-    font-size: 12px;
+  &__heading small {
+    font-size: calculateRem(12px);
+    line-height: calculateRem(14px);
     color: rgba($gray-dark, 0.6);
     text-transform: uppercase;
-  }
-
-  &-footer {
-    margin-top: 50px;
-    text-align: center;
   }
 }
