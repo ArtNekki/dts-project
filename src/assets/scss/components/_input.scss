@@ -26,7 +26,7 @@
     }
   }
 
-  &:hover:not(&:disabled),
+  &:hover,
   &:focus {
     border-color: darken($gray, 10%);
   }
