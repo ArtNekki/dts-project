@@ -15,17 +15,18 @@
 
  &__logo {
    position: relative;
-   top: -2px;
-   font-family: $font-family;
-   font-size: calculateRem(23px);
-   line-height: calculateRem(26px);
-   color: $white;
+   top: 3px;
    text-decoration: none;
 
+   &:hover,
+   &:active {
+     opacity: 0.8;
+   }
+
    ::ng-deep svg {
-     width: 45px;
-     height: auto;
-     fill: $yellow;
+     width: 50px;
+     height: inherit;
+     fill: $gray-dark;
    }
  }
 
