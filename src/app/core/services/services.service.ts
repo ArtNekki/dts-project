@@ -6,6 +6,7 @@ import {TransportItem} from '../../view/transport-box/transport-box.component';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ServicesService {
 
   constructor(private firestore: AngularFirestore) { }
