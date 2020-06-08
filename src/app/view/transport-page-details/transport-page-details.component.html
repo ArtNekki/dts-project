@@ -1,9 +1,9 @@
 <div #container [class]="'transport-details u-full-height ' + activeClass">
-  <div class="transport-details-content u-full-height">
-    <div class="transport-details-sidebar">
+  <div class="transport-details__content u-full-height">
+    <div class="transport-details__sidebar">
       <app-sidebar (onChange)="changeData($event)" [transportId]="transportId"></app-sidebar>
     </div>
-    <div class="transport-details-form">
+    <div class="transport-details__form">
       <app-transport-order-form [id]="transportId" (onChange)="goBack()"></app-transport-order-form>
       <ng-template #loading>
         <app-loader></app-loader>

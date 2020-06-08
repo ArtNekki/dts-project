@@ -7,10 +7,10 @@ import {Router} from '@angular/router';
   styleUrls: ['./transport-page-details.component.scss']
 })
 export class TransportPageDetailsComponent implements OnInit, OnChanges {
+  @Input() transportId;
   @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('container', {read: ElementRef}) container: ElementRef;
 
-  @Input() transportId;
   activeClass;
   isLoaded = true;
 
@@ -20,8 +20,10 @@ export class TransportPageDetailsComponent implements OnInit, OnChanges {
 
   }
 
-  close() {
-    this.router.navigate(['/'], { fragment: 'transport' });
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.transportId.currentValue) {
+      this.activeClass = 'transport-details--selected';
+    }
   }
 
   changeData(item: any) {
@@ -40,15 +42,5 @@ export class TransportPageDetailsComponent implements OnInit, OnChanges {
     this.container.nativeElement.classList.remove('transport-details--selected');
     this.transportId = null;
     this.onChange.emit({id: this.transportId, name: null, price: null});
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('details changes', changes);
-
-    if (changes.transportId.currentValue) {
-      this.activeClass = 'transport-details--selected';
-    }
-
-    // this.container.nativeElement.classList.add('transport-details--to-form');
   }
 }

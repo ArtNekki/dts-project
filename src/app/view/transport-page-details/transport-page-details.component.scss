@@ -11,15 +11,10 @@
 
 .transport-details {
 
-  @include media-breakpoint-up(md) {
-    //min-width: 640px;
-  }
-
-  &-content {
+  &__content {
     position: relative;
     margin-top: 8px;
     width: 100%;
-    //min-height: 400px;
     overflow: hidden;
 
     @include media-breakpoint-up(sm) {
@@ -28,7 +23,7 @@
     }
   }
 
-  &-sidebar {
+  &__sidebar {
     margin-top: 20px;
     background-color: rgba($gray, 0.5);
     transition: transform 0.2s ease-in;
@@ -52,7 +47,7 @@
     }
   }
 
-  &-form {
+  &__form {
     position: absolute;
     transform: translateX(100vw);
     flex-grow: 1;
@@ -74,10 +69,6 @@
       position: static;
       display: flex;
       transform: translateX(0);
-
-      //@include media-breakpoint-up(sm) {
-      //  display: flex;
-      //}
     }
   }
 }

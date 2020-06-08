@@ -67,11 +67,11 @@
     }
   }
 
-  &__header small {
+ ::ng-deep &__header small {
     display: block;
     font-family: $font-family;
     font-size: calculateRem(14px);
-    line-height: calculateRem(16px);
+    line-height: calculateRem(21px);
     color: rgba($gray-dark, 0.7);
     text-transform: none;
   }
