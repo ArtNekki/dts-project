@@ -1,91 +1,33 @@
 .list {
-  margin: 10px 0 40px 0;
+  margin: 35px 0 0 0;
   padding: 0;
   list-style: none;
 
-  li {
+  &__item {
     margin-bottom: 6px;
     display: flex;
     align-items: center;
 
-    .list--materials {
-      margin-bottom: 12px;
-    }
-
     @include media-breakpoint-up(sm) {
       margin-bottom: 12px;
     }
   }
 
-  &-icon {
+  &__icon {
     vertical-align: middle;
     fill: $yellow;
   }
 
-  &-text {
+  &__text {
     margin-left: 10px;
-    font-size: 14px;
-    line-height: 17px;
+    font-size: calculateRem(14px);
+    line-height: calculateRem(17px);
     display: inline-block;
     vertical-align: middle;
 
-    //.list--materials & {
-    //  font-size: 16px;
-    //  line-height: 21px;
-    //}
-
     @include media-breakpoint-up(sm) {
-      font-size: 16px;
-      line-height: 21px;
+      font-size: calculateRem(16px);
+      line-height: calculateRem(21px);
     }
   }
-
-  small {
-    color: rgba($gray-dark, 0.6);
-  }
-
-  &--transport-features {
-
-    @include media-breakpoint-up(sm) {
-      column-count: 2;
-    }
-
-    @include media-breakpoint-up(md) {
-      column-count: unset;
-    }
-
-    li {
-      @include media-breakpoint-up(sm) {
-        margin-bottom: 6px;
-      }
-
-      @include media-breakpoint-up(md) {
-        margin-bottom: 9px;
-      }
-    }
-
-    .list-text {
-      @include media-breakpoint-up(sm) {
-        font-size: 14px;
-      }
-
-      @include media-breakpoint-up(md) {
-        font-size: 16px;
-        line-height: 18px;
-      }
-    }
-
-    svg {
-      display: inline-flex;
-      fill: $yellow;
-      width: 20px;
-      height: 20px;
-    }
-  }
-
-  &--about-features {
-    margin-top: 35px;
-    margin-bottom: 0;
-  }
-
 }

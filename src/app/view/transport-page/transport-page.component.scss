@@ -41,12 +41,11 @@
     margin-left: 10px;
     display: inline-block;
     font-size: calculateRem(14px);
-    line-height: calculateRem(17px);
+    line-height: calculateRem(21px);
     vertical-align: middle;
 
     @include media-breakpoint-up(md) {
       font-size: calculateRem(16px);
-      line-height: calculateRem(18px);
     }
   }
 
@@ -68,24 +67,27 @@
     }
   }
 
-  &__slider.transport__slider--loading {
+  &__slider {
     position: relative;
-    height: 87.5vw;
 
-    @include media-breakpoint-up(sm) {
-      height: 47.5vw;
-    }
+    &.transport__slider--loading {
+      height: 87.5vw;
 
-    @include media-breakpoint-up(md) {
-      height: 32.5vw;
-    }
+      @include media-breakpoint-up(sm) {
+        height: 47.5vw;
+      }
 
-    @include media-breakpoint-up(lg) {
-      height: 39vw;
-    }
+      @include media-breakpoint-up(md) {
+        height: 32.5vw;
+      }
 
-    @include media-breakpoint-up(xl) {
-      height: 415px;
+      @include media-breakpoint-up(lg) {
+        height: 39vw;
+      }
+
+      @include media-breakpoint-up(xl) {
+        height: 415px;
+      }
     }
   }
 }
